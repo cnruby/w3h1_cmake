@@ -1,4 +1,6 @@
 # Prerequisites
+*/build
+*/bin
 *.d
 
 # Compiled Object files
