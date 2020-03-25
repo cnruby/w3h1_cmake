@@ -1,1 +1,1 @@
-# w3h1_cmake
+# Hello CMake Application
