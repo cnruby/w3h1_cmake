@@ -1,2 +1,2 @@
 # C++ Application with CMake
-## Hello Application
+## Hello Application with CMake
