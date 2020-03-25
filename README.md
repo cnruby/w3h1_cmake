@@ -1,20 +1,12 @@
 # basci_101
 
-## GET
+## WHAT
 
-```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_101
-cd basic_101
-git checkout basic_101
-```
+![image](./uml/what/what.png)
 
-## BUILD AND RUN
+## WHY
 
-```bash
-cmake -B build/
-cmake --build build/
-./bin/main
-```
+![image](./uml/why/why.png)
 
 ## WHERE
 
@@ -27,6 +19,24 @@ cmake --build build/
 ```bash
 which cmake
 # >> /usr/local/bin/cmake
+```
+
+## HOW
+
+### GET
+
+```bash
+git clone https://github.com/cnruby/w3h1_cmake.git basic_101
+cd basic_101
+git checkout basic_101
+```
+
+### BUILD AND RUN
+
+```bash
+cmake -B build/
+cmake --build build/
+./bin/main
 ```
 
 ## REFERENCES
