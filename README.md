@@ -1,14 +1,14 @@
-# basci_100
+# basci_101
 
-## get
+## GET
 
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_100
-cd basic_100
-git checkout basic_100
+git clone https://github.com/cnruby/w3h1_cmake.git basic_101
+cd basic_101
+git checkout basic_101
 ```
 
-## build and run
+## BUILD AND RUN
 
 ```bash
 cmake -B build/
@@ -16,7 +16,7 @@ cmake --build build/
 ./bin/main
 ```
 
-## Where
+## WHERE
 
 ### Where is The 'CMake' on the web?
 
@@ -29,7 +29,7 @@ which cmake
 # >> /usr/local/bin/cmake
 ```
 
-## references
+## REFERENCES
 
 ### the 'CMake'
 
