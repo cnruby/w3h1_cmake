@@ -5,4 +5,4 @@
 - [CMake](https://cmake.org/)
 
 ## Youtube Video
-- [Hello Application with CMake](https://youtu.be/I2-fIgkGfy8)
+- [Hello Application with CMake](https://youtu.be/I2-fIgkGfy8) [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
