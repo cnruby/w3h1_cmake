@@ -1,4 +1,4 @@
-# basci_101
+# Hello Application with CMake "basci_101"
 
 ## WHAT
 
