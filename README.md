@@ -3,8 +3,8 @@
 <h2>Table of Contents</h2>
 
 - [WHAT](#what)
-  - [What is 'Ninja'](#what-is-ninja)
-  - [### What is 忍者 Ninja?](#h3-id%22what-is-e5bf8de88085-ninja-8%22what-is-%e5%bf%8d%e8%80%85-ninjah3)
+  - [What does The 'Ninja'?](#what-does-the-ninja)
+  - [What do 忍者 and Ninja?](#what-do-%e5%bf%8d%e8%80%85-and-ninja)
 - [WHERE](#where)
 - [WHY](#why)
   - [On speed with Ninja](#on-speed-with-ninja)
@@ -19,11 +19,11 @@
 
 
 ## WHAT
-### What is 'Ninja'
+### What does The 'Ninja'?
 - Ninja is a small build system with a focus on speed.
 - ![image](./uml/what/what.png)
 
-### ### What is 忍者 Ninja?
+### What do 忍者 and Ninja?
 - ![image](./docs/../images/ninja-zh-zh.png)
 - ![image](./docs/../images/ninja-zh-en.png) [>>](http://t.ly/MVlgA)
 
