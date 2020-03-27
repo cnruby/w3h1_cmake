@@ -11,10 +11,10 @@
   - [Show the all generator](#show-the-all-generator)
   - [Compare Make vs Ninja Build Folder](#compare-make-vs-ninja-build-folder)
 - [HOW](#how)
-  - [Get](#get)
-  - [Create Generator Build Folder](#create-generator-build-folder)
-  - [Build And Run with CMake Command](#build-and-run-with-cmake-command)
-  - [Build And Run with Ninja Command](#build-and-run-with-ninja-command)
+  - [Get A Simplest Project](#get-a-simplest-project)
+  - [Create Build Folder 'build' with Generator 'Ninja'](#create-build-folder-build-with-generator-ninja)
+  - [Build And Run with 'CMake' Command](#build-and-run-with-cmake-command)
+  - [Build And Run with 'Ninja' Command](#build-and-run-with-ninja-command)
 - [References](#references)
 
 
@@ -60,25 +60,25 @@ exa -T build/ >> tree-build-make.txt
 ## HOW
 - ![image](./uml/how-ninja/how-ninja.png)
 
-### Get
+### Get A Simplest Project
 ```bash
 git clone https://github.com/cnruby/w3h1_cmake.git basic_102
 cd basic_102
 git checkout basic_102
 ```
 
-### Create Generator Build Folder
+### Create Build Folder 'build' with Generator 'Ninja'
 ```bash
 cmake -B build/ -GNinja
 ```
 
-### Build And Run with CMake Command
+### Build And Run with 'CMake' Command
 ```bash
 cmake --build build/
 ./bin/main
 ```
 
-### Build And Run with Ninja Command
+### Build And Run with 'Ninja' Command
 ```bash
 cd build/
 ninja clean
