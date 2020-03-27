@@ -24,7 +24,9 @@
 - ![image](./uml/what/what.png)
 
 ### What do 忍者 and Ninja?
+- pronounce
 - ![image](./docs/../images/ninja-zh-zh.png)
+- mean
 - ![image](./docs/../images/ninja-zh-en.png) [>>](http://t.ly/MVlgA)
 
 ## WHERE
