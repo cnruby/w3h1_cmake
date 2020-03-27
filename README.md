@@ -1,4 +1,4 @@
-<h1>Hello Application with 'CMake' and 'Ninja'</h1> basci_102
+<h1>Hello Application with 'CMake' and 'Ninja'  basci_102</h1>
 
 <h2>Table of Contents</h2>
 
@@ -30,9 +30,9 @@
 - ![image](./docs/../images/ninja-zh-en.png) [>>](http://t.ly/MVlgA)
 
 ## WHERE
-- Google Chrome is a main user and motivation for Ninja.
-- Ninja also used to build Google Android
-- Ninja is used by most developers working on LLVM.
+- **Google Chrome** is a main user and motivation for Ninja.
+- Ninja used to build **Google Android**.
+- Ninja is used by most developers working on **LLVM**.
 - https://ninja-build.org/
 - https://github.com/ninja-build/ninja
 - https://en.wikipedia.org/wiki/Ninja_(build_system)
