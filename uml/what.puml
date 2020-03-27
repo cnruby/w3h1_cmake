@@ -1,0 +1,36 @@
+@startuml
+top to bottom direction
+package "'CMake'" <<modern higher-level build system>>{
+    card "cmake -Bbuild/" as sub1
+    card "cmake -Bbuild/ -GNinja" as sub2
+}
+
+package "Generator: 'Ninja'" <<modern lower-level build system>> {
+    card "Ninja" as leaf2
+}
+
+package "Generator: 'Make'" <<old build system>> {
+    card "Make" as leaf1
+}
+
+sub1 --> leaf1
+sub2 --> leaf2
+
+package "C++ Compiler" <<simple building>> {
+    card "g++ -o main main.cxx" as cxx
+}
+
+leaf1 --> cxx
+leaf2 --> cxx
+
+title
+    What does The 'Ninja'?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

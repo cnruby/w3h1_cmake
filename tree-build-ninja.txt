@@ -1,0 +1,54 @@
+.
+├── bin
+│  └── main
+├── build
+│  ├── build.ninja
+│  ├── cmake_install.cmake
+│  ├── CMakeCache.txt
+│  ├── CMakeFiles
+│  │  ├── 3.17.0
+│  │  │  ├── CMakeCCompiler.cmake
+│  │  │  ├── CMakeCXXCompiler.cmake
+│  │  │  ├── CMakeDetermineCompilerABI_C.bin
+│  │  │  ├── CMakeDetermineCompilerABI_CXX.bin
+│  │  │  ├── CMakeSystem.cmake
+│  │  │  ├── CompilerIdC
+│  │  │  │  ├── a.out
+│  │  │  │  ├── CMakeCCompilerId.c
+│  │  │  │  └── tmp
+│  │  │  └── CompilerIdCXX
+│  │  │     ├── a.out
+│  │  │     ├── CMakeCXXCompilerId.cpp
+│  │  │     └── tmp
+│  │  ├── cmake.check_cache
+│  │  ├── CMakeOutput.log
+│  │  ├── CMakeTmp
+│  │  ├── main.dir
+│  │  │  └── src
+│  │  └── TargetDirectories.txt
+│  └── rules.ninja
+├── build-make.txt
+├── build-ninja.txt
+├── CMakeLists.txt
+├── docs
+│  ├── images
+│  └── README.md
+├── images
+│  ├── make-ninja.png
+│  ├── ninja-zh-en.png
+│  ├── ninja-zh-ja.png
+│  └── ninja-zh-zh.png
+├── LICENSE
+├── README.md
+├── src
+│  └── main.cxx
+└── uml
+   ├── how-cmd.puml
+   ├── how-make.puml
+   ├── how-ninja
+   │  └── how-ninja.png
+   ├── how-ninja.puml
+   ├── how.puml
+   ├── what
+   │  └── what.png
+   └── what.puml
