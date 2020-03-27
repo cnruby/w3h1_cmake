@@ -12,7 +12,7 @@
   - [Compare Make vs Ninja Build Folder](#compare-make-vs-ninja-build-folder)
 - [HOW](#how)
   - [Get A Simplest Project](#get-a-simplest-project)
-  - [Create Build Folder 'build' with Generator 'Ninja'](#create-build-folder-build-with-generator-ninja)
+  - [Create Build Folder 'build' (build pipeline) with Generator 'Ninja'](#create-build-folder-build-build-pipeline-with-generator-ninja)
   - [Build And Run with 'CMake' Command](#build-and-run-with-cmake-command)
   - [Build And Run with 'Ninja' Command](#build-and-run-with-ninja-command)
 - [References](#references)
@@ -67,7 +67,7 @@ cd basic_102
 git checkout basic_102
 ```
 
-### Create Build Folder 'build' with Generator 'Ninja'
+### Create Build Folder 'build' (build pipeline) with Generator 'Ninja'
 ```bash
 cmake -B build/ -GNinja
 ```
@@ -96,4 +96,5 @@ ninja
 - https://ninja-build.org/manual.html
 - https://github.com/Discordia/android-cmake
 - https://github.com/Discordia/android-cmake-example
-- https://jpospisil.com/2014/03/16/replacing-make-with-ninja.html 
+- https://jpospisil.com/2014/03/16/replacing-make-with-ninja.html
+- https://dmerej.info/blog/post/chuck-norris-part-1-cmake-ninja/
