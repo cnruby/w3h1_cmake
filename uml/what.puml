@@ -1,0 +1,35 @@
+@startuml
+top to bottom direction
+package "Tool ccmake" <<'build'>> {
+    package " Existing Generator" <<'build'>> as config {
+        card "ccmake build/" as build
+    }
+    package "New Generator" <<'build'>> as new {
+        'card "cmake -Bbuild/ -GNinja"
+        card "ccmake -Bbuild/ -GNinja"
+    }
+}
+package "Build Folder For 'Ninja'" <<'build'>> as build_folder {
+    package "CMake" <<CMakeCache>> as cmake {
+        card "CMakeCache.txt"
+    }
+    package "Ninja" <<Generator>> as ninja {
+        card "rules.ninja"
+    }
+}
+
+new *--> build_folder
+build --> cmake
+
+
+title
+    What does Tool 'ccmake'?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
