@@ -1,10 +1,27 @@
-# Hello Application with CMake "basci_101"
+<h1>Hello Application with 'CMake' "basci_101"</h1>
 
-## WHAT
+* [Youtube Video](https://youtu.be/I2-fIgkGfy8)
+
+<h2>TABLE of CONTENTS</h2>
+
+- [WHAT does The 'CMake'?](#what-does-the-cmake)
+- [WHY do We need The 'CMake'?](#why-do-we-need-the-cmake)
+- [WHERE](#where)
+  - [Where is The 'CMake' on the web?](#where-is-the-cmake-on-the-web)
+  - [Where is The 'CMake' executable on MacOS?](#where-is-the-cmake-executable-on-macos)
+- [HOW do We Use The 'CMake'?](#how-do-we-use-the-cmake)
+  - [GET The Project](#get-the-project)
+  - [BUILD AND RUN The Project](#build-and-run-the-project)
+- [REFERENCES](#references)
+  - [the 'CMake'](#the-cmake)
+  - [W3H1](#w3h1)
+
+
+## WHAT does The 'CMake'?
 
 ![image](./uml/what/what.png)
 
-## WHY
+## WHY do We need The 'CMake'?
 
 ![image](./uml/why/why.png)
 
@@ -12,7 +29,7 @@
 
 ### Where is The 'CMake' on the web?
 
-- [CMake]()
+- [CMake](https://cmake.org)
 
 ### Where is The 'CMake' executable on MacOS?
 
@@ -21,9 +38,9 @@ which cmake
 # >> /usr/local/bin/cmake
 ```
 
-## HOW
+## HOW do We Use The 'CMake'?
 
-### GET
+### GET The Project
 
 ```bash
 git clone https://github.com/cnruby/w3h1_cmake.git basic_101
@@ -31,7 +48,7 @@ cd basic_101
 git checkout basic_101
 ```
 
-### BUILD AND RUN
+### BUILD AND RUN The Project
 
 ```bash
 cmake -B build/
