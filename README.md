@@ -7,8 +7,8 @@
 - [Why does Tool 'ccmake'](#why-does-tool-ccmake)
 - [How to use The Tool 'ccmake'](#how-to-use-the-tool-ccmake)
   - [Get This Project](#get-this-project)
-- [Create Binary Build Folder 'build' with ccmake](#create-binary-build-folder-build-with-ccmake)
-- [Change 'build/CMakeCache.txt' with ccmake](#change-buildcmakecachetxt-with-ccmake)
+  - [Create Binary Build Folder 'build' with ccmake](#create-binary-build-folder-build-with-ccmake)
+  - [Change 'build/CMakeCache.txt' with ccmake](#change-buildcmakecachetxt-with-ccmake)
 
 ## What does Tool 'ccmake'
 - ![image](./uml/what/what.png)
@@ -34,7 +34,7 @@ cd basic_103
 git checkout basic_103
 ```
 
-## Create Binary Build Folder 'build' with ccmake
+### Create Binary Build Folder 'build' with ccmake
 ```bash
 # cmake -Bbuild/ -GNinja
 ccmake -Bbuild/ -GNinja
@@ -49,7 +49,7 @@ ccmake -Bbuild/ -GNinja
 >> g
 ```
 
-## Change 'build/CMakeCache.txt' with ccmake
+### Change 'build/CMakeCache.txt' with ccmake
 ```bash
 cmake --build build/
 ccmake build
