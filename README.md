@@ -1,13 +1,9 @@
 <h1>CMake Tool 'ccmake' "basic_103"</h1>
 
----
-[Youtube Video](https://youtu.be/yV7kopPr2Dk)
----
+* [Youtube Video](https://youtu.be/yV7kopPr2Dk)
 
 <h2>TABLE of CONTENTS</h2>
 
-- [<h1>CMake Tool 'ccmake' "basic_103"</h1>](#h1cmake-tool-ccmake-%22basic103%22h1)
-- [Youtube Video](#youtube-video)
 - [What does Tool 'ccmake'](#what-does-tool-ccmake)
 - [Where are Tool 'ccmake'](#where-are-tool-ccmake)
 - [Why does Tool 'ccmake'](#why-does-tool-ccmake)
