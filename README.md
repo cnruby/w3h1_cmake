@@ -28,7 +28,6 @@ git checkout basic_103
 ```bash
 # cmake -Bbuild/ -GNinja
 ccmake -Bbuild/ -GNinja
-c
 q
 ccmake -Bbuild/ -GNinja
 c
@@ -44,6 +43,7 @@ ccmake -Bbuild/ -GNinja
 ```bash
 cmake --build build/
 ccmake build
+>> t
 >> cmd+PageUp
 >> Down
 >> Enter
