@@ -1,0 +1,58 @@
+@startuml
+scale 600 width
+skinparam backgroundColor #FFEBDC
+scale 3
+
+top to bottom direction
+package "Examples: The Command 'CMake' with N-Types" <<'cmake ...'>> {
+    package "Type I 'cmake --new ...'<<New Generator Build>>" {
+        folder "Creating New Generator Build" {
+            storage "cmake -GNinja -Bbuild/" as new
+        }
+    }
+    package "Type II 'cmake --config ...'<<Existing Generator Build>>" {
+        folder "Cofigurate Existing Build" {
+            card "cmake -DCMAKE_VERBOSE_MAKEFILE=ON build/" as config
+        }
+    }
+    package "Type III 'cmake --build ...'<<Existing Generator Build>>" {
+        folder "Build Existing Generator" {
+            card "cmake --build build/" as build
+        }
+        folder "Clean Binary Files for Existing Generator" {
+            card "cmake --build build/ -t clean" as clean
+        }
+    }
+    package "Type IV 'cmake --install ...'<<Existing Generator Build>>" {
+        folder "Install Binary Files for Existing Generator" {
+            card "cmake --install build/" as install
+        }
+    }
+    package "Type V 'cmake --extra ...'<<Existing and Building Generator Build>>" {
+        folder "Generate graphviz of dependencies" {
+            card "cmake --graphviz=output/main.dot build/" as graphviz
+        }
+    }
+
+}
+
+new ..> config
+new ..> build
+config ..> build
+build ..> clean
+build ..> graphviz
+build ..> install
+
+
+
+title
+    What does The 'CMake' Command?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

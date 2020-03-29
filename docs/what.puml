@@ -1,0 +1,39 @@
+@startuml
+package "The Command 'CMake' with N-Types" <<'cmake ...'>> {
+    package "Type I 'cmake --new ...'<<New Generator Build>>" as new {
+        card "cmake [cmake-options] -B <path-to-build>"
+    }
+    package "Type II 'cmake --config ...'<<Existing Generator Build>>" as config {
+        card "cmake [cmake-options] <path-to-build>" as type4
+    }
+    package "Type III 'cmake --build ...'<<Existing Generator Build>>" as build {
+        card "cmake --build <path-to-build> [build-options]"
+    }
+    package "Type IV 'cmake --install ...'<<Existing Generator Build>>" as install {
+        card "cmake --install <path-to-build> [install-options]"
+    }
+    'package "Type V 'cmake --extra ...'" <<Existing and Building Generator Build>> {
+    '    package "Command Format V" {
+    '        card "cmake ..." as type5
+    '    }
+    '}
+
+}
+
+new ..> config
+'new ..> build
+config ..> build
+build ..> install
+
+
+title
+    What does The 'CMake' Command?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
