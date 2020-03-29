@@ -1,4 +1,4 @@
-# CMake Tool 'ccmake' "basci_103"
+# CMake Tool 'ccmake' "basic_103"
 
 ## What does Tool 'ccmake'
 - ![image](./uml/what/what.png)
