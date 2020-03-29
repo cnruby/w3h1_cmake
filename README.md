@@ -70,4 +70,3 @@ cmake --build build/
 - https://stackoverflow.com/questions/17525153/how-exactly-does-cmake-work
 - https://stackoverflow.com/questions/16844454/where-is-the-cmake-executable-on-ubuntu
 - https://cgold.readthedocs.io/en/latest/first-step/installation.html
--
