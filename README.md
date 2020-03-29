@@ -1,4 +1,7 @@
 <h1>Hello Application with 'CMake' and 'Ninja'  basci_102</h1>
+---
+[Youtube Video](https://youtu.be/wPpknWBG3v4)
+---
 
 <h2>Table of Contents</h2>
 
