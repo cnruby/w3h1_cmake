@@ -1,6 +1,6 @@
 <h1>CMake Tool 'ccmake' "basic_103"</h1>
 
-<h2>TABLE of CONTENT</h2>
+<h2>TABLE of CONTENTS</h2>
 
 - [What does Tool 'ccmake'](#what-does-tool-ccmake)
 - [Where are Tool 'ccmake'](#where-are-tool-ccmake)
