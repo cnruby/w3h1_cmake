@@ -33,8 +33,8 @@ cargo install ripgrep
 
 
 ## What does The 'CMake' Command?
-- ![image](./uml/what/what.png)
-- ![image](./uml/what-example/what-example.png)
+- ![image](./docs/what/what.png)
+- ![image](./docs/what-example/what-example.png)
 
 
 

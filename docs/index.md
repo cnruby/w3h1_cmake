@@ -43,11 +43,11 @@ cargo install ripgrep
 
 
 
-![image](docs/what/what.png)
+![image](docs/104/what/what.png)
 
 
 
-![image](docs/what-example/what-example.png)
+![image](docs/104/what-example/what-example.png)
 
 
 
