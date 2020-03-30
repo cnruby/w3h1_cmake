@@ -1,15 +1,18 @@
-# basci_100
+# basci_105
 
 ## get
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_100
-cd basic_100
-git checkout basic_100
+git clone https://github.com/cnruby/w3h1_cmake.git basic_105
+cd basic_105
+git checkout basic_105
 ```
 
 ## build and run
 ```bash
-cmake -B build/
+ccmake -Bbuild/ -GNinja
+>> c
+>> e
+>> c
 cmake --build build/
 ./bin/main
 ```
