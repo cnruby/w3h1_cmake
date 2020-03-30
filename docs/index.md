@@ -43,7 +43,7 @@ cargo install ripgrep
 
 ## 2 What are the types of The 'CMake' Command?
 - From a software perspective, two broad categories of CMake and Generator commands
-- From a functional perspective, several general types of commands, such as create generator, build, and install program
+- From a functional perspective, several general types of commands, such as create generator, build and install program
 
 
 
