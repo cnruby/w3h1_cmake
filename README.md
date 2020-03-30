@@ -2,19 +2,21 @@
 
 <h2>TABLE of CONTENTS</h2>
 
-- [Prerequisite](#prerequisite)
-- [What does The 'CMake' Command?](#what-does-the-cmake-command)
-- [Where are The 'CMake' Commands from?](#where-are-the-cmake-commands-from)
-  - [Get The Project](#get-the-project)
-- [Create and Build the Project](#create-and-build-the-project)
-  - [Show the 'CMake' Command Help](#show-the-cmake-command-help)
-  - [Search the 'CMake' Command by Help](#search-the-cmake-command-by-help)
-  - [Show the 'CMake' Command Other Helps](#show-the-cmake-command-other-helps)
-  - [Show the 'CMake' Command with Build Helps](#show-the-cmake-command-with-build-helps)
-- [Commands with '--build'](#commands-with---build)
-- [Commands with 'config'](#commands-with-config)
+- [1 Prerequisite](#1-prerequisite)
+- [2 What are the types of The 'CMake' Command?](#2-what-are-the-types-of-the-cmake-command)
+- [3 How to Use the 'CMake' Command?](#3-how-to-use-the-cmake-command)
+- [4 Where are The 'CMake' Commands from?](#4-where-are-the-cmake-commands-from)
+  - [4.1 Get The Project](#41-get-the-project)
+  - [4.2 Create and Build the Project](#42-create-and-build-the-project)
+  - [4.3 Show the 'CMake' Command Help](#43-show-the-cmake-command-help)
+  - [4.4 Search the 'CMake' Command by Help](#44-search-the-cmake-command-by-help)
+  - [4.5 Show the 'CMake' Command Other Helps](#45-show-the-cmake-command-other-helps)
+  - [4.6 Show the 'CMake' Command with Build Helps](#46-show-the-cmake-command-with-build-helps)
+- [5 General Commands](#5-general-commands)
+  - [5.1 Commands with '--build'](#51-commands-with---build)
+  - [5.2 Commands with 'config'](#52-commands-with-config)
 
-## Prerequisite
+## 1 Prerequisite
 - [VS Code](https://code.visualstudio.com/)
 - [CMake](https://cmake.org/)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -32,33 +34,49 @@ cargo install ripgrep
 ```
 
 
-## What does The 'CMake' Command?
+
+## 2 What are the types of The 'CMake' Command?
+- From a software perspective, two broad categories of CMake and Generator commands
+- From a functional perspective, several general types of commands, such as create generator, build, and install program
+
+
+
+## 3 How to Use the 'CMake' Command?
 - ![image](./docs/what/what.png)
 - ![image](./docs/what-example/what-example.png)
 
 
 
-## Where are The 'CMake' Commands from?
+## 4 Where are The 'CMake' Commands from?
 
-### Get The Project
+
+
+
+### 4.1 Get The Project
 ```bash
 git clone https://github.com/cnruby/w3h1_cmake.git basic_104
 cd basic_104
 git checkout basic_104
 ```
 
-## Create and Build the Project
+
+
+### 4.2 Create and Build the Project
 ```bash
 cmake -GNinja -Bbuild/
 cmake --build build/ --verbose
 ```
 
-### Show the 'CMake' Command Help
+
+
+### 4.3 Show the 'CMake' Command Help
 ```bash
-cmake --help
+cmake --help | more
 ```
 
-### Search the 'CMake' Command by Help
+
+
+### 4.4 Search the 'CMake' Command by Help
 ```bash
 # cmake -B build/ -G Ninja
 cmake --help | rg '\-B'
@@ -71,24 +89,30 @@ cmake --help | rg '\-\-build'
 cmake --help | rg '\-\-verbose'
 ```
 
-### Show the 'CMake' Command Other Helps
+
+
+### 4.5 Show the 'CMake' Command Other Helps
 ```bash
-cmake --build
+cmake --help | rg '\-E'
 cmake -E
 cmake --install
+cmake --build
 ```
 
 ```bash
 # common command
+# cmake --build build/ --verbose
 # Build target 'clean' first, then build.
 # cmake --build build/ --target clean
 # cmake --build build/
 cmake --build build/ --clean-first
 ```
 
-### Show the 'CMake' Command with Build Helps
+
+
+### 4.6 Show the 'CMake' Command with Build Helps
 ```bash
-# cmake --build build/ --target clean
+cmake --build build/ --target clean
 ## help??
 cmake --build build/ --target
 # build tasks
@@ -97,7 +121,13 @@ cmake --build build/ --target help
 cmake --build build/ --target --help
 ```
 
-## Commands with '--build'
+
+
+## 5 General Commands
+
+
+
+### 5.1 Commands with '--build'
 ```bash
 cmake --build build/
 cmake --build build/ -j 4
@@ -108,7 +138,8 @@ cmake --build build/ --clean-first --verbose
 ```
 
 
-## Commands with 'config'
+
+### 5.2 Commands with 'config'
 ```bash
 #  None Debug Release RelWithDebInfo MinSizeRel ...
 ccmake build/ -DCMAKE_BUILD_TYPE=MinSizeRel
