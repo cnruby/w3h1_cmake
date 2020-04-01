@@ -7,7 +7,7 @@ message(STATUS "CMAKE_VERSION = ${CMAKE_VERSION}")
 # Use the command 'include' with the keyword 'CMAKE_MODULE_PATH'
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 #list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-#include(CxxVersion)
+include(CxxVersion)
 
 # Use the command 'include' with path
 include(${PROJECT_SOURCE_DIR}/cmake/SetVariables.cmake)
