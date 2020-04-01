@@ -1,4 +1,4 @@
-<h1>Where are The 'CMake' Commands from? "basci_104"<h1/>
+<h1>Where are The 'CMake' Commands from? "basic_104"<h1/>
 
 * [Youtube Video](https://youtu.be/Dkfdqyeh4OM)
 
