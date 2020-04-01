@@ -39,19 +39,19 @@ git checkout basic_105
 
 
 
-![image](uml/what/what.png)
+![image](docs/105/what/what.png)
 
 
 
 ## What does The VS Code Extension "CMake Tool"
 - CMake integration in Visual Studio Code
-- ![images](docs/images/vscode-cmake-tool.png)
+- ![images](docs/105/images/vscode-cmake-tool.png)
 
 
 
 ## What does The VS Code Extension "CMake"
 - Syntax highlighting for Cmake in Visual Studio Code 
-- ![images](docs/images/vscode-cmake.gif)
+- ![images](docs/105/images/vscode-cmake.gif)
 
 
 

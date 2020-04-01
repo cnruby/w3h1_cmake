@@ -1,0 +1,34 @@
+@startuml
+top to bottom direction
+package "Visual Studio Code" <<'Editor'>> as vscode {
+    package "Extensions" {
+        card "CMake Tool" as cmake_tool_extension
+        card "CMake" as cmake_extension
+    }
+}
+
+package "Project" <<CMakeCache.txt and build.ninja>> as project {
+    card "C++ Code"
+    card "CMakeList.txt"
+}
+
+package "CMake" <<'Software'>> {
+    card "cmake --help"
+    card "ccmake --help"
+}
+
+vscode --> project
+vscode --> CMake
+
+
+title
+    What is the relation between 'CMake' and the Extensions of VS Code?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
