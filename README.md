@@ -1,8 +1,10 @@
-# C++ Application with CMake
+# C++ Application with 'CMake'
 
 ## Prerequisite
 - [VS Code](https://code.visualstudio.com/)
 - [CMake](https://cmake.org/)
+- [VS Code Extension "CMake Tool"](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) 
+- [VS Code Extension "CMake"](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
 
 ## Liste
 - Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
