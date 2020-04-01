@@ -81,11 +81,17 @@ open CMakeLists.txt
 
 
 ### How to Execute these CMake's Files with Order?
+
+
+
 - ![image](docs/106/how/how.png)
 
 
 
 ### What types of callable files exist?
+
+
+
 - ![image](docs/106/what/what.png)
 
 
