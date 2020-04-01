@@ -1,4 +1,4 @@
-<h1>Hello Application with 'CMake' "basci_101"</h1>
+<h1>Hello Application with 'CMake' "basic_101"</h1>
 
 * [Youtube Video](https://youtu.be/I2-fIgkGfy8)
 
