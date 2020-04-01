@@ -1,4 +1,4 @@
-<h1>Develop The 'CMake' Project with VS Code "basci_105"</h1>
+<h1>Develop The 'CMake' Project with VS Code "basic_105"</h1>
 
 
 
