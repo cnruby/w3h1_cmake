@@ -1,0 +1,52 @@
+@startuml
+scale 600 width
+skinparam backgroundColor #FFEBDC
+scale 3
+
+package "Project 'basci_106'" <<C++ with 'CMake'>> {
+    cloud "./CMakeLists.txt" <<File>> as root_cmakelists
+    cloud "src/CMakeLists.txt" <<File>> as src_cmakelists
+
+    rectangle "cmake/CxxVersion.cmake" <<File>> as cxx_version
+    rectangle "cmake/SetVariables.cmake" <<File>> as set_variables
+}
+
+'root_cmakelists *--> src_cmakelists
+'root_cmakelists ..> cxx_version
+'root_cmakelists ..> set_variables
+
+
+note bottom of root_cmakelists
+    This is main()!
+endnote
+
+note bottom of src_cmakelists
+    The solid line must be called in this order.
+endnote
+
+note bottom of set_variables
+    The dashed line may be other execution order
+endnote
+
+note "use command 'add_subdirectory()'" as N2
+    (root_cmakelists) --> N2
+    N2 --> (src_cmakelists)
+
+
+note "use command 'include()'" as N1
+(root_cmakelists) ..> N1
+N1 ..> (cxx_version)
+N1 ..> (set_variables)
+
+
+title
+    How to Execute these CMake's Files with Order?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

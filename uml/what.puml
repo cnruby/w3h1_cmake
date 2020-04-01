@@ -1,0 +1,53 @@
+@startuml
+scale 300 width
+skinparam backgroundColor #FFEBDC
+scale 3
+
+package "CMake File Types" as types {
+    cloud "*.cmake" <<File>> as cmakefile
+    cloud "CMakeLists.txt" <<File>> as cmakelists
+}
+
+
+package "Special User Library" <<CMake Commands>> as slib {
+    usecase "add_subdirectory()" as add
+}
+
+package "User Library" <<CMake Commands>> as ulib {
+    usecase "include()" as include
+}
+
+package "3. Party Library" <<CMake Commands>> as plib {
+    usecase "find_package()" as find_package
+}
+
+add *--> cmakelists
+include --> cmakefile
+find_package --> cmakefile
+
+
+
+note bottom of add
+Convention Rules in a Project
+endnote
+
+note bottom of find_package
+Convention Rules in an OS
+endnote
+
+note bottom of include
+Path Rules in OS/Project
+endnote
+
+
+title
+    What types of callable files exist?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

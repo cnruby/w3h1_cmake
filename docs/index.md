@@ -40,7 +40,7 @@ code docs/images/script_codes.gif
 
 
 
-- ![image](docs/images/script_codes.gif)
+- ![image](docs/106/images/script_codes.gif)
 
 
 
@@ -49,7 +49,7 @@ code docs/images/script_codes.gif
 
 
 ### How to Split a 'CMakeLists.txt' into Multiple CMake's Files
-- ![image](docs/images/split_codes.png)
+- ![image](docs/106/images/split_codes.png)
 
 
 
@@ -81,12 +81,12 @@ open CMakeLists.txt
 
 
 ### How to Execute these CMake's Files with Order?
-- ![image](uml/how/how.png)
+- ![image](docs/106/how/how.png)
 
 
 
 ### What types of callable files exist?
-- ![image](uml/what/what.png)
+- ![image](docs/106/what/what.png)
 
 
 
