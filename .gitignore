@@ -32,4 +32,5 @@
 *.app
 bin/*
 build/*
-web_ppt/*
+.DS_Store
+.DS_Store/*
