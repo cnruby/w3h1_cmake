@@ -1,4 +1,4 @@
-# basci_100
+# basic_100
 
 ## get
 ```bash
