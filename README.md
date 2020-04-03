@@ -67,6 +67,10 @@ open CMakeLists.txt
 
 
 
+![image](uml/where/where.png)
+
+
+
 ### A Project with Multiple CMake's Files
 ```bash
 git checkout basic_106

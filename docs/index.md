@@ -1,4 +1,4 @@
-<h1>CMake's Scripting Language for Building Systems "basic_106"</h1>
+<h1>CMake's Scripting Language for Building Systems</h1> "basic_106"
 
 
 
@@ -67,6 +67,10 @@ open CMakeLists.txt
 
 
 
+![image](docs/106/where/where.png)
+
+
+
 ### A Project with Multiple CMake's Files
 ```bash
 git checkout basic_106
@@ -81,17 +85,11 @@ open CMakeLists.txt
 
 
 ### How to Execute these CMake's Files with Order?
-
-
-
 - ![image](docs/106/how/how.png)
 
 
 
 ### What types of callable files exist?
-
-
-
 - ![image](docs/106/what/what.png)
 
 
