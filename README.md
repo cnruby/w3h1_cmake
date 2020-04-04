@@ -14,3 +14,6 @@
 - Develop The 'CMake' Project with VS Code "basic_105" [Youtube Video](https://youtu.be/GgImAx-TTfY) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_105)
 - CMake's Scripting Language for Building Systems "basic_106" [Youtube Video](https://youtu.be/AWWZy46ZrZc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_106)
 
+## References
+- [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
+- [Modern CMake](https://cliutils.gitlab.io/modern-cmake/)
