@@ -13,6 +13,8 @@
 - Where are The 'CMake' Commands from? "basic_104" [Youtube Video](https://youtu.be/Dkfdqyeh4OM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_104)
 - Develop The 'CMake' Project with VS Code "basic_105" [Youtube Video](https://youtu.be/GgImAx-TTfY) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_105)
 - CMake's Scripting Language for Building Systems "basic_106" [Youtube Video](https://youtu.be/AWWZy46ZrZc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_106)
+- How to Format the '<code>CMake</code>'s File</h1> "basic_107" [Youtube Video](https://youtu.be/mhM12sqDKpE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_107)
+
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
