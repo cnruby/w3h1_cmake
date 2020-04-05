@@ -39,7 +39,7 @@
 
 
 
-## Install the Tool 'clang-format'
+## Install the Tool <code>'clang-format'</code>
 ### How to install the Tool 'clang-format' on MacOS
 ```bash
 brew install clang-format
