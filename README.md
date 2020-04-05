@@ -164,7 +164,10 @@ cmake-format -i $(find . -name "*.cmake")
 
 
 ### Use the Extension <code>'cmake-format'</code> with and without a Config File
-- SHIFT+CMD+P Format Document
+- SHIFT+CMD+P 
+- Enter: "Format Document"
+- OR
+- SHIFT+ALT+F
 
 
 
