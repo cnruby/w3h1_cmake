@@ -20,3 +20,8 @@
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
 - [Modern CMake](https://cliutils.gitlab.io/modern-cmake/)
 - [CMake Community Wiki](https://gitlab.kitware.com/cmake/community/-/wikis/home)
+
+## @cnruby
+- [@Gitter](https://gitter.im/cnruby)
+- [@Blog](https://www.blogger.com/blogger.g?tab=mj1&blogID=19758264#allposts/postNum=0)
+- [@Twitter](https://twitter.com/cnruby)
