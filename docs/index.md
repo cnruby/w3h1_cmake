@@ -9,6 +9,7 @@
 - [Install the Tool 'clang-format'](#install-the-tool-clang-format)
   - [How to install the Tool 'clang-format' on MacOS](#how-to-install-the-tool-clang-format-on-macos)
   - [How to install the Tool 'clang-format' on Ubuntu 20.04](#how-to-install-the-tool-clang-format-on-ubuntu-2004)
+- [Get the Project](#get-the-project)
 - [How to Format A <code>C/C++</code> File with Style](#how-to-format-a-cc-file-with-style)
 - [How to Create the Format File '.clang-format' with Style](#how-to-create-the-format-file-clang-format-with-style)
 - [a Comparison of the Different Formatting Styles](#a-comparison-of-the-different-formatting-styles)
@@ -51,6 +52,18 @@ brew install clang-format
 ```bash
 # https://cnruby.blogspot.com/2020/04/howto-install-clang-10include-clang-and.html
 sudo apt-get install clang-tools-10
+```
+
+
+
+## Get the Project
+```bash
+git clone https://github.com/cnruby/w3h1_cmake.git basic_108
+cd basic_108
+git checkout basic_108
+code .
+cmake -GNinja -Bbuild/
+cmake --build build/
 ```
 
 
