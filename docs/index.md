@@ -1,6 +1,5 @@
 "basic_108"<br/>
 <h1>How to Format the '<code>C/C++</code>'s File </h1>
-Gudao Luo<br/>
 @Gitter: gitter.im/cnruby<br/>
 @Github: github.com/cnruby<br/>
 @Twitter: twitter.com/cnruby<br/>
@@ -16,8 +15,8 @@ Gudao Luo<br/>
 - [Get the Project](#get-the-project)
 - [Use the Tool <code>'clang-format'</code>](#use-the-tool-clang-format)
   - [How to Format A <code>C/C++</code> File with A Style](#how-to-format-a-cc-file-with-a-style)
-  - [What does The Default Style of <code>'clang-format'</code>?](#what-does-the-default-style-of-clang-format)
   - [How to Create the Format File <code>'.clang-format'</code> with A Style](#how-to-create-the-format-file-clang-format-with-a-style)
+  - [What does The Default Style of <code>'clang-format'</code>?](#what-does-the-default-style-of-clang-format)
   - [Compare the Different Formatting Styles](#compare-the-different-formatting-styles)
   - [How to Format All <code>C/C++</code> Files](#how-to-format-all-cc-files)
   - [Disabling Formatting on a Piece of Code](#disabling-formatting-on-a-piece-of-code)
@@ -71,15 +70,6 @@ clang-format -style=Google -i src/main.cxx
 
 
 
-### What does The Default Style of <code>'clang-format'</code>?
-```bash
-# clang-format default style 'LLVM'
-clang-format -style=file src/main.cxx
-```
-![image](docs/108/what/what.png)
-
-
-
 ### How to Create the Format File <code>'.clang-format'</code> with A Style
 ```bash
 # the style file name must be ".clang-format"
@@ -87,6 +77,15 @@ clang-format -style=Google -dump-config
 clang-format -style=Google -dump-config > .clang-format
 clang-format -style=Mozilla -dump-config > .clang-format
 ```
+
+
+
+### What does The Default Style of <code>'clang-format'</code>?
+```bash
+# clang-format default style 'LLVM'
+clang-format -style=file src/main.cxx
+```
+![image](docs/108/what/what.png)
 
 
 
