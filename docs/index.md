@@ -105,7 +105,7 @@ cmake -P cmd.cmake
 find . -regex '.*\.\(cxx\cpp\|hpp\|cu\|c\|h\)' \
        -exec clang-format -style=file -i {} \;
 cmake-format -i $(find . -name "CMakeLists.txt")
-cmake-format -i $(find . -name "*.cmake")
+clang-format -i $(find . -name "*.cxx") -style=file
 ```
 
 
