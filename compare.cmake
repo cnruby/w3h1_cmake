@@ -1,3 +1,7 @@
+#
+# This is a comparison of the different formatting styles
+#
+
 set(STYLES LLVM Google Chromium Mozilla WebKit Microsoft)
 
 execute_process(COMMAND echo "Hello, clang-format!")
