@@ -3,39 +3,57 @@ scale 300 width
 skinparam backgroundColor #FFEBDC
 scale 3
 
-storage "C/C++ Complier" as cxx
-rectangle "0101010101" <<Binary File>> as binary
-cloud "Build Tools" as tools
-rectangle "C/C++ Code" <<CXX File>> as code
 
-cxx -0)- binary
-cxx -(0)- tools
-cxx -(0- code
+package "Without Custom Config File" <<Default Style Command for Clang Format>> {
+    rectangle "clang-format -style=file src/main.cxx" as c1
+    cloud "clang-format -style=LLVM src/main.cxx" <<This Sytel is LLVM>> as s1
 
-usecase "g++ -o main main.cxx" <<The Command>> as command
-usecase "Makefile" <<Make>> as make
-usecase "CMakeLists.txt" <<CMake>> as cmake
+    folder p1 <<Project ONE>> [
+        ----
+        .cmake－format.yml
+        ----
+        CMakeLists.txt
+        ----
+        README.md
+        ----
+        src/main.cxx
+        ----
+    ]
+}
+c1 *-0)-> s1
+c1 *--> p1
 
-tools -0- command
-tools -0- make
-tools -0- cmake
+package "With Custom Config File" <<Default Style Command for Clang Format>> {
+    rectangle "clang-format -style=file src/main.cxx" as c2
+    cloud "clang-format -style=SYTLE src/main.cxx" <<What does the STYLE?>> as s2
 
-note bottom of binary
-mashine read the codes.
-endnote
+    folder p2 <<Project TWO>> [
+        ----
+        **.clang-format**
+        ----
+        .cmake－format.yml
+        ----
+        CMakeLists.txt
+        ----
+        README.md
+        ----
+        src/main.cxx
+        ----
+    ]
+}
+c2 *-0)-> s2
+c2 *--> p2
 
-note top of tools
-people use one of the tools for the compiler.
-endnote
 
-note bottom of code
-people read the codes.
-endnote
+
+'note bottom of code
+'people read the codes.
+'endnote
 
 
 
 title
-    What does The 'CMake'?
+    What does The Default Style of 'clang-format'?
 end title
 
 header
