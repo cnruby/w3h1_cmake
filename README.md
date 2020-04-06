@@ -120,6 +120,8 @@ endforeach()
 
 ### Run the <code>CMake</code> Scripting Program
 ```bash
+# delete all files "src/main.*.c*"
+# rm src/main.*.c*
 # run the file 'compare.cmake'
 cmake -P compare.cmake
 ```
