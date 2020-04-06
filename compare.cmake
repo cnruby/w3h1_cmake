@@ -9,8 +9,7 @@ foreach(style ${STYLES})
       "clang-format -style=${style} ${MAIN_CXX}.cxx > \
                     ${MAIN_CXX}.${style}.cpp")
   message(${CMD})
-  execute_process(COMMAND clang-format -style=${style} \
-                          ${MAIN_CXX}.cxx
+  execute_process(COMMAND clang-format -style=${style} ${MAIN_CXX}.cxx
                   OUTPUT_FILE ${MAIN_CXX}.${style}.cpp)
 endforeach()
 #
