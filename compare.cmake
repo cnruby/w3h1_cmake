@@ -1,17 +1,16 @@
 #
-# This is a comparison of the different formatting styles
-#
-
+# compare.cmake
 set(STYLES LLVM Google Chromium Mozilla WebKit Microsoft)
 
-execute_process(COMMAND echo "Hello, clang-format!")
-
 foreach(style ${STYLES})
-  message("style = <<${style}>>")
+  message("C/C++ style = <<${style}>>")
   set(MAIN_CXX ${CMAKE_CURRENT_SOURCE_DIR}/src/main)
   set(CMD
-      "clang-format -style=${style} ${MAIN_CXX}.cxx > ${MAIN_CXX}.${style}.cxx")
+      "clang-format -style=${style} ${MAIN_CXX}.cxx > \
+                    ${MAIN_CXX}.${style}.cpp")
   message(${CMD})
-  execute_process(COMMAND clang-format -style=${style} ${MAIN_CXX}.cxx
-                  OUTPUT_FILE ${MAIN_CXX}.${style}.cxx)
+  execute_process(COMMAND clang-format -style=${style} \
+                          ${MAIN_CXX}.cxx
+                  OUTPUT_FILE ${MAIN_CXX}.${style}.cpp)
 endforeach()
+#
