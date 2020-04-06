@@ -1,5 +1,5 @@
 "basic_108"<br/>
-<h1>How to Format the '<code>C/C++</code>'s File </h1>
+<h1>Formatting the '<code>C/C++</code>'s Codes</h1>
 @Gitter: gitter.im/cnruby<br/>
 @Github: github.com/cnruby<br/>
 @Twitter: twitter.com/cnruby<br/>
