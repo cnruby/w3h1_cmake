@@ -5,8 +5,6 @@ basic_108<br/>
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-00.m4a"></p>
 
-
-
 * [Youtube Video](https://youtu.be/uN6OollV1xo)
 
 
