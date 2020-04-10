@@ -7,6 +7,7 @@
 - [VS Code Extension "CMake"](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
 - [Tool 'clang-format'](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 - [Python 3.7+](https://www.python.org/)
+- [Ruby 2.7.1+](https://www.ruby-lang.org/en/)
 - [Tool 'cmake_format'](https://github.com/cheshirekow/cmake_format)
 
 ## Liste
