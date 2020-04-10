@@ -1,7 +1,8 @@
 basic_108<br/>
 <h3>Hello, <code>C++</code> Style!<h3>
 <h1>Formatting the <code>'C/C++'s</code> Codes</h1>
-@Gitter: [gitter.im/cnruby](gitter.im/cnruby)<br/>
+
+[@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-00.m4a"></p>
 
 
