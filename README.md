@@ -6,6 +6,10 @@ basic_108<br/>
 
 
 
+* [Youtube Video](https://youtu.be/uN6OollV1xo)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [Requirements](#requirements)
@@ -13,16 +17,21 @@ basic_108<br/>
 - [Get the Project](#get-the-project)
 - [Use the Tool <code>'clang-format'</code>](#use-the-tool-clang-format)
   - [How to Format A <code>C/C++</code> File with A Style](#how-to-format-a-cc-file-with-a-style)
+  - [Demonstrate Formatting A <code>C/C++</code> File](#demonstrate-formatting-a-cc-file)
   - [How to Create the Format File <code>'.clang-format'</code> with A Style](#how-to-create-the-format-file-clang-format-with-a-style)
+  - [Demonstrate Creating the Format File <code>'.clang-format'</code>](#demonstrate-creating-the-format-file-clang-format)
   - [What does The Default Style of <code>'clang-format'</code>?](#what-does-the-default-style-of-clang-format)
+  - [Demonstrate the Default Style of <code>'clang-format'</code>](#demonstrate-the-default-style-of-clang-format)
 - [Compare the Different Formatting Styles](#compare-the-different-formatting-styles)
   - [Code of Comparesion Styles](#code-of-comparesion-styles)
   - [Run the <code>CMake</code> Scripting Program](#run-the-cmake-scripting-program)
+  - [Demonstrate Comparing the Different Formatting Styles](#demonstrate-comparing-the-different-formatting-styles)
 - [How to Format All <code>C/C++</code> Files](#how-to-format-all-cc-files)
   - [Code of Formatting All Files](#code-of-formatting-all-files)
   - [Run the <code>Ruby</code> Scripting Program](#run-the-ruby-scripting-program)
+  - [Demonstrate Formatting All <code>C/C++</code> Files](#demonstrate-formatting-all-cc-files)
   - [Disabling Formatting on a Piece of Code](#disabling-formatting-on-a-piece-of-code)
-- [Video](#video)
+- [Final Summary](#final-summary)
 - [References](#references)
 - [C/C++ Basic Concepts](#cc-basic-concepts)
 - [How to install the Tool <code>'clang-format'</code> on Ubuntu 20.04](#how-to-install-the-tool-clang-format-on-ubuntu-2004)
@@ -79,6 +88,13 @@ clang-format -style=Google -i src/main.cxx
 
 
 
+### Demonstrate Formatting A <code>C/C++</code> File
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/108/video/basic_108-09.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
 ### How to Create the Format File <code>'.clang-format'</code> with A Style
 ```bash
 # the style file name must be ".clang-format"
@@ -90,6 +106,13 @@ clang-format -style=Mozilla -dump-config > .clang-format
 
 
 
+### Demonstrate Creating the Format File <code>'.clang-format'</code>
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/108/video/basic_108-11.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
 ### What does The Default Style of <code>'clang-format'</code>?
 ```bash
 # clang-format default style 'LLVM'
@@ -98,6 +121,13 @@ clang-format -style=file src/main.cxx
 ![image](docs/108/images/what.png)
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-08a.m4a"></p>
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-08b.m4a"></p>
+
+
+
+### Demonstrate the Default Style of <code>'clang-format'</code>
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/108/video/basic_108-14.mp4" autoplay=true type="video/mp4">
+</video>
 
 
 
@@ -138,6 +168,12 @@ cmake -P compare.cmake
 
 
 
+### Demonstrate Comparing the Different Formatting Styles
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/108/video/basic_108-18.mp4" autoplay=true type="video/mp4">
+</video>
+
+
 
 ## How to Format All <code>C/C++</code> Files
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-12.m4a"></p>
@@ -174,16 +210,21 @@ ruby format-clang.rb
 
 
 
+### Demonstrate Formatting All <code>C/C++</code> Files
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/108/video/basic_108-22.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
 ### Disabling Formatting on a Piece of Code
 ![image](docs/108/images/disable_code.png)
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-15.m4a"></p>
 
 
 
-## Video
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/108/video/basic_108-16.mp4" autoplay=true type="video/mp4">
-</video>
+## Final Summary
+![image](docs/108/images/what.png)
 <p class ="fragment" data-audio-src="docs/108/audio/basic_108-16.m4a"></p>
 
 
