@@ -3,7 +3,7 @@ basic_109</br>
 <h3>Using a Include File from Other Folder</h3>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-<p class ="fragment" data-audio-src="docs/109/audio/birds.ogg"></p>
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-01.m4a"></p>
 
 
 
@@ -21,18 +21,21 @@ basic_109</br>
 - [Tip: The Two <code>'CMake'</code> Variables](#tip-the-two-cmake-variables)
   - [Display The Two <code>'CMake</code> Variable's Values](#display-the-two-cmake-variables-values)
   - [Demonstratey The Two <code>'CMake</code> Variable's Values](#demonstratey-the-two-cmake-variables-values)
+- [Final Summary](#final-summary)
 - [References](#references)
 - [The Project Commnads](#the-project-commnads)
-  - [Demonstrate Comparing the Different Formatting Styles](#demonstrate-comparing-the-different-formatting-styles)
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-02.m4a"></p>
 
 
 
 ## The Project <code>"Hello, Header!"</code>
 ### What is This Project's Structure
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-03.m4a"></p>
 
 
 
 ![image](docs/109/images/what.png)
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-04.m4a"></p>
 
 
 
@@ -43,15 +46,18 @@ cd basic_109
 git checkout basic_109
 code .
 ```
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-05.m4a"></p>
 
 
 
 ## The Bridge Between <code>C++</code> Main File and Include File
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-06.m4a"></p>
 
 
 
 ### How to Use the <code>CMake</code> <code>target_include_directories()</code> Command?
 ![image](docs/109/images/how.png)
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-07.m4a"></p>
 
 
 
@@ -82,10 +88,12 @@ message(STATUS "CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}/include/")
 # target_include_directories(b109 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 #<!-- /markdown-exec -->
 ```
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-08.m4a"></p>
 
 
 
 ### Demonstrate This Project's Code and Structure
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-09.m4a"></p>
 
 
 
@@ -95,12 +103,13 @@ cmake -GNinja -Bbuild/
 cmake --build build/
 ./bin/b109
 ```
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-10.m4a"></p>
 
 
 
 ### Demonstrate This Project's Structure
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/108/video/basic_108-18.mp4" autoplay=true type="video/mp4">
+  <source src="docs/109/video/basic_109-11.mp4" autoplay=true type="video/mp4">
 </video>
 
 
@@ -110,6 +119,7 @@ cmake --build build/
 PROJECT_SOURCE_DIR
 CMAKE_CURRENT_SOURCE_DIR
 ```
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-12.m4a"></p>
 
 
 
@@ -117,13 +127,20 @@ CMAKE_CURRENT_SOURCE_DIR
 <pre><code>
 cmake --build build/ --target rebuild_cache
 </code></pre>
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-13.m4a"></p>
 
 
 
 ### Demonstratey The Two <code>'CMake</code> Variable's Values
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/108/video/basic_108-18.mp4" autoplay=true type="video/mp4">
+  <source src="docs/109/video/basic_109-14.mp4" autoplay=true type="video/mp4">
 </video>
+
+
+
+## Final Summary
+![image](docs/109/images/what.png)
+<p class ="fragment" data-audio-src="docs/109/audio/basic_109-15.m4a"></p>
 
 
 
@@ -140,7 +157,12 @@ cmake --build build/ --target rebuild_cache
 
 
 ## References
-- 
+- https://cmake.org/cmake/help/latest/command/target_include_directories.html
+- https://stackoverflow.com/questions/31969547/what-is-the-difference-between-include-directories-and-target-include-directorie
+- https://stackoverflow.com/questions/26243169/cmake-target-include-directories-meaning-of-scope
+- https://gitlab.kitware.com/cmake/cmake/issues/19802
+- https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
+- http://mariobadr.com/creating-a-header-only-library-with-cmake.html
 
 
 
@@ -149,8 +171,3 @@ cmake --build build/ --target rebuild_cache
 cmake-format --dump-config > .cmake-format.yml
 clang-format -dump-config -style=Google > .clang-format
 ```
-
-### Demonstrate Comparing the Different Formatting Styles
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/108/video/basic_108-18.mp4" autoplay=true type="video/mp4">
-</video>

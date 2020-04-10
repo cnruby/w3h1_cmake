@@ -15,9 +15,5 @@ target_include_directories(
 )
 
 # The differece between PROJECT_SOURCE_DIR and CMAKE_CURRENT_SOURCE_DIR
-message(STATUS "PROJECT_SOURCE_DIR = ${PROJECT_SOURCE_DIR}/include/")
-message(STATUS "CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}/include/")
-
-# ERROR
-# target_include_directories(b109 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
-#
+message(STATUS "PROJECT_SOURCE_DIR = ${PROJECT_SOURCE_DIR}/")
+message(STATUS "CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}/")
