@@ -1,10 +1,13 @@
 # C++ Application with 'CMake'
 
 ## Prerequisite
-- [VS Code](https://code.visualstudio.com/)
+- [VS Code](https://code.visualstudio.com/) OR [Eclipse Theia](https://theia-ide.org/)
 - [CMake](https://cmake.org/)
 - [VS Code Extension "CMake Tool"](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) 
 - [VS Code Extension "CMake"](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+- [Tool 'clang-format'](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
+- [Python 3.7+](https://www.python.org/)
+- [Tool 'cmake_format'](https://github.com/cheshirekow/cmake_format)
 
 ## Liste
 - **Hello, CMake!** Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
