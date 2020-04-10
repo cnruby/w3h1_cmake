@@ -1,0 +1,39 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+package Project_C++ as project {
+    rectangle header.hxx <<Folder: ./include/local/>> as header
+    rectangle main.cxx <<Folder: ./src/>> as cxx
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+    note top of src_list
+        target_include_directories(
+            CXX_TARGET_NAME
+            SCOPE_NAME
+            INCLUDE_DIR_1
+            INCLUDE_DIR_N
+        )
+    endnote
+    note top of cxx
+        ＃include ”<local/header.hxx>“
+        ＃include “<header.hxx>”
+    endnote
+}
+
+begin *--> src_list
+src_list --> cxx
+src_list --> header
+
+title
+    What is This Project's Structure?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

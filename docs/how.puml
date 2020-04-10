@@ -1,0 +1,44 @@
+@startuml
+scale 600 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+package target_include_directories as includes {
+    rectangle INCLUDE_DIR_N <<IS Directory TWO>> as I2
+    rectangle INCLUDE_DIR_1 <<IS Directory ONE>> as I1
+    rectangle SCOPE_NAME <<For Include Files>> as scope
+    rectangle CXX_TARGET_NAME <<From Executable/Library Name>> as cxx
+    note bottom of cxx
+        A Given Target Name
+        ('b109' from './src/main.cxx')
+    endnote
+    note bottom of scope
+        The Scope of Includes for Target
+        (Files Under './include/' and './include/local/')
+        (FOR WHO is the Scope's Target?)
+    endnote
+    note bottom of I1
+        But contain NOT its Subdirectory!
+        ('./include/local/')
+    endnote
+    note bottom of I2
+        And its Subdirectory must be listed!
+        ('./include/local/')
+    endnote
+}
+
+'begin *--> src_list
+'src_list --> main
+'src_list --> header
+
+title
+    How to Use the 'CMake' 'target_include_directories' Command?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

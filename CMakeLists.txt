@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.1...3.16 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 17)
-project(c3 VERSION 0.1.0)
+
+project(basic_109 VERSION 0.1.0 LANGUAGES CXX DESCRIPTION "basic_109 Hello, Header!")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
-add_executable(main src/main.cxx)
+add_subdirectory(src)

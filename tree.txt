@@ -1,7 +1,0 @@
-.
-├── CMakeLists.txt
-├── LICENSE
-├── README.md
-├── src
-│  └── main.cxx
-└── tree.txt
