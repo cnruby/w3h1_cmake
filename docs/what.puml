@@ -18,6 +18,7 @@ package Project_C++ as project {
     endnote
     note top of cxx
         ＃include ”<local/header.hxx>“
+        OR
         ＃include “<header.hxx>”
     endnote
 }

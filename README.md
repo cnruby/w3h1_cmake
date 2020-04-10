@@ -12,13 +12,15 @@ basic_109</br>
 - [The Project <code>"Hello, Header!"</code>](#the-project-%22hello-header%22)
   - [What is This Project's Structure](#what-is-this-projects-structure)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [Build and Run The Project](#build-and-run-the-project)
-  - [Demonstrate This Project's Structure](#demonstrate-this-projects-structure)
 - [The Bridge Between <code>C++</code> Main File and Include File](#the-bridge-between-c-main-file-and-include-file)
   - [How to Use the <code>CMake</code> <code>target_include_directories()</code> Command?](#how-to-use-the-cmake-targetincludedirectories-command)
-  - [The <code>'CMake' 'target_include_directories'</code> Code](#the-cmake-targetincludedirectories-code)
-  - [Build and Run The Project](#build-and-run-the-project-1)
-  - [Demonstrate The Bridge Command](#demonstrate-the-bridge-command)
+  - [The <code>'CMake' 'target_include_directories'</code> Command](#the-cmake-targetincludedirectories-command)
+  - [Demonstrate This Project's Code and Structure](#demonstrate-this-projects-code-and-structure)
+  - [Build and Run The Project](#build-and-run-the-project)
+  - [Demonstrate This Project's Structure](#demonstrate-this-projects-structure)
+- [Tip: The Two <code>'CMake'</code> Variables](#tip-the-two-cmake-variables)
+  - [Display The Two <code>'CMake</code> Variable's Values](#display-the-two-cmake-variables-values)
+  - [Demonstratey The Two <code>'CMake</code> Variable's Values](#demonstratey-the-two-cmake-variables-values)
 - [References](#references)
 - [The Project Commnads](#the-project-commnads)
   - [Demonstrate Comparing the Different Formatting Styles](#demonstrate-comparing-the-different-formatting-styles)
@@ -44,12 +46,55 @@ code .
 
 
 
+## The Bridge Between <code>C++</code> Main File and Include File
+
+
+
+### How to Use the <code>CMake</code> <code>target_include_directories()</code> Command?
+![image](docs/109/images/how.png)
+
+
+
+### The <code>'CMake' 'target_include_directories'</code> Command
+
+```bash
+#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
+add_executable(
+  b109
+  main.cxx
+)
+# target_include_directories(
+#    CXX_TARGET_NAME SCOPE_NAME INCLUDE_DIR_1 INCLUDE_DIR_N)
+set(
+  HXX_DIRS
+  ${PROJECT_SOURCE_DIR}/include/
+)
+target_include_directories(
+  b109
+  PRIVATE ${HXX_DIRS} ${HXX_DIRS}/local/
+)
+
+# The differece between PROJECT_SOURCE_DIR and CMAKE_CURRENT_SOURCE_DIR
+message(STATUS "PROJECT_SOURCE_DIR = ${PROJECT_SOURCE_DIR}/include/")
+message(STATUS "CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}/include/")
+
+# ERROR
+# target_include_directories(b109 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
+#<!-- /markdown-exec -->
+```
+
+
+
+### Demonstrate This Project's Code and Structure
+
+
+
 ### Build and Run The Project
-<pre><code>
+```bash
 cmake -GNinja -Bbuild/
 cmake --build build/
 ./bin/b109
-</code></pre>
+```
 
 
 
@@ -60,56 +105,22 @@ cmake --build build/
 
 
 
-## The Bridge Between <code>C++</code> Main File and Include File
-
-
-
-### How to Use the <code>CMake</code> <code>target_include_directories()</code> Command?
-![image](docs/109/images/how.png)
-
-
-
-### The <code>'CMake' 'target_include_directories'</code> Code
-
+## Tip: The Two <code>'CMake'</code> Variables
 ```bash
-#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable(b109 main.cxx)
-
-# target_include_directories(
-#     CXX_TARGET_NAME
-#     SCOPE_NAME
-#     INCLUDE_DIR_1
-#     INCLUDE_DIR_N
-target_include_directories(
-    b109
-    PRIVATE 
-    ${PROJECT_SOURCE_DIR}/include/
-    ${PROJECT_SOURCE_DIR}/include/local/
-)
-
-# The differece between PROJECT_SOURCE_DIR and CMAKE_CURRENT_SOURCE_DIR
-message(STATUS
-  "PROJECT_SOURCE_DIR = ${PROJECT_SOURCE_DIR}/include/")
-message(STATUS
-  "CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}/include/")
-
-#target_include_directories(b109 PRIVATE 
-#    ${CMAKE_CURRENT_SOURCE_DIR}/include/)
-#<!-- /markdown-exec -->
+PROJECT_SOURCE_DIR
+CMAKE_CURRENT_SOURCE_DIR
 ```
 
 
 
-### Build and Run The Project
+### Display The Two <code>'CMake</code> Variable's Values
 <pre><code>
 cmake --build build/ --target rebuild_cache
-cmake --build build/
-./bin/b109
 </code></pre>
 
 
 
-### Demonstrate The Bridge Command
+### Demonstratey The Two <code>'CMake</code> Variable's Values
 <video width="720" height="480" controls data-autoplay>
   <source src="docs/108/video/basic_108-18.mp4" autoplay=true type="video/mp4">
 </video>

@@ -1,6 +1,9 @@
 #include <iostream>
 
+// ${PROJECT_SOURCE_DIR}/include/local/
 #include "header.hxx"
+// OR
+// ${PROJECT_SOURCE_DIR}/include/
 #include "local/header.hxx"
 
 int main(int, char**) {
