@@ -9,10 +9,7 @@
 const unsigned int MILISECONDS_IN_DAY = 86400000;
 
 namespace Header {
-void hello()
-{
-    std::cout << "Hello, Header!" << std::endl;
-}
-}
+void hello() { std::cout << "Hello, Header!" << std::endl; }
+}  // namespace Header
 
 #endif

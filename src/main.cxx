@@ -1,12 +1,13 @@
 #include <iostream>
-#include "local/header.hxx"
+
 #include "header.hxx"
+#include "local/header.hxx"
 
 int main(int, char**) {
-    Header::hello();
-    
-    std::cout << "SECONDS_IN_DAY:\t\t" << SECONDS_IN_DAY << std::endl;
-    std::cout << "MILISECONDS_IN_DAY:\t" << MILISECONDS_IN_DAY << std::endl;
+  Header::hello();
 
-    return 0;
+  std::cout << "SECONDS_IN_DAY:\t\t" << SECONDS_IN_DAY << std::endl;
+  std::cout << "MILISECONDS_IN_DAY:\t" << MILISECONDS_IN_DAY << std::endl;
+
+  return 0;
 }
