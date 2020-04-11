@@ -7,6 +7,10 @@ basic_109</br>
 
 
 
+* [Youtube Video](https://youtu.be/dHt_i7-sBNM)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [The Project <code>"Hello, Header!"</code>](#the-project-%22hello-header%22)
@@ -23,7 +27,7 @@ basic_109</br>
   - [Demonstratey The Two <code>'CMake</code> Variable's Values](#demonstratey-the-two-cmake-variables-values)
 - [Final Summary](#final-summary)
 - [References](#references)
-- [The Project Commnads](#the-project-commnads)
+- [The Project Command](#the-project-command)
 <p class ="fragment" data-audio-src="docs/109/audio/basic_109-02.m4a"></p>
 
 
@@ -166,8 +170,7 @@ cmake --build build/ --target rebuild_cache
 
 
 
-## The Project Commnads
+## The Project Command
 ```bash
-cmake-format --dump-config > .cmake-format.yml
-clang-format -dump-config -style=Google > .clang-format
+ruby format-codes.rb
 ```
