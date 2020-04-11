@@ -1,0 +1,40 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+package Project_C++ as project {
+    rectangle header.hxx <<Folder: ./include/local/>> as header
+    rectangle main.cxx <<Folder: ./src/>> as main
+    rectangle major.cxx <<Folder: ./src/>> as major
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+    note top of src_list
+        include_directories(
+            ${PROJECT_SOURCE_DIR}/include/local/
+        )
+    endnote
+    note bottom of main
+        ＃include “<header.hxx>”
+    endnote
+    note bottom of major
+        ＃include “<header.hxx>”
+    endnote
+}
+
+begin *--> src_list
+src_list --> main
+src_list --> major
+src_list --> header
+
+title
+    What is This Structure of Project "basic_110"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

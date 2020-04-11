@@ -1,32 +1,172 @@
-# C++ Application with 'CMake'
+<h2>Hello, <code>Common</code> Header!</h2>
+<h3>Linking a Comman Include file in <code>C++</code></h3>
 
-## Prerequisite
-- [VS Code](https://code.visualstudio.com/) OR [Eclipse Theia](https://theia-ide.org/)
-- [CMake](https://cmake.org/)
-- [VS Code Extension "CMake Tool"](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) 
-- [VS Code Extension "CMake"](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
-- [Tool 'clang-format'](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
-- [Python 3.7+](https://www.python.org/)
-- [Ruby 2.7.1+](https://www.ruby-lang.org/en/)
-- [Tool 'cmake_format'](https://github.com/cheshirekow/cmake_format)
+[@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
+Code: basic_110</br>
+Nickname: Hello, Common Header!</br>
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-01.m4a"></p>
 
-## Liste
-- **Hello, CMake!** Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
-- **Hello, Ninja!** Hello Application with 'CMake' and 'Ninja' "basic_102" [Youtube Video](https://youtu.be/wPpknWBG3v4) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_102)
-- **Hello, 'ccmake'!** 'CMake' Tool 'ccmake' "basic_103" [Youtube Video](https://youtu.be/yV7kopPr2Dk) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_103)
-- **Hello, 'cmake'!** Where are The 'CMake' Commands from? "basic_104" [Youtube Video](https://youtu.be/Dkfdqyeh4OM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_104)
-- **Hello, VS Code!** Develop The 'CMake' Project with VS Code "basic_105" [Youtube Video](https://youtu.be/GgImAx-TTfY) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_105)
-- **Hello, CMake Script!** CMake's Scripting Language for Building Systems "basic_106" [Youtube Video](https://youtu.be/frS4Zc4zhMU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_106)
-- **Hell, 'cmake_format'!** How to Format the '<code>CMake</code>'s File</h1> "basic_107" [Youtube Video](https://youtu.be/mhM12sqDKpE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_107)
-- **Hello, C++ Style!** Formatting the 'C/C++'s Codes "basic_108" [Youtube Video](https://youtu.be/uN6OollV1xo) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_108)
-- **Hello, C++ Header!** Using a Include File from Other Folder "basic_109" [Youtube Video](https://youtu.be/dHt_i7-sBNM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_109)
+
+
+* [Youtube Video](https://youtu.be/XHcIdPFaTw0)
+
+
+
+<h2>TABLE of CONTENTS</h2>
+
+- [What is This Structure of Project "basic_110"?](#what-is-this-structure-of-project-%22basic110%22)
+  - [The Bridge Between <code>C++</code> Files and A Include File](#the-bridge-between-c-files-and-a-include-file)
+  - [How to Use the <code>'include_directories'</code> Command?](#how-to-use-the-includedirectories-command)
+  - [Code of The <code>'include_directories'</code> Command](#code-of-the-includedirectories-command)
+  - [Demonstrate This Structure and Code of Project](#demonstrate-this-structure-and-code-of-project)
+- [What does The <code>'include_directories'</code> Command mean in Compiler?](#what-does-the-includedirectories-command-mean-in-compiler)
+  - [Analyse The <code>'include_directories'</code> Command](#analyse-the-includedirectories-command)
+  - [Demonstrate Adding include directories to the Build](#demonstrate-adding-include-directories-to-the-build)
+- [Final Summary](#final-summary)
+- [References](#references)
+- [The Project Command](#the-project-command)
+  - [Formtting The Codes](#formtting-the-codes)
+  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
+  - [Build and Run The Project](#build-and-run-the-project)
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-02.m4a"></p>
+
+
+
+## What is This Structure of Project "basic_110"?
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-03.m4a"></p>
+
+
+
+![image](docs/110/images/what.png)
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-04.m4a"></p>
+
+
+
+### The Bridge Between <code>C++</code> Files and A Include File
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-05.m4a"></p>
+
+
+
+### How to Use the <code>'include_directories'</code> Command?
+![image](docs/110/images/how.png)
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-06.m4a"></p>
+
+
+
+### Code of The <code>'include_directories'</code> Command
+
+```bash
+#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
+# include_directories(
+#  INCLUDE_DIR_1 INCLUDE_DIR_2 INCLUDE_DIR_N
+# )
+include_directories(
+  ${PROJECT_SOURCE_DIR}/include/local/
+)
+add_executable(
+  main_110
+  main.cxx
+)
+add_executable(
+  major_110
+  major.cxx
+)
+#<!-- /markdown-exec -->
+```
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-07.m4a"></p>
+
+
+
+### Demonstrate This Structure and Code of Project
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/110/video/basic_110-08.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
+## What does The <code>'include_directories'</code> Command mean in Compiler?
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-09.m4a"></p>
+
+
+
+### Analyse The <code>'include_directories'</code> Command
+```bash
+cmake --build build/ --clean-first -v
+c++ --help | rg "\-(c |o <|I <)"
+```
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-10.m4a"></p>
+
+
+
+### Demonstrate Adding include directories to the Build
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/110/video/basic_110-11.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
+## Final Summary
+![image](docs/110/images/how.png)
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-12.m4a"></p>
+
+
+
+<h1><!-- markdown-exec(cmd:echo "感谢大家观看!") -->感谢大家观看!<!-- /markdown-exec --></h1>
+
+@Gitter: gitter.im/cnruby<br/>
+
+@Github: github.com/cnruby<br/>
+
+@Twitter: twitter.com/cnruby<br/>
+
+@Blogspot: cnruby.blogspot.com
+
+
 
 ## References
-- [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
-- [Modern CMake](https://cliutils.gitlab.io/modern-cmake/)
-- [CMake Community Wiki](https://gitlab.kitware.com/cmake/community/-/wikis/home)
+- https://cmake.org/cmake/help/latest/command/include_directories.html
+- https://cmake.org/cmake/help/latest/command/target_include_directories.html
+- https://stackoverflow.com/questions/31969547/what-is-the-difference-between-include-directories-and-target-include-directorie
+- https://stackoverflow.com/questions/26243169/cmake-target-include-directories-meaning-of-scope
+- https://gitlab.kitware.com/cmake/cmake/issues/19802
+- https://pabloariasal.github.io/2018/02/19/its-time-to-do-cmake-right/
+- http://mariobadr.com/creating-a-header-only-library-with-cmake.html
+- https://stackoverflow.com/questions/18869282/initialize-char
+- https://stackoverflow.com/questions/2587349/initializing-char-and-char-pointers
+- https://stackoverflow.com/questions/18963888/c-char-initialization-in-constructor
+- https://stackoverflow.com/questions/13703647/how-to-properly-add-include-directories-with-cmake
+- https://stackoverflow.com/questions/9834067/difference-between-char-and-const-char
+- https://stackoverflow.com/questions/2186246/what-is-o-file
+- https://www.online-convert.com/file-format/o
 
-## @cnruby
-- [@Gitter](https://gitter.im/cnruby)
-- [@Blog](https://www.blogger.com/blogger.g?tab=mj1&blogID=19758264#allposts/postNum=0)
-- [@Twitter](https://twitter.com/cnruby)
+
+
+## The Project Command
+
+
+
+### Formtting The Codes
+```bash
+ruby format-codes.rb
+```
+
+
+### Get The Code with Shell Commands
+```bash
+git clone https://github.com/cnruby/w3h1_cmake.git basic_110
+cd basic_110
+git checkout basic_110
+code .
+```
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-05.m4a"></p>
+
+
+
+### Build and Run The Project
+```bash
+cmake -GNinja -Bbuild/
+cmake --build build/
+./bin/main_110
+./bin/major_110
+```
+<p class ="fragment" data-audio-src="docs/110/audio/basic_110-10.m4a"></p>

@@ -1,0 +1,45 @@
+@startuml
+scale 600 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+package target_include_directories as target {
+    rectangle main <<target>> as cxx
+    Folder <<./include/local/>> as I2
+}
+
+rectangle main.cxx <<target: main>> as main_2
+rectangle header.hxx as header_2
+
+target *.(0).> header_2
+main_2 *--> cxx
+main_2 *..> header_2
+I2 *--> cxx
+
+
+
+package include_directories as include {
+    Folder <<./include/local/>> as I1
+}
+
+rectangle main.cxx as main
+rectangle major.cxx as major
+rectangle header.hxx as header
+
+main *..> header
+major *..> header
+include *.(0).> header
+
+
+
+title
+    How to Use the 'CMake' 'include_directories' Command?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
