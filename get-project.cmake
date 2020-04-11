@@ -30,6 +30,4 @@ if(GIT_FOUND)
 else()
   message("GIT NOT FOUND: = ${GIT_FOUND}")
 endif()
-# cmake -DRUN=0 -DPRORJECT_ID=basic_109 -P get-project.cmake
-# cmake -DRUN=1 -DPRORJECT_ID=basic_109 -P get-project.cmake
 #
