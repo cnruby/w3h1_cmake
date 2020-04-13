@@ -1,0 +1,9 @@
+# c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names  bin/main.cxx.o  -o ./bin/main_111
+[1/2] c++   -I../include/local -std=gnu++1z -MD -MT src/CMakeFiles/main_111.dir/main.cxx.o -MF src/CMakeFiles/main_111.dir/main.cxx.o.d -o src/CMakeFiles/main_111.dir/main.cxx.o -c ../src/main.cxx
+[2/2] : && c++   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  src/CMakeFiles/main_111.dir/main.cxx.o  -o ../bin/main_111   && :
+
+[1/2] c++ -I./include/local -std=gnu++1z -MD -MT bin/main.cxx.o -MF bin/main.cxx.o.d -o bin/main.cxx.o -c ./src/main.cxx
+[2/2] c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names  bin/main.cxx.o  -o ./bin/main_111
+
+[1/2] c++ -I./include/local -std=gnu++1z -MD -MT bin/main.cxx.o -MF bin/main.cxx.o.d -o bin/main.cxx.o -c ./src/main.cxx -v
+[2/2] c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names  bin/main.cxx.o  -o ./bin/main_111 -v
