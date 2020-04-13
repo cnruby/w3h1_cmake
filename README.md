@@ -20,6 +20,8 @@
 - **Hell, 'cmake_format'!** How to Format the '<code>CMake</code>'s File</h1> "basic_107" [Youtube Video](https://youtu.be/mhM12sqDKpE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_107)
 - **Hello, C++ Style!** Formatting the 'C/C++'s Codes "basic_108" [Youtube Video](https://youtu.be/uN6OollV1xo) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_108)
 - **Hello, C++ Header!** Using a Include File from Other Folder "basic_109" [Youtube Video](https://youtu.be/dHt_i7-sBNM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_109)
+- **Hello, Common Header!** Linking a Comman Include file in C++ "basic_110" [Youtube Video](https://youtu.be/XHcIdPFaTw0) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_110)
+- **Hello, C++ Library!** Build a Single Header File with CMake "basic_111" [Youtube Video](https://youtu.be/a0FdU06UGtQ) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_111)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
