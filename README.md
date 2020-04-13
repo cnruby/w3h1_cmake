@@ -8,6 +8,8 @@ Code Name: Hello, C++ Library!</br>
 <p class ="fragment" data-audio-src="docs/111/audio/basic_111-01.m4a"></p>
 
 
+* [Youtube Video](https://youtu.be/a0FdU06UGtQ)
+
 
 <h2>TABLE of CONTENTS</h2>
 
@@ -43,6 +45,7 @@ cd basic_111
 git checkout basic_111
 code .
 ```
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-03.m4a"></p>
 
 
 
@@ -60,25 +63,28 @@ code .
    └── main.cxx
 #<!-- /markdown-exec -->
 ```
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-04.m4a"></p>
 
 
 
 ### What is The <code>Process's</code> Structure of Project
 ![_image](docs/111/image/what-process.png)
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-05.m4a"></p>
 
 
 
 ### What is The <code>Command's</code> Structure of Project
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-06.m4a"></p>
 
 
 
 ![_image](docs/111/image/what-command.png)
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-04.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-07.m4a"></p>
 
 
 
 ## Build and Run The Project
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-08.m4a"></p>
 
 
 
@@ -92,7 +98,7 @@ add_executable(
 target_link_libraries(main_111 lib_111)
 #<!-- /markdown-exec -->
 ```
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-05.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-09.m4a"></p>
 
 
 
@@ -108,25 +114,25 @@ target_include_directories(
 )
 #<!-- /markdown-exec -->
 ```
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-10.m4a"></p>
 
 
 
 ### Demonstrate The Project
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/111/video/basic_111-11.mp4" autoplay=true type="video/mp4">
+  <source src="docs/111/video/basic_111-11.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
 ## Analyze The Build of Project
 ### How to Understand the Build's Process of Project
-
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-12.m4a"></p>
 
 
 
 ![_image](docs/111/image/how.png)
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-04.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-13.m4a"></p>
 
 
 
@@ -134,13 +140,13 @@ target_include_directories(
 ```bash
 cmake --build build/ --clean-first -v
 ```
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-10.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-14.m4a"></p>
 
 
 
 ### Demonstrate Build's Process on <code>Ninja</code>
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/111/video/basic_111-11.mp4" autoplay=true type="video/mp4">
+  <source src="docs/111/video/basic_111-15.mov" autoplay=true type="video/mp4">
 </video>
 
 
@@ -155,20 +161,20 @@ c++ -I./include/local -std=gnu++1z -MD -MT bin/main.cxx.o -MF  bin/main.cxx.o.d 
 c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names \
      bin/main.cxx.o  -o ./bin/main_111 -v
 ```
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-10.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-16.m4a"></p>
 
 
 
 ### Demonstrate Build's Process on <code>C++</code> Complier
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/111/video/basic_111-11.mp4" autoplay=true type="video/mp4">
+  <source src="docs/111/video/basic_111-17.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
 ## Final Summary
 ![_image](docs/111/image/what-process.png)
-<p class ="fragment" data-audio-src="docs/111/audio/basic_111-12.m4a"></p>
+<p class ="fragment" data-audio-src="docs/111/audio/basic_111-18.m4a"></p>
 
 
 
