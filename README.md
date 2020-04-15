@@ -72,23 +72,24 @@ add_executable(
 #)
 #<!-- /markdown-exec -->
 ```
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-05.m4a"></p>
 
 
 
 ### What is The <code>Command's</code> Structure of Project
 ![_image](docs/112/image/what-command.png)
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-04.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-06.m4a"></p>
 
 
 
 ### What is The <code>Process's</code> Structure of Project
 ![_image](docs/112/image/what-process.png)
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-04.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-07.m4a"></p>
 
 
 
 ## Analyze The Build of Project
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-08.m4a"></p>
 
 
 
@@ -106,26 +107,26 @@ c++ ./bin/main.cxx.o  -o ./bin/main_112
 ./bin/main_112
 #<!-- /markdown-exec -->
 ```
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-16.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-09.m4a"></p>
 
 
 
 ### Demonstrate Build's Process on <code>C++</code> Complier
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/112/video/basic_112-17.mov" autoplay=true type="video/mp4">
+  <source src="docs/112/video/basic_112-10.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
 ### How to Graph the relationship of Build's Process
 ![_image](docs/112/image/how.png)
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-18.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-11.m4a"></p>
 
 
 
 ## Final Summary
 ![_image](docs/112/image/what-process.png)
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-18.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-12.m4a"></p>
 
 
 
