@@ -95,7 +95,7 @@ add_executable(
 
 ### Build's Commands on <code>C++</code> Complier
 ```bash
-#<!-- markdown-exec(cmd:cat docs/cl.sh) -->#!/bin/sh
+#<!-- markdown-exec(cmd:cat shell/cl.sh) -->#!/bin/bash
 # compile
 c++  -c ./src/main.cxx -MD -MF ./bin/main.cxx.o.d \
   -o ./bin/main.cxx.o
@@ -166,7 +166,8 @@ cmake -GNinja -Bbuild/
 cmake --build build/ --clean-first -v
 ./bin/main_112
 rm ./bin/main.* ./bin/main_*
-./docs/cl.sh
-code ./docs/cl.sh
+./shell/start.sh
+code ./shell/start.sh
+code ./shell/cl.sh
 exa -T &> docs/tree.txt
 ```
