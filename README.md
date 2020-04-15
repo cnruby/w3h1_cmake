@@ -22,6 +22,8 @@
 - **Hello, C++ Header!** Using a Include File from Other Folder "basic_109" [Youtube Video](https://youtu.be/dHt_i7-sBNM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_109)
 - **Hello, Common Header!** Linking a Comman Include file in C++ "basic_110" [Youtube Video](https://youtu.be/XHcIdPFaTw0) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_110)
 - **Hello, C++ Library!** Build a Single Header File with CMake "basic_111" [Youtube Video](https://youtu.be/a0FdU06UGtQ) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_111)
+- **Hello, Default Include Paths!** Query the Default Include Directories "basic_112" [Youtube Video](https://youtu.be/-1hA3QqJKEw) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_112)
+
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
