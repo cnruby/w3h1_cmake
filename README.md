@@ -18,6 +18,7 @@ Code Name: Hello, Default Include Paths!</br>
   - [<code>CMake</code> Code](#cmake-code)
   - [What is The <code>Command's</code> Structure of Project](#what-is-the-commands-structure-of-project)
   - [What is The <code>Process's</code> Structure of Project](#what-is-the-processs-structure-of-project)
+  - [Demonstrate Build's Process in <code>CMake<code>](#demonstrate-builds-process-in-codecmakecode)
 - [Analyze The Build of Project](#analyze-the-build-of-project)
   - [Build's Commands on <code>C++</code> Complier](#builds-commands-on-c-complier)
   - [Demonstrate Build's Process on <code>C++</code> Complier](#demonstrate-builds-process-on-c-complier)
@@ -88,8 +89,15 @@ add_executable(
 
 
 
+### Demonstrate Build's Process in <code>CMake<code>
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/112/video/basic_112-08.mov" autoplay=true type="video/mp4">
+</video>
+
+
+
 ## Analyze The Build of Project
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-08.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-09.m4a"></p>
 
 
 
@@ -103,26 +111,26 @@ c++  -c ./src/main.cxx -MD -MF ./bin/main.cxx.o.d \
 c++ ./bin/main.cxx.o  -o ./bin/main_112
 #<!-- /markdown-exec -->
 ```
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-10.m4a"></p>
 
 
 
 ### Demonstrate Build's Process on <code>C++</code> Complier
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/112/video/basic_112-10.mov" autoplay=true type="video/mp4">
+  <source src="docs/112/video/basic_112-11.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
 ### How to Graph the relationship of Build's Process
 ![_image](docs/112/image/how.png)
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-12.m4a"></p>
 
 
 
 ## Final Summary
 ![_image](docs/112/image/what-process.png)
-<p class ="fragment" data-audio-src="docs/112/audio/basic_112-12.m4a"></p>
+<p class ="fragment" data-audio-src="docs/112/audio/basic_112-13.m4a"></p>
 
 
 
