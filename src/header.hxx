@@ -15,7 +15,7 @@ class Header {
   void hello();
 };
 
-void Header::hello() { std::cout << "Hello, Default Include Paths!" << name << "!" << std::endl; }
+void Header::hello() { std::cout << "Hello, Default Include Paths from" << name << "!" << std::endl; }
 Header::Header(const char* _name) {
   name = _name;
 }
