@@ -96,15 +96,11 @@ add_executable(
 ### Build's Commands on <code>C++</code> Complier
 ```bash
 #<!-- markdown-exec(cmd:cat docs/cl.sh) -->#!/bin/sh
-rm ./bin/main.* ./bin/main_*
-read -p "Press [Enter] key to start build..."
-echo
 # compile
 c++  -c ./src/main.cxx -MD -MF ./bin/main.cxx.o.d \
   -o ./bin/main.cxx.o
 # link
 c++ ./bin/main.cxx.o  -o ./bin/main_112
-./bin/main_112
 #<!-- /markdown-exec -->
 ```
 <p class ="fragment" data-audio-src="docs/112/audio/basic_112-09.m4a"></p>
