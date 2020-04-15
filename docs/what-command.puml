@@ -1,43 +1,34 @@
 @startuml
-scale 800 width
+scale 1000 width
 skinparam backgroundColor #FFEBDC
-scale 0.65
+scale 1.3
 
-package C++_Main <<main_111>> as cxx_main {
-    package add_executable <<...>> {
-        rectangle main_111 <<Target Executable Name>> as main_111
-        rectangle main.cxx <<Source Name>> as main_cxx
-    }
-    package target_link_libraries <<...>> {
-        rectangle main_111 <<Target Executable Name>> as main_111_link
-        rectangle lib_111 <<Target Library Name>> as library_link
-    }
-
-    main_111 *--> main_cxx
-    main_111 *--> main_111_link
-    main_111_link *--> library_link
+skinparam Folder {
+  backgroundColor pink
+  borderColor orange
 }
 
-package C++_Library <<lib_111>> as cxx_lib {
-    package add_library <<INTERFACE>> as add_library {
-        rectangle lib_111 <<Target Library Name>>
-    }
-    package target_include_directories <<INTERFACE>> as target_lib {
-        Folder <<./include/local/>> as local
-        rectangle lib_111 <<Target Library Name>> as library
-    }
-    rectangle header.hxx as header
+rectangle "./src/header.hxx" <<Header Name>> as header_hxx
 
-    add_library *--> library
-    library *--> local
-    target_lib *.(0).> header
+package C++_Main <<main_112>> as cxx_main {
+    package add_executable <<./src/>> {
+        rectangle main_112 <<Target Executable Name>> as main_exe
+        rectangle "./src/main.cxx" <<Source Name>> as main_cxx
+    }
+
+    Folder target_include_directories <<PRIVATE>> as main_include_dir {
+        Folder main_112 <<Target Executable Name>> as main_exe_include
+        Folder <<./src/>> as header_dir
+    }
+
+    main_exe *--> main_cxx
+    main_exe .(0).> main_exe_include
+    header_dir .right.> header_hxx
 }
-
-library_link *.right.> add_library
 
 
 title
-    What is This Command's Structure of Project "basic_111"?
+    What is This Command's Structure of Project "basic_112"?
 end title
 
 header

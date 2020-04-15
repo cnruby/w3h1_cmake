@@ -7,44 +7,36 @@ skinparam state {
   BackgroundColor<<O-File>> Olive
 }
 
-[*] --> CXX_Main
+[*] --> MAIN_COMPILE : BEGIN
 
-state HXX_LIB {
-  state "Target Library Name" as lib_111
-  lib_111 : lib_111
-  state "Header Directory Name" as header_dir
-  header_dir : ${PROJECT_SOURCE_DIR}/include/local/
+state MAIN_COMPILE {
+  state "-I./lib/header.hxx" as header_hxx_main
+  header_hxx_main : "./src/main.cxx"
+  state "./bin/main.cxx.o" as main_cxx_o <<O-File>>
+  main_cxx_o : "OUTPUT File"
 
-  [*] -right-> lib_111 : add_library
-  lib_111 --> lib_111 : INTERFACE
-  lib_111 --> header_dir : target_include_directories
-  header_dir --> header_dir : INTERFACE
+  state "./bin/main.cxx.o.d" as main_cxx_o_d <<O-File>>
+  main_cxx_o_d : "OUTPUT File"
+
+  [*] -right-> header_hxx_main : 1/2
+  header_hxx_main -> main_cxx_o : "INPUT FILE"
+  header_hxx_main -right-> main_cxx_o_d : "INPUT FILE"
+  main_cxx_o_d -> main_cxx_o : "INPUT FILE"
 }
 
-state CXX_Main {
-  state "Target Executable Name" as main_111
-  main_111 : main_111
-  state "Source File Name" as main_cxx
-  main_cxx : main.cxx
+state MAIN_LINK {
+  state "./bin/main.cxx.o" as main_cxx_link
+  main_cxx_link : main.cxx.o
+  state "**./bin/main_112**" as main_112 <<O-File>>
+  main_112 : "OUTPUT File"
 
-  [*] -right-> main_111
-  main_111 --> main_cxx : add_executable
-  main_111 --> lib_111 : target_link_libraries(main_111 lib_111)
+  [*] -right-> main_cxx_link : 2/2
+  main_cxx_o --> main_cxx_link : "INPUT FILE"
+  main_cxx_link -> main_112 : link 'main.cxx'
 }
-
-state "${PROJECT_SOURCE_DIR}/include/local/" as local
-local : header.hxx
-header_dir --> local : Compiler
-'main_cxx --> local : Compiler
-
-state "build/rc/CMakeFiles/main_111.dir/" as o_file <<O-File>>
-o_file : main.cxx.o
-local -right-> o_file
-CXX_Main --> o_file
-'lib_111 --> main_cxx
 
 title
-    How to Build the State of Project "basic_111"?
+    How to Build the State of Project "basic_112"?
 end title
 
 header

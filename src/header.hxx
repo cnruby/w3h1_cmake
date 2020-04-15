@@ -9,10 +9,15 @@
 const unsigned int MILISECONDS_IN_DAY = 86400000;
 
 class Header {
+  const char* name;
   public:
-  void hello(const char*);
+  Header(const char*);
+  void hello();
 };
 
-void Header::hello(const char* name) { std::cout << "Hello, Library from " << name << "!" << std::endl; }
+void Header::hello() { std::cout << "Hello, Default Include Paths!" << name << "!" << std::endl; }
+Header::Header(const char* _name) {
+  name = _name;
+}
 
 #endif
