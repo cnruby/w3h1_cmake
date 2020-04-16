@@ -17,7 +17,10 @@ set(
   ${PROJECT_SOURCE_DIR}/bin
 )
 
-set(LIB_DIR ${PROJECT_SOURCE_DIR}/lib/)
+set(
+  LIB_DIR
+  ${PROJECT_SOURCE_DIR}/lib/
+)
 
 add_subdirectory(src)
 add_subdirectory(lib)

@@ -5,8 +5,7 @@ add_executable(
 )
 target_include_directories(
   main_113
-  PRIVATE
-  ${LIB_DIR}/
+  PRIVATE ${LIB_DIR}/
 )
 target_link_libraries(main_113 lib_113)
 #
