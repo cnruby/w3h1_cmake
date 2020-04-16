@@ -23,6 +23,8 @@
 - **Hello, Common Header!** Linking a Comman Include file in C++ "basic_110" [Youtube Video](https://youtu.be/XHcIdPFaTw0) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_110)
 - **Hello, C++ Library!** Build a Single Header File with CMake "basic_111" [Youtube Video](https://youtu.be/a0FdU06UGtQ) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_111)
 - **Hello, Default Include Paths!** Query the Default Include Directories "basic_112" [Youtube Video](https://youtu.be/-1hA3QqJKEw) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_112)
+- **Hello, Static Library!** Creating, Building and Using Static Library "basic_113" [Youtube Video](https://youtu.be/ztmYpK7lFCI) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_113)
+
 
 
 ## References
