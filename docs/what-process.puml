@@ -1,0 +1,59 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1.2
+
+package Project_C++ as project {
+    rectangle header.hxx <<Folder: **./lib/**>> as header_hxx
+    rectangle header.cxx <<Folder: **./lib/**>> as header_cxx
+    rectangle main.cxx <<Folder: ./src/>> as main
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+    rectangle CMakeLists.txt <<Folder: ./lib/>> as lib_list
+    'rectangle main_cxx.o <<Binary File>> as o_file
+
+    note right of begin
+        add_subdirectory(lib)
+        add_subdirectory(src)
+    endnote
+    note top of lib_list
+        add_library(
+            lib_113 STATIC
+            ${LIB_DIR}/header.cxx
+        )
+    endnote
+    note right of src_list
+        add_executable(
+            main_113
+            main.cxx
+        )
+        target_include_directories(
+            main_113
+            PRIVATE
+            ${LIB_DIR}
+        )
+        target_link_libraries(
+            main_113
+            lib_113
+        )
+    endnote
+}
+
+begin *--> src_list
+begin *--> lib_list
+src_list -left-> main
+'local_list .(0).> main
+lib_list -left-> header_cxx
+lib_list -left-> header_hxx
+
+title
+    What is This Process's Structure of Project "basic_113"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
