@@ -34,3 +34,6 @@ bin/*
 build/*
 .DS_Store
 .DS_Store/*
+
+*.mov
+*.m4a
