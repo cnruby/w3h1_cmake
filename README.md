@@ -40,6 +40,8 @@ Code Name: Hello, Static Library!</br>
 
 
 
+## What is This Structure of Project?
+### The <code>Folder's</code> Structure
 ```bash
 #<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
 .
@@ -53,8 +55,6 @@ Code Name: Hello, Static Library!</br>
    └── main.cxx
 #<!-- /markdown-exec -->
 ```
-## What is This Structure of Project?
-### The <code>Folder's</code> Structure
 <p class ="fragment" data-audio-src="docs/113/audio/basic_113-03.m4a"></p>
 
 
