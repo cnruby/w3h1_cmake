@@ -37,3 +37,4 @@ build/*
 
 *.mov
 *.m4a
+docs/*/*.md
