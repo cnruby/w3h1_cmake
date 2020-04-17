@@ -9,7 +9,10 @@
 const unsigned int MILISECONDS_IN_DAY = 86400000;
 
 struct Header {
-  void hello(const char*);
+  const char* name;
+
+  Header(const char*);
+  void hello();
 };
 
 #endif

@@ -1,11 +1,11 @@
 #
 add_executable(
-  main_113
+  main_114
   main.cxx
 )
 target_include_directories(
-  main_113
-  PRIVATE ${LIB_DIR}/
+  main_114
+  PRIVATE ${LIB_DIR}/include/
 )
-target_link_libraries(main_113 lib_113)
+target_link_libraries(main_114 lib_114)
 #

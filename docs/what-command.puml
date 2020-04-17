@@ -1,61 +1,61 @@
 @startuml
-scale 1000 width
+scale 700 width
 skinparam backgroundColor #FFEBDC
-scale 0.6
+scale 1.5
 
 skinparam Folder {
   backgroundColor Olive
   borderColor orange
 }
 
-package C++_Main <<main_113>> as cxx_main {
+package C++_Main <<main_114>> as cxx_main {
     package target_link_libraries <<...>> {
-        rectangle main_113 <<Target Executable Name>> as main_113_link
-        rectangle lib_113 <<Target Library Name>> as library_link
+        rectangle main_114 <<Target Executable Name>> as main_114_link
+        rectangle lib_114 <<Target Library Name>> as library_link
     }
     package add_executable <<...>> {
-        rectangle main_113 <<Target Executable Name>> as main_113
+        rectangle main_114 <<Target Executable Name>> as main_114
         rectangle main.cxx <<Source Name>> as main_cxx
     }
     Folder target_include_directories <<**PRIVATE**>> as include_exe {
-        rectangle main_113 <<Target Executable Name>> as exe_113
-        Folder <<./lib/>> as main_lib_dir
+        rectangle main_114 <<Target Executable Name>> as exe_114
+        rectangle "./lib/include/" <<INCLUDE DIRS>> as lib_dir
     }
 
-    main_113 *--> main_cxx
-    main_113 *--> exe_113
-    exe_113 *--> main_lib_dir
-    main_113 *--> main_113_link
-    main_113_link *--> library_link
+    main_114 *--> main_cxx
+    main_114 *--> exe_114
+    exe_114 *--> lib_dir
+    main_114 *--> main_114_link
+    main_114_link *--> library_link
 }
 
 
-package C++_Library <<lib_113>> as cxx_lib {
+package C++_Library <<lib_114>> as cxx_lib {
     package add_library <<STATIC>> as add_library {
-        rectangle lib_113 <<Target Library Name>> as lib
+        rectangle lib_114 <<Target Library Name>>
     }
-    'Folder target_include_directories <<**PRIVATE**>> as include_lib {
-    '    Folder <<./lib/>> as lib_dir
-    '    rectangle lib_113 <<Target Library Name>>
-    '}
+    Folder target_include_directories <<**PRIVATE**>> as include_lib {
+        rectangle lib_114 <<Target Library Name>> as library
+        rectangle "./lib/include/" <<INCLUDE DIRS>> as lib
+    }
     package Library_Code <<**./lib/**>> as library_code {
-        rectangle header.hxx as header_hxx
-        rectangle header.cxx as header_cxx
+        rectangle header.hxx <<./lib/include/>> as header_hxx
+        rectangle header.cxx <<./lib/impl/>> as header_cxx
     }
 
-    lib *.right.> lib_113
-    lib *--> header_cxx
-    lib_113 *..> lib_dir
-    lib_dir *.(0).> header_hxx
+    lib_114 *-right-> library
+    lib_114 *--> header_cxx
+    library *--> lib
+    lib *.(0).> header_hxx
 }
 
 cxx_main -(0)-> cxx_lib
-'library_link *.(0).> lib_113
-main_lib_dir *.(0).> header_hxx
+'library_link *.(0).> library
+lib_dir *.(0).> header_hxx
 
 
 title
-    What is This Command's Structure of Project "basic_113"?
+    What is This Command's Structure of Project "basic_114"?
 end title
 
 header

@@ -3,8 +3,10 @@
 ├── CMakeLists.txt
 ├── lib
 │  ├── CMakeLists.txt
-│  ├── header.cxx
-│  └── header.hxx
+│  ├── impl
+│  │  └── header.cxx
+│  └── include
+│     └── header.hxx
 └── src
    ├── CMakeLists.txt
    └── main.cxx

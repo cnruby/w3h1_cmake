@@ -7,10 +7,10 @@ set(
   17
 )
 project(
-  basic_113
+  basic_114
   VERSION 0.1.0
   LANGUAGES CXX
-  DESCRIPTION "basic_113 Hello, Static Library!"
+  DESCRIPTION "basic_114 Hello, Different Folders!"
 )
 set(
   CMAKE_RUNTIME_OUTPUT_DIRECTORY
