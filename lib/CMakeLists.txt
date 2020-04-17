@@ -5,7 +5,6 @@ add_library(
 )
 target_include_directories(
   lib_114
-  PRIVATE
-  ${LIB_DIR}/include/
+  PRIVATE ${LIB_DIR}/include/
 )
 #
