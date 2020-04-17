@@ -1,6 +1,6 @@
 #
 add_library(
-  lib_113 SHARED
+  lib_113 STATIC
   ${LIB_DIR}/header.cxx
 )
 #target_include_directories(
