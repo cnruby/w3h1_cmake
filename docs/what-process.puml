@@ -1,53 +1,57 @@
 @startuml
 scale 700 width
 skinparam backgroundColor #FFEBDC
-scale 1.2
+scale 1
 
 package Project_C++ as project {
-    rectangle header.hxx <<Folder: **./lib/**>> as header_hxx
-    rectangle header.cxx <<Folder: **./lib/**>> as header_cxx
+    rectangle header.hxx <<Folder: **./lib/include/**>> as header_hxx
+    rectangle header.cxx <<Folder: **./lib/impl/**>> as header_cxx
     rectangle main.cxx <<Folder: ./src/>> as main
     rectangle CMakeLists.txt <<Folder: ./>> as begin
     rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
-    rectangle CMakeLists.txt <<Folder: ./lib/>> as lib_list
+    rectangle CMakeLists.txt <<Folder: ./lib/inclide/>> as include_list
     'rectangle main_cxx.o <<Binary File>> as o_file
 
     note right of begin
         add_subdirectory(lib)
         add_subdirectory(src)
     endnote
-    note top of lib_list
+    note bottom of main
+        ＃include “header.hxx”
+    endnote
+    note top of include_list
         add_library(
-            lib_113 STATIC
-            ${LIB_DIR}/header.cxx
+            lib_115
+            STATIC
+            ${INCLUDE_DIR}/impl/header.cxx
+        )
+        target_include_directories(
+            lib_115
+            **PUBLIC**
+            ${INCLUDE_DIR}/include/
         )
     endnote
     note right of src_list
         add_executable(
-            main_113
+            main_115
             main.cxx
         )
-        target_include_directories(
-            main_113
-            PRIVATE
-            ${LIB_DIR}
-        )
         target_link_libraries(
-            main_113
-            lib_113
+            main_115
+            lib_115
         )
     endnote
 }
 
 begin *--> src_list
-begin *--> lib_list
+begin *--> include_list
 src_list -left-> main
 'local_list .(0).> main
-lib_list -left-> header_cxx
-lib_list -left-> header_hxx
+include_list -left-> header_cxx
+include_list -left-> header_hxx
 
 title
-    What is This Process's Structure of Project "basic_113"?
+    What is This Process's Structure of Project "basic_115"?
 end title
 
 header
