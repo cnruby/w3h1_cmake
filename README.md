@@ -163,6 +163,4 @@ cmake --build build/ --clean-first -v
 cmake --build build/ --target clean
 cmake --build build/ --clean-first -v &> v11.txt
 ./bin/main_115
-rm -rf ./build/ ./bin/*
-./shell/start.sh
 ```
