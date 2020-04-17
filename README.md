@@ -25,6 +25,8 @@
 - **Hello, Default Include Paths!** Query the Default Include Directories "basic_112" [Youtube Video](https://youtu.be/-1hA3QqJKEw) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_112)
 - **Hello, Static Library!** Creating, Building and Using Static Library "basic_113" [Youtube Video](https://youtu.be/ztmYpK7lFCI) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_113)
 - **Hello, Different Folders!** Storing Header and Implementation File in Different Folders "basic_114" [Youtube Video](https://youtu.be/nTc_m7ELkzE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_114)
+- **Hello, PRIVATE/PUBLIC!** Difference between PRIVATE/PUBLIC with target_include_directories "basic_115" [Youtube Video](https://youtu.be/pmRWYYEXLoc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_115)
+
 
 
 ## References
