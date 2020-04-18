@@ -9,7 +9,7 @@
 const unsigned int MILISECONDS_IN_DAY = 86400000;
 
 // macro function
-#define MAX(a,b) ((a < b) ? (b) : (a))
+#define MAX(a, b) ((a < b) ? (b) : (a))
 
 // general function
 short maxShort(short, short);

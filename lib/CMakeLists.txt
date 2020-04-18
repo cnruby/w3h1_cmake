@@ -4,8 +4,7 @@ add_library(
   ${LIB_DIR}/impl/header.cxx
 )
 target_include_directories(
-    lib_115
-    PUBLIC
-    ${LIB_DIR}/include/
+  lib_115
+  PUBLIC ${LIB_DIR}/include/
 )
 #

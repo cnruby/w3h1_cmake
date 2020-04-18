@@ -4,12 +4,12 @@
 
 void Header::hello(const char* name) {
   std::cout << "Hello, Static Library from " << name << "!" << std::endl
-    << std::endl;
+            << std::endl;
 }
 
 char Header::maxChar(char s, char t) {
   char v;
-  if(s < t)
+  if (s < t)
     v = t;
   else
     v = s;
@@ -18,7 +18,7 @@ char Header::maxChar(char s, char t) {
 
 short maxShort(short x, short y) {
   short z = 0;
-  if(x < y)
+  if (x < y)
     z = y;
   else
     z = x;
