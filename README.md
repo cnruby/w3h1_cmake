@@ -26,6 +26,7 @@
 - **Hello, Static Library!** Creating, Building and Using Static Library "basic_113" [Youtube Video](https://youtu.be/ztmYpK7lFCI) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_113)
 - **Hello, Different Folders!** Storing Header and Implementation File in Different Folders "basic_114" [Youtube Video](https://youtu.be/nTc_m7ELkzE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_114)
 - **Hello, PRIVATE/PUBLIC!** Difference between PRIVATE/PUBLIC with target_include_directories "basic_115" [Youtube Video](https://youtu.be/pmRWYYEXLoc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_115)
+- **Hello, Configure File!** Generating a C++ Configure File with CMake "basic_116" [Youtube Video](https://youtu.be/thJFmINbG0U) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_116)
 
 
 
