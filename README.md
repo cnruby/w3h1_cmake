@@ -267,4 +267,5 @@ cmake --build build/ --clean-first
 cmake --build build/ --clean-first
 # others
 markdown-exec README.md
+ruby format-codes.rb
 ```
