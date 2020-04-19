@@ -1,0 +1,73 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+package Project_C++ as project {
+    rectangle main.cxx <<Folder: ./src/>> as main
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+    rectangle config.h.in <<Folder: ./cmake/>> as config_h_in
+    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
+    cloud config.hxx <<Folder: ./config/>> as config_hxx
+
+
+    note bottom of config_h_in
+        == Step 1 ==
+        ...
+        ＃define PROJECT_NAME "@PROJECT_NAME@"
+    endnote
+    note bottom of config_hxx
+        == Step 2 ==
+        ...
+        ＃define PROJECT_NAME "basic_116"
+    endnote
+    note bottom of main
+        == Step 3 ==
+        ...
+        ＃include "config.hxx"
+        ...
+        std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
+    endnote
+
+
+    note right of begin
+        add_subdirectory(cmake)
+        add_subdirectory(src)
+    endnote
+    note top of cmake_list
+        configure_file(
+            ${PROJECT_SOURCE_DIR}/cmake/config.h.in
+            ${PROJECT_SOURCE_DIR}/config/config.hxx
+        )
+    endnote
+    note right of src_list
+        add_executable(
+            main_116
+            main.cxx
+        )
+        target_include_directories(
+            main_116
+            PRIVATE
+            ${PROJECT_CONIFG_DIR}
+        )
+    endnote
+}
+
+begin *--> src_list
+begin *--> cmake_list
+src_list -left-> main
+cmake_list -left-> config_h_in
+cmake_list -left-> config_hxx
+
+title
+    What is This Process's Structure of Project "basic_116"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
