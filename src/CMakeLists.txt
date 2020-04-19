@@ -5,8 +5,7 @@ add_executable(
 )
 target_include_directories(
   main_116
-  PRIVATE
-  ${PROJECT_CONIFG_DIR}
+  PRIVATE ${PROJECT_CONIFG_DIR}
 )
 
 message("\nFROM src/CMakeLists.txt")
