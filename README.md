@@ -8,6 +8,7 @@
 - [Tool 'clang-format'](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 - [Python 3.7+](https://www.python.org/)
 - [Ruby 2.7.1+](https://www.ruby-lang.org/en/)
+- [Rust 1.42.0+](https://www.rust-lang.org/)
 - [Tool 'cmake_format'](https://github.com/cheshirekow/cmake_format)
 
 ## Liste
