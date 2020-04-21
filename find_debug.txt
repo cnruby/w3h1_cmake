@@ -1,0 +1,551 @@
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineSystem.cmake:35 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_UNAME
+    NAMES: "uname"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Users/Simon/Library/Python/3.7/bin/uname
+    /Applications/CMake.app/Contents/bin/uname
+    /Users/Simon/.cargo/bin/uname
+    /usr/local/bin/uname
+
+  The item was found at
+
+    /usr/bin/uname
+
+Call Stack (most recent call first):
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeNinjaFindMake.cmake:5 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_MAKE_PROGRAM
+    NAMES: "ninja-build"
+           "ninja"
+           "samu"
+    Documentation: Program used to build from build.ninja files.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Users/Simon/Library/Python/3.7/bin/ninja-build
+    /Users/Simon/Library/Python/3.7/bin/ninja
+    /Users/Simon/Library/Python/3.7/bin/samu
+    /Applications/CMake.app/Contents/bin/ninja-build
+    /Applications/CMake.app/Contents/bin/ninja
+    /Applications/CMake.app/Contents/bin/samu
+    /Users/Simon/.cargo/bin/ninja-build
+    /Users/Simon/.cargo/bin/ninja
+    /Users/Simon/.cargo/bin/samu
+    /usr/local/bin/ninja-build
+
+  The item was found at
+
+    /usr/local/bin/ninja
+
+Call Stack (most recent call first):
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCompiler.cmake:56 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_CXX_COMPILER
+    NAMES: "c++"
+           "g++"
+           "cl"
+           "bcc"
+           "clang++"
+    Documentation: CXX compiler
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Users/Simon/Library/Python/3.7/bin/c++
+    /Applications/CMake.app/Contents/bin/c++
+    /Users/Simon/.cargo/bin/c++
+    /usr/local/bin/c++
+
+  The item was found at
+
+    /usr/bin/c++
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:64 (_cmake_find_compiler)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCompilerId.cmake:212 (find_file):
+  find_file called with the following settings:
+
+    VAR: src_in
+    NAMES: "CMakeCXXCompilerId.cpp.in"
+    Documentation: Path to a file.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    NO_DEFAULT_PATH Enabled
+
+  find_file considered the following locations:
+
+    
+
+  The item was found at
+
+    /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeCXXCompilerId.cpp.in
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCompilerId.cmake:234 (CMAKE_DETERMINE_COMPILER_ID_WRITE)
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCompilerId.cmake:32 (CMAKE_DETERMINE_COMPILER_ID_BUILD)
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:111 (CMAKE_DETERMINE_COMPILER_ID)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:104 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_AR
+    NAMES: "ar"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+  The item was found at
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:106 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_RANLIB
+    NAMES: "ranlib"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+  The item was found at
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:112 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_STRIP
+    NAMES: "strip"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+  The item was found at
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:113 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_LINKER
+    NAMES: "ld"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+  The item was found at
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:114 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_NM
+    NAMES: "nm"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+  The item was found at
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/nm
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:115 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_OBJDUMP
+    NAMES: "objdump"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+  The item was found at
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:117 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_OBJCOPY
+    NAMES: "objcopy"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objcopy
+    /Users/Simon/Library/Python/3.7/bin/objcopy
+    /Applications/CMake.app/Contents/bin/objcopy
+    /Users/Simon/.cargo/bin/objcopy
+    /usr/local/bin/objcopy
+    /usr/bin/objcopy
+    /bin/objcopy
+    /usr/sbin/objcopy
+    /sbin/objcopy
+    /Library/TeX/texbin/objcopy
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:117 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_READELF
+    NAMES: "readelf"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/readelf
+    /Users/Simon/Library/Python/3.7/bin/readelf
+    /Applications/CMake.app/Contents/bin/readelf
+    /Users/Simon/.cargo/bin/readelf
+    /usr/local/bin/readelf
+    /usr/bin/readelf
+    /bin/readelf
+    /usr/sbin/readelf
+    /sbin/readelf
+    /Library/TeX/texbin/readelf
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:118 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_DLLTOOL
+    NAMES: "dlltool"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dlltool
+    /Users/Simon/Library/Python/3.7/bin/dlltool
+    /Applications/CMake.app/Contents/bin/dlltool
+    /Users/Simon/.cargo/bin/dlltool
+    /usr/local/bin/dlltool
+    /usr/bin/dlltool
+    /bin/dlltool
+    /usr/sbin/dlltool
+    /sbin/dlltool
+    /Library/TeX/texbin/dlltool
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeFindBinUtils.cmake:119 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_ADDR2LINE
+    NAMES: "addr2line"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/addr2line
+    /Users/Simon/Library/Python/3.7/bin/addr2line
+    /Applications/CMake.app/Contents/bin/addr2line
+    /Users/Simon/.cargo/bin/addr2line
+    /usr/local/bin/addr2line
+    /usr/bin/addr2line
+    /bin/addr2line
+    /usr/sbin/addr2line
+    /sbin/addr2line
+    /Library/TeX/texbin/addr2line
+
+  The item was not found.
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeDetermineCXXCompiler.cmake:188 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/Platform/Darwin.cmake:77 (find_program):
+  find_program called with the following settings:
+
+    VAR: CMAKE_INSTALL_NAME_TOOL
+    NAMES: "install_name_tool"
+    Documentation: Path to a program.
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Users/Simon/Library/Python/3.7/bin/install_name_tool
+    /Applications/CMake.app/Contents/bin/install_name_tool
+    /Users/Simon/.cargo/bin/install_name_tool
+    /usr/local/bin/install_name_tool
+
+  The item was found at
+
+    /usr/bin/install_name_tool
+
+Call Stack (most recent call first):
+  /Applications/CMake.app/Contents/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake:26 (include)
+  CMakeLists.txt:5 (project)
+
+
+CMake Debug Log at /Applications/CMake.app/Contents/share/cmake-3.17/Modules/FindGit.cmake:54 (find_program):
+  find_program called with the following settings:
+
+    VAR: GIT_EXECUTABLE
+    NAMES: "git"
+           "eg"
+    Documentation: Git command line client
+    Framework
+      Only Search Frameworks: 0
+      Search Frameworks Last: 0
+      Search Frameworks First: 1
+    AppBundle
+      Only Search AppBundle: 0
+      Search AppBundle Last: 0
+      Search AppBundle First: 1
+    CMAKE_FIND_USE_CMAKE_PATH: 1
+    CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: 1
+    CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: 1
+
+  find_program considered the following locations:
+
+    /Users/Simon/Library/Python/3.7/bin/git
+    /Applications/CMake.app/Contents/bin/git
+    /Users/Simon/.cargo/bin/git
+
+  The item was found at
+
+    /usr/local/bin/git
+
+Call Stack (most recent call first):
+  cmake/CMakeLists.txt:2 (find_package)
+
+

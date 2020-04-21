@@ -1,0 +1,75 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+package Project_C++ as project {
+    rectangle main.cxx <<Folder: ./src/>> as main
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+    rectangle config.h.in <<Folder: ./cmake/>> as config_h_in
+    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
+    cloud config.hxx <<Folder: ./config/>> as config_hxx
+
+    note right of begin
+        add_subdirectory(cmake)
+        add_subdirectory(src)
+    endnote
+    note top of cmake_list
+        find_package(Git REQUIRED)
+        execute_process(
+            COMMAND ${GIT_EXECUTABLE} rev-list --max-count=1 HEAD
+            OUTPUT_VARIABLE GIT_REVISION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+        )
+    endnote
+    note right of src_list
+        add_executable(
+            main_117
+            main.cxx
+        )
+        target_include_directories(
+            main_117
+            PRIVATE
+            ${PROJECT_CONIFG_DIR}
+        )
+    endnote
+}
+
+Folder "~~~BRIDGE~~~ FindGit.cmake" {
+    'CMAKE_HOME=/Applications/CMake.app/Contents/
+    cloud "$CMAKE_HOME/share/cmake-3.17/Modules/FindGit.cmake" <<Module>> as find_git
+}
+
+package "External Software 'Git'" as git {
+    cloud "/usr/local/bin/git"
+}
+
+
+begin *--> src_list
+begin *--> cmake_list
+src_list -left-> main
+cmake_list -left-> config_h_in
+cmake_list -left-> config_hxx
+
+
+cmake_list *--> find_git
+find_git *-right-> git
+
+
+title
+    What Kind of Bridge is the 'find_package' Command?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

@@ -1,0 +1,85 @@
+@startuml
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package C++_Main_DIR <<./src/>> as cxx_main {
+    package add_executable <<...>> {
+        rectangle main_117 <<Target Executable Name>> as main_117
+        rectangle main.cxx <<Source Name>> as main_cxx
+    }
+    package target_include_directories <<PRIVATE>> as include_config {
+        rectangle main_117 <<Target Executable Name>> as main_117_include
+        rectangle "./config/" <<CONFIG DIRS>> as config_dir
+    }
+
+    main_117 *-right-> main_cxx
+    main_117 *--> main_117_include
+    main_117_include *--> config_dir
+}
+
+package CONFIG_DIR <<./config/>> as config_dir_out {
+    cloud config.hxx <<Output Config File>> as config_hxx_out
+}
+
+package CMAKE_DIR <<./cmake/>> as cmake_config {
+    package configure_file <<...>> {
+        rectangle config.h.in <<Orginal Config File>> as config_h_in
+        rectangle config.hxx <<Output Config File>> as config_hxx
+    }
+
+    Folder find_package <<REQUIRED>> {
+        rectangle Git <<FindGit.cmake>> as Git
+    }
+
+    package execute_process <<OUTPUT_STRIP_TRAILING_WHITESPACE>> {
+        rectangle "COMMAND" as command
+        rectangle "OUTPUT_VARIABLE GIT_REVISION" as variable
+    }
+
+    config_h_in *--> config_hxx
+    Git *-left-> command
+    variable *--> config_h_in
+}
+
+note top of Git
+    Where do The PackageName "Git" come from?
+end note 
+
+package "~~~BRIDGE~~~ FindGit.cmake" as FindGit {
+    'CMAKE_HOME=/Applications/CMake.app/Contents/
+    cloud "$CMAKE_HOME/share/cmake-3.17/Modules/FindGit.cmake" <<Module>> as find_git
+}
+
+note top of find_git
+    The PackageName "Git" come from Find<PackageName>.cmake (FindGit.cmake)
+end note 
+
+package "External Software 'Git'" as git {
+    cloud "/usr/local/bin/git"
+}
+
+config_dir *-(0)-> config_hxx_out
+config_hxx *-(0)-> config_hxx_out
+
+Git *-left-> find_git
+find_git *--> git
+
+
+title
+    What is This Command's Structure of Project "basic_117"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
