@@ -28,7 +28,7 @@
 - **Hello, Different Folders!** Storing Header and Implementation File in Different Folders "basic_114" [Youtube Video](https://youtu.be/nTc_m7ELkzE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_114)
 - **Hello, PRIVATE/PUBLIC!** Difference between PRIVATE/PUBLIC with target_include_directories "basic_115" [Youtube Video](https://youtu.be/pmRWYYEXLoc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_115)
 - **Hello, Configure File!** Generating a C++ Configure File with CMake "basic_116" [Youtube Video](https://youtu.be/thJFmINbG0U) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_116)
-
+- **Hello, Package!** Finding an Executable Package For C++ Code "basic_117" [Youtube Video](https://youtu.be/iZQ-x56a9wY) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_117)
 
 
 ## References
