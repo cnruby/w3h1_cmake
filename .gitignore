@@ -32,3 +32,11 @@
 *.app
 bin/*
 build/*
+.DS_Store
+.DS_Store/*
+
+*.mov
+*.mp4
+*.m4a
+docs/*/*.md
+build-docs/*
