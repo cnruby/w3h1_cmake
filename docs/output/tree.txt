@@ -1,0 +1,11 @@
+#
+.                          >>>PROJECT_SOURCE_DIR
+├── build-docs             >>>DOXYGEN_OUTPUT_DIRECTORY
+├── CMakeLists.txt
+├── cmake
+│  └── CMakeLists.txt
+├── README.md              >>>DOXYGEN_USE_MDFILE_AS_MAINPAGE
+└── src
+   ├── CMakeLists.txt
+   └── main.cxx
+#

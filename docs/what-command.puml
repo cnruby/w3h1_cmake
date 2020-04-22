@@ -1,0 +1,58 @@
+@startuml
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package C++_Main_DIR <<./src/>> as cxx_main {
+    package add_executable <<...>> {
+        rectangle main_118 <<Target Executable Name>> as main_118
+        rectangle main.cxx <<Source Name>> as main_cxx
+    }
+    main_118 *-right-> main_cxx
+}
+
+package DOXYGEN_DIR <<./cmake/>> as doxygen_dir {
+    package doxygen_add_docs <<DOXYGEN_OUTPUT_DIRECTORY>> {
+        cloud target_doxygen <<TARGET DOXYGEN>> as target_doxygen
+        rectangle "${PROJECT_SOURCE_DIR}" <<SOURCE DIRECTORY>> as source_directory
+        rectangle "WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}" <<WORKING DIRECTORY>> as working_directory
+    }
+
+    Folder find_package <<REQUIRED>> as find_package {
+        rectangle Doxygen <<FindDoxygen.cmake>> as Doxygen
+    }
+
+    Doxygen *--> doxygen_add_docs
+}
+
+package "^°^°BRIDGE°^°^ FindDoxygen.cmake" as FindDoxygen {
+    'CMAKE_HOME=/Applications/CMake.app/Contents/
+    cloud "$CMAKE_HOME/share/cmake-3.17/Modules/FindDoxygen.cmake" <<Module>> as find_doxygen
+}
+
+package "External Software 'Doxygen'" as doxygen {
+    cloud "/usr/local/bin/doxygen"
+}
+
+
+Doxygen *--> find_doxygen
+find_doxygen *--> doxygen
+
+
+title
+    What is This Command's Structure of Project "basic_118"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
