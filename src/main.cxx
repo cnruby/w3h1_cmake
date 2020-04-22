@@ -1,8 +1,5 @@
 //
 #include <iostream>
 
-int main(int, char **)
-{
-    std::cout << "Hello, Doxygen!\n";
-}
+int main(int, char **) { std::cout << "Hello, Doxygen!\n"; }
 //
