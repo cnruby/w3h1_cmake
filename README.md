@@ -15,10 +15,10 @@
 
 ### Tool
 - [CMake](https://cmake.org/)
-- [Tool 'clang-format'](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
-- [Tool 'cmake_format'](https://github.com/cheshirekow/cmake_format)
-- [Tool Doxygen](http://www.doxygen.nl/)
-- [Tool Graphviz](http://graphviz.org/)
+- [clang-format](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
+- [cmake_format](https://github.com/cheshirekow/cmake_format)
+- [Doxygen](http://www.doxygen.nl/)
+- [Graphviz](http://graphviz.org/)
 
 ## Liste
 - **Hello, CMake!** Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
