@@ -3,7 +3,7 @@
 ## Prerequisite
 
 ### Language Environment
-- [Clang](https://clang.llvm.org/)
+- [Clang 8.0.0+](https://clang.llvm.org/)
 - [Python 3.7+](https://www.python.org/)
 - [Ruby 2.7.1+](https://www.ruby-lang.org/en/)
 - [Rust 1.42.0+](https://www.rust-lang.org/)
