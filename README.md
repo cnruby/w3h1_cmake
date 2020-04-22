@@ -29,7 +29,7 @@
 - **Hello, PRIVATE/PUBLIC!** Difference between PRIVATE/PUBLIC with target_include_directories "basic_115" [Youtube Video](https://youtu.be/pmRWYYEXLoc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_115)
 - **Hello, Configure File!** Generating a C++ Configure File with CMake "basic_116" [Youtube Video](https://youtu.be/thJFmINbG0U) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_116)
 - **Hello, Package!** Finding an Executable Package For C++ Code "basic_117" [Youtube Video](https://youtu.be/D5sny0H8jUM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_117)
-
+- **Hello, Doxygen!** Generating Documentation From annotated 'C/C++'s Sources "basic_118" "basic_118" [Youtube Video](https://youtu.be/T1CBiV09v8w) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_118)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
