@@ -41,7 +41,7 @@ Code Name: Hello, Module!</br>
 - [Python 3.7+](https://www.python.org/)
 - [Tool Sphinx](https://www.sphinx-doc.org/)
 - [Sphinx bootstrap theme](https://github.com/ryan-roemer/sphinx-bootstrap-theme)
-- [VCS Code Extension: reStructuredText](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
+- [VS Code Extension: reStructuredText](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
 <div class ="fragment" data-audio-src="docs/119/audio/basic_119-03.m4a"></div>
 
 
