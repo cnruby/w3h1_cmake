@@ -8,63 +8,58 @@ skinparam Folder {
   borderColor orange
 }
 
-package Project_CMake as project_cmake {
+'left to right direction
+package "Project Root Folder" as project_cmake {
     rectangle CMakeLists.txt <<Folder: ./>> as begin
 
-    note left of begin
-        add_subdirectory(cmake)
+    note top of begin
+        Point 3: add module path
+        set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/module")
+        add_subdirectory(lib)
         add_subdirectory(src)
+        add_subdirectory(cmake)
     endnote
 }
 
-
-package Project_C++ as project {
-    rectangle main.cxx <<Folder: ./src/>> as main
-    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
-
-    note left of src_list
-        add_executable(
-            main_118
-            main.cxx
-        )
-    endnote
-}
-
-package "Tool Doxygen" as Doxygen {
+package "Folder 'cmake'" as cmake_dir {
     rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
 
-    note right of cmake_list
-        find_package(Doxygen REQUIRED)
-        set(
-            DOXYGEN_OUTPUT_DIRECTORY
-            ${PROJECT_SOURCE_DIR}/build-docs
-        )
-        doxygen_add_docs(
-            target_doxygen
-            ${PROJECT_SOURCE_DIR}
-            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-            COMMENT "Generate html pages"
+    note top of cmake_list
+        add_subdirectory(sphinx)
+    endnote
+}
+
+
+package "Folder 'sphinx'" as sphinx_dir {
+    rectangle CMakeLists.txt <<Folder: ./cmake/sphinx/>> as sphinx_list
+
+    note top of sphinx_list
+        Point 1: use module 'FindSphinx'
+        find_package(Sphinx REQUIRED)
+        sphinx_add_docs(
+            target_sphinx
+            ${SPHINX_INPUT_DIR}
+            ${SPHINX_OUTPUT_DIR}
         )
     endnote
 }
 
-Folder "~~~BRIDGE~~~ FindDoxygen.cmake" {
-    'CMAKE_HOME=/Applications/CMake.app/Contents/
-    cloud "$CMAKE_HOME/share/cmake-3.17/Modules/FindDoxygen.cmake" <<Module>> as find_doxygen
+Folder "~~~BRIDGE~~~ FindSphinx.cmake" {    
+    cloud "./cmake/module/FindSphinx.cmake" <<Module>> as find_sphinx
+    note top of find_sphinx
+        Point 2: create module 'FindSphinx'
+    endnote
 }
 
-package "External Software 'Doxygen'" as doxygen {
-    cloud "/usr/local/bin/doxygen"
+package "External Software 'Sphinx'" as sphinx_build {
+    cloud "/usr/local/bin/sphinx-build"
 }
 
 
-begin *.(0).> src_list
 begin *.(0).> cmake_list
-src_list -left-> main
-
-
-cmake_list *--> find_doxygen
-find_doxygen *-right-> doxygen
+cmake_list *--> sphinx_list
+sphinx_list *--> find_sphinx
+find_sphinx *-right-> sphinx_build
 
 
 title

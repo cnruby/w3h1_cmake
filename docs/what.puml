@@ -1,0 +1,68 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+package Doxygen <<Tool>> {
+    rectangle Doxygen <</usr/local/bin/doxygen>> as doxygen
+    rectangle "C++ Source Files" <<...>> as cxx_files
+    rectangle "Markdown Files" <<...>> as md_file
+
+    cloud "API Doc" <<...>> as api_doc
+    cloud "HTML Doc" <<...>> as md_html_doc
+
+    note left of md_file
+        input files
+    endnote
+    note right of cxx_files
+        input files
+    endnote
+    note left of md_html_doc
+        output files
+    endnote
+    note right of api_doc
+        output files
+    endnote
+
+    cxx_files *--> doxygen
+    doxygen *--> api_doc
+    md_file *--> doxygen
+    doxygen *--> md_html_doc
+
+}
+
+
+package Sphinx <<Tool>> {
+    rectangle Sphinx <</usr/local/bin/sphinx-build>> as shpinx
+    rectangle "reStructuredText Files" <<...>> as rst_file
+
+    cloud "HTML Doc" <<...>> as rst_html_doc
+
+    note left of rst_file
+        input files
+    endnote
+    note left of rst_html_doc
+        output files
+    endnote
+
+    rst_file *--> shpinx
+    shpinx *--> rst_html_doc
+}
+
+
+title
+    What does The Sphinx do?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

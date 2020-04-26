@@ -1,219 +1,183 @@
-<h2>Hello, <code>Doxygen</code>!</h2>
-<h3>Generating Documentation From annotated '<code>C/C++</code>'s Sources</h3>
+<h2>Hello, <code>Module</code>!</h2>
+<h3>Using Your Custom CMake-Find Module</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_118</br>
-Code Name: Hello, Doxygen!</br>
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-01.m4a"></p>
-
-
-
-[<h1>Youtube Video</h1>](https://youtu.be/T1CBiV09v8w)
+Code ID: basic_119</br>
+Code Name: Hello, Module!</br>
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-01.m4a"></p>
 
 
 
 <h2>TABLE of CONTENTS</h2>
 
 - [Requirements](#requirements)
-  - [Install Doxygen and Graphviz on MacOS](#install-doxygen-and-graphviz-on-macos)
-- [Illustrate the Method of Generation 'Doxygen's API Documentation](#illustrate-the-method-of-generation-doxygens-api-documentation)
+  - [Install Sphinx and Its Theme on MacOS](#install-sphinx-and-its-theme-on-macos)
+- [About The Project](#about-the-project)
+  - [What does The Sphinx do?](#what-does-the-sphinx-do)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [How to Suppress developer warnings](#how-to-suppress-developer-warnings)
-  - [Illustrate Hiding developer warnings](#illustrate-hiding-developer-warnings)
-  - [What is The Command for Generating 'Doxygen's API Documentation](#what-is-the-command-for-generating-doxygens-api-documentation)
-  - [Illustrate Generating 'Doxygen's API Documentation](#illustrate-generating-doxygens-api-documentation)
-- [The <code>CMake</code> File of The Project](#the-cmake-file-of-the-project)
-  - [The Listfile of Folder <code>'cmake'</code>](#the-listfile-of-folder-cmake)
-  - [Commands for Illustrating the Parameter "WORKING_DIRECTORY"](#commands-for-illustrating-the-parameter-%22workingdirectory%22)
-  - [Illustrate the Parameter "WORKING_DIRECTORY"](#illustrate-the-parameter-%22workingdirectory%22)
-- [The Structures of Project](#the-structures-of-project)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The <code>Command's</code> Structure](#the-commands-structure)
+- [Using The Module <code>'FindSphinx'</code>](#using-the-module-findsphinx)
+  - [The Listfile of Folder <code>'cmake/sphinx'</code>](#the-listfile-of-folder-cmakesphinx)
   - [The <code>Process's</code> Structure](#the-processs-structure)
+- [Generating The 'Sphinx's Documentation](#generating-the-sphinxs-documentation)
+  - [The <code>Command's</code> Structure](#the-commands-structure)
+  - [What is The Command for Generating 'Sphinx's Documentation](#what-is-the-command-for-generating-sphinxs-documentation)
+  - [Illustrate Generating 'Sphinx's Documentation](#illustrate-generating-sphinxs-documentation)
 - [Final Summary](#final-summary)
 - [References](#references)
-- [The Project's Commands](#the-projects-commands)
-  - [Formatting The Codes](#formatting-the-codes)
-  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands-1)
-  - [Build and Run The Project](#build-and-run-the-project)
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-02.m4a"></div>
+<div class ="fragment" data-audio-src="docs/119/audio/basic_119-02.m4a"></div>
 
 
 
 ## Requirements
 - [VS Code 1.43.0+](https://code.visualstudio.com/)
 - [CMake 3.17.0+](https://cmake.org/)
-- [Tool Doxygen](http://www.doxygen.nl/)
-- [Tool Graphviz](http://graphviz.org/)
-### Install Doxygen and Graphviz on MacOS
+- [Python 3.7+](https://www.python.org/)
+- [Tool Sphinx](https://www.sphinx-doc.org/)
+- [Sphinx bootstrap theme](https://github.com/ryan-roemer/sphinx-bootstrap-theme)
+- [VCS Code Extension: reStructuredText](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
+<div class ="fragment" data-audio-src="docs/119/audio/basic_119-03.m4a"></div>
+
+
+
+### Install Sphinx and Its Theme on MacOS
 ```bash
-brew install doxygen
-brew cask install graphviz
+brew install sphinx-doc
+pip install sphinx sphinx-autobuild
+pip install sphinx_bootstrap_theme
 ```
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-03.m4a"></div>
+<div class ="fragment" data-audio-src="docs/119/audio/basic_119-04.m4a"></div>
 
 
 
-## Illustrate the Method of Generation 'Doxygen's API Documentation
-<img src="./docs/118/image/html_doxygen.png" alt="Illustrate the Method of Generation 'Doxygen's API Documentation" height="80%" width="80%">
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-04.m4a"></div>
+## About The Project
+<img src="./docs/119/image/build_sphinx_doc.png" alt="About The Project" height="80%" width="80%">
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-05.m4a"></p>
+
+
+
+### What does The Sphinx do?
+![_images](docs/119/image/what.png)
+<div class ="fragment" data-audio-src="docs/119/audio/basic_119-06.m4a"></div>
 
 
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_118
-cd basic_118
-git checkout basic_118
+git clone https://github.com/cnruby/w3h1_cmake.git basic_119
+cd basic_119
+git checkout basic_119
 code .
 ```
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-05.m4a"></div>
+<div class ="fragment" data-audio-src="docs/119/audio/basic_119-07.m4a"></div>
 
 
 
-### How to Suppress developer warnings
-```bash
-# Create Build Folder
-cmake -GNinja -Bbuild/
-# show developer warnings: "This warning is for project developers."
-cmake --build build/ --target rebuild_cache
-# get help
-cmake --help | grep dev
-# change CMake cahce to hide developer warnings
-ccmake -Wno-dev --build build/
-# "c", "g", "q"
-cmake --build build/ --target rebuild_cache
-code ./build/CMakeCache.txt
-# Goto 346
-```
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-06.m4a"></div>
-
-
-
-### Illustrate Hiding developer warnings
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/118/video/basic_118-07.mov" autoplay=true type="video/mp4">
-</video>
-
-
-
-### What is The Command for Generating 'Doxygen's API Documentation
-```bash
-# Where do The Commands for generate docs come from
-cmake --build build/ --target help
-# Generate 'Doxygen's API Documentation
-cmake --build build --target target_doxygen
-# Open 'Doxygen's API Documentation
-open build-docs/index.html
-```
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-08.m4a"></div>
-
-
-
-### Illustrate Generating 'Doxygen's API Documentation
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/118/video/basic_118-09.mov" autoplay=true type="video/mp4">
-</video>
-
-
-
-## The <code>CMake</code> File of The Project
-![_image](./docs/118/image/find_doxygen.png)
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-10.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat cmake/CMakeLists.txt) -->#
-find_package(Doxygen REQUIRED dot)
-if (DOXYGEN_FOUND)
-  set(DOXYGEN_OUTPUT_DIRECTORY      ${PROJECT_SOURCE_DIR}/build-docs) 
-  set(DOXYGEN_EXTRACT_ALL            YES)
-  set(DOXYGEN_BUILTIN_STL_SUPPORT    YES)
-  set(DOXYGEN_WARN_NO_PARAMDOC       YES)
-  set(DOXYGEN_HTML_OUTPUT            .)
-  set(DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
-  set(DOXYGEN_FILE_PATTERNS           *.c *.cc *.cxx *.cpp *.c++ *.ii *.ixx *.ipp *.i++ *.inl *.h *.hh *.hxx *.hpp *.h++ *.inc README.md)
-  doxygen_add_docs(
-    target_doxygen   # cmake --build build --target target_doxygen
-    ${PROJECT_SOURCE_DIR}                 # Sources root directory
-    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} # change the directory used as the relative base poin
-    COMMENT "Generate html pages"
-  )
-  #
-  execute_process(
-    COMMAND echo "cp docs"
-    COMMAND mkdir -p ${PROJECT_SOURCE_DIR}/build-docs/docs/118/image
-    COMMAND cp -rf ${PROJECT_SOURCE_DIR}/docs/118/image ${PROJECT_SOURCE_DIR}/build-docs/docs/118/
-  )
-else()
-  message(STATUS "Doxygen not found, not building docs")
-endif ()
-message(STATUS "Doxygen Version: ${DOXYGEN_VERSION}")
-#º<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-11.m4a"></p>
-
-
-
-### Commands for Illustrating the Parameter "WORKING_DIRECTORY"
-```bash
-open build-docs/index.html
-code cmake/CMakeLists.txt
-# comment "WORKING_DIRECTORY"
-cmake --build build/ --target rebuild_cache
-cmake --build build --target target_doxygen
-open build-docs/index.html
-```
-<div class ="fragment" data-audio-src="docs/118/audio/basic_118-12.m4a"></div>
-
-
-
-### Illustrate the Parameter "WORKING_DIRECTORY"
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/118/video/basic_118-13.mov" autoplay=true type="video/mp4">
-</video>
-
-
-
-
-## The Structures of Project
 ```bash
 #<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
-.                          >>>PROJECT_SOURCE_DIR
-├── build-docs             >>>DOXYGEN_OUTPUT_DIRECTORY
-├── CMakeLists.txt
+.
+├── api
+│  ├── conf.py
+│  └── index.rst
 ├── cmake
-│  └── CMakeLists.txt
-├── README.md              >>>DOXYGEN_USE_MDFILE_AS_MAINPAGE
+│  ├── CMakeLists.txt
+│  ├── module
+│  │  └── FindSphinx.cmake
+│  └── sphinx
+│     └── CMakeLists.txt
+├── CMakeLists.txt
+├── lib
+│  ├── CMakeLists.txt
+│  ├── header.cxx
+│  └── header.hxx
 └── src
    ├── CMakeLists.txt
    └── main.cxx
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-14.m4a"></p>
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-08.m4a"></p>
 
 
 
-![_image](docs/118/image/what-command.png)
-### The <code>Command's</code> Structure
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-15.m4a"></p>
+## Using The Module <code>'FindSphinx'</code>
+<img src="./docs/119/image/find_sphinx.png" alt="Using The Module <code>'FindSphinx'" height="70%" width="70%">
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-09.m4a"></p>
 
 
 
-![_image](docs/118/image/what-process.png)
+```bash
+#<!-- markdown-exec(cmd:cat cmake/sphinx/CMakeLists.txt) -->#
+message(STATUS "^BEGIN FROM cmake/sphinx/CMakeLists.txt")
+set(BUILD_DOC_SPHINX ${PROJECT_SOURCE_DIR}/build-doc-sphinx)
+
+find_package(Sphinx REQUIRED QUIET)
+if (SPHINX_FOUND)
+  message("-- Build the Sphinx HTML documentation.")
+  set(SPHINX_INPUT_DIR ${PROJECT_SOURCE_DIR}/api/)
+  set(SPHINX_OUTPUT_DIR ${BUILD_DOC_SPHINX}/_build)
+  sphinx_add_docs(
+    target_sphinx
+    ${SPHINX_INPUT_DIR}
+    ${SPHINX_OUTPUT_DIR}
+  )
+else()
+  message("-- Failed to find Sphinx, disabling build of documentation.")
+endif()
+message(STATUS "SPHINX_VERSION\t\t= ${SPHINX_VERSION}")
+message(STATUS "SPHINX INPUT DIR\t\t= ${SPHINX_INPUT_DIR}")
+message(STATUS "SPHINX OUTPUT DIR\t\t= ${BUILD_DOC_SPHINX}")
+message(STATUS "$END FROM cmake/sphinx/CMakeLists.txt")
+#<!-- /markdown-exec -->
+```
+### The Listfile of Folder <code>'cmake/sphinx'</code>
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-10.m4a"></p>
+
+
+
+![_image](docs/119/image/what-process.png)
 ### The <code>Process's</code> Structure
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-16.m4a"></p>
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-11.m4a"></p>
 
 
 
-![_image](docs/118/image/what-command.png)
+## Generating The 'Sphinx's Documentation
+<img src="./docs/119/image/demo_sphinx_doc.png" alt="About The Project" height="80%" width="80%">
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-12.m4a"></p>
+
+
+
+### The <code>Command's</code> Structure
+<img src="./docs/119/image/what-command.png" alt="The Command's Structure" height="90%" width="90%">
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-13.m4a"></p>
+
+
+
+### What is The Command for Generating 'Sphinx's Documentation
+```bash
+# Where do The Commands for generate docs come from
+cmake --build build/ --target help
+# Generate 'Sphinx's Documentation
+cmake --build build --target target_sphinx
+# Open 'Sphinx's Documentation
+open build-doc-sphinx/_build/index.html
+```
+<div class ="fragment" data-audio-src="docs/119/audio/basic_119-14.m4a"></div>
+
+
+
+### Illustrate Generating 'Sphinx's Documentation
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/119/video/basic_119-15.mov" autoplay=true type="video/mp4">
+</video>
+
+
+
+![_image](docs/119/image/what-process.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/118/audio/basic_118-17.m4a"></p>
+<p class ="fragment" data-audio-src="docs/119/audio/basic_119-16.m4a"></p>
 
 
 
@@ -230,88 +194,23 @@ open build-docs/index.html
 
 
 ## References
-- https://cmake.org/cmake/help/latest/module/FindDoxygen.html
-- https://gitlab.com/CLIUtils/modern-cmake/-/tree/master/examples/extended-project
-- https://stackoverflow.com/questions/37315378/supressing-warning-in-building-opencv-with-cmake
-- https://kubasejdak.com/19-reasons-why-cmake-is-actually-awesome#17-cmake-allows-generation-of-doxygen-docs-without-the-hardcoded-config
-- http://macappstore.org/doxygen/
-- http://www.doxygen.nl/
-- http://macappstore.org/doxygen/
+- https://www.sphinx-doc.org/en/master/usage/installation.html
+- https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-sphinx-cmake/
+- https://github.com/InsightSoftwareConsortium/ITKExamples/blob/master/CMake/FindSphinx.cmake
+- https://eb2.co/blog/2012/03/sphinx-and-cmake-beautiful-documentation-for-c---projects/
+- https://stackoverflow.com/questions/26464879/how-to-build-cmake-documentation-with-sphinx
+- https://cmake.org/pipermail/cmake/2009-February/027365.html
+- http://macappstore.org/sphinx/
+- http://www.sphinx.nl/
+- http://macappstore.org/sphinx/
 - http://macappstore.org/graphviz-2/
 - http://graphviz.org/
 - https://stackoverflow.com/questions/24488250/check-graphviz-installed-version-on-ubuntu
-
-
-
-## The Project's Commands
-
-
-
-### Formatting The Codes
-```bash
-ruby format-codes.rb
-```
-
-
-### Get The Code with Shell Commands
-```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_118
-cd basic_118
-git checkout basic_118
-code .
-```
-
-
-
-### Build and Run The Project
-```bash
-cmake -GNinja -Bbuild/
-cmake --build build/ --clean-first -v
-cmake --build build/ --target clean
-cmake --build build/ --clean-first -v &> v11.txt
-# generate the configure file
-rm -rf config
-cmake --build build/ --clean-first
-cmake -Bbuild/
-cmake --build build/ --target rebuild_cache
-cmake --build build/ --clean-first
-./bin/main_118
-#  update the configure file
-cmake --build build/ --clean-first
-# others
-code build/build.ninja
-cmake --check-system-vars --build build/
-cmake --help-command find_package | less
-
-
-# show this dev Info "This warning is for project developers."
-cmake -GNinja -Bbuild/
-cmake -Bbuild/
-cmake --help | grep dev
-ccmake -Wno-dev --build build/
-cmake -Bbuild/
-open ./build/CMakeCache.txt
-# Goto 346
-# show no dev info
-cmake -Bbuild/
-
-
-# Where do The Commands for generate docs come from
-cmake --build build/ --target help
-cmake --build build/ --target rebuild_cache
-
-
-# generate docs
-cmake --build build/ --target help
-cmake --build build --target target_doxygen
-open build-docs/index.html
-
-
-markdown-exec README.md
-ruby format-codes.rb
-git branch -vv
-git checkout -b basic_118
-exa -T > docs/output/tree.txt
-dot -V
-doxygen --version
-```
+- https://github.com/TartanLlama/cpp-documentation-example
+- https://www.sphinx-doc.org/en/master/usage/quickstart.html
+- https://github.com/akheron/jansson/blob/master/cmake/FindSphinx.cmake
+- https://github.com/InsightSoftwareConsortium/ITKExamples/blob/master/CMake/FindSphinx.cmake
+- https://gitlab.cern.ch/dss/eos/blob/1fda896069c59c8ab414770363a6bee94e4ad013/cmake/FindSphinx.cmake
+- https://raw.githubusercontent.com/llvm-mirror/llvm/master/cmake/modules/FindSphinx.cmake
+- https://ceres-solver.googlesource.com/ceres-solver/+/refs/tags/1.12.0rc4/CMakeLists.txt
+- https://ceres-solver.googlesource.com/ceres-solver/+/refs/tags/1.12.0rc4/cmake/FindSphinx.cmake

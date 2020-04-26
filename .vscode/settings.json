@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.in": "cpp"
+  },
+  "restructuredtext.confPath": "${workspaceFolder}/api",
+  "python.pythonPath": "/usr/local/bin/python3"
+}

@@ -9,44 +9,47 @@ skinparam Folder {
 }
 
 'left to right direction
-package C++_Main_DIR <<./src/>> as cxx_main {
-    package add_executable <<...>> {
-        rectangle main_118 <<Target Executable Name>> as main_118
-        rectangle main.cxx <<Source Name>> as main_cxx
-    }
-    main_118 *-right-> main_cxx
-}
-
-package DOXYGEN_DIR <<./cmake/>> as doxygen_dir {
-    package doxygen_add_docs <<DOXYGEN_OUTPUT_DIRECTORY>> {
-        cloud target_doxygen <<TARGET DOXYGEN>> as target_doxygen
+package SPHINX_DIR <<./cmake/sphinx>> as sphinx_dir {
+    package sphinx_add_docs <<...>> {
+        cloud target_sphinx <<TARGET SPHINX>> as target_sphinx
         rectangle "${PROJECT_SOURCE_DIR}" <<SOURCE DIRECTORY>> as source_directory
-        rectangle "WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}" <<WORKING DIRECTORY>> as working_directory
+        rectangle "${SPHINX_OUTPUT_DIR}" <<OUTPUT DIRECTORY>> as output_directory
     }
 
     Folder find_package <<REQUIRED>> as find_package {
-        rectangle Doxygen <<FindDoxygen.cmake>> as Doxygen
+        rectangle Sphinx <<FindSphinx.cmake>> as Sphinx
     }
 
-    Doxygen *--> doxygen_add_docs
+    Sphinx *--> sphinx_add_docs
 }
 
-package "^°^°BRIDGE°^°^ FindDoxygen.cmake" as FindDoxygen {
-    'CMAKE_HOME=/Applications/CMake.app/Contents/
-    cloud "$CMAKE_HOME/share/cmake-3.17/Modules/FindDoxygen.cmake" <<Module>> as find_doxygen
+package "Sphinx Input Dir" <<./api/>> as sphinx_input_dir {
+    rectangle conf.py <<Python File>> as conf_py
+    rectangle index.rst <<reStructuredText File>> as index_rst
 }
 
-package "External Software 'Doxygen'" as doxygen {
-    cloud "/usr/local/bin/doxygen"
+package "Sphinx Output Dir" <<./build-doc-sphinx/_build>> {
+    rectangle "..." <<HTML Docs>> as sphinx_output_dir
 }
 
 
-Doxygen *--> find_doxygen
-find_doxygen *--> doxygen
+package "^°^°BRIDGE°^°^ FindSphinx.cmake" as FindSphinx {
+    cloud "./cmake/module/FindSphinx.cmake" <<Module>> as find_sphinx
+}
+
+package "External Software 'Sphinx'" as sphinx_build {
+    cloud "/usr/local/bin/sphinx-build"
+}
+
+
+Sphinx *--> find_sphinx
+find_sphinx *--> sphinx_build
+source_directory *--> sphinx_input_dir
+output_directory *--> sphinx_output_dir
 
 
 title
-    What is This Command's Structure of Project "basic_118"?
+    What is This Command's Structure of Project "basic_119"?
 end title
 
 header

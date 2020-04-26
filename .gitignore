@@ -39,4 +39,5 @@ build/*
 *.mp4
 *.m4a
 docs/*/*.md
-build-docs/*
+build-doc-doxygen/*
+build-doc-sphinx/*
