@@ -8,10 +8,18 @@
 - [Ruby 2.7.1+](https://www.ruby-lang.org/en/)
 - [Rust 1.42.0+](https://www.rust-lang.org/)
 
-### IDE Editor
+### VS Code
 - [VS Code](https://code.visualstudio.com/) OR [Eclipse Theia](https://theia-ide.org/)
-- [VS Code Extension "CMake Tool"](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) 
-- [VS Code Extension "CMake"](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+
+### VS Code Extension
+- [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- [CMake Tool](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) 
+- [CMake](https://marketplace.visualstudio.com/items?itemName=twxs.cmake)
+- [reStructuredText](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
+- [cmake-format](https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format)
 
 ### Tool
 - [CMake](https://cmake.org/)
@@ -19,6 +27,9 @@
 - [cmake_format](https://github.com/cheshirekow/cmake_format)
 - [Doxygen](http://www.doxygen.nl/)
 - [Graphviz](http://graphviz.org/)
+- [Sphinx](https://www.sphinx-doc.org/)
+- [Sphinx bootstrap theme](https://github.com/ryan-roemer/sphinx-bootstrap-theme)
+
 
 ## Liste
 - **Hello, CMake!** Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
