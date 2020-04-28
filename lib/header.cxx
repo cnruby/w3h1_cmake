@@ -5,8 +5,7 @@
 Header::Header() {}
 
 void Header::hello(const char* name) {
-  std::cout << "Hello, " << name << "!" << std::endl
-            << std::endl;
+  std::cout << "Hello, " << name << "!" << std::endl << std::endl;
 }
 
 char Header::maxChar(char s, char t) {

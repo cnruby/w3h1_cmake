@@ -1,7 +1,11 @@
 #
 # /Applications/CMake.app/Contents/share/cmake-3.17/Modules/FindDoxygen.cmake
 message(STATUS "^BEGIN FROM cmake/doxygen/CMakeLists.txt")
-set(CMAKE_SUPPRESS_DEVELOPER_WARNINGS 1 CACHE INTERNAL "No dev warnings")
+set(
+  CMAKE_SUPPRESS_DEVELOPER_WARNINGS
+  1
+  CACHE INTERNAL "No dev warnings"
+)
 
 find_package(Doxygen REQUIRED dot)
 if(DOXYGEN_FOUND)
@@ -25,7 +29,10 @@ if(DOXYGEN_FOUND)
     DOXYGEN_HTML_OUTPUT
     ./html
   )
-  set(DOXYGEN_GENERATE_XML YES)
+  set(
+    DOXYGEN_GENERATE_XML
+    YES
+  )
   set(
     DOXYGEN_XML_OUTPUT
     ./xml

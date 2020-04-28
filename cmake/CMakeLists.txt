@@ -1,7 +1,13 @@
-set(BUILD_DOC_DOXYGEN ${PROJECT_SOURCE_DIR}/build-doc-doxygen)
+set(
+  BUILD_DOC_DOXYGEN
+  ${PROJECT_SOURCE_DIR}/build-doc-doxygen
+)
 
 # connect sphinx to doxygen
-set(DOXYGEN_XML_DIR ${BUILD_DOC_DOXYGEN}/xml/)
+set(
+  DOXYGEN_XML_DIR
+  ${BUILD_DOC_DOXYGEN}/xml/
+)
 configure_file(
   ${PROJECT_SOURCE_DIR}/cmake/sphinx/conf.in.py
   ${PROJECT_SOURCE_DIR}/api/conf.py
