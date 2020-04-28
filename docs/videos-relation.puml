@@ -1,0 +1,29 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+rectangle "Hello. PRIVATE/PUBLIC!" <<Video 'basic_115'>> as basic_115
+rectangle "Hello. Confige File!" <<Video 'basic_116'>> as basic_116
+rectangle "Hello. Doxygen!" <<Video 'basic_118'>> as basic_118
+rectangle "Hello. Module!" <<Video 'basic_119'>> as basic_119
+
+cloud "Hello. Breathe!" <<Video 'basic_120'>> as basic_120
+
+
+basic_120 *--> basic_115
+basic_120 *--> basic_116
+basic_120 *--> basic_118
+basic_120 *--> basic_119
+
+title
+    How does this Video Relate to the Other Videos?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

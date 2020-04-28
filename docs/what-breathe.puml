@@ -1,0 +1,60 @@
+@startuml
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "buiid-doc-sphinx" <<Folder>> as buiid_doc_sphinx {
+    rectangle "HTML Docs" <<./_build>> as html_sphinx
+
+    'note top of cmake_list
+    '    add_subdirectory(sphinx)
+    'endnote
+}
+
+package "api" <<Folder>> as api {
+    cloud "index.rst" <<File>> as index_rst
+    cloud "conf.py" <<File>> as conf_py
+    rectangle "requirements.txt" <<File>> as requirements_txt
+}
+
+package "buiid-doc-doxygen" <<Folder>> as buiid_doc_doxygen {
+    rectangle "HTML Docs" <<./html>> as html_doxygen
+    rectangle "XML Docs" <<./xml>> as xml_doxygen
+
+}
+
+package "Doxygen" <<Sotware>> as doxygen {
+}
+
+package "Sphinx" <<Sotware>> as sphinx {
+}
+
+Folder "Breathe" <<Sotware>> as breathe {
+}
+
+conf_py *-(0)-> xml_doxygen
+conf_py --> requirements_txt
+doxygen --> buiid_doc_doxygen
+sphinx --> buiid_doc_sphinx
+conf_py -left-> sphinx
+index_rst -left-> sphinx
+requirements_txt --> breathe
+
+
+title
+    What Kind of Bridge is the Tool 'Breathe'?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

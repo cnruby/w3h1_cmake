@@ -1,10 +1,25 @@
 #
-.                          >>>PROJECT_SOURCE_DIR
-├── build-docs             >>>DOXYGEN_OUTPUT_DIRECTORY
-├── CMakeLists.txt
+.
+├── api
+│  ├── conf.py
+│  ├── header.rst
+│  ├── index.rst
+│  ├── main.rst
+│  └── requirements.txt
 ├── cmake
-│  └── CMakeLists.txt
-├── README.md              >>>DOXYGEN_USE_MDFILE_AS_MAINPAGE
+│  ├── CMakeLists.txt
+│  ├── doxygen
+│  │  └── CMakeLists.txt
+│  ├── module
+│  │  └── FindSphinx.cmake
+│  └── sphinx
+│     ├── CMakeLists.txt
+│     └── conf.in.py
+├── CMakeLists.txt
+├── lib
+│  ├── CMakeLists.txt
+│  ├── header.cxx
+│  └── header.hxx
 └── src
    ├── CMakeLists.txt
    └── main.cxx
