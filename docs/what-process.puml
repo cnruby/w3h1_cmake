@@ -3,65 +3,88 @@ scale 700 width
 skinparam backgroundColor #FFEBDC
 scale 1
 
-package Project_C++ as project {
-    rectangle main.cxx <<Folder: ./src/>> as main
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Project Root Folder" as project_cmake {
     rectangle CMakeLists.txt <<Folder: ./>> as begin
+
+    note top of begin
+        point 1:
+        find_package(PNG 1.6.37 REQUIRED)
+    endnote
+}
+
+Folder "~~~BRIDGE~~~ FindPNG.cmake" as bridge {
+    cloud "$HOME_CMAKE/Modules/FindPNG.cmake" <<Module>> as find_png
+    note top of find_png
+        Point 2: Find-Module 'FindPNG'
+    endnote
+}
+
+package "Folder 'src'" as src_dir {
     rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
-    rectangle config.h.in <<Folder: ./cmake/>> as config_h_in
-    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
-    cloud config.hxx <<Folder: ./config/>> as config_hxx
 
-
-    note bottom of config_h_in
-        == Step 1 ==
-        ...
-        ＃define PROJECT_NAME "@PROJECT_NAME@"
-    endnote
-    note bottom of config_hxx
-        == Step 2 ==
-        ...
-        ＃define PROJECT_NAME "basic_116"
-    endnote
-    note bottom of main
-        == Step 3 ==
-        ...
-        ＃include "config.hxx"
-        ...
-        std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-    endnote
-
-
-    note right of begin
-        add_subdirectory(cmake)
-        add_subdirectory(src)
-    endnote
-    note top of cmake_list
-        configure_file(
-            ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-            ${PROJECT_SOURCE_DIR}/config/config.hxx
-        )
-    endnote
-    note right of src_list
-        add_executable(
-            main_116
-            main.cxx
-        )
-        target_include_directories(
-            main_116
-            PRIVATE
-            ${PROJECT_CONIFG_DIR}
+    note top of src_list
+        point 4:
+        target_link_libraries(
+        main_121
+        PRIVATE PNG::PNG
         )
     endnote
 }
 
-begin *--> src_list
-begin *--> cmake_list
-src_list -left-> main
-cmake_list -left-> config_h_in
-cmake_list -left-> config_hxx
+package "Folder on MacOS '/usr/local'" <<External Library 'libpng'>> as usr_local_dir {
+    package "Folder './Cellar'" as cellar_dir {
+        rectangle "png.h" <<Folder: ./libpng/1.6.37/include>> as cellar_png_h
+        rectangle "libpng.dylib" <<Folder: ./libpng/1.6.37/lib>> as cellar_libpng_dylib
+    }
+
+    package "Folder './opt'" as opt_dir {
+        rectangle "png.h" <<Folder: ./libpng/include>> as opt_png_h
+        rectangle "libpng.dylib" <<Folder: ./libpng/lib>> as opt_libpng_dylib
+    }
+
+    package "Folder '/usr/local'" as local_dir {
+        package "Folder '/usr/local/include'" as include_dir {
+            rectangle "png.h" <<Include File>> as local_png_h
+        }
+        package "Folder '/usr/local/lib'" as lib_dir {
+            rectangle "libpng.dylib" <<Library File>> as local_libpng_dylib
+        }
+    }
+
+    note top of local_dir
+        point 3:
+    endnote
+}
+
+package "Folder on Ubuntu '/usr'" <<External Library 'libpng'>> as usr_dir {
+    package "Folder '/usr/include'" as ubuntu_include_dir {
+        rectangle "png.h" <<Include File>> as usr_png_h
+    }
+    package "Folder '/usr/lib/x86_64-linux-gnu'" as ubuntu_lib_dir {
+        rectangle "libpng.so" <<Library File>> as usr_libpng_so
+    }
+}
+note top of usr_dir
+    point 3:
+endnote
+
+
+begin *-right-> src_list
+begin *--> find_png
+find_png *-(0)-> local_dir
+cellar_dir *--> opt_dir
+opt_dir *--> local_dir
+
+find_png *-(0)-> usr_dir
 
 title
-    What is This Process's Structure of Project "basic_116"?
+    What Kind of Bridge is the 'find_package' Command?
 end title
 
 header
