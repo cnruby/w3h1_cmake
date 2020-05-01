@@ -1,67 +1,94 @@
-@startuml
+@startuml what-process
 scale 700 width
 skinparam backgroundColor #FFEBDC
 scale 1
 
-package Project_C++ as project {
-    rectangle main.cxx <<Folder: ./src/>> as main
-    rectangle CMakeLists.txt <<Folder: ./>> as begin
-    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
-    rectangle config.h.in <<Folder: ./cmake/>> as config_h_in
-    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
-    cloud config.hxx <<Folder: ./config/>> as config_hxx
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
 
-
-    note bottom of config_h_in
-        == Step 1 ==
-        ...
-        ＃define PROJECT_NAME "@PROJECT_NAME@"
-    endnote
-    note bottom of config_hxx
-        == Step 2 ==
-        ...
-        ＃define PROJECT_NAME "basic_116"
-    endnote
-    note bottom of main
-        == Step 3 ==
-        ...
-        ＃include "config.hxx"
-        ...
-        std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-    endnote
-
+left to right direction
+package "Project Root Folder" as project_cmake {
+    cloud "Component '**Bosst::filesystem**'" as filesystem
+    rectangle "CMakeLists.txt" <<Folder: ./>> as begin
 
     note right of begin
-        add_subdirectory(cmake)
-        add_subdirectory(src)
+        point 1:
+        set(Boost_USE_MULTITHREADED TRUE)
+        find_package(**Boost** 1.72.0 REQUIRED COMPONENTS **filesystem**)
     endnote
-    note top of cmake_list
-        configure_file(
-            ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-            ${PROJECT_SOURCE_DIR}/config/config.hxx
-        )
+}
+
+package "~~~BRIDGE~~~ FindBoost.cmake" as bridge {
+    rectangle "$HOME_CMAKE/Modules/FindBoost.cmake" <<Module>> as find_boost
+    note right of find_boost
+        Point 2: Find-Module 'FindBoost'
     endnote
+}
+
+package "Folder 'src'" as src_dir {
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+
     note right of src_list
-        add_executable(
-            main_116
-            main.cxx
-        )
-        target_include_directories(
-            main_116
-            PRIVATE
-            ${PROJECT_CONIFG_DIR}
+        point 4:
+        target_link_libraries(
+            main_122
+            PRIVATE **Boost::filesystem**
         )
     endnote
 }
 
-begin *--> src_list
-begin *--> cmake_list
-src_list -left-> main
-cmake_list -left-> config_h_in
-cmake_list -left-> config_hxx
+package "Folder on MacOS '/usr/local'" <<External Library 'boost'>> as usr_local_dir {
+    'package "Folder './Cellar'" as cellar_dir {
+    '    rectangle "filesystem.hxx" <<Folder: ./boost@1.72/include/boost>> as cellar_filesystem_hpp
+    '    rectangle "*.hxx" <<Folder: ./boost@1.72/include/boost/filesystem>> as cellar_filesystem_dir
+    '    rectangle "libboost_filesystem-mt.dylib" <<Folder: ./boost@1.72/lib>> as cellar_libboost_filesystem
+    '}
+
+    'package "Folder './opt'" as opt_dir {
+    '    rectangle "filesystem.hxx" <<Folder: ./boost@1.72/include/boost>> as opt_filesystem_hpp
+    '    rectangle "*.hxx" <<Folder: ./boost@1.72/include/boost/filesystem>> as opt_filesystem_dir
+    '    rectangle "libboost_filesystem-mt.dylib" <<Folder: ./boost@1.72/lib>> as opt_libboost_filesystem
+    '}
+
+    package "Folder '/usr/local'" as local_dir {
+        rectangle "libboost_filesystem-mt.dylib" <<Folder: /usr/local/lib>> as local_libboost_filesystem
+        rectangle "**filesystem**.hpp" <<Folder: /usr/local/include/**boost**>> as local_filesystem_hpp
+        rectangle "*.hpp" <<Folder /usr/local/include/boost/filesystem>> as local_filesystem_dir
+    }
+    note right of local_dir
+        point 3:
+    endnote
+}
+
+'package "Folder on Ubuntu '/usr'" <<External Library 'boost'>> as usr_dir {
+'    package "Folder '/usr/include/boost'" as ubuntu_include_dir {
+'        rectangle "filesystem.hpp" <<Folder ./>> as usr_filesystem_hpp
+'        rectangle "*.hpp" <<Folder ./filesystem>> as usr_filesystem_dir
+'    }
+'    package "Folder '/usr/lib/x86_64-linux-gnu'" as ubuntu_lib_dir {
+'        rectangle "libboost_filesystem.so" <<Library File>> as usr_libboost_filesystem_so
+'    }
+'}
+'note top of usr_dir
+'    point 3:
+'endnote
+
+
+begin --> find_boost
+find_boost -left-> local_dir
+'cellar_dir --> opt_dir
+'cellar_dir --> local_dir
+
+'find_boost -(0)-> usr_dir
+
+filesystem .(0).> src_list
+filesystem .(0). begin
+filesystem .(0).> local_filesystem_hpp
 
 title
-    What is This Process's Structure of Project "basic_116"?
+    What Kind of Bridge is the 'find_package' Command?
 end title
 
 header

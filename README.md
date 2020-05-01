@@ -1,210 +1,188 @@
-<h2>Hello, Configure File!</h2>
-<h3>Generating a <code>C++</code> Configure File with <code>CMake</code></h3>
+<h2>Hello, Library's Components!</h2>
+<h3>Using Library's Components For <code>C++</code> Sources</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_116</br>
-Code Name: Hello, Configure File!</br>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-01.m4a"></p>
-
-
-
-* [Youtube Video](https://youtu.be/thJFmINbG0U)
+Code ID: basic_122</br>
+Code Name: Hello, Library's Components!</br>
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-01.m4a"></p>
 
 
 
 <h2>TABLE of CONTENTS</h2>
 
-- [The Structures of Project](#the-structures-of-project)
+- [About The Project](#about-the-project)
+  - [Requirements](#requirements)
+  - [Install The Library <code>boost</code>](#install-the-library-boost)
+  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The <code>Command's</code> Structure](#the-commands-structure)
-  - [The <code>Process's</code> Structure](#the-processs-structure)
-- [<code>CMake</code> Files of The Project](#cmake-files-of-the-project)
+- [Codes of The Project](#codes-of-the-project)
+  - [The Structure of Process](#the-structure-of-process)
+  - [The CMake File of Folder <code>'cmake'</code>](#the-cmake-file-of-folder-cmake)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
-  - [The Listfile of Folder <code>'cmake'</code>](#the-listfile-of-folder-cmake)
-  - [The Template File of Folder <code>'cmake'</code>](#the-template-file-of-folder-cmake)
-- [C++ Files of The Project](#c-files-of-the-project)
-  - [The C++ Config File of Folder <code>'config'</code>](#the-c-config-file-of-folder-config)
   - [The C++ Main File of Folder <code>'src'</code>](#the-c-main-file-of-folder-src)
-- [Demonstrate Generating The Configure File with <code>CMake<code>](#demonstrate-generating-the-configure-file-with-codecmakecode)
+- [Demonstrate Using Library <code>'boost'<code>](#demonstrate-using-library-codeboostcode)
 - [Final Summary](#final-summary)
 - [References](#references)
-- [The Project's Commands](#the-projects-commands)
-  - [Formatting The Codes](#formatting-the-codes)
-  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [Build and Run The Project](#build-and-run-the-project)
-<div class ="fragment" data-audio-src="docs/116/audio/basic_116-02.m4a"></div>
+<div class ="fragment" data-audio-src="docs/122/audio/basic_122-02.m4a"></div>
 
 
 
-## The Structures of Project
+## About The Project
+<img src="./docs/122/image/find_boost.png" alt="About The Project" height="80%" width="80%">
+<div class ="fragment" data-audio-src="docs/122/audio/basic_122-03.m4a"></div>
+
+
+
+### Requirements
+- [VS Code 1.43.0+](https://code.visualstudio.com/)
+- [CMake 3.17.0+](https://cmake.org/)
+- [Library boost 1.72.0+](https://www.boost.org/)
+<div class ="fragment" data-audio-src="docs/122/audio/basic_122-04.m4a"></div>
+
+
+
+### Install The Library <code>boost</code>
+```bash
+# For MacOS 10.11+
+brew install boost
+# For Ubuntu 20.04+
+sudo apt install libboost-all-dev
+```
+<div class ="fragment" data-audio-src="docs/122/audio/basic_122-05.m4a"></div>
+
+
+
+### Get The Code with Shell Commands
+```bash
+git clone https://github.com/cnruby/w3h1_cmake.git basic_122
+cd basic_122
+git checkout basic_122
+code .
+```
+<div class ="fragment" data-audio-src="docs/122/audio/basic_122-06.m4a"></div>
+
+
+
 ```bash
 #<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
 .
 ├── cmake
 │  ├── CMakeLists.txt
-│  └── config.h.in
+│  ├── config.h.in
+│  ├── GetBoostOne.cmake
+│  └── Initialize.cmake
 ├── CMakeLists.txt
 ├── config
 │  └── config.hxx
 └── src
    ├── CMakeLists.txt
-    └── main.cxx
+   └── main.cxx
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-07.m4a"></p>
 
 
 
-![_image](docs/116/image/what-command.png)
-### The <code>Command's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-04.m4a"></p>
+<img src="./docs/122/image/main_cxx.png" alt="Codes of The Project" height="75%" width="75%">
+
+## Codes of The Project
+<div class ="fragment" data-audio-src="docs/122/audio/basic_122-08.m4a"></div>
 
 
 
-![_image](docs/116/image/what-process.png)
-### The <code>Process's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-05.m4a"></p>
+<img src="./docs/122/image/what-process.png" alt="The Structure of Process" height="90%" width="90%">
+
+### The Structure of Process
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-09.m4a"></p>
 
 
 
-## <code>CMake</code> Files of The Project
-![_image](./docs/116/image/configure_file.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-06.m4a"></p>
+```bash
+#<!-- markdown-exec(cmd:cat cmake/GetBoostOne.cmake) -->#
+# find a library 'boost' with the component 'filesystem'
+set(Boost_USE_MULTITHREADED TRUE)
+find_package(Boost 1.72.0 REQUIRED COMPONENTS filesystem)
+
+# check if Boost was found
+if(Boost_FOUND)
+    message(STATUS "Boost found")
+    message(STATUS "Boost_VERSION_STRING\t\t= ${Boost_VERSION_STRING}")
+    message(STATUS "Boost_INCLUDE_DIRS\t\t= ${Boost_INCLUDE_DIRS}")
+    message(STATUS "Boost_LIBRARY_DIRS\t\t= ${Boost_LIBRARY_DIRS}")
+    message(STATUS "Boost_LIBRARIES\t\t= ${Boost_LIBRARIES}")
+    message(STATUS "Boost_FILESYSTEM_FOUND\t= ${Boost_FILESYSTEM_FOUND}")
+    message(STATUS "Boost_FILESYSTEM_LIBRARY\t= ${Boost_FILESYSTEM_LIBRARY}")
+else()
+    message(FATAL_ERROR "Cannot find Boost")
+endif()
+#<!-- /markdown-exec -->
+```
+### The CMake File of Folder <code>'cmake'</code>
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-10.m4a"></p>
 
 
 
 ```bash
 #<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
 add_executable(
-  main_116
+  main_122
   main.cxx
 )
 target_include_directories(
-  main_116
-  PRIVATE
-  ${PROJECT_CONIFG_DIR}
+  main_122
+  PRIVATE ${PROJECT_CONIFG_DIR}
 )
-
-message("\nFROM src/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM src/CMakeLists.txt")
+# link against the boost libraries
+target_link_libraries(
+  main_122
+  PRIVATE Boost::filesystem
+)
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-07.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat cmake/CMakeLists.txt) -->#
-configure_file(
-    ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-    ${PROJECT_SOURCE_DIR}/config/config.hxx
-    # Restrict the form @VAR@ of template variable, NOT the form ${var}
-    @ONLY
-)
-
-message("\nFROM cmake/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM cmake/CMakeLists.txt")
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-08.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat cmake/config.h.in) -->//
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
-
-//#define CXX_VARIABLE_NAME "@CMAKE_VARIABLE_NAME@"
-
-#define PROJECT_NAME "@PROJECT_NAME@"
-#define PROJECT_SOURCE_DIR "@PROJECT_SOURCE_DIR@"
-#define CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "@CMAKE_RUNTIME_OUTPUT_DIRECTORY@"
-
-//const char *CXX_VARIABLE_NAME = "@CMAKE_VARIABLE_NAME@"
-const char *PROJECT_CONIFG_DIR = "@PROJECT_CONIFG_DIR@";
-
-#endif
-//<!-- /markdown-exec -->
-```
-### The Template File of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-09.m4a"></p>
-
-
-
-## C++ Files of The Project
-![_image](./docs/116/image/main_cxx.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-10.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat config/config.hxx) -->//
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
-
-//#define CXX_VARIABLE_NAME ""
-
-#define PROJECT_NAME "basic_116"
-#define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic"
-#define CMAKE_CURRENT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic/cmake"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Users/Simon/Documents/dev/cpp-ws/116_basic/bin"
-
-//const char *CXX_VARIABLE_NAME = ""
-const char *PROJECT_CONIFG_DIR = "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
-
-#endif
-//<!-- /markdown-exec -->
-```
-### The C++ Config File of Folder <code>'config'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-11.m4a"></p>
 
 
 
 ```C++
 //<!-- markdown-exec(cmd:cat src/main.cxx) -->//
 #include <iostream>
+#include <boost/filesystem.hpp>
 
-#includxe "config.hxx"
+#include "config.hxx"
 
 int main(int, char**) {
-  std::cout << "Hello, C++ Configure File!!" << std::endl;
+  std::cout << PROJECT_DESCRIPTION << std::endl;
 
-  std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-  std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= " << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
+  // use of boost filesystem
+  boost::filesystem::path path = Boost_INCLUDE_DIRS;
+  std::cout << "boost include path = " << path << std::endl;
+  std::cout << "boost include parent path = " << path.parent_path() << std::endl;
 
   return 0;
 }
+//#include <boost/filesystem/path.hpp>
 //<!-- /markdown-exec -->
 ```
 ### The C++ Main File of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-12.m4a"></p>
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-12.m4a"></p>
 
 
 
-## Demonstrate Generating The Configure File with <code>CMake<code>
+## Demonstrate Using Library <code>'boost'<code>
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/116/video/basic_116-13.mov" autoplay=true type="video/mp4">
+  <source src="docs/122/video/basic_122-13.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
-![_image](docs/116/image/what-process.png)
+<img src="./docs/122/image/what-process.png" alt="Final Summary" height="90%" width="90%">
+
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-14.m4a"></p>
+<p class ="fragment" data-audio-src="docs/122/audio/basic_122-14.m4a"></p>
 
 
 
@@ -227,45 +205,8 @@ int main(int, char**) {
 - https://stackoverflow.com/questions/48580399/how-to-ensure-a-generated-config-h-file-is-in-the-include-path
 - https://github.com/bast/cmake-example/tree/master/cmake 
 - https://cmake.org/pipermail/cmake/2006-May/009049.html
-
-
-
-## The Project's Commands
-
-
-
-### Formatting The Codes
-```bash
-ruby format-codes.rb
-```
-
-
-### Get The Code with Shell Commands
-```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_116
-cd basic_116
-git checkout basic_116
-code .
-```
-
-
-
-### Build and Run The Project
-```bash
-cmake -GNinja -Bbuild/
-cmake --build build/ --clean-first -v
-cmake --build build/ --target clean
-cmake --build build/ --clean-first -v &> v11.txt
-# generate the configure file
-rm -rf config
-cmake --build build/ --clean-first
-cmake -Bbuild/
-cmake --build build/ --target rebuild_cache
-cmake --build build/ --clean-first
-./bin/main_116
-#  update the configure file
-cmake --build build/ --clean-first
-# others
-markdown-exec README.md
-ruby format-codes.rb
-```
+- https://cmake.org/cmake/help/latest/module/FindBoost.html
+- https://stackoverflow.com/questions/58081084/target-boostlibrary-already-has-an-imported-location-link-errors
+- https://stackoverflow.com/questions/12578499/how-to-install-boost-on-ubuntu
+- https://www.boost.org/doc/libs/
+- https://www.boost.org/doc/libs/1_73_0/libs/filesystem/doc/index.htm
