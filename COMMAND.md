@@ -66,6 +66,13 @@ open build-doc-sphinx/_build/index.html
 ```
 
 
+### git
+```bash
+git branch -vv
+git checkout -b basic_122
+git push --set-upstream origin basic_122
+git push
+```
 
 ### Others 
 ```bash
