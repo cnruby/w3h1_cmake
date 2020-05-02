@@ -54,8 +54,8 @@
 - **Hello, Module!** Using Your Custom CMake-Find Module "basic_119" [Youtube Video](https://youtu.be/7SkNPLFLrEc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_119)
 - **Hello, Breathe!** Generating functional Documentation For 'C/C++'s Sources "basic_120" [Youtube Video](https://youtu.be/RE6rbuy11Z0) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_120)
 - **Hello, Third Party Library!** Using Third Party Library For C++ Sources "basic_121" [Youtube Video](https://youtu.be/fPAShAPvlio) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_121)
-- **Hello, Library's Components!** Using Library's Components For C++ Sources
- "basic_122" [Youtube Video](https://youtu.be/AMn65HQ5WAE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_122)
+- **Hello, Library's Components!** Using Library's Components For C++ Sources "basic_122" [Youtube Video](https://youtu.be/AMn65HQ5WAE) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_122)
+- **Hello, Module's Variables!** Using Find-Module's Variables with CMake Sources "basic_123" [Youtube Video](https://youtu.be/UuMJGiRZmlA) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_123)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
