@@ -30,7 +30,8 @@
 - [Sphinx](https://www.sphinx-doc.org/)
 - [Sphinx bootstrap theme](https://github.com/ryan-roemer/sphinx-bootstrap-theme)
 - [Library libpng 1.6.37+](http://www.libpng.org/pub/png/libpng.html)
-
+- [Library boost 1.72.0+](https://www.boost.org/)
+- [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
 
 ## Liste
 - **Hello, CMake!** Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
