@@ -1,210 +1,176 @@
-<h2>Hello, Configure File!</h2>
-<h3>Generating a <code>C++</code> Configure File with <code>CMake</code></h3>
+<h2>Hello, Module's Variables!</h2>
+<h3>Using Find-Module's Variables with <code>CMake</code> Sources</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_116</br>
-Code Name: Hello, Configure File!</br>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-01.m4a"></p>
+Code ID: basic_123</br>
+Code Name: Hello, Module's Variables!</br>
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-01.m4a"></p>
 
 
 
-* [Youtube Video](https://youtu.be/thJFmINbG0U)
+[<h1>Youtube Video</h1>](https://youtu.be/UuMJGiRZmlA)
 
 
 
 <h2>TABLE of CONTENTS</h2>
 
-- [The Structures of Project](#the-structures-of-project)
+- [About The Project](#about-the-project)
+  - [Requirements](#requirements)
+  - [Install The Library <code>gettext</code>](#install-the-library-gettext)
+  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The <code>Command's</code> Structure](#the-commands-structure)
-  - [The <code>Process's</code> Structure](#the-processs-structure)
-- [<code>CMake</code> Files of The Project](#cmake-files-of-the-project)
+- [Demonstrate the problem of build](#demonstrate-the-problem-of-build)
+  - [Install The Output of <code>'gettext'</code> with <code>brew</code> on MacOS](#install-the-output-of-gettext-with-brew-on-macos)
+- [Choosing a Solution Method](#choosing-a-solution-method)
+  - [The File <code>'GetLibintl.cmake'<code> of Folder <code>'cmake'</code>](#the-file-getlibintlcmakecode-of-folder-codecmake)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
-  - [The Listfile of Folder <code>'cmake'</code>](#the-listfile-of-folder-cmake)
-  - [The Template File of Folder <code>'cmake'</code>](#the-template-file-of-folder-cmake)
-- [C++ Files of The Project](#c-files-of-the-project)
-  - [The C++ Config File of Folder <code>'config'</code>](#the-c-config-file-of-folder-config)
-  - [The C++ Main File of Folder <code>'src'</code>](#the-c-main-file-of-folder-src)
-- [Demonstrate Generating The Configure File with <code>CMake<code>](#demonstrate-generating-the-configure-file-with-codecmakecode)
+  - [Demonstrate the problem of Folder <code>'src'<code>s Listfile](#demonstrate-the-problem-of-folder-codesrccodes-listfile)
+- [Demonstrate Building The Project](#demonstrate-building-the-project)
+- [Off-Topic: Variables Type in CMake](#off-topic-variables-type-in-cmake)
+  - [Demonstrate the Variable Types in CMake](#demonstrate-the-variable-types-in-cmake)
 - [Final Summary](#final-summary)
 - [References](#references)
-- [The Project's Commands](#the-projects-commands)
-  - [Formatting The Codes](#formatting-the-codes)
-  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [Build and Run The Project](#build-and-run-the-project)
-<div class ="fragment" data-audio-src="docs/116/audio/basic_116-02.m4a"></div>
+<div class ="fragment" data-audio-src="docs/123/audio/basic_123-02.m4a"></div>
 
 
 
-## The Structures of Project
+## About The Project
+<img src="./docs/123/image/main_cxx.png" alt="About The Project" height="100%" width="100%">
+<div class ="fragment" data-audio-src="docs/123/audio/basic_123-03.m4a"></div>
+
+
+
+### Requirements
+- [VS Code 1.43.0+](https://code.visualstudio.com/)
+- [CMake 3.17.0+](https://cmake.org/)
+- [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
+<div class ="fragment" data-audio-src="docs/123/audio/basic_123-04.m4a"></div>
+
+
+
+### Install The Library <code>gettext</code>
+```bash
+# For MacOS 10.11+
+brew install gettext
+# For Ubuntu 20.04+
+sudo apt-get install -y gettext
+```
+<div class ="fragment" data-audio-src="docs/123/audio/basic_123-05.m4a"></div>
+
+
+
+### Get The Code with Shell Commands
+```bash
+git clone https://github.com/cnruby/w3h1_cmake.git basic_123
+cd basic_123
+git checkout basic_123
+code .
+```
+<div class ="fragment" data-audio-src="docs/123/audio/basic_123-06.m4a"></div>
+
+
+
 ```bash
 #<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
 .
 ├── cmake
 │  ├── CMakeLists.txt
-│  └── config.h.in
+│  ├── config.h.in
+│  ├── GetLibintl.cmake
+│  ├── GetLocaleDir.cmake
+│  └── Initialize.cmake
 ├── CMakeLists.txt
 ├── config
 │  └── config.hxx
 └── src
    ├── CMakeLists.txt
-    └── main.cxx
+   └── main.cxx
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-07.m4a"></p>
 
 
 
-![_image](docs/116/image/what-command.png)
-### The <code>Command's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-04.m4a"></p>
+## Demonstrate the problem of build
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/123/video/basic_123-08.mov" autoplay=true type="video/mp4">
+</video>
 
 
 
-![_image](docs/116/image/what-process.png)
-### The <code>Process's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-05.m4a"></p>
+![_image](docs/123/image/install_gettext.png)
+### Install The Output of <code>'gettext'</code> with <code>brew</code> on MacOS
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-09.m4a"></p>
 
 
 
-## <code>CMake</code> Files of The Project
-![_image](./docs/116/image/configure_file.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-06.m4a"></p>
+![_image](docs/123/image/find_intl.png)
+## Choosing a Solution Method
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-10.m4a"></p>
+
+
+
+![_image](docs/123/image/get_linintl_cmake.png)
+### The File <code>'GetLibintl.cmake'<code> of Folder <code>'cmake'</code>
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-11.m4a"></p>
 
 
 
 ```bash
 #<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable(
-  main_116
-  main.cxx
-)
+add_executable( main_123 main.cxx )
+
 target_include_directories(
-  main_116
-  PRIVATE
-  ${PROJECT_CONIFG_DIR}
+  main_123 PRIVATE 
+  ${Intl_INCLUDE_DIRS}
+  ${_PROJECT_CONFIG_DIR}
 )
 
-message("\nFROM src/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM src/CMakeLists.txt")
+target_link_directories (
+  main_123 PRIVATE ${Intl_LIBRARIES}
+)
+
+target_link_libraries( main_123 PRIVATE Intl )
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-12.m4a"></p>
 
 
 
-```bash
-#<!-- markdown-exec(cmd:cat cmake/CMakeLists.txt) -->#
-configure_file(
-    ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-    ${PROJECT_SOURCE_DIR}/config/config.hxx
-    # Restrict the form @VAR@ of template variable, NOT the form ${var}
-    @ONLY
-)
-
-message("\nFROM cmake/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM cmake/CMakeLists.txt")
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-08.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat cmake/config.h.in) -->//
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
-
-//#define CXX_VARIABLE_NAME "@CMAKE_VARIABLE_NAME@"
-
-#define PROJECT_NAME "@PROJECT_NAME@"
-#define PROJECT_SOURCE_DIR "@PROJECT_SOURCE_DIR@"
-#define CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "@CMAKE_RUNTIME_OUTPUT_DIRECTORY@"
-
-//const char *CXX_VARIABLE_NAME = "@CMAKE_VARIABLE_NAME@"
-const char *PROJECT_CONIFG_DIR = "@PROJECT_CONIFG_DIR@";
-
-#endif
-//<!-- /markdown-exec -->
-```
-### The Template File of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-09.m4a"></p>
-
-
-
-## C++ Files of The Project
-![_image](./docs/116/image/main_cxx.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-10.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat config/config.hxx) -->//
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
-
-//#define CXX_VARIABLE_NAME ""
-
-#define PROJECT_NAME "basic_116"
-#define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic"
-#define CMAKE_CURRENT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic/cmake"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Users/Simon/Documents/dev/cpp-ws/116_basic/bin"
-
-//const char *CXX_VARIABLE_NAME = ""
-const char *PROJECT_CONIFG_DIR = "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
-
-#endif
-//<!-- /markdown-exec -->
-```
-### The C++ Config File of Folder <code>'config'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-11.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat src/main.cxx) -->//
-#include <iostream>
-
-#includxe "config.hxx"
-
-int main(int, char**) {
-  std::cout << "Hello, C++ Configure File!!" << std::endl;
-
-  std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-  std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= " << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
-
-  return 0;
-}
-//<!-- /markdown-exec -->
-```
-### The C++ Main File of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-12.m4a"></p>
-
-
-
-## Demonstrate Generating The Configure File with <code>CMake<code>
+### Demonstrate the problem of Folder <code>'src'<code>s Listfile
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/116/video/basic_116-13.mov" autoplay=true type="video/mp4">
+  <source src="docs/123/video/basic_123-13.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
-![_image](docs/116/image/what-process.png)
+## Demonstrate Building The Project
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/123/video/basic_123-14.mov" autoplay=true type="video/mp4">
+</video>
+
+
+
+## Off-Topic: Variables Type in CMake
+![_image](docs/123/image/get_linintl_cmake.png)
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-15.m4a"></p>
+
+
+
+### Demonstrate the Variable Types in CMake
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/123/video/basic_123-16.mov" autoplay=true type="video/mp4">
+</video>
+
+
+
+![_image](docs/123/image/what-cmake_variables.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-14.m4a"></p>
+<p class ="fragment" data-audio-src="docs/123/audio/basic_123-17.m4a"></p>
 
 
 
@@ -227,45 +193,20 @@ int main(int, char**) {
 - https://stackoverflow.com/questions/48580399/how-to-ensure-a-generated-config-h-file-is-in-the-include-path
 - https://github.com/bast/cmake-example/tree/master/cmake 
 - https://cmake.org/pipermail/cmake/2006-May/009049.html
-
-
-
-## The Project's Commands
-
-
-
-### Formatting The Codes
-```bash
-ruby format-codes.rb
-```
-
-
-### Get The Code with Shell Commands
-```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_116
-cd basic_116
-git checkout basic_116
-code .
-```
-
-
-
-### Build and Run The Project
-```bash
-cmake -GNinja -Bbuild/
-cmake --build build/ --clean-first -v
-cmake --build build/ --target clean
-cmake --build build/ --clean-first -v &> v11.txt
-# generate the configure file
-rm -rf config
-cmake --build build/ --clean-first
-cmake -Bbuild/
-cmake --build build/ --target rebuild_cache
-cmake --build build/ --clean-first
-./bin/main_116
-#  update the configure file
-cmake --build build/ --clean-first
-# others
-markdown-exec README.md
-ruby format-codes.rb
-```
+- https://discourse.brew.sh/t/failed-to-set-locale-category-lc-numeric-to-en-ru/5092/5
+- https://raw.githubusercontent.com/git/git/master/po/de.po
+- https://raw.githubusercontent.com/git/git/master/po/zh_CN.po
+- https://www.boost.org/doc/libs/1_57_0/libs/locale/doc/html/messages_formatting.html
+- https://cmake.org/cmake/help/v3.0/variable/ENV.html
+- https://cmake.org/cmake/help/latest/module/FindIntl.html
+- https://stackoverflow.com/questions/1003360/complete-c-i18n-gettext-hello-world-example/1033337
+- https://fedoraproject.org/wiki/How_to_do_I18N_through_gettext
+- https://stackoverflow.com/questions/1003360/complete-c-i18n-gettext-hello-world-example
+- https://stackoverflow.com/questions/21370363/link-error-installing-rcpp-library-not-found-for-lintl
+- https://ubuntuforums.org/showthread.php?t=108879
+- https://github.com/neovim/neovim/blob/master/src/nvim/po/de.po
+- https://progmar.net.pl/en/knowledge-base/gettext
+- https://stackoverflow.com/questions/11789615/how-to-support-multiple-language-in-a-linux-c-c-program
+- https://stackoverflow.com/questions/11370684/what-is-libintl-h-and-where-can-i-get-it
+- https://nkumar.fedorapeople.org/helloi18n/helloworldintld/
+- https://nkumar.fedorapeople.org/helloi18n/helloworld/

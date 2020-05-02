@@ -7,25 +7,18 @@ set(
   17
 )
 project(
-  basic_116
+  basic_123
   VERSION 0.1.0
   LANGUAGES CXX
-  DESCRIPTION "basic_116 Hello, Configure File!"
+  DESCRIPTION "basic_123 Hello, Module's Variables!"
 )
-set(
-  CMAKE_RUNTIME_OUTPUT_DIRECTORY
-  ${PROJECT_SOURCE_DIR}/bin
-)
-set(
-  PROJECT_CONIFG_DIR
-  ${PROJECT_SOURCE_DIR}/config/
-)
+
+#set(CMAKE_MODULE_PATH)
+include(${PROJECT_SOURCE_DIR}/cmake/Initialize.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/GetLocaleDir.cmake)
+include(${PROJECT_SOURCE_DIR}/cmake/GetLibintl.cmake)
+#find_package(Intl REQUIRED)
 
 # call CMake File 'CMakeLists.txt'
 add_subdirectory(cmake)
 add_subdirectory(src)
-
-message("\nFROM ./CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM ./CMakeLists.txt")

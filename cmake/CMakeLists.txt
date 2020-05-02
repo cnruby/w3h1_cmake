@@ -1,4 +1,6 @@
 #
+message("\nFROM cmake/CMakeLists.txt")
+set(LANG $ENV{LANG})
 configure_file(
   ${PROJECT_SOURCE_DIR}/cmake/config.h.in
   ${PROJECT_SOURCE_DIR}/config/config.hxx
@@ -6,8 +8,6 @@ configure_file(
   @ONLY
 )
 
-message("\nFROM cmake/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM cmake/CMakeLists.txt")
+message(STATUS "LANG\t\t\t= ${LANG}")
+message("FROM cmake/CMakeLists.txt\n")
 #
