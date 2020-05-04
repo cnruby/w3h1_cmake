@@ -3,13 +3,14 @@
 ├── cmake
 │  ├── CMakeLists.txt
 │  ├── config.h.in
-│  ├── GetLibintl.cmake
 │  ├── GetLocaleDir.cmake
-│  └── Initialize.cmake
+│  ├── Initialize.cmake
+│  └── TargetAll.cmake
 ├── CMakeLists.txt
 ├── config
 │  └── config.hxx
 └── src
    ├── CMakeLists.txt
-   └── main.cxx
+   ├── main_apt.cxx
+   └── main_debconf.cxx
 #

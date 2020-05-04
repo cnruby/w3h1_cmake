@@ -1,16 +1,12 @@
-<h2>Hello, Module's Variables!</h2>
-<h3>Using Find-Module's Variables with <code>CMake</code> Sources</h3>
+<h2>Hello, Targets!</h2>
+<h3>Building multiple Targets using <code>CMake</code> on Ubuntu 20.04</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_123</br>
-Code Name: Hello, Module's Variables!</br>
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-01.m4a"></p>
-
-
-
-[<h1>Youtube Video</h1>](https://youtu.be/UuMJGiRZmlA)
+Code ID: basic_124</br>
+Code Name: Hello, Targets!</br>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-01.m4a"></p>
 
 
 
@@ -20,25 +16,26 @@ Code Name: Hello, Module's Variables!</br>
   - [Requirements](#requirements)
   - [Install The Library <code>gettext</code>](#install-the-library-gettext)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
+- [The Structure of Project](#the-structure-of-project)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-- [Demonstrate the problem of build](#demonstrate-the-problem-of-build)
-  - [Install The Output of <code>'gettext'</code> with <code>brew</code> on MacOS](#install-the-output-of-gettext-with-brew-on-macos)
-- [Choosing a Solution Method](#choosing-a-solution-method)
-  - [The File <code>'GetLibintl.cmake'<code> of Folder <code>'cmake'</code>](#the-file-getlibintlcmakecode-of-folder-codecmake)
+  - [The Command's Structure of Project on <code>MacOS</code> "basic_123"](#the-commands-structure-of-project-on-macos-%22basic123%22)
+  - [The Command's Structure of Project on <code>Ubuntu</code> "basic_124"](#the-commands-structure-of-project-on-ubuntu-%22basic124%22)
+- [The <code>CMake</code> Codes of Project</code>](#the-cmake-codes-of-projectcode)
+  - [The Difference of <code>'CMake'</code> Sources Between <code>MacOS</code> and <code>Ubuntu</code>?](#the-difference-of-cmake-sources-between-macos-and-ubuntu)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
-  - [Demonstrate the problem of Folder <code>'src'<code>s Listfile](#demonstrate-the-problem-of-folder-codesrccodes-listfile)
+  - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src-1)
 - [Demonstrate Building The Project](#demonstrate-building-the-project)
-- [Off-Topic: Variables Type in CMake](#off-topic-variables-type-in-cmake)
-  - [Demonstrate the Variable Types in CMake](#demonstrate-the-variable-types-in-cmake)
 - [Final Summary](#final-summary)
 - [References](#references)
-<div class ="fragment" data-audio-src="docs/123/audio/basic_123-02.m4a"></div>
+  - [General](#general)
+  - [Important](#important)
+<div class ="fragment" data-audio-src="docs/124/audio/basic_124-02.m4a"></div>
 
 
 
 ## About The Project
-<img src="./docs/123/image/main_cxx.png" alt="About The Project" height="100%" width="100%">
-<div class ="fragment" data-audio-src="docs/123/audio/basic_123-03.m4a"></div>
+<img src="./docs/124/image/main_cxx.png" alt="About The Project" height="120%" width="120%">
+<div class ="fragment" data-audio-src="docs/124/audio/basic_124-03.m4a"></div>
 
 
 
@@ -46,131 +43,127 @@ Code Name: Hello, Module's Variables!</br>
 - [VS Code 1.43.0+](https://code.visualstudio.com/)
 - [CMake 3.17.0+](https://cmake.org/)
 - [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
-<div class ="fragment" data-audio-src="docs/123/audio/basic_123-04.m4a"></div>
+- Library language-pack-de
+- Library language-pack-zh-hans
+- Library language-pack-zh-hant, optional
+<div class ="fragment" data-audio-src="docs/124/audio/basic_124-04.m4a"></div>
 
 
 
 ### Install The Library <code>gettext</code>
 ```bash
-# For MacOS 10.11+
-brew install gettext
 # For Ubuntu 20.04+
+sudo apt-get update
 sudo apt-get install -y gettext
+sudo apt-get install -y language-pack-de
+sudo apt-get install -y language-pack-zh-hans
+sudo apt-get install -y language-pack-zh-hant
 ```
-<div class ="fragment" data-audio-src="docs/123/audio/basic_123-05.m4a"></div>
+<div class ="fragment" data-audio-src="docs/124/audio/basic_124-05.m4a"></div>
 
 
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_123
-cd basic_123
-git checkout basic_123
+git clone https://github.com/cnruby/w3h1_cmake.git basic_124
+cd basic_124
+git checkout basic_124
 code .
 ```
-<div class ="fragment" data-audio-src="docs/123/audio/basic_123-06.m4a"></div>
+<div class ="fragment" data-audio-src="docs/124/audio/basic_124-06.m4a"></div>
 
 
 
+## The Structure of Project
 ```bash
 #<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
 .
 ├── cmake
 │  ├── CMakeLists.txt
 │  ├── config.h.in
-│  ├── GetLibintl.cmake
 │  ├── GetLocaleDir.cmake
-│  └── Initialize.cmake
+│  ├── Initialize.cmake
+│  └── TargetAll.cmake
 ├── CMakeLists.txt
 ├── config
 │  └── config.hxx
 └── src
    ├── CMakeLists.txt
-   └── main.cxx
+   ├── main_apt.cxx
+   └── main_debconf.cxx
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-07.m4a"></p>
 
 
 
-## Demonstrate the problem of build
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/123/video/basic_123-08.mov" autoplay=true type="video/mp4">
-</video>
+![_image](docs/124/image/what-command_macos.png)
+### The Command's Structure of Project on <code>MacOS</code> "basic_123"
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
 
 
 
-![_image](docs/123/image/install_gettext.png)
-### Install The Output of <code>'gettext'</code> with <code>brew</code> on MacOS
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-09.m4a"></p>
+![_image](docs/124/image/what-command_ubuntu.png)
+### The Command's Structure of Project on <code>Ubuntu</code> "basic_124"
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
 
 
 
-![_image](docs/123/image/find_intl.png)
-## Choosing a Solution Method
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-10.m4a"></p>
+## The <code>CMake</code> Codes of Project</code>
+![_image](docs/124/image/find_intl.png)
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-07.m4a"></p>
 
 
 
-![_image](docs/123/image/get_linintl_cmake.png)
-### The File <code>'GetLibintl.cmake'<code> of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-11.m4a"></p>
+![_image](docs/124/image/what-process.png)
+### The Difference of <code>'CMake'</code> Sources Between <code>MacOS</code> and <code>Ubuntu</code>?
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
 
 
 
 ```bash
 #<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable( main_123 main.cxx )
-
-target_include_directories(
-  main_123 PRIVATE 
-  ${Intl_INCLUDE_DIRS}
-  ${_PROJECT_CONFIG_DIR}
+add_executable(
+  apt_main_124
+  main_apt.cxx
 )
-
-target_link_directories (
-  main_123 PRIVATE ${Intl_LIBRARIES}
+add_executable(
+  debconf_main_124
+  main_debconf.cxx
 )
-
-target_link_libraries( main_123 PRIVATE Intl )
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-12.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-12.m4a"></p>
 
 
 
-### Demonstrate the problem of Folder <code>'src'<code>s Listfile
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/123/video/basic_123-13.mov" autoplay=true type="video/mp4">
-</video>
+```bash
+#<!-- markdown-exec(cmd:cat cmake/TargetAll.cmake) -->#
+# For Ubuntu
+include_directories(${_PROJECT_CONFIG_DIR})
+# For MacOS
+# include_directories( ${Intl_INCLUDE_DIRS} ${_PROJECT_CONFIG_DIR} )
+# include_directories(${Intl_INCLUDE_DIRS} ${_PROJECT_CONFIG_DIR})
+# link_directories(${Intl_LIBRARIES})
+#<!-- /markdown-exec -->
+```
+### The Listfile of Folder <code>'src'</code>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-12.m4a"></p>
 
 
 
 ## Demonstrate Building The Project
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/123/video/basic_123-14.mov" autoplay=true type="video/mp4">
+  <source src="docs/124/video/basic_124-14.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
-## Off-Topic: Variables Type in CMake
-![_image](docs/123/image/get_linintl_cmake.png)
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-15.m4a"></p>
-
-
-
-### Demonstrate the Variable Types in CMake
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/123/video/basic_123-16.mov" autoplay=true type="video/mp4">
-</video>
-
-
-
-![_image](docs/123/image/what-cmake_variables.png)
+![_image](docs/124/image/what-command_ubuntu.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/123/audio/basic_123-17.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
 
 
 
@@ -187,6 +180,7 @@ target_link_libraries( main_123 PRIVATE Intl )
 
 
 ## References
+### General
 - https://cmake.org/cmake/help/latest/command/configure_file.html
 - https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-to-create-a-ProjectConfig.cmake-file
 - https://riptutorial.com/cmake/example/26652/generate-a-cplusplus-configure-file-with-cmake
@@ -210,3 +204,12 @@ target_link_libraries( main_123 PRIVATE Intl )
 - https://stackoverflow.com/questions/11370684/what-is-libintl-h-and-where-can-i-get-it
 - https://nkumar.fedorapeople.org/helloi18n/helloworldintld/
 - https://nkumar.fedorapeople.org/helloi18n/helloworld/
+- https://stackoverflow.com/questions/31356199/multiple-make-targets-in-the-same-cmake-project
+- https://stackoverflow.com/questions/47553569/how-can-i-build-multiple-targets-using-cmake-build?rq=1
+- https://cmake.org/pipermail/cmake/2013-March/054016.html
+
+
+
+### Important
+- https://davesteele.github.io/debian/development/2015/12/10/i18n-build-flow/
+- https://www.debian.org/international/l10n/po/pot

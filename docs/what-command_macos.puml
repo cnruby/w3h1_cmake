@@ -1,0 +1,49 @@
+@startuml what-command_macos
+scale 600 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package Project_on_MacOS <<CMake Codes>> as project_on_macOS {
+    rectangle add_executable <<main_123 main.cxx>> as main_123
+
+    rectangle target_include_directories <<main_123>> as target_include_dir
+    rectangle "${Intl_INCLUDE_DIRS}" <<PRIVATE>> as Intl_INCLUDE_DIRS
+    rectangle "${_PROJECT_CONFIG_DIR}" <<PRIVATE>> as _PROJECT_CONFIG_DIR
+    target_include_dir *--> Intl_INCLUDE_DIRS
+    target_include_dir *--> _PROJECT_CONFIG_DIR
+
+
+    rectangle target_link_directories <<main_123>> as target_link_dir
+    rectangle "${Intl_LIBRARIES}" <<PRIVATE>> as Intl_LIBRARIES
+    target_link_dir *--> Intl_LIBRARIES
+
+    rectangle target_link_libraries <<main_123>>  as target_link_lib
+    rectangle "Intl" <<PRIVATE>> as Intl
+    target_link_lib *--> Intl
+
+    main_123 *--> target_include_dir
+    main_123 *--> target_link_dir
+    main_123 *--> target_link_lib
+
+    rectangle find_package <<Intl REQUIRED>> as find_package
+    target_link_lib *--> find_package
+}
+
+
+title
+    What is This Command's Structure of Project on MacOS "basic_123"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

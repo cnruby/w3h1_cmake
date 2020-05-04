@@ -7,18 +7,26 @@ set(
   17
 )
 project(
-  basic_123
+  basic_124
   VERSION 0.1.0
   LANGUAGES CXX
-  DESCRIPTION "basic_123 Hello, Module's Variables!"
+  DESCRIPTION "basic_124 Hello, Module's Variables!"
 )
 
-#set(CMAKE_MODULE_PATH)
-include(${PROJECT_SOURCE_DIR}/cmake/Initialize.cmake)
-include(${PROJECT_SOURCE_DIR}/cmake/GetLocaleDir.cmake)
-include(${PROJECT_SOURCE_DIR}/cmake/GetLibintl.cmake)
-#find_package(Intl REQUIRED)
+include(cmake/Initialize.cmake)
+include(cmake/GetLocaleDir.cmake)
+include(cmake/TargetAll.cmake)
 
 # call CMake File 'CMakeLists.txt'
 add_subdirectory(cmake)
 add_subdirectory(src)
+
+# set(ENABLE_TARGETS "" CACHE
+#     STRING "Targets to be built in demo simultaneously (default: none)")
+
+# if(NOT "${ENABLE_TARGETS}" STREQUAL "")
+#     add_custom_target(enabled_targets)
+#     foreach(target IN LISTS ENABLE_TARGETS)
+#         add_dependencies(enabled_targets ${target})
+#     endforeach()
+# endif()

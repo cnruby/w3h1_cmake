@@ -11,9 +11,9 @@ ruby format-codes.rb
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_123
-cd basic_123
-git checkout basic_123
+git clone https://github.com/cnruby/w3h1_cmake.git basic_124
+cd basic_124
+git checkout basic_124
 code .
 ```
 
@@ -85,13 +85,13 @@ code /Applications/CMake.app/Contents/share/cmake-3.17/Modules/FindGettext.cmake
 cmake -GNinja -Bbuild/
 cmake --build build/
 locale
-./bin/main_123
+./bin/main_124
 export LANG=zh_CN.UTF-8
-./bin/main_123
+./bin/main_124
 export LANG=de_DE.UTF-8
 cmake --build build/ --target rebuild_cache
 cmake --build build/
-./bin/main_123
+./bin/main_124
 
 #FOR APPLE
 ls /usr/local/share/locale/de/LC_MESSAGES/
@@ -110,14 +110,44 @@ cmake --help-variable-list | grep Intl_LIBRARIES
 ```
 
 
+### basic_124
+```bash
+# How can I build multiple targets using cmake
+locale
+locale -a
+export LANG=de_DE.UTF-8 && cmake -GNinja -Bbuild/
+cmake --build build/
+./bin/apt_main_124
+LC_ALL=de_DE.utf8 ./bin/apt_main_124
+LC_ALL=de_DE.utf8 ./bin/debconf_main_124
+export LANG=zh_CN.UTF-8
+export LANG=zh_CN.UTF-8 && cmake --build build/ --target rebuild_cache
+cmake --build build/
+LC_ALL=zh_CN.utf8 ./bin/apt_main_124
+LC_ALL=zh_CN.utf8 ./bin/debconf_main_124
+
+cmake -Bbuild -DENABLE_TARGETS="git_main_124"
+cmake --build build --target enabled_targets
+cmake --build build --target apt_main_124
+cmake --build build --target debconf_main_124
+
+sudo v /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install -y language-pack-de
+sudo apt-get install -y language-pack-zh-hans
+sudo apt-get install -y language-pack-zh-hant
+
+ls /usr/share/locale/de/LC_MESSAGES/
+```
+
 
 ### Others 
 ```bash
 markdown-exec README.md
 ruby format-codes.rb
 git branch -vv
-git checkout -b basic_123
-git push --set-upstream origin basic_123
+git checkout -b basic_124
+git push --set-upstream origin basic_124
 git push
 exa -T > docs/output/tree.txt
 dot -V

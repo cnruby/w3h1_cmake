@@ -1,0 +1,83 @@
+@startuml what-process
+scale 400 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+package "Project_on_MacOS basci_123" as project_macos {
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+
+    note left of begin
+        add_subdirectory(cmake)
+        add_subdirectory(src)
+    endnote
+
+    rectangle main.cxx <<Folder: ./src/>> as main
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+
+    note bottom of src_list
+        **add_executable( main_123 main.cxx )**
+        **target_include_directories**( main_123 PRIVATE 
+            ${Intl_INCLUDE_DIRS}
+            ${_PROJECT_CONFIG_DIR} )
+        target_link_directories ( main_123 PRIVATE ${Intl_LIBRARIES} )
+        target_link_libraries( main_123 PRIVATE Intl )
+    endnote
+
+    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
+
+    note left of cmake_list
+        find_package(Intl REQUIRED)
+    endnote
+}
+
+package "Project_on_Ubuntu basci_124" as project_ubuntu {
+    rectangle CMakeLists.txt <<Folder: ./>> as begin_ubuntu
+
+    note left of begin_ubuntu
+        add_subdirectory(cmake)
+        add_subdirectory(src)
+    endnote
+
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list_ubuntu
+    rectangle main_apt.cxx <<Folder: ./src/>> as main_apt_ubuntu
+    rectangle main_debconf.cxx <<Folder: ./src/>> as main_debconf_ubuntu
+
+    note bottom of src_list_ubuntu
+        **add_executable( apt_main_124 main_apt.cxx )**
+        **add_executable( debconf_main_124 main_debconf.cxx )**
+    endnote
+
+    rectangle TargetAll.cmake <<Folder: ./cmake/>> as cmake_list_ubuntu
+
+    note left of cmake_list_ubuntu
+        **include_directories**( ${_PROJECT_CONFIG_DIR} )
+    endnote
+}
+
+
+begin *.(0).> src_list
+begin *.(0).> cmake_list
+src_list --> main
+
+begin_ubuntu *.(0).> src_list_ubuntu
+begin_ubuntu *.(0).> cmake_list_ubuntu
+src_list_ubuntu --> main_apt_ubuntu
+src_list_ubuntu --> main_debconf_ubuntu
+
+
+title
+    What is the Difference of 'CMake' Sources Between MacOS and Ubuntu?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
