@@ -24,7 +24,9 @@ Code Name: Hello, Targets!</br>
   - [The Difference of <code>'CMake'</code> Sources Between <code>MacOS</code> and <code>Ubuntu</code>?](#the-difference-of-cmake-sources-between-macos-and-ubuntu)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src-1)
-- [Demonstrate Building The Project](#demonstrate-building-the-project)
+- [Demonstrate The Development of Project](#demonstrate-the-development-of-project)
+  - [Demonstrate Building The Project](#demonstrate-building-the-project)
+  - [Demonstrate The Build's Commands](#demonstrate-the-builds-commands)
 - [Final Summary](#final-summary)
 - [References](#references)
   - [General](#general)
@@ -36,6 +38,10 @@ Code Name: Hello, Targets!</br>
 ## About The Project
 <img src="./docs/124/image/main_cxx.png" alt="About The Project" height="120%" width="120%">
 <div class ="fragment" data-audio-src="docs/124/audio/basic_124-03.m4a"></div>
+
+
+
+[<h1>Youtube Video</h1>](https://youtu.be/-T4BMEI2agc)
 
 
 
@@ -100,25 +106,25 @@ code .
 
 ![_image](docs/124/image/what-command_macos.png)
 ### The Command's Structure of Project on <code>MacOS</code> "basic_123"
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-08.m4a"></p>
 
 
 
 ![_image](docs/124/image/what-command_ubuntu.png)
 ### The Command's Structure of Project on <code>Ubuntu</code> "basic_124"
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-09.m4a"></p>
 
 
 
 ## The <code>CMake</code> Codes of Project</code>
 ![_image](docs/124/image/find_intl.png)
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-10.m4a"></p>
 
 
 
 ![_image](docs/124/image/what-process.png)
 ### The Difference of <code>'CMake'</code> Sources Between <code>MacOS</code> and <code>Ubuntu</code>?
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-11.m4a"></p>
 
 
 
@@ -150,20 +156,30 @@ include_directories(${_PROJECT_CONFIG_DIR})
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-12.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-13.m4a"></p>
 
 
 
-## Demonstrate Building The Project
+
+## Demonstrate The Development of Project
 <video width="720" height="480" controls data-autoplay>
   <source src="docs/124/video/basic_124-14.mov" autoplay=true type="video/mp4">
+</video>
+
+### Demonstrate Building The Project
+
+
+
+### Demonstrate The Build's Commands
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/124/video/basic_124-15.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
 ![_image](docs/124/image/what-command_ubuntu.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-17.m4a"></p>
+<p class ="fragment" data-audio-src="docs/124/audio/basic_124-16.m4a"></p>
 
 
 
