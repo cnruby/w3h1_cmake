@@ -10,6 +10,10 @@ Code Name: Hello, Targets!</br>
 
 
 
+[<h1>Youtube Video</h1>](https://youtu.be/-T4BMEI2agc)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [About The Project](#about-the-project)
@@ -38,10 +42,6 @@ Code Name: Hello, Targets!</br>
 ## About The Project
 <img src="./docs/124/image/main_cxx.png" alt="About The Project" height="120%" width="120%">
 <div class ="fragment" data-audio-src="docs/124/audio/basic_124-03.m4a"></div>
-
-
-
-[<h1>Youtube Video</h1>](https://youtu.be/-T4BMEI2agc)
 
 
 
