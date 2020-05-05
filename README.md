@@ -10,20 +10,26 @@ Code Name: Hello, MULTOS!</br>
 
 
 
+[<h1>Youtube Video</h1>](https://youtu.be/fBkFHSka2NA)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [About The Project](#about-the-project)
   - [Requirements](#requirements)
   - [Install The Library <code>SQLite3</code>](#install-the-library-sqlite3)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
+  - [The <code>C++</code> Main Program](#the-c-main-program)
 - [Demonstrate Building The Project on MULTOS](#demonstrate-building-the-project-on-multos)
-- [The Structure of Project](#the-structure-of-project)
-  - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The Command's Structure of Project "basic_121"](#the-commands-structure-of-project-%22basic121%22)
-  - [The Command's Structure of Project "basic_125"](#the-commands-structure-of-project-%22basic125%22)
 - [The <code>CMake</code> Codes of Project</code>](#the-cmake-codes-of-projectcode)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
   - [The File 'GetSQLite3.cmake' of Folder <code>'cmake'</code>](#the-file-getsqlite3cmake-of-folder-cmake)
+- [The Structure of Project](#the-structure-of-project)
+  - [The <code>Folder's</code> Structure](#the-folders-structure)
+  - [The Command's Structure of Project "basic_121"](#the-commands-structure-of-project-%22basic121%22)
+- [Installing SQLite on MacOS](#installing-sqlite-on-macos)
+  - [The Command's Structure of Project "basic_125"](#the-commands-structure-of-project-%22basic125%22)
 - [Final Summary](#final-summary)
 - [References](#references)
   - [General](#general)
@@ -33,7 +39,7 @@ Code Name: Hello, MULTOS!</br>
 
 
 ## About The Project
-<img src="./docs/125/image/main_cxx.png" alt="About The Project" height="120%" width="120%">
+<img src="./docs/125/image/demo-ubuntu-macos.png" alt="About The Project" height="120%" width="120%">
 <div class ="fragment" data-audio-src="docs/125/audio/basic_125-03.m4a"></div>
 
 
@@ -74,10 +80,87 @@ code $PROJECT_HOME
 
 
 
+### The <code>C++</code> Main Program
+```bash
+#<!-- markdown-exec(cmd:cat ./src/main.cxx) -->//
+#include "iostream"
+#include <sqlite3.h>
+#include <config.hxx>
+using namespace std;
+
+int main(int argCount, char **ppArgs)
+{
+    std::cout << PROJECT_DESCRIPTION << std::endl;    
+    cout << "SQLITE VERSION: " << SQLITE_VERSION << endl;
+
+    // Pointer to SQLite connection
+    sqlite3 *db;
+
+    // Save the connection result
+    int exit = 0;
+    exit = sqlite3_open("db/sqlite3.db", &db);
+
+    // Test if there was an error
+    if (exit)
+    {
+        cout << "Opened Database Erroneous: " << sqlite3_errmsg(db) << endl;
+    }
+    else
+    {
+        cout << "Opened Database Successfully!" << endl;
+    }
+
+    // Close the connection
+    sqlite3_close(db);
+
+    return argCount;
+}
+//<!-- /markdown-exec -->
+```
+<div class ="fragment" data-audio-src="docs/125/audio/basic_125-07.m4a"></div>
+
+
+
 ## Demonstrate Building The Project on MULTOS
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/125/video/basic_125-14.mov" autoplay=true type="video/mp4">
+  <source src="docs/125/video/basic_125-08.mp4" autoplay=true type="video/mp4">
 </video>
+
+
+
+## The <code>CMake</code> Codes of Project</code>
+```bash
+#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
+add_executable( main_125 main.cxx )
+target_include_directories(
+  main_125 
+  PRIVATE 
+  ${_SQLITE_INCLUDE_DIR} ${_PROJECT_CONFIG_DIR}
+)
+target_link_libraries(
+  main_125 PRIVATE ${_SQLITE_LIBRARY})
+#<!-- /markdown-exec -->
+```
+### The Listfile of Folder <code>'src'</code>
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-09.m4a"></p>
+
+
+
+```bash
+#<!-- markdown-exec(cmd:cat cmake/GetSQLite3.cmake) -->#
+if(${OS_NAME} STREQUAL APPLE)
+  set(_SQLITE_INCLUDE_DIR /usr/local/opt/sqlite3/include)
+  set(_SQLITE_LIBRARY /usr/local/opt/sqlite3/lib/libsqlite3.a)
+elseif(${OS_NAME} STREQUAL UBUNTU)
+  set(_SQLITE_INCLUDE_DIR /usr/include)
+  set(_SQLITE_LIBRARY /usr/lib/x86_64-linux-gnu/libsqlite3.so)
+else()
+endif()
+#<!-- /markdown-exec -->
+```
+### The File 'GetSQLite3.cmake' of Folder <code>'cmake'</code>
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-10.m4a"></p>
+
 
 
 
@@ -99,61 +182,31 @@ code $PROJECT_HOME
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-11.m4a"></p>
 
 
 
 ### The Command's Structure of Project "basic_121"
 ![_image](docs/125/image/what-process-121.png)
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-12.m4a"></p>
+
+
+
+![_image](docs/125/image/install_sqlite_macos.png)
+## Installing SQLite on MacOS
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-13.m4a"></p>
 
 
 
 ### The Command's Structure of Project "basic_125"
 ![_image](docs/125/image/what-process-125.png)
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-09.m4a"></p>
-
-
-
-## The <code>CMake</code> Codes of Project</code>
-```bash
-#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable( main_125 main.cxx )
-target_include_directories(
-  main_125 
-  PRIVATE 
-  ${_SQLITE_INCLUDE_DIR} ${_PROJECT_CONFIG_DIR}
-)
-target_link_libraries(
-  main_125 PRIVATE ${_SQLITE_LIBRARY})
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-12.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat cmake/GetSQLite3.cmake) -->#
-if(${OS_NAME} STREQUAL APPLE)
-  set(_SQLITE_INCLUDE_DIR /usr/local/opt/sqlite3/include)
-  set(_SQLITE_LIBRARY /usr/local/opt/sqlite3/lib/libsqlite3.a)
-elseif(${OS_NAME} STREQUAL UBUNTU)
-  set(_SQLITE_INCLUDE_DIR /usr/include)
-  set(_SQLITE_LIBRARY /usr/lib/x86_64-linux-gnu/libsqlite3.so)
-else()
-endif()
-#<!-- /markdown-exec -->
-```
-### The File 'GetSQLite3.cmake' of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-13.m4a"></p>
-
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-14.m4a"></p>
 
 
 
 ![_image](docs/125/image/what-process-125.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-16.m4a"></p>
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-15.m4a"></p>
 
 
 

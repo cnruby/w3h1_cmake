@@ -160,6 +160,8 @@ doxygen --version
 ### basic_125
 ```bash
 uname -a
+sw_vers
+lsb_release -a
 cat ./get_project.sh
 ./get_project.sh basic_125
 cmake -GNinja -Bbuild/
