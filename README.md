@@ -14,16 +14,16 @@ Code Name: Hello, MULTOS!</br>
 
 - [About The Project](#about-the-project)
   - [Requirements](#requirements)
-  - [Install The Library <code>gettext</code>](#install-the-library-gettext)
+  - [Install The Library <code>SQLite3</code>](#install-the-library-sqlite3)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
+- [Demonstrate Building The Project on MULTOS](#demonstrate-building-the-project-on-multos)
 - [The Structure of Project](#the-structure-of-project)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The Command's Structure of Project](#the-commands-structure-of-project)
+  - [The Command's Structure of Project "basic_121"](#the-commands-structure-of-project-%22basic121%22)
+  - [The Command's Structure of Project "basic_125"](#the-commands-structure-of-project-%22basic125%22)
 - [The <code>CMake</code> Codes of Project</code>](#the-cmake-codes-of-projectcode)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
   - [The File 'GetSQLite3.cmake' of Folder <code>'cmake'</code>](#the-file-getsqlite3cmake-of-folder-cmake)
-- [Demonstrate The Development of Project](#demonstrate-the-development-of-project)
-  - [Demonstrate Building The Project](#demonstrate-building-the-project)
 - [Final Summary](#final-summary)
 - [References](#references)
   - [General](#general)
@@ -41,15 +41,18 @@ Code Name: Hello, MULTOS!</br>
 ### Requirements
 - [VS Code 1.43.0+](https://code.visualstudio.com/)
 - [CMake 3.17.0+](https://cmake.org/)
-- Library SQLite3
+- [Library SQLite 3.31.1+](https://www.sqlite.org/index.html)
 <div class ="fragment" data-audio-src="docs/125/audio/basic_125-04.m4a"></div>
 
 
 
-### Install The Library <code>gettext</code>
+### Install The Library <code>SQLite3</code>
 ```bash
 # For MacOS
+brew install sqlite
 # For Ubuntu 20.04+
+sudo apt-get update
+sudo apt-get install sqlite3
 ```
 <div class ="fragment" data-audio-src="docs/125/audio/basic_125-05.m4a"></div>
 
@@ -57,12 +60,24 @@ Code Name: Hello, MULTOS!</br>
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_125
-cd basic_125
-git checkout basic_125
-code .
+#<!-- markdown-exec(cmd:cat ../get_project.sh) -->#!/bin/bash
+# ./get_project.sh <PROJECT_ID>
+# ./get_project.sh basic_125
+#
+PROJECT_HOME=$HOME/Documents/dev/cpp-ws/$1
+git clone https://github.com/cnruby/w3h1_cmake.git $PROJECT_HOME
+cd $PROJECT_HOME && git checkout $1
+code $PROJECT_HOME
+#<!-- /markdown-exec -->
 ```
 <div class ="fragment" data-audio-src="docs/125/audio/basic_125-06.m4a"></div>
+
+
+
+## Demonstrate Building The Project on MULTOS
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/125/video/basic_125-14.mov" autoplay=true type="video/mp4">
+</video>
 
 
 
@@ -88,32 +103,29 @@ code .
 
 
 
-![_image](docs/125/image/what-command_ubuntu.png)
-### The Command's Structure of Project
+### The Command's Structure of Project "basic_121"
+![_image](docs/125/image/what-process-121.png)
+<p class ="fragment" data-audio-src="docs/125/audio/basic_125-09.m4a"></p>
+
+
+
+### The Command's Structure of Project "basic_125"
+![_image](docs/125/image/what-process-125.png)
 <p class ="fragment" data-audio-src="docs/125/audio/basic_125-09.m4a"></p>
 
 
 
 ## The <code>CMake</code> Codes of Project</code>
-![_image](docs/125/image/find_intl.png)
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-10.m4a"></p>
-
-
-
 ```bash
 #<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable(
-  main_125
-  main.cxx
-)
-
+add_executable( main_125 main.cxx )
 target_include_directories(
   main_125 
-  PRIVATE ${SQLITE_INCLUDE_DIR} ${_PROJECT_CONFIG_DIR}
+  PRIVATE 
+  ${_SQLITE_INCLUDE_DIR} ${_PROJECT_CONFIG_DIR}
 )
 target_link_libraries(
-  main_125 
-  PRIVATE ${SQLITE_LIBRARY})
+  main_125 PRIVATE ${_SQLITE_LIBRARY})
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
@@ -124,11 +136,11 @@ target_link_libraries(
 ```bash
 #<!-- markdown-exec(cmd:cat cmake/GetSQLite3.cmake) -->#
 if(${OS_NAME} STREQUAL APPLE)
-  set(SQLITE_INCLUDE_DIR /usr/local/opt/sqlite3/include)
-  set(SQLITE_LIBRARY /usr/local/opt/sqlite3/lib/libsqlite3.a)
+  set(_SQLITE_INCLUDE_DIR /usr/local/opt/sqlite3/include)
+  set(_SQLITE_LIBRARY /usr/local/opt/sqlite3/lib/libsqlite3.a)
 elseif(${OS_NAME} STREQUAL UBUNTU)
-  set(SQLITE_INCLUDE_DIR /usr/include)
-  set(SQLITE_LIBRARY /usr/lib/x86_64-linux-gnu/libsqlite3.so)
+  set(_SQLITE_INCLUDE_DIR /usr/include)
+  set(_SQLITE_LIBRARY /usr/lib/x86_64-linux-gnu/libsqlite3.so)
 else()
 endif()
 #<!-- /markdown-exec -->
@@ -139,16 +151,7 @@ endif()
 
 
 
-## Demonstrate The Development of Project
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/125/video/basic_125-14.mov" autoplay=true type="video/mp4">
-</video>
-
-### Demonstrate Building The Project
-
-
-
-![_image](docs/125/image/what-command_ubuntu.png)
+![_image](docs/125/image/what-process-125.png)
 ## Final Summary
 <p class ="fragment" data-audio-src="docs/125/audio/basic_125-16.m4a"></p>
 

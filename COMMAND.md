@@ -11,9 +11,9 @@ ruby format-codes.rb
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_124
-cd basic_124
-git checkout basic_124
+git clone https://github.com/cnruby/w3h1_cmake.git basic_125
+cd basic_125
+git checkout basic_125
 code .
 ```
 
@@ -141,6 +141,7 @@ ls /usr/share/locale/de/LC_MESSAGES/
 ```
 
 
+
 ### Others 
 ```bash
 markdown-exec README.md
@@ -152,4 +153,16 @@ git push
 exa -T > docs/output/tree.txt
 dot -V
 doxygen --version
+```
+
+
+
+### basic_125
+```bash
+uname -a
+cat ./get_project.sh
+./get_project.sh basic_125
+cmake -GNinja -Bbuild/
+cmake --build build/
+./bin/main_125
 ```
