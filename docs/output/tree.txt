@@ -1,10 +1,13 @@
 #
-.                          >>>PROJECT_SOURCE_DIR
-├── build-docs             >>>DOXYGEN_OUTPUT_DIRECTORY
-├── CMakeLists.txt
+.
 ├── cmake
-│  └── CMakeLists.txt
-├── README.md              >>>DOXYGEN_USE_MDFILE_AS_MAINPAGE
+│  ├── CMakeLists.txt
+│  ├── config.h.in
+│  ├── GetSQLite3.cmake
+│  └── Initialize.cmake
+├── CMakeLists.txt
+├── config
+│  └── config.hxx
 └── src
    ├── CMakeLists.txt
    └── main.cxx

@@ -24,7 +24,7 @@ package Project_C++ as project {
 
     note left of src_list
         add_executable(
-            main_118
+            main_125
             main.cxx
         )
     endnote

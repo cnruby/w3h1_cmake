@@ -11,10 +11,10 @@ skinparam Folder {
 'left to right direction
 package C++_Main_DIR <<./src/>> as cxx_main {
     package add_executable <<...>> {
-        rectangle main_118 <<Target Executable Name>> as main_118
+        rectangle main_125 <<Target Executable Name>> as main_125
         rectangle main.cxx <<Source Name>> as main_cxx
     }
-    main_118 *-right-> main_cxx
+    main_125 *-right-> main_cxx
 }
 
 package DOXYGEN_DIR <<./cmake/>> as doxygen_dir {
@@ -46,7 +46,7 @@ find_doxygen *--> doxygen
 
 
 title
-    What is This Command's Structure of Project "basic_118"?
+    What is This Command's Structure of Project "basic_125"?
 end title
 
 header
