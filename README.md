@@ -21,7 +21,7 @@
 - [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
 - [cmake-format](https://marketplace.visualstudio.com/items?itemName=cheshirekow.cmake-format)
 
-### Tool
+### Tool and Library
 - [CMake](https://cmake.org/)
 - [clang-format](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 - [cmake_format](https://github.com/cheshirekow/cmake_format)
@@ -32,6 +32,11 @@
 - [Library libpng 1.6.37+](http://www.libpng.org/pub/png/libpng.html)
 - [Library boost 1.72.0+](https://www.boost.org/)
 - [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
+
+### Library on Ubuntu
+- Library language-pack-de
+- Library language-pack-zh-hans
+- Library language-pack-zh-hant, optional
 
 ## Liste
 - **Hello, CMake!** Hello Application with 'CMake' "basic_101" [Youtube Video](https://youtu.be/I2-fIgkGfy8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_101)
