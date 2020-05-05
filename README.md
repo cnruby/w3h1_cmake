@@ -32,6 +32,7 @@
 - [Library libpng 1.6.37+](http://www.libpng.org/pub/png/libpng.html)
 - [Library boost 1.72.0+](https://www.boost.org/)
 - [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
+- [Library SQLite 3.31.1+](https://www.sqlite.org/index.html)
 
 ### Library on Ubuntu
 - Library language-pack-de
