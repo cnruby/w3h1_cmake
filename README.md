@@ -10,9 +10,7 @@ Code Name: Hello, Multiple Versions!</br>
 
 
 
-<p align="center">
-  [<h1>Youtube Video</h1>](https://youtu.be/GmXbz3yfhWc)
-</p>
+[<h1>Youtube Video</h1>](https://youtu.be/GmXbz3yfhWc)
 
 
 
