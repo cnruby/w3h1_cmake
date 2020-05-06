@@ -1,16 +1,12 @@
-<h2>Hello, MULTOS!</h2>
-<h3>Building <code>C++</code> Project on Multiple Operating System using <code>CMake</code></h3>
+<h2>Hello, Multiple Versions!</h2>
+<h3>Building Multiple Versions of a Shared Library Using <code>CMake</code></h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_125</br>
-Code Name: Hello, MULTOS!</br>
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-01.m4a"></p>
-
-
-
-[<h1>Youtube Video</h1>](https://youtu.be/fBkFHSka2NA)
+Code ID: basic_126</br>
+Code Name: Hello, Multiple Versions!</br>
+<p class ="fragment" data-audio-src="docs/126/audio/basic_126-01.m4a"></p>
 
 
 
@@ -20,35 +16,36 @@ Code Name: Hello, MULTOS!</br>
   - [Requirements](#requirements)
   - [Install The Library <code>SQLite3</code>](#install-the-library-sqlite3)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [The <code>C++</code> Main Program](#the-c-main-program)
-- [Demonstrate Building The Project on MULTOS](#demonstrate-building-the-project-on-multos)
+- [Demonstrate Building Multiple Versions](#demonstrate-building-multiple-versions)
 - [The <code>CMake</code> Codes of Project</code>](#the-cmake-codes-of-projectcode)
   - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
   - [The File 'GetSQLite3.cmake' of Folder <code>'cmake'</code>](#the-file-getsqlite3cmake-of-folder-cmake)
 - [The Structure of Project](#the-structure-of-project)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The Command's Structure of Project "basic_121"](#the-commands-structure-of-project-%22basic121%22)
-- [Installing SQLite on MacOS](#installing-sqlite-on-macos)
-  - [The Command's Structure of Project "basic_125"](#the-commands-structure-of-project-%22basic125%22)
+  - [The Process's Structure](#the-processs-structure)
 - [Final Summary](#final-summary)
 - [References](#references)
   - [General](#general)
   - [Important](#important)
-<div class ="fragment" data-audio-src="docs/125/audio/basic_125-02.m4a"></div>
+<div class ="fragment" data-audio-src="docs/126/audio/basic_126-02.m4a"></div>
+
+
+
+[<h1>Youtube Video</h1>](https://youtu.be/GmXbz3yfhWc)
 
 
 
 ## About The Project
-<img src="./docs/125/image/demo-ubuntu-macos.png" alt="About The Project" height="120%" width="120%">
-<div class ="fragment" data-audio-src="docs/125/audio/basic_125-03.m4a"></div>
+<img src="./docs/126/image/about.png" alt="About The Project" height="120%" width="120%">
+<div class ="fragment" data-audio-src="docs/126/audio/basic_126-03.m4a"></div>
 
 
 
 ### Requirements
 - [VS Code 1.43.0+](https://code.visualstudio.com/)
 - [CMake 3.17.0+](https://cmake.org/)
-- [Library SQLite 3.31.1+](https://www.sqlite.org/index.html)
-<div class ="fragment" data-audio-src="docs/125/audio/basic_125-04.m4a"></div>
+- [Library SQLite 3.8.10.2+](https://www.sqlite.org/index.html)
+<div class ="fragment" data-audio-src="docs/126/audio/basic_126-04.m4a"></div>
 
 
 
@@ -56,11 +53,8 @@ Code Name: Hello, MULTOS!</br>
 ```bash
 # For MacOS
 brew install sqlite
-# For Ubuntu 20.04+
-sudo apt-get update
-sudo apt-get install sqlite3
 ```
-<div class ="fragment" data-audio-src="docs/125/audio/basic_125-05.m4a"></div>
+<div class ="fragment" data-audio-src="docs/126/audio/basic_126-05.m4a"></div>
 
 
 
@@ -68,7 +62,7 @@ sudo apt-get install sqlite3
 ```bash
 #<!-- markdown-exec(cmd:cat ../get_project.sh) -->#!/bin/bash
 # ./get_project.sh <PROJECT_ID>
-# ./get_project.sh basic_125
+# ./get_project.sh basic_126
 #
 PROJECT_HOME=$HOME/Documents/dev/cpp-ws/$1
 git clone https://github.com/cnruby/w3h1_cmake.git $PROJECT_HOME
@@ -76,54 +70,13 @@ cd $PROJECT_HOME && git checkout $1
 code $PROJECT_HOME
 #<!-- /markdown-exec -->
 ```
-<div class ="fragment" data-audio-src="docs/125/audio/basic_125-06.m4a"></div>
+<div class ="fragment" data-audio-src="docs/126/audio/basic_126-06.m4a"></div>
 
 
 
-### The <code>C++</code> Main Program
-```bash
-#<!-- markdown-exec(cmd:cat ./src/main.cxx) -->//
-#include "iostream"
-#include <sqlite3.h>
-#include <config.hxx>
-using namespace std;
-
-int main(int argCount, char **ppArgs)
-{
-    std::cout << PROJECT_DESCRIPTION << std::endl;    
-    cout << "SQLITE VERSION: " << SQLITE_VERSION << endl;
-
-    // Pointer to SQLite connection
-    sqlite3 *db;
-
-    // Save the connection result
-    int exit = 0;
-    exit = sqlite3_open("db/sqlite3.db", &db);
-
-    // Test if there was an error
-    if (exit)
-    {
-        cout << "Opened Database Erroneous: " << sqlite3_errmsg(db) << endl;
-    }
-    else
-    {
-        cout << "Opened Database Successfully!" << endl;
-    }
-
-    // Close the connection
-    sqlite3_close(db);
-
-    return argCount;
-}
-//<!-- /markdown-exec -->
-```
-<div class ="fragment" data-audio-src="docs/125/audio/basic_125-07.m4a"></div>
-
-
-
-## Demonstrate Building The Project on MULTOS
+## Demonstrate Building Multiple Versions
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/125/video/basic_125-08.mp4" autoplay=true type="video/mp4">
+  <source src="docs/126/video/basic_126-07.mov" autoplay=true type="video/mp4">
 </video>
 
 
@@ -131,35 +84,53 @@ int main(int argCount, char **ppArgs)
 ## The <code>CMake</code> Codes of Project</code>
 ```bash
 #<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable( main_125 main.cxx )
+add_executable( brew_main_126 main_brew.cxx )
 target_include_directories(
-  main_125 
-  PRIVATE 
-  ${_SQLITE_INCLUDE_DIR} ${_PROJECT_CONFIG_DIR}
+  brew_main_126 PRIVATE ${_PROJECT_CONFIG_DIR}
 )
 target_link_libraries(
-  main_125 PRIVATE ${_SQLITE_LIBRARY})
+  brew_main_126 PRIVATE Sqlite3Brew
+)
+add_executable( os_main_126 main_os.cxx )
+target_include_directories(
+  os_main_126 PRIVATE ${_PROJECT_CONFIG_DIR}
+)
+target_link_libraries(
+  os_main_126 PRIVATE Sqlite3OS
+)
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/126/audio/basic_126-08.m4a"></p>
 
 
 
 ```bash
 #<!-- markdown-exec(cmd:cat cmake/GetSQLite3.cmake) -->#
-if(${OS_NAME} STREQUAL APPLE)
-  set(_SQLITE_INCLUDE_DIR /usr/local/opt/sqlite3/include)
-  set(_SQLITE_LIBRARY /usr/local/opt/sqlite3/lib/libsqlite3.a)
-elseif(${OS_NAME} STREQUAL UBUNTU)
-  set(_SQLITE_INCLUDE_DIR /usr/include)
-  set(_SQLITE_LIBRARY /usr/lib/x86_64-linux-gnu/libsqlite3.so)
-else()
-endif()
+# Brew Install SQLite3
+set(_BREW_SQLITE_INCLUDE_DIR /usr/local/opt/sqlite3/include)
+set(_BREW_SQLITE_LIBRARY /usr/local/opt/sqlite3/lib/libsqlite3.dylib)
+# MacOS Default SQLite3
+set(_OS_SQLITE_INCLUDE_DIR /usr/include)
+set(_OS_SQLITE_LIBRARY /usr/lib/libsqlite3.dylib)
+
+add_library(Sqlite3Brew SHARED IMPORTED)
+set_target_properties(Sqlite3Brew
+  PROPERTIES
+  INTERFACE_INCLUDE_DIRECTORIES ${_BREW_SQLITE_INCLUDE_DIR}
+  IMPORTED_LOCATION ${_BREW_SQLITE_LIBRARY}
+)
+
+add_library(Sqlite3OS SHARED IMPORTED)
+set_target_properties(Sqlite3OS
+  PROPERTIES
+  INTERFACE_INCLUDE_DIRECTORIES ${_OS_SQLITE_INCLUDE_DIR}
+  IMPORTED_LOCATION ${_OS_SQLITE_LIBRARY}
+)
 #<!-- /markdown-exec -->
 ```
 ### The File 'GetSQLite3.cmake' of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-10.m4a"></p>
+<p class ="fragment" data-audio-src="docs/126/audio/basic_126-09.m4a"></p>
 
 
 
@@ -178,35 +149,24 @@ endif()
 │  └── config.hxx
 └── src
    ├── CMakeLists.txt
-   └── main.cxx
+   ├── main_brew.cxx
+   └── main_os.cxx
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/126/audio/basic_126-10.m4a"></p>
 
 
 
-### The Command's Structure of Project "basic_121"
-![_image](docs/125/image/what-process-121.png)
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-12.m4a"></p>
+### The Process's Structure
+![_image](docs/126/image/what-process.png)
+<p class ="fragment" data-audio-src="docs/126/audio/basic_126-11.m4a"></p>
 
 
 
-![_image](docs/125/image/install_sqlite_macos.png)
-## Installing SQLite on MacOS
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-13.m4a"></p>
-
-
-
-### The Command's Structure of Project "basic_125"
-![_image](docs/125/image/what-process-125.png)
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-14.m4a"></p>
-
-
-
-![_image](docs/125/image/what-process-125.png)
+![_image](docs/126/image/what-command.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/125/audio/basic_125-15.m4a"></p>
+<p class ="fragment" data-audio-src="docs/126/audio/basic_126-12.m4a"></p>
 
 
 

@@ -1,0 +1,70 @@
+@startuml what-process
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Project Root Folder" as project_cmake {
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+}
+
+package "Folder 'src'" as src_dir {
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+    rectangle Sqlite3Brew <<Library Name in Project>> as brew_basic_126
+    rectangle Sqlite3OS <<Library Name in Project>> as os_basic_126
+
+    note right of brew_basic_126
+        target_link_libraries(
+            brew_main_126
+            PRIVATE Sqlite3Brew
+        )
+    endnote
+    note right of os_basic_126
+        target_link_libraries(
+            os_main_126
+            PRIVATE Sqlite3OS
+        )
+    endnote
+
+    src_list *--> brew_basic_126
+    src_list *--> os_basic_126
+}
+
+package "Folder '/usr/local'" <<Brew Library 'sqlite3'>> as usr_local_dir {
+    package "Folder './opt'" as opt_dir {
+        rectangle "sqlite3.h" <<Folder: ./sqlite3/include>> as opt_sqlite3_h
+        rectangle "sqlite3.dylib" <<Folder: ./sqlite3/lib>> as opt_sqlite3_dylib
+    }
+}
+
+package "Folder '/usr'" <<OS Library 'sqlite3'>> as usr_dir {
+    package "Folder '/usr/include'" as os_include_dir {
+        rectangle "sqlite3.h" <<Include File>> as usr_sqlite3_h
+    }
+    package "Folder '/usr/lib'" as os_lib_dir {
+        rectangle "sqlite3.so" <<Library File>> as usr_sqlite3_so
+    }
+}
+
+
+begin *--> src_list
+brew_basic_126 *--> opt_dir
+os_basic_126 *--> usr_dir
+
+
+title
+    How to Build Multiple Versions of a Shared Library?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

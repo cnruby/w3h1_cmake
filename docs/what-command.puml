@@ -1,0 +1,95 @@
+@startuml what-command
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Project basic_121" as project_basic_121 {
+    rectangle main_121 <<Target Name>> as basic_121
+    rectangle "PNG::PNG" <<CMake Library Name>> as png_basic_121
+
+    note top of basic_121
+        find_package(PNG 1.6.37 REQUIRED)
+        target_link_libraries(
+            main_121
+            PRIVATE PNG::PNG
+        )
+    endnote
+}
+note top of project_basic_121
+    **The Effect in System Wide**
+endnote
+
+
+
+package "Project basic_125" as project_basic_125 {
+    rectangle main_125 <<Target Name>> as basic_125
+
+    note top of basic_125
+        add_executable( brew_main_126 main_brew.cxx )
+        target_link_libraries(
+            main_125 PRIVATE ${_SQLITE_LIBRARY})
+    endnote
+}
+note top of project_basic_125
+    **The Effect in Target Wide**
+endnote
+
+
+package "Project basic_126" as project_basic_126 {
+    rectangle brew_main_126 <<Target Name>> as basic_126
+    rectangle Sqlite3Brew <<Virtual Library Name>> as brew_basic_126
+
+    note top of basic_126
+        add_library(Sqlite3Brew SHARED IMPORTED)
+        target_link_libraries(
+            brew_main_126
+            PRIVATE Sqlite3Brew
+        )
+    endnote
+}
+note top of project_basic_126
+    **The Effect in Project Wide**
+endnote
+
+package "~~~BRIDGE~~~ FindPNG.cmake" as bridge {
+    cloud "$HOME_CMAKE/Modules/FindPNG.cmake" <<Module>> as find_png
+    note top of find_png
+        Find-Module 'FindPNG'
+    endnote
+}
+
+package "Folder '/usr'" <<External Library>> as usr_dir {
+    package "Folder '/usr/.../include'" as include_dir {
+        rectangle "*.h" <<Include File>> as usr_h
+    }
+    package "Folder '/usr/.../lib'" as lib_dir {
+        rectangle "*.dylib" <<Library File>> as usr_so
+    }
+}
+
+basic_121 *-(0)-> png_basic_121
+png_basic_121 *-(0)-> find_png
+find_png *-(0)-> usr_dir
+
+basic_125 *-(0)-> usr_dir
+
+basic_126 *-(0)-> brew_basic_126
+brew_basic_126 *-(0)-> usr_dir
+
+title
+    What Kind of Bridge are the Commands 'target_link_libraries'?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

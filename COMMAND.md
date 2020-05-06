@@ -11,9 +11,9 @@ ruby format-codes.rb
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_125
-cd basic_125
-git checkout basic_125
+git clone https://github.com/cnruby/w3h1_cmake.git basic_126
+cd basic_126
+git checkout basic_126
 code .
 ```
 
@@ -157,14 +157,15 @@ doxygen --version
 
 
 
-### basic_125
+### basic_126
 ```bash
 uname -a
 sw_vers
 lsb_release -a
 cat ./get_project.sh
-./get_project.sh basic_125
+./get_project.sh basic_126
 cmake -GNinja -Bbuild/
 cmake --build build/
-./bin/main_125
+./bin/os_main_126
+./bin/brew_main_126
 ```

@@ -14,7 +14,7 @@ int main(int argCount, char **ppArgs)
 
     // Save the connection result
     int exit = 0;
-    exit = sqlite3_open("db/sqlite3.db", &db);
+    exit = sqlite3_open("db/os_sqlite3.db", &db);
 
     // Test if there was an error
     if (exit)

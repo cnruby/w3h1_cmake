@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.0.0)
 
 project(
-  basic_125
+  basic_126
   VERSION 0.1.0
-  DESCRIPTION "Hello, MULTOS!"
+  DESCRIPTION "Hello, Multiple Versions!"
   LANGUAGES CXX
 )
 

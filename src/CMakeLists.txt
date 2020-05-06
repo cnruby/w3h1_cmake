@@ -1,10 +1,17 @@
 #
-add_executable( main_125 main.cxx )
+add_executable( brew_main_126 main_brew.cxx )
 target_include_directories(
-  main_125 
-  PRIVATE 
-  ${_SQLITE_INCLUDE_DIR} ${_PROJECT_CONFIG_DIR}
+  brew_main_126 PRIVATE ${_PROJECT_CONFIG_DIR}
 )
 target_link_libraries(
-  main_125 PRIVATE ${_SQLITE_LIBRARY})
+  brew_main_126 PRIVATE Sqlite3Brew
+)
+
+add_executable( os_main_126 main_os.cxx )
+target_include_directories(
+  os_main_126 PRIVATE ${_PROJECT_CONFIG_DIR}
+)
+target_link_libraries(
+  os_main_126 PRIVATE Sqlite3OS
+)
 #
