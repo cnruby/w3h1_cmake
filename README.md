@@ -10,6 +10,10 @@ Code Name: Hello, Multiple Versions!</br>
 
 
 
+[<h1>Youtube Video</h1>](https://youtu.be/GmXbz3yfhWc)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [About The Project](#about-the-project)
@@ -28,10 +32,6 @@ Code Name: Hello, Multiple Versions!</br>
   - [General](#general)
   - [Important](#important)
 <div class ="fragment" data-audio-src="docs/126/audio/basic_126-02.m4a"></div>
-
-
-
-[<h1>Youtube Video</h1>](https://youtu.be/GmXbz3yfhWc)
 
 
 
