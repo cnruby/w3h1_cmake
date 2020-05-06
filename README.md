@@ -33,6 +33,7 @@
 - [Library boost 1.72.0+](https://www.boost.org/)
 - [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
 - [Library SQLite 3.31.1+](https://www.sqlite.org/index.html)
+- [Library SQLite 3.8.10.2+](https://www.sqlite.org/index.html) For "basic_126"
 
 ### Library on Ubuntu
 - Library language-pack-de
