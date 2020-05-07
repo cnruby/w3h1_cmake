@@ -67,7 +67,7 @@
 - **Hello, Targets!** Building multiple Targets using CMake on Ubuntu 20.04 "basic_124" [Youtube Video](https://youtu.be/-T4BMEI2agc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_124)
 - **Hello, MULTOS!** Building C++ Project on Multiple Operating System using CMake "basic_125" [Youtube Video](https://youtu.be/fBkFHSka2NA) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_125)
 - **Hello, Multiple Versions!** Building Multiple Versions of a Shared Library Using CMake "basic_126" [Youtube Video](https://youtu.be/GmXbz3yfhWc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_126)
-
+- **Hello, $PATH!** Creating a Symbolic Link for a Library "basic_127" [Youtube Video](https://youtu.be/DFdMZvpCoCg) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_127)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
