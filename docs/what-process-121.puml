@@ -1,0 +1,83 @@
+@startuml what-process-121
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Project Root Folder" as project_cmake {
+    rectangle CMakeLists.txt <<Folder: ./>> as begin
+
+    note top of begin
+        point 1:
+        find_package(PNG 1.6.37 REQUIRED)
+    endnote
+}
+
+package "~~~BRIDGE~~~ FindPNG.cmake" as bridge {
+    cloud "$HOME_CMAKE/Modules/FindPNG.cmake" <<Module>> as find_png
+    note top of find_png
+        Point 2: Find-Module 'FindPNG'
+    endnote
+}
+
+package "Folder 'src'" as src_dir {
+    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
+
+    note top of src_list
+        point 4:
+        target_link_libraries(
+        main_121
+        PRIVATE PNG::PNG
+        )
+    endnote
+}
+
+package "Folder on MacOS '/usr/local'" <<External Library 'libpng'>> as usr_local_dir {
+    package "Folder './Cellar'" as cellar_dir {
+        rectangle "png.h" <<Folder: ./libpng/1.6.37/include>> as cellar_png_h
+        rectangle "libpng.dylib" <<Folder: ./libpng/1.6.37/lib>> as cellar_libpng_dylib
+    }
+
+    package "Folder './opt'" as opt_dir {
+        rectangle "png.h" <<Folder: ./libpng/include>> as opt_png_h
+        rectangle "libpng.dylib" <<Folder: ./libpng/lib>> as opt_libpng_dylib
+    }
+
+    package "Folder '/usr/local'" as local_dir {
+        package "Folder '/usr/local/include'" as include_dir {
+            rectangle "png.h" <<Include File>> as local_png_h
+        }
+        package "Folder '/usr/local/lib'" as lib_dir {
+            rectangle "libpng.dylib" <<Library File>> as local_libpng_dylib
+        }
+    }
+
+    note top of local_dir
+        point 3:
+    endnote
+}
+
+
+begin *-right-> src_list
+begin *--> find_png
+find_png *-(0)-> local_dir
+cellar_dir *--> opt_dir
+opt_dir *--> local_dir
+
+
+title
+    What Kind of Bridge is the 'find_package' Command "basic_121"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

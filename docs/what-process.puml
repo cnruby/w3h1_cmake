@@ -1,67 +1,79 @@
-@startuml
+@startuml what-process
 scale 700 width
 skinparam backgroundColor #FFEBDC
 scale 1
 
-package Project_C++ as project {
-    rectangle main.cxx <<Folder: ./src/>> as main
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Project Root Folder" as project_cmake {
     rectangle CMakeLists.txt <<Folder: ./>> as begin
+
+    note top of begin
+        point 1:
+        find_package(Intl REQUIRED)
+    endnote
+}
+
+package "~~~BRIDGE~~~ FindIntl.cmake" as bridge {
+    cloud "$HOME_CMAKE/Modules/FindIntl.cmake" <<Module>> as find_intl
+    note top of find_intl
+        Point 2: Find-Module 'FindIntl'
+    endnote
+}
+
+package "Folder 'src'" as src_dir {
     rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
-    rectangle config.h.in <<Folder: ./cmake/>> as config_h_in
-    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
-    cloud config.hxx <<Folder: ./config/>> as config_hxx
 
-
-    note bottom of config_h_in
-        == Step 1 ==
-        ...
-        ＃define PROJECT_NAME "@PROJECT_NAME@"
-    endnote
-    note bottom of config_hxx
-        == Step 2 ==
-        ...
-        ＃define PROJECT_NAME "basic_116"
-    endnote
-    note bottom of main
-        == Step 3 ==
-        ...
-        ＃include "config.hxx"
-        ...
-        std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-    endnote
-
-
-    note right of begin
-        add_subdirectory(cmake)
-        add_subdirectory(src)
-    endnote
-    note top of cmake_list
-        configure_file(
-            ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-            ${PROJECT_SOURCE_DIR}/config/config.hxx
-        )
-    endnote
-    note right of src_list
-        add_executable(
-            main_116
-            main.cxx
-        )
-        target_include_directories(
-            main_116
-            PRIVATE
-            ${PROJECT_CONIFG_DIR}
+    note top of src_list
+        point 4:
+        target_link_libraries(
+            main_127 PRIVATE Intl
         )
     endnote
 }
 
-begin *--> src_list
-begin *--> cmake_list
-src_list -left-> main
-cmake_list -left-> config_h_in
-cmake_list -left-> config_hxx
+package "Folder on MacOS '/usr/local'" <<External Library 'libintl'>> as usr_local_dir {
+    package "Folder './Cellar'" as cellar_dir {
+        rectangle "libintl.h" <<Folder: ./gettext/0.20.1/include>> as cellar_png_h
+        rectangle "libintl.dylib" <<Folder: ./libintl/0.20.1/lib>> as cellar_libintl_dylib
+    }
+
+    package "Folder './opt'" as opt_dir {
+        rectangle "libintl.h" <<Folder: ./libintl/include>> as opt_png_h
+        rectangle "libintl.dylib" <<Folder: ./libintl/lib>> as opt_libintl_dylib
+    }
+
+    Folder "Folder '/usr/local'" as local_dir {
+        package "Folder '/usr/local/include'" as include_dir {
+            rectangle "libintl.h" <<Include File>> as local_png_h
+        }
+        package "Folder '/usr/local/lib'" as lib_dir {
+            rectangle "libintl.dylib" <<Library File>> as local_libintl_dylib
+        }
+    }
+
+    note bottom of local_dir
+        point 3:
+        LOCAL_DIR=/usr/local
+        ln -s $LOCAL_DIR/opt/gettext/lib/libintl.dylib $LOCAL_DIR/lib/libintl.dylib
+        ln -s $LOCAL_DIR/opt/gettext/lib/libintl.a $LOCAL_DIR/lib/libintl.a
+        ln -s $LOCAL_DIR/opt/gettext/include/libintl.h $LOCAL_DIR/include/libintl.h
+    endnote
+}
+
+
+begin *-right-> src_list
+begin *--> find_intl
+find_intl *--> local_dir
+cellar_dir *--> opt_dir
+opt_dir *-(0)-> local_dir
 
 title
-    What is This Process's Structure of Project "basic_116"?
+    What Kind of Bridge is the 'find_package' Command "basic_127"?
 end title
 
 header

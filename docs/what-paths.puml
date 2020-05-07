@@ -1,0 +1,47 @@
+@startuml what-paths
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+package "The Types of Library Path in CMake" as types {
+    rectangle "Types of Library Path" as library_path
+    rectangle "Path Types" as path_types
+    rectangle "Single Target Path" <<basic_125>> as target_single
+    rectangle "Shared Target Path" <<basic_124>> as target_shared
+    rectangle "Find-Module Types" as find_module_types
+    rectangle "Find-Module Types of Project" as find_module_project
+    rectangle "Single Find-Module Path" <<basic_123>> as find_module_single
+    rectangle "Multiple Find-Module Path" <<basic_126>> as find_module_multiple
+    rectangle "Find-Module Types of System" as find_module_system
+    rectangle "Default Find-Module Path" <<basic_121>> as find_module_default
+    rectangle "Custum Find-Module Path" <<basic_127>> as find_module_custum
+
+    'note left of cmake_variables
+    'endnote
+}
+
+library_path *--> path_types
+library_path *--> find_module_types
+
+path_types *--> target_single
+path_types *--> target_shared
+
+find_module_types *--> find_module_project
+find_module_project *--> find_module_single
+find_module_project *--> find_module_multiple
+
+find_module_types *--> find_module_system
+find_module_system *--> find_module_default
+find_module_system *--> find_module_custum
+
+title
+    What is The Types of Library Path in CMake? "basic_127"
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
