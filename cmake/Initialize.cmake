@@ -1,5 +1,5 @@
 #
-message("\nFROM cmake/Initialize.txt")
+message("\nFROM cmake/Initialize.cmake")
 message(STATUS "CMAKE_VERSION\t= ${CMAKE_VERSION}")
 set(
   CMAKE_RUNTIME_OUTPUT_DIRECTORY
@@ -26,5 +26,5 @@ elseif(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux")
     message(STATUS ">>>> Found unknown distribution <<<<")
   endif()
 endif()
-message("FROM cmake/Initialize.txt")
+message("FROM cmake/Initialize.cmake")
 #
