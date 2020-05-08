@@ -10,6 +10,10 @@ Code Name: Hello, $PATH!</br>
 
 
 
+[<h1>Youtube Video</h1>](https://youtu.be/DFdMZvpCoCg)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [About The Project](#about-the-project)
@@ -75,26 +79,26 @@ code $PROJECT_HOME
 
 ## Demonstrate Creating a Symbolic Link for a Library
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/127/video/basic_127-07.mov" autoplay=true type="video/mp4">
+  <source src="docs/127/video/basic_127-07.mp4" autoplay=true type="video/mp4">
 </video>
 
 
 
 ## The Structure of Project
 ![_image](docs/127/image/diff-121-127.png)
-<p class ="fragment" data-audio-src="docs/127/audio/basic_127-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/127/audio/basic_127-08.m4a"></p>
 
 
 
 ![_image](docs/127/image/what-process-121.png)
 ### The Process's Structure of Project "basic_121"
-<p class ="fragment" data-audio-src="docs/127/audio/basic_127-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/127/audio/basic_127-09.m4a"></p>
 
 
 
 ![_image](docs/127/image/what-process.png)
 ### The Process's Structure of Project  "basic_127"
-<p class ="fragment" data-audio-src="docs/127/audio/basic_127-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/127/audio/basic_127-10.m4a"></p>
 
 
 
@@ -109,7 +113,7 @@ ln -s $SOURCE_DIR/lib/libintl.a $DESTN_DIR/lib/libintl.a
 #<!-- /markdown-exec -->
 ```
 ### The <code>Shell</code> Codes of Project</code>
-<div class ="fragment" data-audio-src="docs/127/audio/basic_127-06.m4a"></div>
+<div class ="fragment" data-audio-src="docs/127/audio/basic_127-11.m4a"></div>
 
 
 
@@ -132,7 +136,7 @@ target_link_libraries(
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/127/audio/basic_127-08.m4a"></p>
+<p class ="fragment" data-audio-src="docs/127/audio/basic_127-12.m4a"></p>
 
 
 
@@ -154,7 +158,7 @@ message("FROM cmake/GetLibintl.txt")
 #<!-- /markdown-exec -->
 ```
 ### The File <code>'GetLibintl.cmake'</code> of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/127/audio/basic_127-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/127/audio/basic_127-13.m4a"></p>
 
 
 
