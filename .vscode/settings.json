@@ -1,5 +1,7 @@
 {
   "files.associations": {
-    "*.in": "cpp"
+    "*.in": "cpp",
+    "iosfwd": "cpp",
+    "string": "cpp"
   }
 }

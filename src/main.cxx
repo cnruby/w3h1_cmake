@@ -1,20 +1,18 @@
 //
 #include <iostream>
-
 #include "config.hxx"
+#include <fmt/core.h>
 
 int main(int, char**) {
-  std::cout << "Hello, C++ Configure File!!" << std::endl;
-
-  std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-  std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR
-            << std::endl;
-  std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= "
-            << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
-
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
-
+  std::cout << "FMT_VERSION = " << FMT_VERSION << std::endl;  
+  fmt::print(" {0: ^{2}} \n"
+             " {1:^{2}} \n"
+             " {0: ^{2}} \n", "", PROJECT_DESCRIPTION, 40);
+  //                           0  1                    2
+  fmt::print(" {0: ^{2}} \n"
+             " {1:^{3}} \n"
+             " {0: ^{2}} \n", "", "世界，你好！", 40, 34);
+  //                           0  1             2   3
   return 0;
 }
 //

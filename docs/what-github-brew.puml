@@ -1,0 +1,74 @@
+@startuml what-github-brew
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package C++_SRC_DIR <<./src/>> as cxx_main {
+    package add_executable <<...>> {
+        rectangle main_128 <<Target Executable Name>> as main_128
+        rectangle main.cxx <<Source Name>> as main_cxx
+    }
+    package target_link_libraries <<PRIVATE>> as target_link_libraries {
+        rectangle main_128 <<Target Executable Name>> as main_128_link
+        rectangle "**fmt**" <<Linking Library Name>> as lib_fmt
+    }
+
+    main_128 *--> main_cxx
+    main_128 *--> main_128_link
+    
+}
+
+package CMAKE_DIR <<./cmake/>> as cmake_dir {
+    package FetchContent_Declare <<...>> as fetchcontent_declare {
+        rectangle fmtlib <<Formatting Library Name>> as fmtlib
+        rectangle "https://github.com/fmtlib/fmt.git" <<GIT_REPOSITORY>> as git_repository
+        rectangle "6.2.0" <<GIT_TAG>> as git_tag
+    }
+
+    Folder "Local GitHub" <<./build/_deps>> as local_github {
+        rectangle "*.a" <<Library File>> as deps_lib_file
+        rectangle "*.h" <<Header File>> as deps_header_file
+    }
+
+    fetchcontent_declare *--> local_github
+}
+
+main_128_link *--> lib_fmt
+lib_fmt *-(0)-> deps_lib_file
+
+package Repositories <<GitHub>> as repositories {
+    cloud "{fmt}" <<Library>> as github_fmt
+}
+
+
+package LOCAL_DIR <</usr/local>> as local_dir {
+    rectangle "Tool Brew" as brew
+    Folder "Local Brew" <</usr/local>> as local_brew {
+        rectangle "*.h" <<Header File>> as header_file
+        rectangle "*.a" <<Library File>> as lib_file
+    }
+}
+
+brew *--> local_brew
+lib_fmt *-(0)-> lib_file
+brew *..> github_fmt
+git_repository *..> github_fmt
+
+
+title
+    How to Link the Library For C++ Project "basic_128"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
