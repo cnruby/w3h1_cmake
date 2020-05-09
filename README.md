@@ -68,6 +68,7 @@
 - **Hello, MULTOS!** Building C++ Project on Multiple Operating System using CMake "basic_125" [Youtube Video](https://youtu.be/fBkFHSka2NA) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_125)
 - **Hello, Multiple Versions!** Building Multiple Versions of a Shared Library Using CMake "basic_126" [Youtube Video](https://youtu.be/GmXbz3yfhWc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_126)
 - **Hello, $PATH!** Creating a Symbolic Link for a Library "basic_127" [Youtube Video](https://youtu.be/DFdMZvpCoCg) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_127)
+- **Hello, GitHub! Formatting Library from Repositories Using CMake "basic_128" [Youtube Video](https://youtu.be/27zsR2It2K8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_128)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
