@@ -73,6 +73,8 @@ markdown-exec README.md
 ruby format-codes.rb
 git branch -vv
 git checkout -b basic_129
+git push --set-upstream origin basic_129
+git push
 exa -T > docs/output/tree.txt
 dot -V
 doxygen --version
