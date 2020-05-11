@@ -1,67 +1,90 @@
-@startuml
+@startuml what-process
 scale 700 width
 skinparam backgroundColor #FFEBDC
 scale 1
 
-package Project_C++ as project {
-    rectangle main.cxx <<Folder: ./src/>> as main
-    rectangle CMakeLists.txt <<Folder: ./>> as begin
-    rectangle CMakeLists.txt <<Folder: ./src/>> as src_list
-    rectangle config.h.in <<Folder: ./cmake/>> as config_h_in
-    rectangle CMakeLists.txt <<Folder: ./cmake/>> as cmake_list
-    cloud config.hxx <<Folder: ./config/>> as config_hxx
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
 
+'left to right direction
+package "Root Folder" as project_root {
+    rectangle "CMakeLists.txt" <<Folder: ./>> as begin
+}
 
-    note bottom of config_h_in
-        == Step 1 ==
-        ...
-        ＃define PROJECT_NAME "@PROJECT_NAME@"
-    endnote
-    note bottom of config_hxx
-        == Step 2 ==
-        ...
-        ＃define PROJECT_NAME "basic_116"
-    endnote
-    note bottom of main
-        == Step 3 ==
-        ...
-        ＃include "config.hxx"
-        ...
-        std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-    endnote
+Folder "Folder 'hunter'" <<Download The Libraries>> as project_hunter {
+    rectangle "HunterGate.cmake" <<Step 1. Download Hunter Gate>> as hunter_gate
+    rectangle "HunterVersion.cmake" <<Step 2. Get Hunter Version>> as hunter_version
+    rectangle "HunterAdd.cmake" <<Step 3. Add Package>> as hunter_add
 
+}
+note top of project_hunter
+    Point 0:
+endnote
 
-    note right of begin
-        add_subdirectory(cmake)
-        add_subdirectory(src)
-    endnote
-    note top of cmake_list
-        configure_file(
-            ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-            ${PROJECT_SOURCE_DIR}/config/config.hxx
-        )
-    endnote
-    note right of src_list
-        add_executable(
-            main_116
-            main.cxx
-        )
-        target_include_directories(
-            main_116
-            PRIVATE
-            ${PROJECT_CONIFG_DIR}
-        )
+package "GetBoost.cmake" <<Find Package>> as get_boost {
+    package find_package <<REQUIRED>> as find_package {
+        rectangle Boost <<COMPONENTS filesystem>> as Boost
+    }
+    note top of find_package
+        Point 2:
     endnote
 }
 
-begin *--> src_list
-begin *--> cmake_list
-src_list -left-> main
-cmake_list -left-> config_h_in
-cmake_list -left-> config_hxx
+package "~~~BRIDGE~~~ FindBoost.cmake" as bridge {
+    cloud "$HOME/.hunter/_Base/Download/Hunter/.../FindBoost.cmake" <<Module>> as find_boost
+    note bottom of find_boost
+        Point 3:
+        Find-Module 'FindBoost'
+    endnote
+}
+
+
+package "Hunter Library Dir" <<"$HOME/.hunter/_Base/.../Install">> as hunter_library {
+    rectangle "*.hxx" <<./include/boost>> as hxx_boost
+    rectangle "libboost_*.a" <<./lib>> as lib_boost
+}
+note left of hunter_library
+    Point 4:
+endnote
+
+
+
+package "Folder 'src'" <<CMakeLists.txt>> as src_dir {
+    rectangle "CMakeLists.txt" <<Folder: ./>> as src_list
+    package add_executable <<...>> {
+        rectangle main_129 <<Target Executable Name>> as main_129
+        rectangle main.cxx <<Source Name>> as main_cxx
+    }
+    package target_link_libraries <<PRIVATE>> as target_link_libraries {
+        rectangle main_129 <<Target Executable Name>> as main_129_link
+        rectangle "Boost::filesystem" <<Linking Library Name>> as main_129_boost
+    }
+
+    src_list --> main_129
+    main_129 --> main_129_link
+
+    note bottom of target_link_libraries
+        Point 1:
+    endnote
+'}
+
+
+begin --> project_hunter
+begin --> src_list
+hunter_gate --> hunter_version
+hunter_version --> hunter_add
+
+hunter_add --> hunter_library
+'main_129_boost --> hunter_library
+
+get_boost --> find_boost
+main_129_boost --> find_package
+find_boost --> hunter_library
 
 title
-    What is This Process's Structure of Project "basic_116"?
+    What Kind of Bridge is The Package Manager 'Hunter'?
 end title
 
 header

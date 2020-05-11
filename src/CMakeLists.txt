@@ -1,15 +1,12 @@
 #
 add_executable(
-  main_116
+  main_129
   main.cxx
 )
-target_include_directories(
-  main_116
-  PRIVATE ${PROJECT_CONIFG_DIR}
+target_link_libraries(
+  main_129
+  PRIVATE
+  Boost::filesystem
 )
-
-message("\nFROM src/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM src/CMakeLists.txt")
+#target_link_libraries( main_129 PRIVATE boost_filesystem )
 #
