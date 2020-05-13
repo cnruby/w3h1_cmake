@@ -1,18 +1,16 @@
 #
 .
-├── cmake
-│  ├── CMakeLists.txt
-│  ├── config.h.in
-│  ├── GetBoost.cmake
-│  └── Initialize.cmake
 ├── CMakeLists.txt
-├── config
-│  └── config.hxx
-├── hunter
-│  ├── HunterAdd.cmake
-│  ├── HunterGate.cmake
-│  └── HunterVersion.cmake
-└── src
+├── Lib
+│  ├── CMakeLists.txt
+│  ├── impl
+│  │  └── hello.cxx
+│  └── include
+│     └── hello.hxx
+└── Main
+   │   ...
    ├── CMakeLists.txt
-   └── main.cxx
+   └── src
+      ├── CMakeLists.txt
+      └── main.cxx
 #

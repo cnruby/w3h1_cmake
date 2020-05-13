@@ -1,6 +1,0 @@
-include(./hunter/HunterGate.cmake)
-option(HUNTER_ENABLED "Enable Hunter package manager support" ON)
-HunterGate(
-    URL "https://github.com/cpp-pm/hunter/archive/@HUNTER_URL_VERSION@"
-    SHA1 "@HUNTER_SHA1@"
-)

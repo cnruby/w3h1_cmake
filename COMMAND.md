@@ -11,9 +11,9 @@ ruby format-codes.rb
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_129
-cd basic_129
-git checkout basic_129
+git clone https://github.com/cnruby/w3h1_cmake.git basic_130
+cd basic_130
+git checkout basic_130
 code .
 ```
 
@@ -39,7 +39,7 @@ cmake --build build/ --clean-first
 cmake -Bbuild/
 cmake --build build/ --target rebuild_cache
 cmake --build build/ --clean-first
-./bin/main_129
+./bin/main_130
 #  update the configure file
 cmake --build build/ --clean-first
 # others
@@ -72,8 +72,8 @@ open build-doc-sphinx/_build/index.html
 markdown-exec README.md
 ruby format-codes.rb
 git branch -vv
-git checkout -b basic_129
-git push --set-upstream origin basic_129
+git checkout -b basic_130
+git push --set-upstream origin basic_130
 git push
 exa -T > docs/output/tree.txt
 dot -V
@@ -98,13 +98,35 @@ open _build/index.html
 code /Applications/CMake.app/Contents/share/cmake-3.17/Modules/FindBoost.cmake 
 code /usr/local/include/boost/filesystem.hpp
 code /usr/local/include/boost/filesystem/path.hpp
-cmake -GNinja -Bbuild/
+cmake -GNinja -Bbuild/ -H.
 cmake --build build/ -v
-./bin/main_129
+./bin/main_130
 
 
 code $HOME/.hunter/_Base/Download/Hunter/0.23.253/88ea6d3/Unpacked/cmake/find/FindBoost.cmake
 cmake -GNinja -H./ -Bbuild/ -DHUNTER_STATUS_DEBUG=ON -DCMAKE_BUILD_TYPE=Release
 cmake -GNinja -H./ -Bbuild/
 cmake -GNinja -Bbuild
+```
+
+### basic_130
+```
+cmake --build build/Lib --target rebuild_cache
+cmake --build build/Main --target rebuild_cache
+
+# Build completely all projects
+cmake -GNinja -H. -Bbuild
+cmake --build build/ -v
+cmake --build build/
+./bin/main_130
+rm -rf bin build
+
+# Build the project 'lib_main' in Folder 'Lib'
+cmake -GNinja -HLib -Bbuild/Lib
+cmake --build build/Lib -v
+
+# Build the project 'cxx_main' in Folder 'Main'
+cmake -GNinja -HMain -Bbuild/Main
+cmake --build build/Main -v
+./bin/main_130
 ```

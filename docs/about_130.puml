@@ -1,0 +1,56 @@
+@startuml about_130
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "Project basic_115" <<Hello, PRIVATE/PUBLIC!>> as basic_115 {
+    rectangle Root_Dir <<./>> as root_dir
+    rectangle Lib_Dir <<./lib>> as lib_dir
+    rectangle Src_Dir <<./src>> as src_dir
+
+    root_dir *--> lib_dir
+    root_dir *--> src_dir
+}
+
+package "Project basic_130" <<Hello, Multiple Projects!>> as basic_130 {
+    rectangle Root_Project <<./>> as root_project
+    rectangle Lib_Project <<./Lib>> as lib_project
+    rectangle Main_Project <<./Main>> as main_project
+
+    note top of lib_project
+        Project "basic_125"
+        Project "basic_113"
+    endnote
+
+    note top of main_project
+        Project "basic_116"
+    endnote
+
+    root_project *--> lib_project
+    root_project *--> main_project
+}
+
+
+'basic_115 *..(0).> basic_130
+root_dir *..(0).> root_project
+lib_dir *..(0).> lib_project
+src_dir *..(0).> main_project
+
+
+title
+    What is The C++ Project "basic_130"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

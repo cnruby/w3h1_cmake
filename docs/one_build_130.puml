@@ -1,0 +1,48 @@
+@startuml one_build_130
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "Project 'basic_130' with One-Build" <<Hello, Projects!>> as basic_130 {
+    rectangle Root_Project <<./>> as root_project
+    rectangle Main_Project <<./Main>> as main_project
+    rectangle Lib_Project <<./Lib>> as lib_project
+
+    root_project *--> main_project
+    root_project *--> lib_project
+
+    note left of root_project
+        Step 0: build
+    endnote
+    'note top of lib_project
+    '    Step 1: build, automatic
+    'endnote
+    'note top of main_project
+    '    Step 2: build, automatic
+    'endnote
+}
+package "OUTPUT" <<./build/Lib>> as step {
+    rectangle "Library File" <<libhello_lib.a>> as file_lib
+    rectangle "Library Target" <<hello_lib>> as target_lib
+}
+lib_project *--> step
+target_lib *.(0).> main_project
+
+
+title
+    What is The One-Build of Project "basic_130"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
