@@ -14,11 +14,17 @@ const unsigned int MILISECONDS_IN_DAY = 86400000;
 // general function
 short maxShort(short, short);
 
-struct Header {
+class Header {
+  public:
+  Header();
+  Header(char, char);
   void hello(const char*);
 
   // class function
-  char maxChar(char, char);
+  char maxChar();
+
+  char s;
+  char t;
 };
 
 #endif

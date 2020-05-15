@@ -1,10 +1,13 @@
 #
-add_library(
-  lib_115 STATIC
-  ${LIB_DIR}/impl/header.cxx
+add_library(${_STATIC_LIB_TARGET} STATIC ${_LIB_SOURCE})
+set_property(
+  TARGET ${_STATIC_LIB_TARGET}
+  PROPERTY ARCHIVE_OUTPUT_DIRECTORY ${_ARC_RUNTIME_OUTPUT_DIR}
 )
-target_include_directories(
-  lib_115
-  PUBLIC ${LIB_DIR}/include/
+
+add_library(${_SHARED_LIB_TARGET} SHARED ${_LIB_SOURCE})
+set_property(
+  TARGET ${_SHARED_LIB_TARGET}
+  PROPERTY LIBRARY_OUTPUT_DIRECTORY ${_LIB_RUNTIME_OUTPUT_DIR}
 )
 #

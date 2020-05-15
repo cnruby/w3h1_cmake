@@ -1,40 +1,46 @@
-<h2>Hello, PRIVATE/PUBLIC!</h2>
-<h3>Difference between <code>PRIVATE</code>/<code>PUBLIC</code> with <code>target_include_directories</code></h3>
+<h2>Hello, Output!</h2>
+<h3>Changing the output default directory in a dedicated directory</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_115</br>
-Code Name: Hello, PRIVATE/PUBLIC!</br>
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-01.m4a"></p>
+Code ID: basic_131</br>
+Code Name: Hello, Output!</br>
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-01.m4a"></p>
 
 
 
-* [Youtube Video](https://youtu.be/pmRWYYEXLoc)
+[<h1>Youtube Video</h1>](https://youtu.be/HnXP8jgryC4)
 
 
 
 <h2>TABLE of CONTENTS</h2>
 
-- [The Structures of Project](#the-structures-of-project)
+- [About The Project](#about-the-project)
   - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The <code>Command's</code> Structure](#the-commands-structure)
-  - [The <code>Process's</code> Structure](#the-processs-structure)
-- [Analyze The Build of <code>CMake</code>](#analyze-the-build-of-cmake)
-  - [The Listfile of Folder <code>'lib'</code>](#the-listfile-of-folder-lib)
-  - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
-  - [Demonstrate Build's Process on <code>CMake<code>](#demonstrate-builds-process-on-codecmakecode)
+- [The default output directory for a project](#the-default-output-directory-for-a-project)
+  - [Demonstrate default output directory for a project](#demonstrate-default-output-directory-for-a-project)
+- [Changing output directory for a Project](#changing-output-directory-for-a-project)
+  - [The Listfile of Folder <code>'./'</code>](#the-listfile-of-folder)
+  - [Demonstrate output directory for a Project](#demonstrate-output-directory-for-a-project)
+- [Changing output directory for a target](#changing-output-directory-for-a-target)
+  - [The Listfile of Folder <code>'./src'</code>](#the-listfile-of-folder-src)
+  - [The Listfile of Folder <code>'./lib'</code>](#the-listfile-of-folder-lib)
+  - [Demonstrate output directory for a target](#demonstrate-output-directory-for-a-target)
 - [Final Summary](#final-summary)
 - [References](#references)
-- [The Project's Commands](#the-projects-commands)
-  - [Formatting The Codes](#formatting-the-codes)
+  - [Requirements](#requirements)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [Build and Run The Project](#build-and-run-the-project)
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-02.m4a"></p>
+<div class ="fragment" data-audio-src="docs/131/audio/basic_131-02.m4a"></div>
 
 
 
-## The Structures of Project
+## About The Project
+<img src="./docs/131/image/about_131.png" alt="About The Project" height="70%" width="70%">
+<div class ="fragment" data-audio-src="docs/131/audio/basic_131-03.m4a"></div>
+
+
+
 ```bash
 #<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
 .
@@ -51,70 +57,123 @@ Code Name: Hello, PRIVATE/PUBLIC!</br>
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-04.m4a"></p>
 
 
 
-![_image](docs/115/image/what-command.png)
-### The <code>Command's</code> Structure
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-04.m4a"></p>
+## The default output directory for a project
+![_image](./docs/131/image/default_output.png)
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-05.m4a"></p>
 
 
 
-![_image](docs/115/image/what-process.png)
-### The <code>Process's</code> Structure
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-05.m4a"></p>
-
-
-
-## Analyze The Build of <code>CMake</code>
-![_image](./docs/115/image/basic_115-06.png)
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-06.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat lib/CMakeLists.txt) -->#
-add_library(
-  lib_115 STATIC
-  ${LIB_DIR}/impl/header.cxx
-)
-target_include_directories(
-    lib_115
-    PUBLIC
-    ${LIB_DIR}/include/
-)
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'lib'</code>
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-07.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable(
-  main_115
-  main.cxx
-)
-target_link_libraries(main_115 lib_115)
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-08.m4a"></p>
-
-
-
-### Demonstrate Build's Process on <code>CMake<code>
+### Demonstrate default output directory for a project
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/115/video/basic_115-09.mov" autoplay=true type="video/mp4">
+  <source src="docs/131/video/basic_131-06.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
-![_image](docs/115/image/what-process.png)
+## Changing output directory for a Project
+![_image](./docs/131/image/project_output.png)
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-07.m4a"></p>
+
+
+
+### The Listfile of Folder <code>'./'</code>
+```bash
+#<!-- markdown-exec(cmd:cat ./CMakeLists.txt) -->cmake_minimum_required( VERSION 3.17 FATAL_ERROR )
+set( CMAKE_CXX_STANDARD 17 )
+project( basic_131 VERSION 0.1.0 LANGUAGES CXX
+  DESCRIPTION "Hello, Output!" )
+
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/project-bin )
+set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/project-ar )
+set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/project-lib )
+
+set( _MAIN_RUNTIME_OUTPUT_DIR ${PROJECT_SOURCE_DIR}/target-bin )
+set( _ARC_RUNTIME_OUTPUT_DIR ${PROJECT_SOURCE_DIR}/target-ar )
+set( _LIB_RUNTIME_OUTPUT_DIR ${PROJECT_SOURCE_DIR}/target-lib )
+
+set( _MAIN_DIR ${PROJECT_SOURCE_DIR}/src/ )
+set( _MAIN_SOURCE ${_MAIN_DIR}/main.cxx)
+set( _LIB_DIR ${PROJECT_SOURCE_DIR}/lib/ )
+set( _LIB_SOURCE ${_LIB_DIR}/impl/header.cxx)
+include_directories( ${_LIB_DIR}/include/ )
+
+set(_MAIN_TARGET main_131)
+set(_STATIC_LIB_TARGET lib_131)
+set(_SHARED_LIB_TARGET dylib_131)
+
+add_subdirectory(src)
+add_subdirectory(lib)<!-- /markdown-exec -->
+```
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-08.m4a"></p>
+
+
+
+### Demonstrate output directory for a Project
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/131/video/basic_131-09.mov" autoplay=true type="video/mp4">
+</video>
+
+
+
+## Changing output directory for a target
+![_image](./docs/131/image/target_output.png)
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-10.m4a"></p>
+
+
+
+### The Listfile of Folder <code>'./src'</code>
+```bash
+#<!-- markdown-exec(cmd:cat ./src/CMakeLists.txt) -->#
+add_executable( ${_MAIN_TARGET} ${_MAIN_SOURCE} )
+
+set_property(
+  TARGET ${_MAIN_TARGET}
+  PROPERTY RUNTIME_OUTPUT_DIRECTORY ${_MAIN_RUNTIME_OUTPUT_DIR}
+)
+
+target_link_libraries(${_MAIN_TARGET} ${_STATIC_LIB_TARGET})
+#target_link_libraries(${_MAIN_TARGET} ${_SHARED_LIB_TARGET})
+#<!-- /markdown-exec -->
+```
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-11.m4a"></p>
+
+
+
+### The Listfile of Folder <code>'./lib'</code>
+```bash
+#<!-- markdown-exec(cmd:cat ./lib/CMakeLists.txt) -->#
+add_library(${_STATIC_LIB_TARGET} STATIC ${_LIB_SOURCE})
+set_property(
+  TARGET ${_STATIC_LIB_TARGET}
+  PROPERTY ARCHIVE_OUTPUT_DIRECTORY ${_ARC_RUNTIME_OUTPUT_DIR}
+)
+
+add_library(${_SHARED_LIB_TARGET} SHARED ${_LIB_SOURCE})
+set_property(
+  TARGET ${_SHARED_LIB_TARGET}
+  PROPERTY LIBRARY_OUTPUT_DIRECTORY ${_LIB_RUNTIME_OUTPUT_DIR}
+)
+#<!-- /markdown-exec -->
+```
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-12.m4a"></p>
+
+
+
+### Demonstrate output directory for a target
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/131/video/basic_131-13.mov" autoplay=true type="video/mp4">
+</video>
+
+
+
+<img src="./docs/131/image/final.png" alt="Final Summary" height="120%" width="120%">
+
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/115/audio/basic_115-10.m4a"></p>
+<p class ="fragment" data-audio-src="docs/131/audio/basic_131-14.m4a"></p>
 
 
 
@@ -131,36 +190,23 @@ target_link_libraries(main_115 lib_115)
 
 
 ## References
-- https://cmake.org/pipermail/cmake/2016-May/063400.html
-- https://stackoverflow.com/questions/26243169/cmake-target-include-directories-meaning-of-scope
+- https://www.dealii.org/9.1.1/users/cmakelists.html
+- https://stackoverflow.com/questions/3742090/custom-directory-for-cmake-library-output
+- https://stackoverflow.com/questions/52022717/how-to-make-cmake-output-to-the-build-directory
+- https://stackoverflow.com/questions/13556885/how-to-change-the-executable-output-directory-for-win32-builds-in-cmake
 
 
 
-## The Project's Commands
+### Requirements
+- [VS Code 1.43.0+](https://code.visualstudio.com/)
+- [CMake 3.17.0+](https://cmake.org/)
 
-
-
-### Formatting The Codes
-```bash
-ruby format-codes.rb
-```
 
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_115
-cd basic_115
-git checkout basic_115
+git clone https://github.com/cnruby/w3h1_cmake.git basic_131
+cd basic_131
+git checkout basic_131
 code .
-```
-
-
-
-### Build and Run The Project
-```bash
-cmake -GNinja -Bbuild/
-cmake --build build/ --clean-first -v
-cmake --build build/ --target clean
-cmake --build build/ --clean-first -v &> v11.txt
-./bin/main_115
 ```

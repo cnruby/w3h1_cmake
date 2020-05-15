@@ -21,24 +21,24 @@ package Project_C++ as project {
     endnote
     note top of include_list
         add_library(
-            lib_115
+            lib_131
             STATIC
             ${INCLUDE_DIR}/impl/header.cxx
         )
         target_include_directories(
-            lib_115
+            lib_131
             **PUBLIC**
             ${INCLUDE_DIR}/include/
         )
     endnote
     note right of src_list
         add_executable(
-            main_115
+            main_131
             main.cxx
         )
         target_link_libraries(
-            main_115
-            lib_115
+            main_131
+            lib_131
         )
     endnote
 }
@@ -51,7 +51,7 @@ include_list -left-> header_cxx
 include_list -left-> header_hxx
 
 title
-    What is This Process's Structure of Project "basic_115"?
+    What is This Process's Structure of Project "basic_131"?
 end title
 
 header

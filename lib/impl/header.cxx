@@ -2,12 +2,20 @@
 
 #include <iostream>
 
+Header::Header()
+  :s('h'), t('z')
+{}
+
+Header::Header(char a, char b)
+  :s(a), t(b)
+{}
+
 void Header::hello(const char* name) {
   std::cout << "Hello, Static Library from " << name << "!" << std::endl
             << std::endl;
 }
 
-char Header::maxChar(char s, char t) {
+char Header::maxChar() {
   char v;
   if (s < t)
     v = t;

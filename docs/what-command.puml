@@ -8,37 +8,37 @@ skinparam Folder {
   borderColor orange
 }
 
-package C++_Main <<main_115>> as cxx_main {
+package C++_Main <<main_131>> as cxx_main {
     package target_link_libraries <<...>> {
-        rectangle main_115 <<Target Executable Name>> as main_115_link
-        rectangle lib_115 <<Target Library Name>> as library_link
+        rectangle main_131 <<Target Executable Name>> as main_131_link
+        rectangle lib_131 <<Target Library Name>> as library_link
     }
     package add_executable <<...>> {
-        rectangle main_115 <<Target Executable Name>> as main_115
+        rectangle main_131 <<Target Executable Name>> as main_131
         rectangle main.cxx <<Source Name>> as main_cxx
     }
 
-    main_115 *--> main_cxx
-    main_115 *--> main_115_link
-    main_115_link *--> library_link
+    main_131 *--> main_cxx
+    main_131 *--> main_131_link
+    main_131_link *--> library_link
 }
 
 
-package C++_Library <<lib_115>> as cxx_lib {
+package C++_Library <<lib_131>> as cxx_lib {
     package add_library <<STATIC>> as add_library {
-        rectangle lib_115 <<Target Library Name>>
+        rectangle lib_131 <<Target Library Name>>
     }
     package target_include_directories <<**PUBLIC**>> as include_lib {
         Folder "./lib/include/" <<INCLUDE DIRS>> as lib
-        Folder lib_115 <<Target Library Name>> as library
+        Folder lib_131 <<Target Library Name>> as library
     }
     package Library_Code <<./lib/>> as library_code {
         rectangle header.hxx <<./lib/include/>> as header_hxx
         rectangle header.cxx <<./lib/impl/>> as header_cxx
     }
 
-    lib_115 *-right-> library
-    lib_115 *--> header_cxx
+    lib_131 *-right-> library
+    lib_131 *--> header_cxx
     library *--> lib
     lib *.(0).> header_hxx
 }
@@ -47,7 +47,7 @@ cxx_main -(0)-> cxx_lib
 
 
 title
-    What is This Command's Structure of Project "basic_115"?
+    What is This Command's Structure of Project "basic_131"?
 end title
 
 header
