@@ -11,7 +11,7 @@ Header::Header(char a, char b)
 {}
 
 void Header::hello(const char* name) {
-  std::cout << "Hello, Static Library from " << name << "!" << std::endl
+  std::cout << "Hello, Output from " << name << "!" << std::endl
             << std::endl;
 }
 
