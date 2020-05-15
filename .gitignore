@@ -39,3 +39,9 @@ build/*
 *.mp4
 *.m4a
 docs/*/*.md
+target-ar/*
+target-bin/*
+target-lib/*
+project-ar/*
+project-bin/*
+project-lib/*
