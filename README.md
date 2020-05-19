@@ -72,7 +72,7 @@
 - **Hello, Hunter!** CMake-based Cross-Platform Package Manager for C++ Projects "basic_129" [Youtube Video](https://youtu.be/QWBu7vykWpc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_129)
 - **Hello, Multiple Projects!** Creating a Solution with C++ Multiple Projects "basic_130" [Youtube Video](https://youtu.be/Vt5TEcFm0Hg) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_130)
 - **Hello, Output!** Changing the output default directory in a dedicated directory "basic_131" [Youtube Video](https://youtu.be/HnXP8jgryC4) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_131)
-
+- **Hello, Custom Target!** Adding and Using A Custom Target in CMake "basic_132" [Youtube Video](https://youtu.be/xcJbhFgVI04) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_132)
 
 
 ## References
