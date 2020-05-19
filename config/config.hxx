@@ -1,19 +1,17 @@
 //
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
+#ifndef CONFIG_HXX_H
+#define CONFIG_HXX_H
 
 //#define CXX_VARIABLE_NAME ""
 
-#define PROJECT_NAME "basic_116"
-#define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic"
-#define CMAKE_CURRENT_SOURCE_DIR \
-  "/Users/Simon/Documents/dev/cpp-ws/116_basic/cmake"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY \
-  "/Users/Simon/Documents/dev/cpp-ws/116_basic/bin"
+#define PROJECT_NAME "basic_132"
+#define PROJECT_DESCRIPTION "Hello, Custom Target!"
+#define PROJECT_SOURCE_DIR "/home/gudao/cpp-ws/132_basic"
+#define CMAKE_CURRENT_SOURCE_DIR "/home/gudao/cpp-ws/132_basic/cmake"
+#define RUNTIME_OUTPUT_DIR "/home/gudao/cpp-ws/132_basic/bin-target"
 
-// const char *CXX_VARIABLE_NAME = ""
-const char *PROJECT_CONIFG_DIR =
-    "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
+//const char *CXX_VARIABLE_NAME = ""
+const char *PROJECT_CONIFG_DIR = "/home/gudao/cpp-ws/132_basic/config/";
 
-#endif
+#endif // CONFIG_HXX_H
 //

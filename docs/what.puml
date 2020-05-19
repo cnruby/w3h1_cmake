@@ -1,0 +1,88 @@
+@startuml what
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Red
+  borderColor orange
+}
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package PROJECT_V1 <<./src/>> as project_v1 {
+    package add_executable <<...>> as v1_build {
+        rectangle main_132 <<Build Target Name>> as v1_main_132
+        rectangle main.cxx <<Source Name>> as v1_main_cxx
+    }
+    Folder add_custom_target <<...>> as v1_run_132 {
+        rectangle run <<Execute Target Name>> as v1_execute
+        rectangle main_132 <<Build Name>> as v1_cmd
+    }
+
+    v1_main_132 *--> v1_main_cxx
+    v1_main_132 *--> v1_cmd
+    v1_execute *--> v1_cmd
+}
+
+package command_default <<the default build>> {
+    rectangle "cd build && ninja" <<"cmake --build build/">> as command_default_all
+}
+package command_custom <<the custom build>> {
+    rectangle "cd build && ninja run" <<"cmake －－build build/ －－target run">> as command_run
+    rectangle "cd build && ninja run_v4" <<"cmake －－build build/ －－target run_v4">> as command_run_v4
+}
+
+package PROJECT_v4 <<./src/>> as project_v4 {
+    package add_custom_target <<...>> as v4_build {
+        rectangle build_v4 <<Build Target Name>>
+        cloud ALL as all
+        rectangle main.cxx <<g++>> as v4_main_cxx
+        rectangle v4_main_132 <<Build Name>>
+
+        note bottom of all
+            added to the default build target
+        endnote
+    }
+    Folder add_custom_target <<...>> as v4_run_132 {
+        rectangle run_v4 <<Execute Target Name>> as v4_execute
+        rectangle v4_main_132 <<Build Name>> as v4_cmd
+    }
+
+    build_v4 *--> v4_main_cxx
+    build_v4 *--> v4_main_132
+    v4_execute *--> v4_cmd
+    v4_main_132 *--> v4_cmd
+}
+
+package command_all <<the any build>> {
+    rectangle "cd build && ninja TARGET_NAME" <<"cmake －－build build/ －－target TARGET_NAME">> as command_any
+}
+
+
+command_default_all *-(0)-> v1_build
+command_default_all *-(0)-> v4_build
+
+command_run *--> v1_run_132
+command_run_v4 *--> v4_run_132
+
+'command_any *--> v1_build
+'command_any *--> v4_build
+'command_any *--> v1_run_132
+'command_any *--> v4_run_132
+
+title
+    What is Th Parameter `ALL` of Target Command "basic_132"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
