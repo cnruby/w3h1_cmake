@@ -2,6 +2,10 @@
 
 ## Prerequisite
 
+### OS Environment
+- MacOS 10.11.6+
+- Ubuntu 20.04+
+
 ### Language Environment
 - [Clang 8.0.0+](https://clang.llvm.org/)
 - [Python 3.7+](https://www.python.org/)
