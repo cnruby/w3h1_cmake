@@ -1,0 +1,118 @@
+@startuml basic_133
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "build commands" <<"...">> as cmd {
+    package "command for all configs" <<"dummy 2">> as ninja_1 {
+        rectangle "ninja <TARGET>:all" as ninja_target_all
+    }
+    package "command for all default configs" <<"dummy 3">> as ninja_2 {
+        rectangle "ninja <TARGET>" as ninja_default_2
+    }
+    package "all commands for every config" <<"dummy 5">> as ninja_3 {
+        rectangle "ninja <TARGET>:Debug" as all_debug
+        rectangle "ninja <TARGET>:Release" as all_release
+        rectangle "ninja <TARGET>:RelWitDebInfo" as all_relwitdebinfo
+        note right of all_debug
+            "build/build-Debug.ninja"
+        endnote
+        note right of all_release
+            "build/build-Release.ninja"
+        endnote
+        note right of all_relwitdebinfo
+            "build/build-RelWitDebInfo.ninja"
+        endnote
+    }
+    package "command for default build type" <<"dummy 4">> as ninja_4 {
+        rectangle "ninja <TARGET>:<CONFIG>" as ninja_default_4
+        note top of ninja_default_4
+            "ninja -f build-Release.ninja <TARGET>:<CONFIG>"
+        endnote
+    }
+    package "commands for all default configs" <<"examples 2">> as ninja_5 {
+        rectangle "ninja all" as ninja_all_5
+        rectangle "ninja clean" as ninja_clean_5
+        note right of ninja_all_5
+            all:Debug;Release
+        endnote
+    }
+    package "commands for all configs" <<"examples 1">> as ninja_6 {
+        rectangle "ninja all:all" as ninja_all_all
+        rectangle "ninja clean:all" as ninja_clean_all
+        note right of ninja_clean_all
+            all:Debug;Release;RelWitDebInfo
+        endnote
+    }
+}
+
+left to right direction
+package "CMake Codes" <<"...">> as cmake {
+    package "CMAKE_CONFIGURATION_TYPES" <<"1. set">> as set_1 {
+        cloud "Debug;Release;RelWitDebInfo" as value_1
+    }
+    package "CMAKE_CROSS_CONFIGS" <<"2. set">> as set_2 {
+        cloud "all" as value_2
+        note top of value_2
+            "build/build-Debug.ninja"
+            "build/build-Release.ninja"
+            "build/build-RelWitDebInfo.ninja"
+        endnote
+    }
+    package "CMAKE_DEFAULT_CONFIGS" <<"3. set">> as set_3 {
+        cloud "Debug;Release" as value_3
+        note top of value_3
+            "build/build.ninja"
+        endnote
+    }
+    package "CMAKE_DEFAULT_BUILD_TYPE" <<"4. set">> as set_4 {
+        cloud Release as value_4
+        note top of value_4
+            "build/build-Release.ninja"
+        endnote
+    }
+'}
+
+ninja_target_all *--> ninja_all_all
+ninja_target_all *--> ninja_clean_all
+
+
+value_1 *--> value_2
+value_1 *--> ninja_3
+value_2 *--> ninja_target_all
+value_2 *--> value_3
+value_2 *--> value_4
+value_3 *--> ninja_default_2
+ninja_default_2 *--> ninja_all_5
+ninja_default_2 *--> ninja_clean_5
+value_4 *--> ninja_default_4
+
+'ninja_2 *--> ninja_3
+ninja_default_2 *--> all_debug
+ninja_default_2 <--> all_release
+'ninja_default_2 *--> all_relwitdebinfo
+
+'ninja_1 *--> ninja_3
+ninja_target_all *--> all_debug
+ninja_target_all *--> all_release
+ninja_target_all *--> all_relwitdebinfo
+
+ninja_default_4 *.(0).> all_release
+
+title
+    What is The Ninja Multi-Config "basic_133"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

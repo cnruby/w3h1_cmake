@@ -1,210 +1,143 @@
-<h2>Hello, Configure File!</h2>
-<h3>Generating a <code>C++</code> Configure File with <code>CMake</code></h3>
+<h2>Hello, <code>Ninja</code> Multi-Config!</h2>
+<h3>Creating a Solution with <code>C++</code> Multiple Configuration</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_116</br>
-Code Name: Hello, Configure File!</br>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-01.m4a"></p>
+Code ID: basic_133</br>
+Code Name: Hello, <code>Ninja</code> Multi-Config!</br>
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-01.m4a"></p>
 
 
 
-* [Youtube Video](https://youtu.be/thJFmINbG0U)
+[<h1>Youtube Video</h1>](https://youtu.be/TLpscEDcI1U)
 
 
 
 <h2>TABLE of CONTENTS</h2>
 
-- [The Structures of Project](#the-structures-of-project)
-  - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The <code>Command's</code> Structure](#the-commands-structure)
-  - [The <code>Process's</code> Structure](#the-processs-structure)
-- [<code>CMake</code> Files of The Project](#cmake-files-of-the-project)
-  - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
-  - [The Listfile of Folder <code>'cmake'</code>](#the-listfile-of-folder-cmake)
-  - [The Template File of Folder <code>'cmake'</code>](#the-template-file-of-folder-cmake)
-- [C++ Files of The Project](#c-files-of-the-project)
-  - [The C++ Config File of Folder <code>'config'</code>](#the-c-config-file-of-folder-config)
-  - [The C++ Main File of Folder <code>'src'</code>](#the-c-main-file-of-folder-src)
-- [Demonstrate Generating The Configure File with <code>CMake<code>](#demonstrate-generating-the-configure-file-with-codecmakecode)
+- [About The Project](#about-the-project)
+  - [The CMake Codes of <code>Ninja</code> Multi-Config Generator](#the-cmake-codes-of-ninja-multi-config-generator)
+- [Explain The <code>Ninja</code> Multi-Config Generator](#explain-the-ninja-multi-config-generator)
+  - [The Code of File <code>'multi_config.cmake'</code>](#the-code-of-file-multiconfigcmake)
+  - [Demonstrate Building <code>Ninja</code> Multi-Config generator](#demonstrate-building-ninja-multi-config-generator)
+  - [The Varibales and Commands of <code>Ninja</code> Multi-Config generator](#the-varibales-and-commands-of-ninja-multi-config-generator)
+  - [The Commands of <code>Ninja</code> Multi-Config generator](#the-commands-of-ninja-multi-config-generator)
+- [The Targets of <code>Ninja</code> Multi-Config generator](#the-targets-of-ninja-multi-config-generator)
+  - [Demonstrate The Targets of <code>Ninja</code> Multi-Config generator](#demonstrate-the-targets-of-ninja-multi-config-generator)
 - [Final Summary](#final-summary)
 - [References](#references)
-- [The Project's Commands](#the-projects-commands)
-  - [Formatting The Codes](#formatting-the-codes)
+  - [Important](#important)
+  - [General](#general)
+  - [Requirements](#requirements)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-  - [Build and Run The Project](#build-and-run-the-project)
-<div class ="fragment" data-audio-src="docs/116/audio/basic_116-02.m4a"></div>
+  - [The Structure of Folder](#the-structure-of-folder)
+<div class ="fragment" data-audio-src="docs/133/audio/basic_133-02.m4a"></div>
 
 
 
-## The Structures of Project
-```bash
-#<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
-.
-├── cmake
-│  ├── CMakeLists.txt
-│  └── config.h.in
-├── CMakeLists.txt
-├── config
-│  └── config.hxx
-└── src
-   ├── CMakeLists.txt
-    └── main.cxx
-#<!-- /markdown-exec -->
-```
-### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-03.m4a"></p>
+<img src="./docs/133/image/about_133.png" alt="About The Project" height="80%" width="80%">
 
-
-
-![_image](docs/116/image/what-command.png)
-### The <code>Command's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-04.m4a"></p>
-
-
-
-![_image](docs/116/image/what-process.png)
-### The <code>Process's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-05.m4a"></p>
-
-
-
-## <code>CMake</code> Files of The Project
-![_image](./docs/116/image/configure_file.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-06.m4a"></p>
+## About The Project
+<div class ="fragment" data-audio-src="docs/133/audio/basic_133-03.m4a"></div>
 
 
 
 ```bash
-#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable(
-  main_116
-  main.cxx
-)
-target_include_directories(
-  main_116
-  PRIVATE
-  ${PROJECT_CONIFG_DIR}
-)
-
-message("\nFROM src/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM src/CMakeLists.txt")
+#<!-- markdown-exec(cmd:cat ./cmake/multi_config.txt) -->#
+set( 
+  CMAKE_CONFIGURATION_TYPES "Debug;Release;RelWithDebInfo"
+  CACHE STRING "specifies available build types" FORCE )
+set(
+  CMAKE_CROSS_CONFIGS "all"
+  CACHE STRING "create available config files" FORCE )
+set(
+  CMAKE_DEFAULT_CONFIGS "Debug;Release"
+  CACHE STRING "determine default config types" FORCE )
+set(
+  CMAKE_DEFAULT_BUILD_TYPE "Release"
+  CACHE STRING "determine A default build type" FORCE )
 #<!-- /markdown-exec -->
 ```
-### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-07.m4a"></p>
+### The CMake Codes of <code>Ninja</code> Multi-Config Generator
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-04.m4a"></p>
+
+
+
+![_image](./docs/133/image/basic_133_cmake.png)
+## Explain The <code>Ninja</code> Multi-Config Generator
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-05.m4a"></p>
 
 
 
 ```bash
-#<!-- markdown-exec(cmd:cat cmake/CMakeLists.txt) -->#
-configure_file(
-    ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-    ${PROJECT_SOURCE_DIR}/config/config.hxx
-    # Restrict the form @VAR@ of template variable, NOT the form ${var}
-    @ONLY
-)
-
-message("\nFROM cmake/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM cmake/CMakeLists.txt")
+#<!-- markdown-exec(cmd:cat ./cmake/multi_config.cmake) -->#
+# -DCMAKE_CONFIGURATION_TYPES="Debug;Release;RelWitDebInfo;MinSizeRel"
+if(NOT CMAKE_CONFIGURATION_TYPES)
+  set(
+    CMAKE_CONFIGURATION_TYPES "Debug;Release;RelWithDebInfo"
+    CACHE STRING "specifies available build types" FORCE )
+endif()
+if(NOT CMAKE_CROSS_CONFIGS)
+set(                                # -DCMAKE_CROSS_CONFIGS="all"
+  CMAKE_CROSS_CONFIGS "all"         #CMAKE_CROSS_CONFIGS "Debug;Release"
+  CACHE STRING "create available config files" FORCE )
+endif()
+if(NOT CMAKE_DEFAULT_CONFIGS)
+  set(                                # -DCMAKE_DEFAULT_CONFIGS="Debug;Release"
+    CMAKE_DEFAULT_CONFIGS "Debug;Release"
+    CACHE STRING "determine default config types" FORCE )
+endif()
+if(NOT CMAKE_DEFAULT_BUILD_TYPE)
+  set(                                # -DCMAKE_DEFAULT_BUILD_TYPE=Release
+    CMAKE_DEFAULT_BUILD_TYPE "Release"
+    CACHE STRING "determine A default build type" FORCE )
+endif()
 #<!-- /markdown-exec -->
 ```
-### The Listfile of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-08.m4a"></p>
+### The Code of File <code>'multi_config.cmake'</code>
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-06.m4a"></p>
 
 
 
-```C++
-//<!-- markdown-exec(cmd:cat cmake/config.h.in) -->//
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
-
-//#define CXX_VARIABLE_NAME "@CMAKE_VARIABLE_NAME@"
-
-#define PROJECT_NAME "@PROJECT_NAME@"
-#define PROJECT_SOURCE_DIR "@PROJECT_SOURCE_DIR@"
-#define CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "@CMAKE_RUNTIME_OUTPUT_DIRECTORY@"
-
-//const char *CXX_VARIABLE_NAME = "@CMAKE_VARIABLE_NAME@"
-const char *PROJECT_CONIFG_DIR = "@PROJECT_CONIFG_DIR@";
-
-#endif
-//<!-- /markdown-exec -->
-```
-### The Template File of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-09.m4a"></p>
-
-
-
-## C++ Files of The Project
-![_image](./docs/116/image/main_cxx.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-10.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat config/config.hxx) -->//
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
-
-//#define CXX_VARIABLE_NAME ""
-
-#define PROJECT_NAME "basic_116"
-#define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic"
-#define CMAKE_CURRENT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic/cmake"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Users/Simon/Documents/dev/cpp-ws/116_basic/bin"
-
-//const char *CXX_VARIABLE_NAME = ""
-const char *PROJECT_CONIFG_DIR = "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
-
-#endif
-//<!-- /markdown-exec -->
-```
-### The C++ Config File of Folder <code>'config'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-11.m4a"></p>
-
-
-
-```C++
-//<!-- markdown-exec(cmd:cat src/main.cxx) -->//
-#include <iostream>
-
-#includxe "config.hxx"
-
-int main(int, char**) {
-  std::cout << "Hello, C++ Configure File!!" << std::endl;
-
-  std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-  std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= " << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
-
-  return 0;
-}
-//<!-- /markdown-exec -->
-```
-### The C++ Main File of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-12.m4a"></p>
-
-
-
-## Demonstrate Generating The Configure File with <code>CMake<code>
+### Demonstrate Building <code>Ninja</code> Multi-Config generator
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/116/video/basic_116-13.mov" autoplay=true type="video/mp4">
+  <source src="docs/133/video/basic_133-07.mp4" autoplay=true type="video/mp4">
 </video>
 
 
 
-![_image](docs/116/image/what-process.png)
+<img src="./docs/133/image/basic_133.png" alt="The Varibales and Commands of Ninja Multi-Config generator" height="100%" width="100%">
+
+### The Varibales and Commands of <code>Ninja</code> Multi-Config generator
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-08.m4a"></p>
+
+
+
+<img src="./docs/133/image/basic_133_cmd.png" alt="The Varibales and Commands of Ninja Multi-Config generator" height="80%" width="80%">
+
+### The Commands of <code>Ninja</code> Multi-Config generator
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-09.m4a"></p>
+
+
+
+## The Targets of <code>Ninja</code> Multi-Config generator
+![_image](./docs/133/image/demo.png)
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-10.m4a"></p>
+
+
+
+### Demonstrate The Targets of <code>Ninja</code> Multi-Config generator
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/133/video/basic_133-11.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
+<img src="./docs/133/image/basic_133.png" alt="Final Summary" height="100%" width="100%">
+
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-14.m4a"></p>
+<p class ="fragment" data-audio-src="docs/133/audio/basic_133-12.m4a"></p>
 
 
 
@@ -221,51 +154,57 @@ int main(int, char**) {
 
 
 ## References
-- https://cmake.org/cmake/help/latest/command/configure_file.html
-- https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-to-create-a-ProjectConfig.cmake-file
-- https://riptutorial.com/cmake/example/26652/generate-a-cplusplus-configure-file-with-cmake
-- https://stackoverflow.com/questions/48580399/how-to-ensure-a-generated-config-h-file-is-in-the-include-path
-- https://github.com/bast/cmake-example/tree/master/cmake 
-- https://cmake.org/pipermail/cmake/2006-May/009049.html
+### Important
+- https://cmake.org/cmake/help/v3.17/generator/Ninja%20Multi-Config.html
+- https://www.scivision.dev/cmake-ninja-multi-config/
+- https://gitlab.kitware.com/cmake/cmake/issues/20161
+- https://blogs.kde.org/2011/02/05/how-selectively-remove-entries-cmake-cache-command-line
+
+
+### General
+- https://blog.kitware.com/multi-config-ninja-generator-in-cmake-3-17/
+- https://cmake.org/cmake/help/latest/generator/Ninja%20Multi-Config.html
+- https://www.dealii.org/9.1.1/users/cmakelists.html
+- https://bastian.rieck.me/blog/posts/2018/cmake_tips/
+- https://stackoverflow.com/questions/18435516/how-to-set-a-cmake-option-at-command-line
 
 
 
-## The Project's Commands
+### Requirements
+- [VS Code 1.43.0+](https://code.visualstudio.com/)
+- [CMake 3.17.2+](https://cmake.org/)
 
-
-
-### Formatting The Codes
-```bash
-ruby format-codes.rb
-```
 
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_116
-cd basic_116
-git checkout basic_116
+git clone https://github.com/cnruby/w3h1_cmake.git basic_133
+cd basic_133
+git checkout basic_133
 code .
 ```
 
 
 
-### Build and Run The Project
+### The Structure of Folder
 ```bash
-cmake -GNinja -Bbuild/
-cmake --build build/ --clean-first -v
-cmake --build build/ --target clean
-cmake --build build/ --clean-first -v &> v11.txt
-# generate the configure file
-rm -rf config
-cmake --build build/ --clean-first
-cmake -Bbuild/
-cmake --build build/ --target rebuild_cache
-cmake --build build/ --clean-first
-./bin/main_116
-#  update the configure file
-cmake --build build/ --clean-first
-# others
-markdown-exec README.md
-ruby format-codes.rb
+#<!-- markdown-exec(cmd:cat ./docs/output/tree.txt) -->#
+.
+├── cmake
+│  ├── CMakeLists.txt
+│  └── default.cmake
+├── CMakeLists.txt
+├── Lib
+│  ├── CMakeLists.txt
+│  ├── impl
+│  │  └── hello.cxx
+│  └── include
+│     └── hello.hxx
+└── Main
+   │   ...
+   ├── CMakeLists.txt
+   └── src
+      ├── CMakeLists.txt
+      └── main.cxx
+#<!-- /markdown-exec -->
 ```

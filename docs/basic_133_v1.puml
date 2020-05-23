@@ -1,0 +1,121 @@
+@startuml basic_133_v1
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+'package "CMake Codes" <<"...">> as cmake {
+    package "CMAKE_CONFIGURATION_TYPES" <<"1. set">> as set_1 {
+        cloud "Debug;Release;RelWitDebInfo" as value_1
+    }
+    package "CMAKE_CROSS_CONFIGS" <<"2. set">> as set_2 {
+        cloud "all" as value_2
+        note top of value_2
+            "build/build-Debug.ninja"
+            "build/build-Release.ninja"
+            "build/build-RelWitDebInfo.ninja"
+        endnote
+    }
+    package "CMAKE_DEFAULT_CONFIGS" <<"3. set">> as set_3 {
+        cloud "all" as value_3
+        note top of value_3
+            "build/build.ninja"
+        endnote
+    }
+    package "CMAKE_DEFAULT_BUILD_TYPE" <<"4. set">> as set_4 {
+        cloud Debug as value_4
+        note top of value_4
+            "build/build-Debug.ninja"
+        endnote
+    }
+'}
+
+'left to right direction
+'package "build commands" <<"...">> as cmd {
+    package "build command 1" <<"dummy">> as ninja_1 {
+        rectangle "ninja <TARGET>:all" as ninja_target_all
+    }
+    package "build command 2" <<"dummy">> as ninja_2 {
+        rectangle "ninja <TARGET>" as ninja_default_2
+    }
+    package "build command 3" <<"dummy">> as ninja_3 {
+        rectangle "ninja <TARGET>:Debug" as all_debug
+        rectangle "ninja <TARGET>:Release" as all_release
+        rectangle "ninja <TARGET>:RelWitDebInfo" as all_relwitdebinfo
+        note right of all_debug
+            "build/build-Debug.ninja"
+        endnote
+        note right of all_release
+            "build/build-Release.ninja"
+        endnote
+        note right of all_relwitdebinfo
+            "build/build-RelWitDebInfo.ninja"
+        endnote
+    }
+    package "build command 4" <<"dummy">> as ninja_4 {
+        rectangle "ninja <TARGET>:<CONFIG>" as ninja_default_4
+        rectangle "ninja -f build-Debug.ninja <TARGET>:<CONFIG>" as ninja_release_4
+        'note bottom of ninja_default_4
+        '    ninja clean:Release
+        'endnote
+        'note bottom of ninja_release_4
+        '    ninja -f build-Release.ninja clean:Release
+        'endnote
+    }
+    package "build command 5" <<"examples">> as ninja_5 {
+        rectangle "ninja all" as ninja_all_5
+        rectangle "ninja clean" as ninja_clean_5
+        note right of ninja_all_5
+            all:Debug;Release;RelWitDebInfo
+        endnote
+    }
+    package "build command 6" <<"examples">> as ninja_6 {
+        rectangle "ninja all:all" as ninja_all_all
+        rectangle "ninja clean:all" as ninja_clean_all
+        note right of ninja_clean_all
+            all : Debug;Release;RelWitDebInfo
+        endnote
+    }
+'}
+
+ninja_target_all *--> ninja_all_all
+ninja_target_all *--> ninja_clean_all
+
+
+value_1 *--> value_2
+value_2 *--> ninja_target_all
+value_2 *--> value_3
+value_2 *--> value_4
+value_3 *--> ninja_default_2
+ninja_default_2 *--> ninja_all_5
+ninja_default_2 *--> ninja_clean_5
+value_4 *--> ninja_4
+
+'ninja_2 *--> ninja_3
+ninja_default_2 *--> all_debug
+ninja_default_2 <--> all_release
+ninja_default_2 *--> all_relwitdebinfo
+
+'ninja_1 *--> ninja_3
+ninja_target_all *--> all_debug
+ninja_target_all *--> all_release
+ninja_target_all *--> all_relwitdebinfo
+
+
+
+title
+    What is The Ninja Multi-Config version 1 "basic_133"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

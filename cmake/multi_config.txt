@@ -1,0 +1,14 @@
+#
+set( 
+  CMAKE_CONFIGURATION_TYPES "Debug;Release;RelWithDebInfo"
+  CACHE STRING "specifies available build types" FORCE )
+set(
+  CMAKE_CROSS_CONFIGS "all"
+  CACHE STRING "create available config files" FORCE )
+set(
+  CMAKE_DEFAULT_CONFIGS "Debug;Release"
+  CACHE STRING "determine default config types" FORCE )
+set(
+  CMAKE_DEFAULT_BUILD_TYPE "Release"
+  CACHE STRING "determine A default build type" FORCE )
+#

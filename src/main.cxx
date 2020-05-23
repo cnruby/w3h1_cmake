@@ -1,20 +1,14 @@
-//
 #include <iostream>
-
 #include "config.hxx"
 
 int main(int, char**) {
-  std::cout << "Hello, C++ Configure File!!" << std::endl;
+  std::cout << "Project ID:\t\t\t" << PROJECT_NAME << std::endl;
+  std::cout << "Project Code:\t\t\t" << PROJECT_DESCRIPTION << std::endl << std::endl;
 
-  std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-  std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR
-            << std::endl;
-  std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= "
-            << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
+  std::cout << "CMAKE_CONFIGURATION_TYPES:\t" << CMAKE_CONFIGURATION_TYPES << std::endl;
+  std::cout << "CMAKE_CROSS_CONFIGS:\t\t" << CMAKE_CROSS_CONFIGS << std::endl;
+  std::cout << "CMAKE_DEFAULT_CONFIGS:\t\t" << CMAKE_DEFAULT_CONFIGS << std::endl;
+  std::cout << "CMAKE_DEFAULT_BUILD_TYPE:\t" << CMAKE_DEFAULT_BUILD_TYPE << std::endl;
 
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
-
-  return 0;
+  return EXIT_SUCCESS;
 }
-//

@@ -1,0 +1,53 @@
+@startuml basic_133_cmake
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "CMake Codes" <<"...">> as cmake {
+    package "CMAKE_CONFIGURATION_TYPES" <<"1. set">> as set_1 {
+        cloud "Debug;Release;RelWitDebInfo" as value_1
+    }
+    package "CMAKE_CROSS_CONFIGS" <<"2. set">> as set_2 {
+        cloud "all" as value_2
+        note top of value_2
+            "build/build-Debug.ninja"
+            "build/build-Release.ninja"
+            "build/build-RelWitDebInfo.ninja"
+        endnote
+    }
+    package "CMAKE_DEFAULT_CONFIGS" <<"3. set">> as set_3 {
+        cloud "Debug;Release" as value_3
+        note top of value_3
+            "build/build.ninja"
+        endnote
+    }
+    package "CMAKE_DEFAULT_BUILD_TYPE" <<"4. set">> as set_4 {
+        cloud Release as value_4
+        note top of value_4
+            "build/build-Release.ninja"
+        endnote
+    }
+}
+
+value_1 *--> value_2
+value_2 *--> value_3
+value_2 *--> value_4
+
+
+title
+    What is The Global Variables of The Ninja Multi-Config "basic_133"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

@@ -2,11 +2,18 @@
 .
 ├── cmake
 │  ├── CMakeLists.txt
-│  └── config.h.in
+│  └── default.cmake
 ├── CMakeLists.txt
-├── config
-│  └── config.hxx
-└── src
+├── Lib
+│  ├── CMakeLists.txt
+│  ├── impl
+│  │  └── hello.cxx
+│  └── include
+│     └── hello.hxx
+└── Main
+   │   ...
    ├── CMakeLists.txt
-   └── main.cxx
+   └── src
+      ├── CMakeLists.txt
+      └── main.cxx
 #
