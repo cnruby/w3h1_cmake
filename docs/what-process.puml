@@ -20,7 +20,7 @@ package Project_C++ as project {
     note bottom of config_hxx
         == Step 2 ==
         ...
-        ＃define PROJECT_NAME "basic_116"
+        ＃define PROJECT_NAME "basic_134"
     endnote
     note bottom of main
         == Step 3 ==
@@ -43,11 +43,11 @@ package Project_C++ as project {
     endnote
     note right of src_list
         add_executable(
-            main_116
+            main_134
             main.cxx
         )
         target_include_directories(
-            main_116
+            main_134
             PRIVATE
             ${PROJECT_CONIFG_DIR}
         )
@@ -61,7 +61,7 @@ cmake_list -left-> config_h_in
 cmake_list -left-> config_hxx
 
 title
-    What is This Process's Structure of Project "basic_116"?
+    What is This Process's Structure of Project "basic_134"?
 end title
 
 header

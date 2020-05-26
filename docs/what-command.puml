@@ -11,17 +11,17 @@ skinparam Folder {
 left to right direction
 package C++_Main_DIR <<./src/>> as cxx_main {
     package add_executable <<...>> {
-        rectangle main_116 <<Target Executable Name>> as main_116
+        rectangle main_134 <<Target Executable Name>> as main_134
         rectangle main.cxx <<Source Name>> as main_cxx
     }
     package target_include_directories <<PRIVATE>> as include_config {
-        rectangle main_116 <<Target Executable Name>> as main_116_include
+        rectangle main_134 <<Target Executable Name>> as main_134_include
         rectangle "./config/" <<CONFIG DIRS>> as config_dir
     }
 
-    main_116 *--> main_cxx
-    main_116 *--> main_116_include
-    main_116_include *--> config_dir
+    main_134 *--> main_cxx
+    main_134 *--> main_134_include
+    main_134_include *--> config_dir
 }
 
 Folder CONFIG_DIR <<./config/>> as config_dir_out {
@@ -43,7 +43,7 @@ config_hxx *-(0)-> config_hxx_out
 
 
 title
-    What is This Command's Structure of Project "basic_116"?
+    What is This Command's Structure of Project "basic_134"?
 end title
 
 header

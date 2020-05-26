@@ -4,8 +4,12 @@
 │  ├── CMakeLists.txt
 │  └── config.h.in
 ├── CMakeLists.txt
-├── config
-│  └── config.hxx
+├── lib
+│  ├── CMakeLists.txt
+│  ├── header.cxx
+│  ├── header.hxx
+│  ├── shared.cmake
+│  └── static.cmake
 └── src
    ├── CMakeLists.txt
    └── main.cxx

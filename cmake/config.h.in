@@ -2,15 +2,32 @@
 #ifndef CONFIG_FROM_CMAKE_HXX
 #define CONFIG_FROM_CMAKE_HXX
 
-//#define CXX_VARIABLE_NAME "@CMAKE_VARIABLE_NAME@"
-
 #define PROJECT_NAME "@PROJECT_NAME@"
-#define PROJECT_SOURCE_DIR "@PROJECT_SOURCE_DIR@"
-#define CMAKE_CURRENT_SOURCE_DIR "@CMAKE_CURRENT_SOURCE_DIR@"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "@CMAKE_RUNTIME_OUTPUT_DIRECTORY@"
+#define PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@"
 
-//const char *CXX_VARIABLE_NAME = "@CMAKE_VARIABLE_NAME@"
-const char *PROJECT_CONIFG_DIR = "@PROJECT_CONIFG_DIR@";
+#ifdef ALL_TARGET_MACRO
+const bool ALL_MACRO = true;
+#else
+const bool ALL_MACRO = false;
+#endif //ALL_TARGET_MACRO
+
+#ifdef TARGET_MAIN_MARCO
+const bool MAIN_MARCO = true;
+#else
+const bool MAIN_MARCO = false;
+#endif //TARGET_MAIN_MARCO
+
+#ifdef STATIC_LIB
+const bool STATIC_LIBRARY = true;
+#else
+const bool STATIC_LIBRARY = false;
+#endif //STATIC_LIB
+
+#ifdef SHARED_LIB
+const bool SHARED_LIBRARY = true;
+#else
+const bool SHARED_LIBRARY = false;
+#endif //SHARED_LIB
 
 #endif
 //
