@@ -42,7 +42,7 @@ cmake -GNinja -H. -Bbuild
 cmake --build build/ --target clean
 cmake --build build/ --target all -v | rg ALL_TARGET_MACRO
 code src/CMakeLists.txt
-# TARGET_MAIN_MARCO=200;IS_MAIN
+# TARGET_MAIN_MACRO=200;IS_MAIN
 cmake --build build/ --target clean
 cmake --build build/ --target all -v | rg IS_MAIN
 

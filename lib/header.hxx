@@ -10,7 +10,7 @@
 #endif
 
 // 24*60*60*1000 = 86400000
-#ifdef TARGET_MAIN_MARCO
+#ifdef TARGET_MAIN_MACRO
 const unsigned int MILISECONDS_IN_DAY = 86400000;
 #else
 const unsigned int MILISECONDS_IN_DAY = 0;

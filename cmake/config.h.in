@@ -11,11 +11,11 @@ const bool ALL_MACRO = true;
 const bool ALL_MACRO = false;
 #endif //ALL_TARGET_MACRO
 
-#ifdef TARGET_MAIN_MARCO
-const bool MAIN_MARCO = true;
+#ifdef TARGET_MAIN_MACRO
+const bool MAIN_MACRO = true;
 #else
-const bool MAIN_MARCO = false;
-#endif //TARGET_MAIN_MARCO
+const bool MAIN_MACRO = false;
+#endif //TARGET_MAIN_MACRO
 
 #ifdef STATIC_LIB
 const bool STATIC_LIBRARY = true;
