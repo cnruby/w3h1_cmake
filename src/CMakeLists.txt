@@ -11,7 +11,7 @@ target_include_directories(
 target_compile_definitions(
   ${TARGET_MAIN}
   PRIVATE
-  #TARGET_MAIN_MARCO=200;IS_MAIN
+  TARGET_MAIN_MARCO=200
 )
 
 # for the file static.cmake
