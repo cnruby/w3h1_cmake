@@ -78,6 +78,7 @@
 - **Hello, Output!** Changing the output default directory in a dedicated directory "basic_131" [Youtube Video](https://youtu.be/HnXP8jgryC4) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_131)
 - **Hello, Custom Target!** Adding and Using A Custom Target in CMake "basic_132" [Youtube Video](https://youtu.be/xcJbhFgVI04) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_132)
 - **Hello, Ninja Multi-Config!** Creating a Solution with C++ Multiple Configuration "basic_133" [Youtube Video](https://youtu.be/TLpscEDcI1U) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_133)
+- ** Hello, COMPILE_DEFINITIONS!** How to specify preprocessor definitions through CMake "basic_134" [Youtube Video](https://youtu.be/4GPcMCwWgVM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_134)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
