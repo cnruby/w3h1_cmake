@@ -13,9 +13,9 @@ project(
   DESCRIPTION "Hello, COMPILE_DEFINITIONS!"
 )
 
-# add_compile_definitions(
-#   ALL_TARGET_MACRO=100
-# )
+add_compile_definitions(
+  ALL_TARGET_MACRO=100
+)
 
 set(
   CMAKE_RUNTIME_OUTPUT_DIRECTORY
