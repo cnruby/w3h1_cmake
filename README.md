@@ -1,185 +1,131 @@
-<h2>Hello, Targets!</h2>
-<h3>Building multiple Targets using <code>CMake</code> on Ubuntu 20.04</h3>
+<h2>Hello, Generator Expression!</h2>
+<h3>How to Learn Generator Expression in CMake</h3>
 </br>
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_124</br>
-Code Name: Hello, Targets!</br>
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-01.m4a"></p>
+Code ID: basic_135</br>
+Code Name: Hello, Generator Expression!</br>
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-01.m4a"></p>
 
 
 
-[<h1>Youtube Video</h1>](https://youtu.be/-T4BMEI2agc)
+[<h1>Youtube Video</h1>](https://youtu.be/xZkakSO3_II)
 
 
 
 <h2>TABLE of CONTENTS</h2>
 
 - [About The Project](#about-the-project)
-  - [Requirements](#requirements)
-  - [Install The Library <code>gettext</code>](#install-the-library-gettext)
-  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
-- [The Structure of Project](#the-structure-of-project)
-  - [The <code>Folder's</code> Structure](#the-folders-structure)
-  - [The Command's Structure of Project on <code>MacOS</code> "basic_123"](#the-commands-structure-of-project-on-macos-%22basic123%22)
-  - [The Command's Structure of Project on <code>Ubuntu</code> "basic_124"](#the-commands-structure-of-project-on-ubuntu-%22basic124%22)
-- [The <code>CMake</code> Codes of Project</code>](#the-cmake-codes-of-projectcode)
-  - [The Difference of <code>'CMake'</code> Sources Between <code>MacOS</code> and <code>Ubuntu</code>?](#the-difference-of-cmake-sources-between-macos-and-ubuntu)
-  - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src)
-  - [The Listfile of Folder <code>'src'</code>](#the-listfile-of-folder-src-1)
-- [Demonstrate The Development of Project](#demonstrate-the-development-of-project)
-  - [Demonstrate Building The Project](#demonstrate-building-the-project)
-  - [Demonstrate The Build's Commands](#demonstrate-the-builds-commands)
+  - [generator expressions for build system generation](#generator-expressions-for-build-system-generation)
+- [Applying the generator expression](#applying-the-generator-expression)
+  - [Demonstrating Applying the generator expression](#demonstrating-applying-the-generator-expression)
+- [Explaining Codes for <code>CMake's</code> generator expressions](#explaining-codes-for-cmakes-generator-expressions)
+  - [Evaluate Example of generator expression for "Phase 1"](#evaluate-example-of-generator-expression-for-phase-1)
+  - [Example of a generator expression for build time](#example-of-a-generator-expression-for-build-time)
+  - [Demonstrating generator expressions](#demonstrating-generator-expressions)
 - [Final Summary](#final-summary)
 - [References](#references)
-  - [General](#general)
-  - [Important](#important)
-<div class ="fragment" data-audio-src="docs/124/audio/basic_124-02.m4a"></div>
+  - [References CMake API](#references-cmake-api)
+  - [Requirements](#requirements)
+  - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
+  - [The Structure of Folder](#the-structure-of-folder)
+<div class ="fragment" data-audio-src="docs/135/audio/basic_135-02.m4a"></div>
 
 
+
+<img src="./docs/135/image/about_135.png" alt="About The Project basic_135" height="80%" width="80%">
 
 ## About The Project
-<img src="./docs/124/image/main_cxx.png" alt="About The Project" height="120%" width="120%">
-<div class ="fragment" data-audio-src="docs/124/audio/basic_124-03.m4a"></div>
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-03.m4a"></p>
 
 
 
-### Requirements
-- [VS Code 1.43.0+](https://code.visualstudio.com/)
-- [CMake 3.17.0+](https://cmake.org/)
-- [Library gettext 0.20.1](https://www.gnu.org/software/gettext/)
-- Library language-pack-de
-- Library language-pack-zh-hans
-- Library language-pack-zh-hant, optional
-<div class ="fragment" data-audio-src="docs/124/audio/basic_124-04.m4a"></div>
+![_image](docs/135/image/what.png)
+### generator expressions for build system generation
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-04.m4a"></p>
 
 
 
-### Install The Library <code>gettext</code>
-```bash
-# For Ubuntu 20.04+
-sudo apt-get update
-sudo apt-get install -y gettext
-sudo apt-get install -y language-pack-de
-sudo apt-get install -y language-pack-zh-hans
-sudo apt-get install -y language-pack-zh-hant
-```
-<div class ="fragment" data-audio-src="docs/124/audio/basic_124-05.m4a"></div>
+![_image](docs/135/image/cxx_cmake_macro.png)
+## Applying the generator expression
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-05.m4a"></p>
 
 
 
-### Get The Code with Shell Commands
-```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_124
-cd basic_124
-git checkout basic_124
-code .
-```
-<div class ="fragment" data-audio-src="docs/124/audio/basic_124-06.m4a"></div>
-
-
-
-## The Structure of Project
-```bash
-#<!-- markdown-exec(cmd:cat docs/output/tree.txt) -->#
-.
-├── cmake
-│  ├── CMakeLists.txt
-│  ├── config.h.in
-│  ├── GetLocaleDir.cmake
-│  ├── Initialize.cmake
-│  └── TargetAll.cmake
-├── CMakeLists.txt
-├── config
-│  └── config.hxx
-└── src
-   ├── CMakeLists.txt
-   ├── main_apt.cxx
-   └── main_debconf.cxx
-#<!-- /markdown-exec -->
-```
-### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-07.m4a"></p>
-
-
-
-![_image](docs/124/image/what-command_macos.png)
-### The Command's Structure of Project on <code>MacOS</code> "basic_123"
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-08.m4a"></p>
-
-
-
-![_image](docs/124/image/what-command_ubuntu.png)
-### The Command's Structure of Project on <code>Ubuntu</code> "basic_124"
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-09.m4a"></p>
-
-
-
-## The <code>CMake</code> Codes of Project</code>
-![_image](docs/124/image/find_intl.png)
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-10.m4a"></p>
-
-
-
-![_image](docs/124/image/what-process.png)
-### The Difference of <code>'CMake'</code> Sources Between <code>MacOS</code> and <code>Ubuntu</code>?
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-11.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat src/CMakeLists.txt) -->#
-add_executable(
-  apt_main_124
-  main_apt.cxx
-)
-add_executable(
-  debconf_main_124
-  main_debconf.cxx
-)
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-12.m4a"></p>
-
-
-
-```bash
-#<!-- markdown-exec(cmd:cat cmake/TargetAll.cmake) -->#
-# For Ubuntu
-include_directories(${_PROJECT_CONFIG_DIR})
-# For MacOS
-# include_directories( ${Intl_INCLUDE_DIRS} ${_PROJECT_CONFIG_DIR} )
-# include_directories(${Intl_INCLUDE_DIRS} ${_PROJECT_CONFIG_DIR})
-# link_directories(${Intl_LIBRARIES})
-#<!-- /markdown-exec -->
-```
-### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-13.m4a"></p>
-
-
-
-
-## Demonstrate The Development of Project
+### Demonstrating Applying the generator expression
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/124/video/basic_124-14.mov" autoplay=true type="video/mp4">
-</video>
-
-### Demonstrate Building The Project
-
-
-
-### Demonstrate The Build's Commands
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/124/video/basic_124-15.mov" autoplay=true type="video/mp4">
+  <source src="docs/135/video/basic_135-06.mp4" autoplay=true type="video/mp4">
 </video>
 
 
 
-![_image](docs/124/image/what-command_ubuntu.png)
+```CMake
+# Generator expressions have the form $<...>.
+# The Generator expression is evaluated during build generation
+# 
+add_compile_definitions(
+  $<$<BOOL:$<TARGET_PROPERTY:TOOL>>:TOOL=$<TARGET_PROPERTY:TOOL>>
+)
+```
+## Explaining Codes for <code>CMake's</code> generator expressions
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-07.m4a"></p>
+
+
+
+```bash
+#<!-- markdown-exec(cmd:cat cmake/GetOutput.cmake) -->#
+file(
+  GENERATE OUTPUT ${PROJECT_SOURCE_DIR}/expression.md
+  CONTENT "### Generator Expressions Result:
+1. $<TARGET_PROPERTY:main_135,INCLUDE_DIRECTORIES>
+2. $<TARGET_PROPERTY:main_135,TOOL>
+3. $<BOOL:100>
+4. $<BOOL:>
+5. $<BOOL:$<TARGET_PROPERTY:main_135,TOOL>>
+6. $<$<BOOL:1>:MACRO=100>
+7. $<BOOL:$<TARGET_PROPERTY:main_135,TOOL>>:MACRO=$<TARGET_PROPERTY:main_135,TOOL>
+8. $<$<BOOL:$<TARGET_PROPERTY:main_135,TOOL>>:MACRO=$<TARGET_PROPERTY:main_135,TOOL>>
+"
+)
+#<!-- /markdown-exec -->
+```
+### Evaluate Example of generator expression for "Phase 1"
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-08.m4a"></p>
+
+
+
+```bash
+#<!-- markdown-exec(cmd:cat docs/output/Output_1.txt) -->#
+add_compile_definitions(
+  $<$<BOOL:$<TARGET_PROPERTY:TOOL>>:MACRO=$<TARGET_PROPERTY:TOOL>>
+  # variable = (condition) ? expressionTrue : expressionFalse;
+  # variable = ($<BOOL:$<TARGET_PROPERTY:TOOL>) ? MACRO=$<TARGET_PROPERTY:TOOL> : [empty]
+  #
+  # Case 1  
+  # $<TARGET_PROPERTY:TOOL>           # 100
+  # $<BOOL:$<TARGET_PROPERTY:TOOL>>   # true
+  # MACRO=$<TARGET_PROPERTY:TOOL>     # MACRO=100
+  # $<$<BOOL:$<...>>:MACRO=$<...>>    # $<MACRO=100>
+  # Result: variable                  # MACRO=100
+)
+#<!-- /markdown-exec -->
+```
+### Example of a generator expression for build time
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-09.m4a"></p>
+
+
+
+### Demonstrating generator expressions
+<video width="720" height="480" controls data-autoplay>
+  <source src="docs/135/video/basic_135-10.mp4" autoplay=true type="video/mp4">
+</video>
+
+
+
+![_image](docs/135/image/what_cmake.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/124/audio/basic_124-16.m4a"></p>
+<p class ="fragment" data-audio-src="docs/135/audio/basic_135-11.m4a"></p>
 
 
 
@@ -196,36 +142,84 @@ include_directories(${_PROJECT_CONFIG_DIR})
 
 
 ## References
-### General
-- https://cmake.org/cmake/help/latest/command/configure_file.html
-- https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-to-create-a-ProjectConfig.cmake-file
-- https://riptutorial.com/cmake/example/26652/generate-a-cplusplus-configure-file-with-cmake
-- https://stackoverflow.com/questions/48580399/how-to-ensure-a-generated-config-h-file-is-in-the-include-path
-- https://github.com/bast/cmake-example/tree/master/cmake 
-- https://cmake.org/pipermail/cmake/2006-May/009049.html
-- https://discourse.brew.sh/t/failed-to-set-locale-category-lc-numeric-to-en-ru/5092/5
-- https://raw.githubusercontent.com/git/git/master/po/de.po
-- https://raw.githubusercontent.com/git/git/master/po/zh_CN.po
-- https://www.boost.org/doc/libs/1_57_0/libs/locale/doc/html/messages_formatting.html
-- https://cmake.org/cmake/help/v3.0/variable/ENV.html
-- https://cmake.org/cmake/help/latest/module/FindIntl.html
-- https://stackoverflow.com/questions/1003360/complete-c-i18n-gettext-hello-world-example/1033337
-- https://fedoraproject.org/wiki/How_to_do_I18N_through_gettext
-- https://stackoverflow.com/questions/1003360/complete-c-i18n-gettext-hello-world-example
-- https://stackoverflow.com/questions/21370363/link-error-installing-rcpp-library-not-found-for-lintl
-- https://ubuntuforums.org/showthread.php?t=108879
-- https://github.com/neovim/neovim/blob/master/src/nvim/po/de.po
-- https://progmar.net.pl/en/knowledge-base/gettext
-- https://stackoverflow.com/questions/11789615/how-to-support-multiple-language-in-a-linux-c-c-program
-- https://stackoverflow.com/questions/11370684/what-is-libintl-h-and-where-can-i-get-it
-- https://nkumar.fedorapeople.org/helloi18n/helloworldintld/
-- https://nkumar.fedorapeople.org/helloi18n/helloworld/
-- https://stackoverflow.com/questions/31356199/multiple-make-targets-in-the-same-cmake-project
-- https://stackoverflow.com/questions/47553569/how-can-i-build-multiple-targets-using-cmake-build?rq=1
-- https://cmake.org/pipermail/cmake/2013-March/054016.html
+- https://stackoverflow.com/questions/46206495/cmake-generator-expressions
+- https://www.rapidtables.com/code/linux/gcc/gcc-d.html
+- https://stackoverflow.com/questions/26226874/what-is-the-d-compiler-flag-c-clang-gnu-msvc
+- https://qiita.com/mrk_21/items/57075ce36f49ce0aacf4
+- https://stackoverflow.com/questions/35696103/cmake-wildcard-for-target-objects
+- https://stackoverflow.com/questions/44767099/linking-cmake-interface-libraries-with-object-libraries
+- https://stackoverflow.com/questions/49265945/cmake-append-objects-from-different-cmakelists-txt-into-one-library
+- https://stackoverflow.com/questions/58969829/cmake-object-files-of-executable-in-custom-command
+- https://github.com/dev-cafe/cmake-cookbook
+- https://www.dealii.org/9.1.1/users/cmakelists.html
+- https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
+- https://stackoverflow.com/questions/50684930/how-to-collect-object-files-o-in-a-particular-directory-with-cmake
+- https://stackoverflow.com/questions/48296061/cmakes-objects-output-folder-variable
+- https://stackoverflow.com/questions/29884856/how-to-get-path-to-object-files-with-cmake-for-both-multiconfiguration-generator
+- https://stackoverflow.com/questions/25845294/target-compile-definitions-with-several-flags
+- https://stackoverflow.com/questions/5096881/does-set-target-properties-in-cmake-override-cmake-cxx-flags
+- https://stackoverflow.com/questions/30546677/cmake-how-to-set-multiple-compile-definitions-for-target-executable
+- https://foonathan.net/2017/05/preprocessor/
+- https://www.codenong.com/15223779/
+- https://stackoverflow.com/questions/15223779/cmake-when-to-use-add-definitions-instead-of-set-target-propertiestarget-prope/15263203
+- https://stackoverflow.com/questions/5403705/cmake-add-definitions-and-compile-definitions-how-to-see-them
+- https://stackoverflow.com/questions/23973470/cmake-compile-definition-not-working
+- https://cmake.org/pipermail/cmake/2017-April/065258.html
+- https://cmake.org/pipermail/cmake/2011-February/042919.html
+- https://en.cppreference.com/w/cpp/preprocessor/conditional
+- https://stackoverflow.com/questions/2335888/how-to-compare-strings-in-c-conditional-preprocessor-directives
+- https://stackoverflow.com/questions/26193171/cmake-how-to-create-a-file-with-make-command
+- https://samthursfield.wordpress.com/2015/11/21/cmake-dependencies-between-targets-and-files-and-custom-commands/
+- https://support.circleci.com/hc/en-us/articles/360003649774-Permission-Denied-When-Creating-Directory-or-Writing-a-File
+- https://stackoverflow.com/questions/31582344/how-to-redirect-the-output-of-a-cmake-custom-command-to-a-file
+- http://mariobadr.com/creating-a-header-only-library-with-cmake.html
+- https://dev.to/slurpsmadrips/everything-you-never-wanted-to-know-about-cmake-4mgg
+- https://medium.com/@rvarago/introduction-to-cmake-for-cpp-4c464272a239
+- https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html
+- http://derekmolloy.ie/hello-world-introductions-to-cmake/
 
 
 
-### Important
-- https://davesteele.github.io/debian/development/2015/12/10/i18n-build-flow/
-- https://www.debian.org/international/l10n/po/pot
+### References CMake API
+- https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
+- https://cmake.org/cmake/help/latest/command/add_compile_definitions.html
+- https://cmake.org/cmake/help/latest/command/set_property.html
+- https://cmake.org/cmake/help/latest/command/set_target_properties.html
+
+
+
+### Requirements
+- [VS Code 1.43.0+](https://code.visualstudio.com/)
+- [CMake 3.17.2+](https://cmake.org/)
+
+
+
+### Get The Code with Shell Commands
+```bash
+git clone https://github.com/cnruby/w3h1_cmake.git basic_135
+cd basic_135
+git checkout basic_135
+code .
+```
+
+
+
+### The Structure of Folder
+```bash
+#<!-- markdown-exec(cmd:cat ./docs/output/tree.txt) -->#
+.
+├── cmake
+│  ├── CMakeLists.txt
+│  ├── config.h.in
+│  ├── GetLocaleDir.cmake
+│  ├── Initialize.cmake
+│  ├── Output.cmake
+│  └── TargetAll.cmake
+├── CMakeLists.txt
+├── config
+│  └── config.hxx
+└── src
+   ├── CMakeLists.txt
+   └── main.cxx
+#<!-- /markdown-exec -->
+```

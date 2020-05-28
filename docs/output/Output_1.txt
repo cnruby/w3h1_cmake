@@ -1,0 +1,14 @@
+#
+add_compile_definitions(
+  $<$<BOOL:$<TARGET_PROPERTY:TOOL>>:MACRO=$<TARGET_PROPERTY:TOOL>>
+  # variable = (condition) ? expressionTrue : expressionFalse;
+  # variable = ($<BOOL:$<TARGET_PROPERTY:TOOL>) ? MACRO=$<TARGET_PROPERTY:TOOL> : [empty]
+  #
+  # Case 1  
+  # $<TARGET_PROPERTY:TOOL>           # 100
+  # $<BOOL:$<TARGET_PROPERTY:TOOL>>   # true
+  # MACRO=$<TARGET_PROPERTY:TOOL>     # MACRO=100
+  # $<$<BOOL:$<...>>:MACRO=$<...>>    # $<MACRO=100>
+  # Result: variable                  # MACRO=100
+)
+#

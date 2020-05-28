@@ -11,6 +11,5 @@
 │  └── config.hxx
 └── src
    ├── CMakeLists.txt
-   ├── main_apt.cxx
-   └── main_debconf.cxx
+   └── main.cxx
 #

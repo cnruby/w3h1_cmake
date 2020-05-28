@@ -1,0 +1,45 @@
+@startuml what
+scale 400 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "Project C++" as project_cplusplus {
+
+    cloud "$<TARGET_PROPERTY:target,prop> " <<Phase 1>> as any_targets
+
+    package "Phase 1" as phase_1 {
+        rectangle "Configuring Time" <<build/CMakeCache.txt>> as config_time
+        rectangle "Generating Time" <<build/build.ninja>> as gen_time
+    }
+
+    package "Phase 2" as phase_2 {
+        cloud "$<TARGET_PROPERTY:prop>" <<build time>> as binary_targets
+        rectangle "Building Time" <<bin/main_135>> as build_time
+    }
+}
+
+binary_targets *.(0).> build_time
+any_targets *.(0).> phase_1
+'any_targets *.(0).> phase_2
+
+config_time *.(0).> gen_time
+gen_time *.(0).> build_time
+
+
+title
+    What is the 'CMake' Generator Expression?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

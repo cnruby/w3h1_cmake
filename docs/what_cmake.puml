@@ -1,0 +1,55 @@
+@startuml what_cmake
+scale 400 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "Project C++" as project_cplusplus {
+
+    package "Phase 1" as phase_1 {
+        cloud "$<TARGET_PROPERTY:target,prop> " <<Phase 1>> as any_targets_1
+        rectangle "Configuring Time" <<build/CMakeCache.txt>> as config_time
+        rectangle "Generating Time" <<build/build.ninja>> as gen_time
+    }
+
+    package "Phase 2" as phase_2 {
+        cloud "$<TARGET_PROPERTY:prop> " <<build time>> as build_targets
+        rectangle "Building Time" <<bin/main_135>> as build_time
+    }
+
+    note right of phase_1
+        1. Create CMake-Configurator and Ninja-Generator
+        cmake -GNinja -H. -Bbuild/
+    endnote
+    note right of phase_1
+        * Update CMake-Configurator and Ninja-Generator
+        cmake －－build build/ －－target rebuild_cache
+        cmake -DCMAKE_BUILD_TYPE="Debug" -Bbuild/
+    endnote
+    note left of build_time
+        * Build The C++ Project
+        cmake －－build build/
+        cmake －－build build/ －－target main_135
+    endnote
+}
+
+config_time *.(0).> gen_time
+gen_time *.(0).> build_time
+
+
+title
+    What is the 'CMake' System?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

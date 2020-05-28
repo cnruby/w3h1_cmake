@@ -1,10 +1,11 @@
 #
 add_executable(
-  apt_main_124
-  main_apt.cxx
+  main_135
+  main.cxx
 )
-add_executable(
-  debconf_main_124
-  main_debconf.cxx
+set_target_properties(
+  main_135
+  PROPERTIES
+    TOOL 100
 )
 #
