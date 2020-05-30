@@ -78,8 +78,9 @@
 - **Hello, Output!** Changing the output default directory in a dedicated directory "basic_131" [Youtube Video](https://youtu.be/HnXP8jgryC4) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_131)
 - **Hello, Custom Target!** Adding and Using A Custom Target in CMake "basic_132" [Youtube Video](https://youtu.be/xcJbhFgVI04) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_132)
 - **Hello, Ninja Multi-Config!** Creating a Solution with C++ Multiple Configuration "basic_133" [Youtube Video](https://youtu.be/TLpscEDcI1U) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_133)
-- ** Hello, COMPILE_DEFINITIONS!** How to specify preprocessor definitions through CMake "basic_134" [Youtube Video](https://youtu.be/4GPcMCwWgVM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_134)
-- ** Hello, Generator Expression!** How to Learn Generator Expression in CMake "basic_135" [Youtube Video](https://youtu.be/xZkakSO3_II) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_135)
+- **Hello, COMPILE_DEFINITIONS!** How to specify preprocessor definitions through CMake "basic_134" [Youtube Video](https://youtu.be/4GPcMCwWgVM) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_134)
+- **Hello, Generator Expression!** How to Learn Generator Expression in CMake "basic_135" [Youtube Video](https://youtu.be/xZkakSO3_II) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_135)
+- **Hello, Targets 2.0!** How to Use Generator Expression in C++ Project "basic_136" [Youtube Video](https://youtu.be/hEWES7JgrfU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_136)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
