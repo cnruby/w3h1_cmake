@@ -3,6 +3,7 @@
 #define MACRO_FROM_CMAKE_HXX_
 
 #include<iostream>
+using namespace std;
 
 #if MACRO_OS == 100
 const string OS = "LINUX";
