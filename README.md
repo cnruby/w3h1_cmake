@@ -18,7 +18,6 @@ Code Name: Hello, Targets 2.0!</br>
   - [Relation for CMake Codes](#relation-for-cmake-codes)
   - [Relation Between <code>CMake</code> and <code>C++</code> Code](#relation-between-cmake-and-c-code)
 - [A Demonstration of Building Project](#a-demonstration-of-building-project)
-  - [A Explanation of Project Codes](#a-explanation-of-project-codes)
 - [Final Summary](#final-summary)
 - [References](#references)
   - [References CMake API](#references-cmake-api)
@@ -42,7 +41,7 @@ Code Name: Hello, Targets 2.0!</br>
 - [video basic_124](https://youtu.be/-T4BMEI2agc)
 - [video basic_134](https://youtu.be/4GPcMCwWgVM)
 - [video basic_135](https://youtu.be/xZkakSO3_II)
-
+<p class ="fragment" data-audio-src="docs/136/audio/basic_136-04.m4a"></p>
 
 
 ## About The Code of Project
@@ -56,32 +55,25 @@ add_compile_definitions(
 )
 #<!-- /markdown-exec -->
 ```
-<p class ="fragment" data-audio-src="docs/136/audio/basic_136-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/136/audio/basic_136-05.m4a"></p>
 
 
 
 <img src="./docs/136/image/cmake_code.png" alt="About The Project basic_136" height="100%" width="100%">
 
 ### Relation for CMake Codes
-<p class ="fragment" data-audio-src="docs/136/audio/basic_136-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/136/audio/basic_136-06.m4a"></p>
 
 
 
 <img src="./docs/136/image/cmake_cxx.png" alt="About The Project basic_136" height="100%" width="100%">
 
 ### Relation Between <code>CMake</code> and <code>C++</code> Code
-<p class ="fragment" data-audio-src="docs/136/audio/basic_136-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/136/audio/basic_136-07.m4a"></p>
 
 
 
 ## A Demonstration of Building Project
-<video width="720" height="480" controls data-autoplay>
-  <source src="docs/136/video/basic_136-08.mp4" autoplay=true type="video/mp4">
-</video>
-
-
-
-### A Explanation of Project Codes
 <video width="720" height="480" controls data-autoplay>
   <source src="docs/136/video/basic_136-08.mp4" autoplay=true type="video/mp4">
 </video>
