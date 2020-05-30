@@ -44,7 +44,7 @@ cmake --build build/
 ./bin/git_main_136
 
 ＃ FOR Ubuntu
-../get_project.sh 124 136
+./get_project.sh 124 136
 git checkout basic_136
 
 
