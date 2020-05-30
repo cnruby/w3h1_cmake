@@ -38,7 +38,7 @@ package "Project C++" as project {
 
   note top of cxx_code
     4. step
-    use‚ c++ variables
+    use c++ variables
   endnote
 }
 
