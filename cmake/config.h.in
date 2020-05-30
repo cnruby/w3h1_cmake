@@ -1,7 +1,8 @@
 //
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
+#ifndef CONFIG_HXX_
+#define CONFIG_HXX_
 
+#define PROJECT_NAME "@PROJECT_NAME@"
 #define PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@"
 
 #include<iostream>

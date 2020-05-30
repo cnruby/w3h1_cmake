@@ -57,7 +57,9 @@
     "utility": "cpp",
     "vector": "cpp",
     "*.tcc": "cpp",
-    "cinttypes": "cpp"
+    "cinttypes": "cpp",
+    "string_view": "cpp",
+    "iomanip": "cpp"
   },
   "python.pythonPath": "/usr/local/opt/python/bin/python3.7"
   //"cmake.cmakePath": "/usr/bin/cmake"

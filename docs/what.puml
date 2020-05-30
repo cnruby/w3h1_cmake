@@ -1,0 +1,95 @@
+@startuml what
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "Project C++" as project {
+  package "CMake Code" as cmake_project {
+    rectangle "CMake Code" <<./src/CMakeLists.txt>> as cmake_set
+    rectangle "CMake Code" <<./cmake/GetMacro.cmake>> as cmake_get
+  }
+  package "C++ Code" as cxx_project {
+    rectangle "macro Code" <<./config/macro.hxx>> as macro_code
+    rectangle "C++ Code" <<./src/compiler.hxx>> as cxx_code
+  }
+
+  note top of cmake_set
+    1. step
+    define target properties
+  endnote
+
+  note top of cmake_get
+    2. step
+    use target properties
+    define compile macro
+  endnote
+
+  note top of macro_code
+    3. step
+    use macro
+    define c++ variables
+  endnote
+
+  note top of cxx_code
+    4. step
+    use‚ c++ variables
+  endnote
+}
+
+note bottom of cmake_set
+  set_target_properties(
+    apt_main_136
+    PROPERTIES
+      **OS** 100
+      ...
+endnote
+
+note bottom of cmake_get
+  list(
+    APPEND
+    os_options
+    $<TARGET_PROPERTY:**OS**>
+  )
+  add_compile_definitions(
+    $<$<BOOL:${os_options}>:**MACRO_OS**=${os_options}>
+  )
+endnote
+
+note bottom of macro_code
+  ＃if **MACRO_OS** == 100
+  const string **OS** = "LINUX";
+  ＃else
+  const string OS = "";
+  ＃endif
+endnote
+
+note bottom of cxx_code
+    if (**OS** == "LINUX") {
+      if(strcmp(TOOL, (char*)"apt") == 0) {
+        strcpy(word, (char*)"Query");
+        ...
+endnote
+
+cmake_set *.(0).> cmake_get
+cmake_get *.(0).> macro_code
+'cmake_get *.(0).> cxx_code
+macro_code *.(0).> cxx_code
+
+
+title
+    What relationships exist between CMake, Macro and C++ Codes?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

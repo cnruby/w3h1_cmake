@@ -1,11 +1,17 @@
 #
-# For Ubuntu
-message("\nFROM cmake/GetLocaleDir.txt")
-message(STATUS "_SYSTEM_LOCALE_DIR\t= ${_SYSTEM_LOCALE_DIR}")
-set(
-  _SYSTEM_LOCALE_DIR
-  /usr/share/locale
-)
-message(STATUS "_SYSTEM_LOCALE_DIR\t= ${_SYSTEM_LOCALE_DIR}")
-message("FROM cmake/GetLocaleDir.txt")
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  # For Ubuntu
+  set(
+    _SYSTEM_LOCALE_DIR
+    /usr/share/locale
+  )
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+  # For MacOS
+  set(
+    _SYSTEM_LOCALE_DIR
+    /usr/local/share/locale
+  )
+else()
+  message(STATUS "Configuring `_SYSTEM_LOCALE_DIR` on/for SYSTEM LOCALE DIR}")
+endif()
 #

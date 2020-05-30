@@ -1,14 +1,15 @@
 //
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
+#ifndef CONFIG_HXX_
+#define CONFIG_HXX_
 
-#define PROJECT_DESCRIPTION "basic_124 Hello, Module's Variables!"
+#define PROJECT_NAME "basic_136"
+#define PROJECT_DESCRIPTION "Hello, Targets 2.0!"
 
-#include <iostream>
-using namespace std;
+#include<iostream>
+using namespace std; 
 
-const string LANG = "zh_CN.UTF-8";
-const char *SYSTEM_LOCALE_DIR = "/usr/share/locale";
+const string LANG = "de_DE.UTF-8";
+const char *SYSTEM_LOCALE_DIR = "/usr/local/share/locale";
 
 #endif
 //
