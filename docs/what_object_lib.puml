@@ -1,0 +1,73 @@
+@startuml what_object_lib
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Compile and Archive" <<"header.cxx">> as compile_and_archive {
+  package "add_library" <<"x=1+2+3">> as lib_file {
+    rectangle "lib${LIB_NAME}_ar.a" <<OUTPUT>> as lib_a
+    note bottom of lib_a
+      add_library(
+        ${LIB_NAME}_ar
+        STATIC header.cxx
+      )
+    endnote
+  }
+}
+package Compile <<"header.cxx">> as compile {
+  package add_library <<"1">> as add_library_o {
+    rectangle "header.cxx.o" <<OUTPUT>> as header_cxx_o
+    note bottom of header_cxx_o
+      add_library(
+        ${LIB_NAME}_o
+        **OBJECT** header.cxx
+      )
+    endnote
+  }
+}
+
+package Archive <<"header.cxx.o">> as archive {
+  package target_link_libraries <<"3">> as target_link_libraries {
+    rectangle "lib${LIB_NAME}_ar.a" <<OUTPUT>> as lib_a_object
+    note bottom of lib_a_object
+      target_link_libraries(
+        ${LIB_NAME}_ar
+        ${LIB_NAME}_o
+      )
+    endnote
+  }
+  package add_library <<"2">> as add_library_define {
+    rectangle "lib${LIB_NAME}_ar.a" <<DEFINITION>> as lib_define
+    note bottom of lib_define
+      add_library(
+        ${LIB_NAME}_ar
+        STATIC
+      )
+    endnote
+  }
+}
+
+
+
+lib_a *-(0)-> header_cxx_o
+lib_a *-(0)-> lib_define
+lib_a *-(0)-> lib_a_object
+
+
+title
+  What is The C++ Library Obejct File "basic_137"?
+end title
+
+header
+  <font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

@@ -1,19 +1,18 @@
-//
+// ./src/main.cxx
 #include <iostream>
-
 #include "config.hxx"
+#include "header.hxx"
+#include "macro.hxx"
 
 int main(int, char**) {
-  std::cout << "Hello, C++ Configure File!!" << std::endl;
+  std::cout << "Project ID:\t\t\t" << PROJECT_NAME << std::endl;
+  std::cout << "Project Code:\t\t\t" << PROJECT_DESCRIPTION << std::endl;
+  std::cout << "Project Version:\t\t" << MACRO_VERSION << std::endl << std::endl;
 
-  std::cout << "PROJECT_NAME \t\t\t= " << PROJECT_NAME << std::endl;
-  std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
-  std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR
-            << std::endl;
-  std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= "
-            << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
+  Header header;
+  header.hello("Library");
 
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
+  std::cout << "Hello, Main!" << std::endl;
 
   return 0;
 }

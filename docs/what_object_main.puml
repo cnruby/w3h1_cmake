@@ -1,0 +1,70 @@
+@startuml what_object_main
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "Compile and Link" <<"TARGET: ${MAIN_NAME}">> as exe_file {
+  rectangle "${MAIN_NAME}" <<OUTPUT>> as exe
+  note bottom of exe
+    add_executable(
+      ${MAIN_NAME}
+      main.cxx
+    )
+  endnote
+}
+package Compile <<"main.cxx">> as compile {
+  package add_library <<"TARGET: ${MAIN_NAME}_o">> as main_o {
+    rectangle "main.cxx.o" <<OUTPUT>> as main_cxx_o
+    note bottom of main_cxx_o
+      add_library(
+        ${MAIN_NAME}_o
+        OBJECT main.cxx
+      )
+    endnote
+  }
+}
+
+package Link <<"main.cxx.o">> as archive {
+  package target_link_libraries <<"TARGET: ${MAIN_NAME}">> as target_link_libraries {
+    rectangle "${MAIN_NAME}" <<OUTPUT>> as exe_object
+    note bottom of exe_object
+      target_link_libraries(
+        ${MAIN_NAME}
+        ${MAIN_NAME}_o
+      )
+    endnote
+  }
+  package add_executable <<"TARGET: ${MAIN_NAME}">> as add_executable_define {
+    rectangle "${MAIN_NAME}" <<DEFINITION>> as exe_define
+    note bottom of exe_define
+      add_executable(
+        ${MAIN_NAME}
+      )
+    endnote
+  }
+}
+
+
+
+exe *-(0)-> main_cxx_o
+exe *-(0)-> exe_define
+exe *-(0)-> exe_object
+
+
+title
+  What is The C++ Main Obejct File "basic_137"?
+end title
+
+header
+  <font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

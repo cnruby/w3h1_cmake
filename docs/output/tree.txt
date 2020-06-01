@@ -1,12 +1,16 @@
-#
+# ./docs/output/tree.txt
 .
 ├── cmake
 │  ├── CMakeLists.txt
-│  └── config.h.in
+│  ├── config.h.in
+│  ├── GetOutput.cmake
+│  └── Initialize.cmake
 ├── CMakeLists.txt
 ├── config
-│  └── config.hxx
+   ├── config.hxx
+│  └── macro.hxx
 └── src
    ├── CMakeLists.txt
-   └── main.cxx
-#
+   ├── main.cxx
+   ├── one.cmake
+   └── three.cmake
