@@ -1,0 +1,60 @@
+@startuml what_final
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+Folder "Library .a" <<"${TARGET}">> as lib_static {
+    rectangle add_executable <<main.cxx>> as exe_static
+    rectangle target_link_libraries <<${LIB_NAME}_static>> as link_static
+}
+package "Library .o" <<"${TARGET}">> as lib_object {
+    rectangle add_executable <<main.cxx>> as exe_object
+    rectangle target_link_libraries <<${LIB_NAME}_o>> as link_object
+
+    note bottom of link_object
+        used as object library
+    endnote
+}
+package "Source .o" <<"${TARGET}">> as lib_source {
+    rectangle add_executable <<main.cxx>> as exe_source
+    rectangle target_sources <<"$<TARGET_OBJECTS:${LIB_NAME}_o>">> as link_source
+
+    note bottom of link_source
+        used as source code
+    endnote
+}
+package "Source .cxx+.o" <<"${TARGET}">> as lib_cxx {
+    rectangle add_executable <<main.cxx $<TARGET_OBJECTS:${LIB_NAME}_o>>> as exe_cxx
+
+    note bottom of exe_cxx
+        used as source code
+    endnote
+}
+
+lib_static *--> lib_object
+lib_object *--> lib_source
+lib_source *--> lib_cxx
+
+link_static *..> link_object
+link_object *..> link_source
+link_source *..> exe_cxx
+exe_source *..> exe_cxx
+
+
+title
+    What is The C++ Object File "basic_138"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

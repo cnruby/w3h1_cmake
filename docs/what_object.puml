@@ -1,0 +1,82 @@
+@startuml what_object
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package Project_C++ as project {
+  package "Library .a" <<"${TARGET}">> as lib_static {
+    rectangle add_executable <<main.cxx>> as exe_static
+    cloud target_link_libraries <<"...">> as link_static
+    note bottom of link_static
+      target_link_libraries(
+        ${TARGET}
+        ${LIB_NAME}_static
+      )
+    endnote
+  }
+  package "Library .o" <<"${TARGET}">> as lib_object {
+    rectangle add_executable <<main.cxx>> as exe_object
+    cloud target_link_libraries <<"...">> as link_object
+    note bottom of link_object
+      target_link_libraries(
+        ${TARGET}
+        ${LIB_NAME}_o
+      )
+    endnote
+  }
+  package "Source .o" <<"${TARGET}">> as lib_source {
+    rectangle add_executable <<main.cxx>> as exe_source
+    cloud target_sources <<"...">> as link_source
+    note bottom of link_source
+      target_sources(
+        ${TARGET} PRIVATE
+        $<TARGET_OBJECTS:${LIB_NAME}_o>
+      )
+    endnote
+    note top of exe_source
+      add_executable(
+        ${TARGET}
+        main.cxx
+      )
+    endnote
+  }
+  package "Source .cxx and .o" <<"${TARGET}">> as lib_cxx {
+    cloud add_executable <<"...">> as exe_cxx
+    note bottom of exe_cxx
+      add_executable(
+        ${TARGET}
+        main.cxx
+        $<TARGET_OBJECTS:${LIB_NAME}_o
+      )
+    endnote
+  }
+}
+
+lib_static *--> lib_object
+lib_object *--> lib_source
+lib_source *--> lib_cxx
+
+link_static *..> link_object
+link_object *..> link_source
+link_source *..> exe_cxx
+exe_source *..> exe_cxx
+
+
+
+title
+What is The C++ Object File "basic_138"?
+end title
+
+header
+  <font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

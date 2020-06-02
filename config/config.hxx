@@ -1,19 +1,18 @@
 //
-#ifndef CONFIG_FROM_CMAKE_HXX
-#define CONFIG_FROM_CMAKE_HXX
+#ifndef CONFIG_HXX_
+#define CONFIG_HXX_
 
-//#define CXX_VARIABLE_NAME ""
+#include<iostream>
+using namespace std; 
 
-#define PROJECT_NAME "basic_116"
-#define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic"
-#define CMAKE_CURRENT_SOURCE_DIR \
-  "/Users/Simon/Documents/dev/cpp-ws/116_basic/cmake"
-#define CMAKE_RUNTIME_OUTPUT_DIRECTORY \
-  "/Users/Simon/Documents/dev/cpp-ws/116_basic/bin"
+#define PROJECT_NAME "basic_138"
+#define PROJECT_DESCRIPTION "Hello, Object Library!"
 
-// const char *CXX_VARIABLE_NAME = ""
-const char *PROJECT_CONIFG_DIR =
-    "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
+#define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/138_basic"
+#define CMAKE_CURRENT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/138_basic/cmake"
+#define CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Users/Simon/Documents/dev/cpp-ws/138_basic/_bin"
+
+const char *PROJECT_CONFIG_DIR = "";
 
 #endif
 //

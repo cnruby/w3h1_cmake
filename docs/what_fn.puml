@@ -1,0 +1,70 @@
+@startuml what_fn
+scale 800 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam Folder {
+  backgroundColor Olive
+  borderColor orange
+}
+
+'left to right direction
+package "C++ Obejct File" <<...>> as cxx_o {
+    rectangle "header.cxx.o" as header_cxx_o 
+    note bottom of header_cxx_o
+        add_library(
+            ${LIB_NAME}_o
+            OBJECT header.cxx
+        )
+    endnote
+}
+package add_executable <<"${TARGET}">> as add_executable {
+    rectangle "header.cxx.o" <<used as source code>> as main_cxx_4
+}
+
+package target_sources <<"${TARGET}">> as target_sources {
+    rectangle "header.cxx.o" <<used as source code>> as main_cxx_3
+}
+
+package target_link_libraries <<"${TARGET}">> as target_link_libraries {
+    rectangle "header.cxx.o" <<used as object library>> as main_cxx_2
+}
+
+note bottom of add_executable
+    add_executable(
+        v4_${MAIN_NAME}
+        main.cxx
+        $<TARGET_OBJECTS:${LIB_NAME}_o>
+    )
+endnote
+
+note bottom of target_sources
+    target_sources(
+        v3_${MAIN_NAME}
+        PRIVATE $<TARGET_OBJECTS:${LIB_NAME}_o>
+    )
+endnote
+
+note bottom of target_link_libraries
+    target_link_libraries(
+        v2_${MAIN_NAME}
+        ${LIB_NAME}_o
+    )
+endnote
+
+header_cxx_o *-(0)-> main_cxx_4
+header_cxx_o *-(0)-> main_cxx_3
+header_cxx_o *-(0)-> main_cxx_2
+
+
+title
+    What effect does The C++ Library Obejct File have "basic_138"?
+end title
+
+header
+<font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
