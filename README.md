@@ -102,6 +102,7 @@ Code Name: Hello, Object File!</br>
 
 
 ### Requirements
+- C++ STANDARD 17+
 - [Ubuntu 20.04+](https://ubuntu.com/)
 - [VS Code 1.43.0+](https://code.visualstudio.com/)
 - [CMake 3.17.2+](https://cmake.org/)
