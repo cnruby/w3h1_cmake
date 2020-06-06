@@ -12,6 +12,8 @@ Code Name: Hello, install:exe!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/nJj1efRi6oI)
 
+[<h1>Short Video</h1>](https://youtu.be/edcA9puzDgU)
+
 
 
 <h2>TABLE of CONTENTS</h2>
