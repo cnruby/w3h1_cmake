@@ -12,6 +12,8 @@ Code Name: Hello, Object Library!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/xj1fx2Xsl-U)
 
+[<h1>Short Video</h1>](https://youtu.be/edcA9puzDgU)
+
 
 
 <h2>TABLE of CONTENTS</h2>
