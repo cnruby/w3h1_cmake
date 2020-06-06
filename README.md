@@ -83,7 +83,7 @@
 - **Hello, Targets 2.0!** How to Use Generator Expression in C++ Project "basic_136" [Youtube Video](https://youtu.be/hEWES7JgrfU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_136)
 - **Hello, Object Library!** How to Create and Use The Object File in CMake "basic_137"<br/> [Youtube Video](https://youtu.be/xj1fx2Xsl-U) | [Short Video](https://youtu.be/edcA9puzDgU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_137)
 - **Hello, Object File!** How to Obtain and Apply The Object File of Library in CMake "basic_138"<br/> [Youtube Video](https://youtu.be/1LMmQ_3kjFA) | [Short Video](https://youtu.be/9Y-alzDxJpg) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_138)
-- **Hello, install:exe!** How to install executable from the project to local "basic_139"<br/> [Youtube Video](https://youtu.be/nJj1efRi6oI) | ... | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_139)
+- **Hello, install:exe!** How to install executable from the project to local "basic_139"<br/> [Youtube Video](https://youtu.be/nJj1efRi6oI) | [Short Video](https://youtu.be/edcA9puzDgU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_139)
 
 ## References
 - [Learning CMake: A beginner's guide](https://tuannguyen68.gitbooks.io/learning-cmake-a-beginner-s-guide/content/index.html)
