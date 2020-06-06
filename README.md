@@ -92,6 +92,7 @@
 - [CMake BASIS](https://cmake-basis.github.io/quickstart.html)
 - [CMake Cookbook Github](https://github.com/dev-cafe/cmake-cookbook)
 - [CMake Cookbook 中文](https://chenxiaowei.gitbook.io/cmake-cookbook/)
+- [CMake questions forum](https://discourse.cmake.org)
 
 ## @cnruby
 - [@Gitter](https://gitter.im/cnruby)
