@@ -1,6 +1,9 @@
 #include <iostream>
+#include "config.hxx"
 
-int main(int, char **)
-{
-    std::cout << "Hello, CMake!\n";
+int main(int, char**) {
+  std::cout << "Project ID:\t\t\t" << PROJECT_NAME << std::endl;
+  std::cout << "Project Code:\t\t\t" << PROJECT_DESCRIPTION << std::endl;
+
+  return EXIT_SUCCESS;
 }
