@@ -12,6 +12,8 @@ Code Name: Hello, <code>Ninja</code> Multi-Config!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/TLpscEDcI1U)
 
+[<h1>Short Video</h1>](https://youtu.be/l3DCnXTSJuA)
+
 
 
 <h2>TABLE of CONTENTS</h2>
