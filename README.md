@@ -19,7 +19,7 @@ Code Name: Hello, <code>Ninja</code> Multi-Config!</br>
 - [About The Project](#about-the-project)
   - [The CMake Codes of <code>Ninja</code> Multi-Config Generator](#the-cmake-codes-of-ninja-multi-config-generator)
 - [Explain The <code>Ninja</code> Multi-Config Generator](#explain-the-ninja-multi-config-generator)
-  - [The Code of File <code>'multi_config.cmake'</code>](#the-code-of-file-multiconfigcmake)
+  - [The Code of File <code>'multi_config.cmake'</code>](#the-code-of-file-multi_configcmake)
   - [Demonstrate Building <code>Ninja</code> Multi-Config generator](#demonstrate-building-ninja-multi-config-generator)
   - [The Varibales and Commands of <code>Ninja</code> Multi-Config generator](#the-varibales-and-commands-of-ninja-multi-config-generator)
   - [The Commands of <code>Ninja</code> Multi-Config generator](#the-commands-of-ninja-multi-config-generator)
@@ -159,6 +159,7 @@ endif()
 - https://www.scivision.dev/cmake-ninja-multi-config/
 - https://gitlab.kitware.com/cmake/cmake/issues/20161
 - https://blogs.kde.org/2011/02/05/how-selectively-remove-entries-cmake-cache-command-line
+- https://stackoverflow.com/questions/26226874/what-is-the-d-compiler-flag-c-clang-gnu-msvc
 
 
 ### General
