@@ -27,6 +27,7 @@
 
 ### Tool and Library
 - [CMake](https://cmake.org/)
+- [Ninja](https://ninja-build.org/)
 - [clang-format](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 - [cmake_format](https://github.com/cheshirekow/cmake_format)
 - [Doxygen](http://www.doxygen.nl/)
