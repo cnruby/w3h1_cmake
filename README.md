@@ -4,9 +4,9 @@
 </br>
 
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
-Code ID: basic_116</br>
+Code ID: raw_116</br>
 Code Name: Hello, Configure File!</br>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-01.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-01.m4a"></p>
 
 
 
@@ -34,7 +34,7 @@ Code Name: Hello, Configure File!</br>
   - [Formatting The Codes](#formatting-the-codes)
   - [Get The Code with Shell Commands](#get-the-code-with-shell-commands)
   - [Build and Run The Project](#build-and-run-the-project)
-<div class ="fragment" data-audio-src="docs/116/audio/basic_116-02.m4a"></div>
+<div class ="fragment" data-audio-src="docs/116/audio/raw_116-02.m4a"></div>
 
 
 
@@ -54,25 +54,25 @@ Code Name: Hello, Configure File!</br>
 #<!-- /markdown-exec -->
 ```
 ### The <code>Folder's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-03.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-03.m4a"></p>
 
 
 
 ![_image](docs/116/image/what-command.png)
 ### The <code>Command's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-04.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-04.m4a"></p>
 
 
 
 ![_image](docs/116/image/what-process.png)
 ### The <code>Process's</code> Structure
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-05.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-05.m4a"></p>
 
 
 
 ## <code>CMake</code> Files of The Project
 ![_image](./docs/116/image/configure_file.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-06.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-06.m4a"></p>
 
 
 
@@ -85,7 +85,7 @@ add_executable(
 target_include_directories(
   main_116
   PRIVATE
-  ${PROJECT_CONIFG_DIR}
+  ${_PROJECT_CONFIG_DIR}
 )
 
 message("\nFROM src/CMakeLists.txt")
@@ -95,7 +95,7 @@ message("FROM src/CMakeLists.txt")
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-07.m4a"></p>
 
 
 
@@ -115,7 +115,7 @@ message("FROM cmake/CMakeLists.txt")
 #<!-- /markdown-exec -->
 ```
 ### The Listfile of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-08.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-08.m4a"></p>
 
 
 
@@ -132,19 +132,19 @@ message("FROM cmake/CMakeLists.txt")
 #define CMAKE_RUNTIME_OUTPUT_DIRECTORY "@CMAKE_RUNTIME_OUTPUT_DIRECTORY@"
 
 //const char *CXX_VARIABLE_NAME = "@CMAKE_VARIABLE_NAME@"
-const char *PROJECT_CONIFG_DIR = "@PROJECT_CONIFG_DIR@";
+const char *_PROJECT_CONFIG_DIR = "@_PROJECT_CONFIG_DIR@";
 
 #endif
 //<!-- /markdown-exec -->
 ```
 ### The Template File of Folder <code>'cmake'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-09.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-09.m4a"></p>
 
 
 
 ## C++ Files of The Project
 ![_image](./docs/116/image/main_cxx.png)
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-10.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-10.m4a"></p>
 
 
 
@@ -155,19 +155,19 @@ const char *PROJECT_CONIFG_DIR = "@PROJECT_CONIFG_DIR@";
 
 //#define CXX_VARIABLE_NAME ""
 
-#define PROJECT_NAME "basic_116"
+#define PROJECT_NAME "raw_116"
 #define PROJECT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic"
 #define CMAKE_CURRENT_SOURCE_DIR "/Users/Simon/Documents/dev/cpp-ws/116_basic/cmake"
 #define CMAKE_RUNTIME_OUTPUT_DIRECTORY "/Users/Simon/Documents/dev/cpp-ws/116_basic/bin"
 
 //const char *CXX_VARIABLE_NAME = ""
-const char *PROJECT_CONIFG_DIR = "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
+const char *_PROJECT_CONFIG_DIR = "/Users/Simon/Documents/dev/cpp-ws/116_basic/config/";
 
 #endif
 //<!-- /markdown-exec -->
 ```
 ### The C++ Config File of Folder <code>'config'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-11.m4a"></p>
 
 
 
@@ -184,27 +184,27 @@ int main(int, char**) {
   std::cout << "PROJECT_SOURCE_DIR \t\t= " << PROJECT_SOURCE_DIR << std::endl;
   std::cout << "CMAKE_CURRENT_SOURCE_DIR \t= " << CMAKE_CURRENT_SOURCE_DIR << std::endl;
   std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= " << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
+  std::cout << "_PROJECT_CONFIG_DIR \t\t= " << _PROJECT_CONFIG_DIR << std::endl;
 
   return 0;
 }
 //<!-- /markdown-exec -->
 ```
 ### The C++ Main File of Folder <code>'src'</code>
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-12.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-12.m4a"></p>
 
 
 
 ## Demonstrate Generating The Configure File with <code>CMake<code>
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/116/video/basic_116-13.mov" autoplay=true type="video/mp4">
+  <source src="docs/116/video/raw_116-13.mov" autoplay=true type="video/mp4">
 </video>
 
 
 
 ![_image](docs/116/image/what-process.png)
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/116/audio/basic_116-14.m4a"></p>
+<p class ="fragment" data-audio-src="docs/116/audio/raw_116-14.m4a"></p>
 
 
 
@@ -242,9 +242,9 @@ ruby format-codes.rb
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_116
-cd basic_116
-git checkout basic_116
+git clone https://github.com/cnruby/w3h1_cmake.git raw_116
+cd raw_116
+git checkout raw_116
 code .
 ```
 

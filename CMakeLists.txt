@@ -1,31 +1,38 @@
 cmake_minimum_required(
-  VERSION 3.1...3.16
+  VERSION 3.1...3.17.3
   FATAL_ERROR
 )
 set(
   CMAKE_CXX_STANDARD
   17
 )
+
+set(
+  CMAKE_CXX_STANDARD_REQUIRED
+  ON
+)
+
+set(
+  CMAKE_CXX_EXTENSIONS
+  OFF
+)
+
 project(
-  basic_116
+  raw_116
   VERSION 0.1.0
   LANGUAGES CXX
-  DESCRIPTION "basic_116 Hello, Configure File!"
+  DESCRIPTION "raw_116 Hello, Configure File!"
 )
 set(
   CMAKE_RUNTIME_OUTPUT_DIRECTORY
-  ${PROJECT_SOURCE_DIR}/bin
+  ${PROJECT_SOURCE_DIR}/_exe
 )
 set(
-  PROJECT_CONIFG_DIR
+  _PROJECT_CONFIG_DIR
   ${PROJECT_SOURCE_DIR}/config/
 )
 
-# call CMake File 'CMakeLists.txt'
+include(cmake/Initialize.cmake)
+
 add_subdirectory(cmake)
 add_subdirectory(src)
-
-message("\nFROM ./CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM ./CMakeLists.txt")

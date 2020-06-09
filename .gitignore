@@ -31,6 +31,7 @@
 *.out
 *.app
 bin/*
+exe/*
 build/*
 .DS_Store
 .DS_Store/*

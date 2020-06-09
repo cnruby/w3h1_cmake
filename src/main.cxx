@@ -1,6 +1,4 @@
-//
 #include <iostream>
-
 #include "config.hxx"
 
 int main(int, char**) {
@@ -13,8 +11,7 @@ int main(int, char**) {
   std::cout << "CMAKE_RUNTIME_OUTPUT_DIRECTORY \t= "
             << CMAKE_RUNTIME_OUTPUT_DIRECTORY << std::endl;
 
-  std::cout << "PROJECT_CONIFG_DIR \t\t= " << PROJECT_CONIFG_DIR << std::endl;
+  std::cout << "_PROJECT_CONFIG_DIR \t\t= " << _PROJECT_CONFIG_DIR << std::endl;
 
   return 0;
 }
-//

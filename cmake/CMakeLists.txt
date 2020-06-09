@@ -1,13 +1,6 @@
-#
 configure_file(
   ${PROJECT_SOURCE_DIR}/cmake/config.h.in
-  ${PROJECT_SOURCE_DIR}/config/config.hxx
+  ${_PROJECT_CONFIG_DIR}/config.hxx
   # Restrict the form @VAR@ of template variable, NOT the form ${var}
   @ONLY
 )
-
-message("\nFROM cmake/CMakeLists.txt")
-message("PROJECT_SOURCE_DIR \t\t= ${PROJECT_SOURCE_DIR}")
-message("CMAKE_CURRENT_SOURCE_DIR \t= ${CMAKE_CURRENT_SOURCE_DIR}")
-message("FROM cmake/CMakeLists.txt")
-#
