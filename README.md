@@ -12,6 +12,8 @@ Code Name: Hello, install:multi!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/tCN-eFZN8xE)
 
+[<h1>Short Video</h1>](https://youtu.be/oB6Ujd0BVno)
+
 
 
 <h2>TABLE of CONTENTS</h2>
