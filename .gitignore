@@ -30,7 +30,11 @@
 *.exe
 *.out
 *.app
+_*/*
 bin/*
 build/*
 .DS_Store
 .DS_Store/*
+*.mp4
+*.mov
+*.m4a

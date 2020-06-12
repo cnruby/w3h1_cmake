@@ -7,6 +7,6 @@ using namespace std;
 #define PROJECT_NAME "@PROJECT_NAME@"
 #define PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@"
 
-const char *PROJECT_CONFIG_DIR = "@_PROJECT_CONFIG_DIR@";
+const char *DEFAULT_BUILD_TYPE = "@CMAKE_BUILD_TYPE@";
 
 #endif

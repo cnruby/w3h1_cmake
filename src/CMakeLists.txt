@@ -1,4 +1,4 @@
-set(TARGET_NAME main_139)
+set(TARGET_NAME ${_MAIN_EXE})
 
 add_executable(
   ${TARGET_NAME} main.cxx

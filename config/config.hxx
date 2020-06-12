@@ -4,9 +4,9 @@
 #include<iostream>
 using namespace std; 
 
-#define PROJECT_NAME "basic_139"
-#define PROJECT_DESCRIPTION "Hello, install:exe!"
+#define PROJECT_NAME "basic_141"
+#define PROJECT_DESCRIPTION "Hello, install:DESTDIR!"
 
-const char *PROJECT_CONFIG_DIR = "/Users/Simon/Documents/dev/cpp-ws/139_basic/config";
+const char *DEFAULT_BUILD_TYPE = "Release";
 
 #endif

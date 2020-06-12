@@ -11,9 +11,9 @@ ruby format-codes.rb
 
 ### Get The Code with Shell Commands
 ```bash
-git clone https://github.com/cnruby/w3h1_cmake.git basic_139
-cd basic_139
-git checkout basic_139
+git clone https://github.com/cnruby/w3h1_cmake.git basic_141
+cd basic_141
+git checkout basic_141
 code .
 ```
 
@@ -24,8 +24,8 @@ code .
 md-inc README.md
 ruby format-codes.rb
 git branch -vv
-git checkout -b basic_139
-git push --set-upstream origin basic_139
+git checkout -b basic_141
+git push --set-upstream origin basic_141
 git push
 exa -T > docs/output/tree.txt
 dot -V
@@ -34,35 +34,41 @@ doxygen --version
 
 
 
-## basic_139
+## basic_141
 ```
 rm -rf _*
 cmake -GNinja -H. -B_build
 
-# on Project
+
+# For Debug
 cmake -DCMAKE_BUILD_TYPE=Debug _build
+cmake -UCMAKE_INSTALL_PREFIX _build
 ninja -C _build
-./_bin/main_139
-cmake --install _build
-./_install/Debug/bin/main_139
-rm ./_install/Debug/bin/main_139
-cmake --build _build --target install
-./_install/Debug/bin/main_139
-rm ./_install/Debug/bin/main_139
-ninja -C _build install
-./_install/Debug/bin/main_139
+DESTDIR=../ ninja -C _build install
+_install/Debug/bin/main_141
 
-# on OS
+
+# For Release
 cmake -DCMAKE_BUILD_TYPE=Release _build
+cmake -UCMAKE_INSTALL_PREFIX _build
 ninja -C _build
-sudo ninja -C _build install
-main_139
-sudo rm /usr/local/bin/main_139
+DESTDIR=../ ninja -C _build install
 
-cmake -DCMAKE_INSTALL_PREFIX=$HOME/cpp-ws/139_basic/_install/Release _build
-cmake --install _build
-ninja -C _build install
-./_install/Release/bin/main_139
+
+# use custom target `install_app` with Debug
+rm -rf _install
+cmake -DCMAKE_BUILD_TYPE=Debug -UDESTDIR -UCMAKE_INSTALL_PREFIX _build
+ninja -C _build
+ninja -C _build install_app
+./_install/Debug/bin/main_141
+
+
+# use custom target `install_app` with Release
+cmake -DCMAKE_BUILD_TYPE=Release -UDESTDIR -UCMAKE_INSTALL_PREFIX _build
+ninja -C _build
+ninja -C _build install_app
+./_install/Release/bin/main_141
+
 
 ninja -C _build rc
 ninja -C _build ge
