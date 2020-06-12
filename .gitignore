@@ -32,3 +32,10 @@
 *.app
 .DS_Store
 .DS_Store/*
+
+_*/*
+bin/*
+build/*
+*.mp4
+*.mov
+*.m4a
