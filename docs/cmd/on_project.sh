@@ -1,4 +1,4 @@
-# to install executable to Project for Developer 
+# to install executable to Project for Developer
 cmake -GNinja -H. -B_build
 cmake -DCMAKE_BUILD_TYPE=Debug --build _build
 ninja -C _build
