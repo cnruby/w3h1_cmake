@@ -36,5 +36,6 @@ build/*
 .DS_Store/*
 
 *.mov
+*.mp4
 *.m4a
 docs/*/*.md
