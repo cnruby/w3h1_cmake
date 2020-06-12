@@ -12,6 +12,7 @@ Code Name: Hello, install:DESTDIR!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/NtYyjwSjt9Q)
 
+[<h1>Short Video</h1>](https://youtu.be/15Zrf_WZXPU)
 
 
 <h2>TABLE of CONTENTS</h2>
