@@ -35,3 +35,6 @@ build/*
 _*/*
 .DS_Store
 .DS_Store/*
+*.mp4
+*.mov
+*.m4a
