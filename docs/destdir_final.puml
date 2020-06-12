@@ -1,4 +1,4 @@
-@startuml install_final
+@startuml destdir_final
 scale 700 width
 skinparam backgroundColor #FFEBDC
 scale 1
@@ -16,19 +16,26 @@ package "C++ Project with CMake" <<"...">> as project {
   package "CMake Generator Ninja" <<"Ninja Code">> as ninja_project {
     rectangle "./_build" as ninja_code
     rectangle "ninja -C _build" <<"Build Command">> as cmd_build
-    rectangle "**ninja -C _build install**" <<"Install Command">> as cmd_install
+    rectangle "**ninja -C _build install_app**" <<"Install Command">> as cmd_install
+    note right of cmd_build
+      CMake Cache Variable:
+        **_DESTDIR**
+        **CMAKE_BUILD_TYPE**
+    endnote
     note right of cmd_install
-      Requirement:
-        CMAKE_BUILD_TYPE
-        CMAKE_INSTALL_PREFIX
+      Environment Variable:
+        **DESTDIR**
+      CMake Cache Variable:
+        **CMAKE_INSTALL_PREFIX**
     endnote
   }
   package "C++ Project" <<"C++ Code">> as c_project {
     rectangle "main.cxx" as c_code
   }
   rectangle "Output for build" <<"./_bin">> as output_build
-  cloud "Output: Debug" <<"./_install">> as output_local
 
+  cloud "Output: Debug" <<"./_install/Debug/bin">> as output_debug
+  cloud "Output: Release" <<"./_install/Release/bin">> as output_release
 }
 cmake_code *--> ninja_code
 ninja_code *--> cmd_build
@@ -36,17 +43,14 @@ ninja_code *--> cmd_install
 c_code *--> cmd_build
 cmd_build *--> output_build
 output_build *-(0)-> cmd_install
-cmd_install *--> output_local
+cmd_install *--> output_debug
 
-package "OS" <<"Ubuntu">> as os {
-  cloud "Output: Release" <<"/usr/local">> as output_os
-}
-cmd_install *--> output_os
+cmd_install *--> output_release
 
 
 
 title
-  What is The Command `install` for executable "basic_139"?
+  What is The CMake's custom target `install_app` "basic_141"?
 end title
 
 header
