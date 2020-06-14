@@ -16,8 +16,8 @@ set( TOOL_FOLDER "tool_" )
 add_custom_target(
   appimage
   ${CMAKE_COMMAND}
-      -E env ARCH="${CMAKE_SYSTEM_PROCESSOR}" VERSION="${PROJECT_VERSION}"
-      ${TOOL_FOLDER}/linuxdeploy-${CMAKE_SYSTEM_PROCESSOR}.AppImage --appdir ${_DESTDIR} --output appimage
+      -E env ARCH="${_SYSTEM_PROCESSOR}" VERSION="${PROJECT_VERSION}"
+      ${TOOL_FOLDER}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --appdir ${_DESTDIR} --output appimage
   COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/_app
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
@@ -38,8 +38,8 @@ add_custom_target(
 add_custom_target(
   download_appimage
   ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/${TOOL_FOLDER}
-  COMMAND wget -O ${PROJECT_SOURCE_DIR}/${TOOL_FOLDER}/linuxdeploy-${CMAKE_SYSTEM_PROCESSOR}.AppImage 
-       https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${CMAKE_SYSTEM_PROCESSOR}.AppImage
+  COMMAND wget -O ${PROJECT_SOURCE_DIR}/${TOOL_FOLDER}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage 
+       https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage
 )
 add_custom_target(
   get_linuxdeploy
