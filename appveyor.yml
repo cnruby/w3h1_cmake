@@ -6,6 +6,7 @@ platform:
 
 build:
   parallel: true
+  #verbosity: normal
 
 branches:
   only:
@@ -52,7 +53,8 @@ build_script:
   - cmake --build _build
   - ninja -C _build
   - ./_bin/main_142
-  - ninja -C _build install_app
+  #- ninja -C _build install_app
+  - DESTDIR=../_AppDir ninja -C _build install
   - ninja -C _build appimage
   #- ninja -C _build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
