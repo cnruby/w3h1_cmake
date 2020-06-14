@@ -1,0 +1,13 @@
+#ifndef CONFIG_HXX_
+#define CONFIG_HXX_
+
+#include<iostream>
+using namespace std; 
+
+#define PROJECT_NAME "@PROJECT_NAME@"
+#define PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@"
+
+const char *DEFAULT_BUILD_TYPE = "@CMAKE_BUILD_TYPE@";
+const char *SYSTEM_PROCESSOR = "@CMAKE_SYSTEM_PROCESSOR@";
+
+#endif

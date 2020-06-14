@@ -1,0 +1,30 @@
+.
+├── _app
+│  └── main_142-0.1.0-x86_64.AppImage
+├── _AppDir
+├── _bin
+│  └── main_142
+├── appimage
+│  ├── _in
+│  │  ├── io.github.cnruby.main_142.appdata.xml
+│  │  └── main_142.desktop
+│  ├── CMakeLists.txt
+│  ├── package.cmake
+│  └── resource
+│     ├── CMakeLists.txt
+│     ├── hello.appdata.xml
+│     ├── hello.CMakeLists.txt
+│     ├── hello.desktop
+│     └── hello.png
+├── CMakeLists.txt
+├── resource_
+│  ├── CMakeLists.txt
+│  ├── io.github.cnruby.main_142.appdata.xml
+│  ├── main_142.desktop
+│  └── main_142.png
+├── src
+│  ├── CMakeLists.txt
+│  ├── install.cmake
+│  └── main.cxx
+└── tool_
+   └── linuxdeploy-x86_64.AppImage

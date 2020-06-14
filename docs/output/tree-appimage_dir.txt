@@ -1,0 +1,13 @@
+.
+├── appimage
+│  ├── _in
+│  │  ├── io.github.cnruby.main_142.appdata.xml
+│  │  └── main_142.desktop
+│  ├── CMakeLists.txt
+│  ├── package.cmake
+│  └── resource
+│     ├── CMakeLists.txt
+│     ├── hello.appdata.xml
+│     ├── hello.CMakeLists.txt
+│     ├── hello.desktop
+│     └── hello.png

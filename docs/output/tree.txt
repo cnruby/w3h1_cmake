@@ -1,0 +1,20 @@
+.
+├── appimage
+│  ├── CMakeLists.txt
+│  ├── package.cmake
+│  └── resource
+│     ├── CMakeLists.txt
+│     ├── hello.appdata.xml
+│     ├── hello.CMakeLists.txt
+│     ├── hello.desktop
+│     └── hello.png
+├── cmake
+│  ├── appimage.cmake
+│  ├── CMakeLists.txt
+│  ├── config.hxx.in
+│  └── targets.cmake
+├── CMakeLists.txt
+└── src
+   ├── CMakeLists.txt
+   ├── install.cmake
+   └── main.cxx

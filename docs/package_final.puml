@@ -1,0 +1,68 @@
+@startuml package_final
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+left to right direction
+package "C++ Project with CMake" <<"...">> as project {
+  package "CMake Project" <<"CMake Code">> as cmake_project {
+    rectangle "CMakeLists.txt" as cmake_code
+  }
+  package "CMake Generator Ninja" <<"Ninja Code">> as ninja_project {
+    rectangle "cmake -GNinja -H. -B_build" <<"1. Generate Command">> as cmd_generator
+    rectangle "./_build" <<Ninja Generator>> as ninja_code
+    rectangle "ninja -C _build" <<"2. Build Command">> as cmd_build
+    rectangle "ninja -C _build install_app" <<"3. Install Command">> as cmd_install
+    cloud "**ninja -C _build package**" <<"4. Package Command">> as cmd_package
+    'note right of cmd_build
+    '  CMake Cache Variable:
+    '    **_DESTDIR**
+    '    **CMAKE_BUILD_TYPE**
+    'endnote
+    'note right of cmd_install
+    '  Environment Variable:
+    '    **DESTDIR**
+    '  CMake Cache Variable:
+    '    **CMAKE_INSTALL_PREFIX**
+    'endnote
+    cmd_generator *-(0)-> ninja_code
+  }
+  package "C++ Project" <<"C++ Code">> as c_project {
+    rectangle "main.cxx" as c_code
+  }
+  rectangle "Output for build" <<"./_bin">> as output_build
+
+  cloud "Output: AppDir" <<"./_AppDir">> as output_appdir
+  cloud "Output: AppImage" <<"./_app">> as output_app
+}
+cmake_code *--> ninja_project
+cmd_generator *..> cmd_build
+cmd_build *..> cmd_install
+c_code *--> cmd_build
+cmd_build *-(0)-> output_build
+output_build *--> cmd_install
+cmd_install *-(0)-> output_appdir
+
+output_appdir *--> cmd_package
+cmd_install *..> cmd_package
+cmd_package *-(0)-> output_app
+
+
+
+
+title
+  What is The CMake's custom target `package` "basic_142"?
+end title
+
+header
+  <font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml

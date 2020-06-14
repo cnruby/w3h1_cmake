@@ -1,0 +1,17 @@
+.
+├── _app
+│  └── main_142-0.1.0-x86_64.AppImage
+├── _AppDir
+│  ├── AppRun -> usr/bin/main_142
+│  ├── main_142.desktop
+│  ├── main_142.png -> usr/share/icons/hicolor/128x128/apps/main_142.png
+│  └── usr
+│     ├── bin
+│     │  └── main_142
+│     ├── lib
+│     └── share
+│        ├── applications
+├── _bin
+│  └── main_142
+├── _build
+│  ├── build.ninja
