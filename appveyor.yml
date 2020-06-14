@@ -4,8 +4,9 @@ platform:
   - x86
 #  - x64
 
-build:
-  parallel: true
+# build with MSBuild
+# build:
+  #parallel: true
   #verbosity: normal
 
 branches:
@@ -31,8 +32,7 @@ before_build:
   - cmake --version
 
 build_script:
-  - cmake -GNinja -H. -B_build
-  - cmake -DCMAKE_BUILD_TYPE=Debug _build
+  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=%CONFIGURATION%
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
   - ninja -C _build
