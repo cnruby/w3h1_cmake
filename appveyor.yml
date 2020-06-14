@@ -22,7 +22,9 @@ image: Ubuntu2004
 environment:
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
-    - OS_DISTTAG: ubuntu-20.04
+    #- OS_DISTTAG: ubuntu-20.04
+    - config: Release
+    - config: Debug
 
 install:
   - sudo apt-get update
@@ -32,7 +34,7 @@ before_build:
   - cmake --version
 
 build_script:
-  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=%configuration%
+  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=%config%
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
   - ninja -C _build
