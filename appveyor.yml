@@ -23,8 +23,8 @@ environment:
 install:
   - sh: |
     echo "I am the install script for OS_DISTTAG=${OS_DISTTAG}"
-  - sh: sudo ln -s /usr/bin/clang-9.0 /usr/bin/clang
-  - sh: sudo ln -s /usr/bin/clang++-9.0 /usr/bin/clang++
+  #- sh: sudo ln -s /usr/bin/clang-9.0 /usr/bin/clang
+  #- sh: sudo ln -s /usr/bin/clang++-9.0 /usr/bin/clang++
 
 before_build:
   - cmake --version
