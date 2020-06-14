@@ -14,6 +14,7 @@ configuration:
 
 before_build:
   - cmake --version
+  - git checkout basic_101
   - cmake -GNinja -H. -Bbuild
 
 build_script:
