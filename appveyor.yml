@@ -12,7 +12,6 @@ branches:
   only:
     - basic_101
     - basic_102
-    - basic_142
 
 configuration:
   - Debug
@@ -45,12 +44,3 @@ build_script:
   - cmake --build _build
   - ninja -C _build
   - ./bin/main
-  - echo "project basic_142 ......................."
-  - git checkout basic_142
-  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Debug
-  - ninja -C _build/ get_linuxdeploy
-  - ninja -C _build
-  - ./_bin/main_142
-  - ninja -C _build install_app
-  - ninja -C _build package
-  - ./_app/main_142-0.1.0-x86_64.AppImage
