@@ -47,10 +47,8 @@ build_script:
   - ./bin/main
   - echo "project basic_142 ......................."
   - git checkout basic_142
-  - cmake -GNinja -H. -B_build
-  - cmake -DCMAKE_BUILD_TYPE=Debug _build
+  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Debug
   - ninja -C _build/ get_linuxdeploy
-  - cmake --build _build
   - ninja -C _build
   - ./_bin/main_142
   - ninja -C _build install_app
