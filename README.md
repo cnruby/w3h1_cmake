@@ -133,6 +133,9 @@ Code Name: Hello, package:AppImage!</br>
 - https://cmake.org/pipermail/cmake/2009-April/029017.html
 - https://discourse.appimage.org/t/how-to-create-an-appimage/155/38
 - https://github.com/AppImage/AppImageKit/issues/1048
+- https://fireflytech.org/2019/05/29/appimage-an-app-bundle-format-for-linux-howto/
+- https://github.com/linuxdeploy/linuxdeploy/releases
+- https://dev.to/slurpsmadrips/everything-you-never-wanted-to-know-about-cmake-4mgg
 
 
 
