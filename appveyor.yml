@@ -7,6 +7,7 @@ platform:
 branches:
   only:
     - basic_101
+    - basic_102
 
 configuration:
   - Debug
@@ -14,8 +15,11 @@ configuration:
 
 before_build:
   - cmake --version
-  - git checkout basic_101
-  - cmake -GNinja -H. -Bbuild
 
 build_script:
-  - cmake --build build
+  - git checkout basic_101
+  - cmake -GNinja -H. -B_build
+  - cmake --build _build
+  - git checkout basic_102
+  - cmake -GNinja -H. -B_build
+  - cmake --build _build
