@@ -14,7 +14,7 @@ branches:
 
 configuration:
   - Debug
-#  - Release
+  - Release
 
 image: Ubuntu2004
 
