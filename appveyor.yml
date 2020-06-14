@@ -12,6 +12,7 @@ branches:
   only:
     - basic_101
     - basic_102
+    - basic_142
 
 configuration:
   - Debug
