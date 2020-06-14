@@ -20,10 +20,6 @@ environment:
   matrix:
     - OS_DISTTAG: ubuntu-20.04
 
-install:
-  - sh: |
-    echo "I am the install script for OS_DISTTAG=${OS_DISTTAG}"
-
 before_build:
   - cmake --version
 
