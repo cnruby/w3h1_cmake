@@ -33,6 +33,7 @@ build_script:
   - echo "project basic_142 ......................."
   - git checkout basic_142
   - cmake -GNinja -H. -B_build
+  - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
   - ninja -C _build
   - .\_bin\main_142.exe
