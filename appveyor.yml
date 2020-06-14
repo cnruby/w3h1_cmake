@@ -4,6 +4,9 @@ platform:
   - x86
 #  - x64
 
+build:
+  parallel: true
+
 branches:
   only:
     - basic_101
@@ -43,9 +46,11 @@ build_script:
   - echo "project basic_142 ......................."
   - git checkout basic_142
   - cmake -GNinja -H. -B_build
+  - cmake -DCMAKE_BUILD_TYPE=Debug _build
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
   - ninja -C _build
-  - ninja -C _build install_app
   - ./_bin/main_142
-  - echo ""
+  - ninja -C _build install_app
+  - ninja -C _build package
+  - ./_app/main_142-0.1.0-x86_64.AppImage
