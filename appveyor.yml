@@ -20,6 +20,10 @@ build_script:
   - git checkout basic_101
   - cmake -GNinja -H. -B_build
   - cmake --build _build
+  - ninja -C _build
+  - .\bin\main.exe
   - git checkout basic_102
   - cmake -GNinja -H. -B_build
   - cmake --build _build
+  - ninja -C _build
+  - .\bin\main.exe
