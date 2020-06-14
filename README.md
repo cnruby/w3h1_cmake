@@ -87,6 +87,7 @@
 - **Hello, install:exe!** How to install executable from the project to local "basic_139"<br/> [Youtube Video](https://youtu.be/nJj1efRi6oI) | [Short Video](https://youtu.be/edcA9puzDgU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_139)
 - **Hello, install:multi!** How to install executable on local with "Ninja Multi-Config" "basic_140" <br/> [Youtube Video](https://youtu.be/tCN-eFZN8xE) | [Short Video](https://youtu.be/oB6Ujd0BVno) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_140)
 - **Hello, install:DESTDIR!** How to use CMake Environment Variable `DESTDIR` "basic_141" <br/> [Youtube Video](https://youtu.be/NtYyjwSjt9Q) | [Short Video](https://youtu.be/15Zrf_WZXPU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_141)
+- **Hello, package:AppImage!** How to package a Linux console application for `AppImage` "basic_142" <br/> [Youtube Video](https://youtu.be/QkpnCki13Mc) | [Short Video](https://youtu.be/qRKJlasaVbI) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_142)
 
 
 
