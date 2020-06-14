@@ -5,11 +5,19 @@
 
 # install the app as appimage
 add_custom_target(
-  install_app
+  install_default
   # DESTDIR="../" ninja -C _build install
   ${CMAKE_COMMAND} -E env DESTDIR="${_DESTDIR}" cmake --build _build --target install
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
+add_custom_target(
+  install_app
+  #echo ""
+  ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/resource_/main_142.desktop ${PROJECT_SOURCE_DIR}/_AppDir/main_142.desktop
+  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+  DEPENDS install_default
+)
+
 
 # package the app as appimage
 set( TOOL_FOLDER "tool_" )
