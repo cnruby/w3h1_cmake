@@ -30,10 +30,10 @@ install:
 
 before_build:
   - cmake --version
-  - echo $configuration
+  - echo $CONFIGURATION
 
 build_script:
-  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$configuration
+  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
   - ninja -C _build
