@@ -1,4 +1,4 @@
-version: '{build}'
+version: '0.1.{build}'
 
 platform:
   - x86
@@ -21,8 +21,8 @@ environment:
     - OS_DISTTAG: ubuntu-20.04
 
 install:
-  - apt-get update
-  - apt-get install wget
+  - sudo apt-get update
+  - sudo apt-get install wget
 
 before_build:
   - cmake --version
