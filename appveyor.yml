@@ -21,7 +21,7 @@ image: Ubuntu2004
 
 environment:
   matrix:
-    - OS_DISTTAG: ubuntu-18.04
+    #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
 
 install:
@@ -53,5 +53,6 @@ build_script:
   - ninja -C _build
   - ./_bin/main_142
   - ninja -C _build install_app
-  - ninja -C _build package
+  - ninja -C _build appimage
+  #- ninja -C _build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
