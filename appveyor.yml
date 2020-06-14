@@ -33,18 +33,18 @@ build_script:
   - cmake -GNinja -H. -B_build
   - cmake --build _build
   - ninja -C _build
-  - ./bin/main.exe
+  - ./bin/main
   - echo "project basic_102 ......................."
   - git checkout basic_102
   - cmake -GNinja -H. -B_build
   - cmake --build _build
   - ninja -C _build
-  - ./bin/main.exe
+  - ./bin/main
   - echo "project basic_142 ......................."
   - git checkout basic_142
   - cmake -GNinja -H. -B_build
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
   - ninja -C _build
-  - ./_bin/main_142.exe
+  - ./_bin/main_142
   - echo ""
