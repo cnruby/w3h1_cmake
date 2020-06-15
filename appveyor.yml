@@ -53,11 +53,6 @@ build_script:
   - ninja -C _build install_app
   - ninja -C _build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
-  - export PLATFORM=$(uname -p)
-  - export DEPLOYMENT_TARGET=basic_142_linux_${PLATFORM}.zip
-  - cd $(pwd)/_AppDir/usr/bin
-  - 7z a $DEPLOYMENT_TARGET *
-  - cd ../../
 
 on_finish:
-  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" $(pwd)/_AppDir/usr/bin/$DEPLOYMENT_TARGET
+  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" ./_app/main_142-0.1.0-x86_64.AppImage
