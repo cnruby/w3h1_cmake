@@ -8,7 +8,7 @@ add_custom_target(
   install_default
   #install_app
   # DESTDIR="../" ninja -C _build install
-  ${CMAKE_COMMAND} -E env DESTDIR="${_DESTDIR}" cmake --build _build --target install
+  ${CMAKE_COMMAND} -E env DESTDIR="${_DESTDIR}" cmake --build ${PROJECT_BINARY_DIR} --target install
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 add_custom_target(

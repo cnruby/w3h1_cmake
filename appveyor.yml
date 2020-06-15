@@ -36,22 +36,22 @@ install:
 before_build:
   - cmake --version
   - echo $CONFIGURATION
-  - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
 
 build_script:
   - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
-  - cmake -GNinja -H. -Bbuild -DCMAKE_BUILD_TYPE=$CONFIGURATION
-  - ninja -C build/ get_linuxdeploy
-  - cmake --build build
-  - ninja -C build
+  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
+  - ninja -C _build/ get_linuxdeploy
+  - cmake --build _build
+  - ninja -C _build
   - ./_bin/main_142
-  - ninja -C build install_app
-  - ninja -C build package
+  - ninja -C _build install_app
+  - ninja -C _build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 after_build:
   - cd $APPVEYOR_BUILD_FOLDER/_app
   - 7z a $DEPLOYMENT_TARGET *
+  - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
   - cmake -E copy $DEPLOYMENT_TARGET $APPVEYOR_BUILD_FOLDER/artifacts
 
 artifacts:
