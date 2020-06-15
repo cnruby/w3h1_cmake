@@ -29,6 +29,9 @@ environment:
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
+    - prepare_mode: true
+      name: ubuntu
+      platform: x86
 
 init:
   - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
