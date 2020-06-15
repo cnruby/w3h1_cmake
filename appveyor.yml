@@ -28,7 +28,7 @@ environment:
     secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
-    - OS_DISTTAG: ubuntu-20.04
+    #- OS_DISTTAG: ubuntu-20.04
     - prepare_mode: YES
       name: ubuntu
       platform: x86
@@ -52,7 +52,10 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  - sh: if ($PREPARE_MODE) { ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly }
+  - sh: |
+      if [ "${$PREPARE_MODE}" = "YES" ]; then
+        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+      if
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
