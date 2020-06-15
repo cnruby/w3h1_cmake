@@ -6,10 +6,12 @@ jobs:
       # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
     steps:
+      - run: apt-get -q update
+      # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
+      - run: apt-get -yq install ninja-build
       - checkout
       - run: cmake --version
-      # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
-      - run: sudo apt-get install ninja-build
+      - run: ninja --version
       - run:
           name: Creating Build Files
           command: 'cmake -GNinja -H. -B_build'
