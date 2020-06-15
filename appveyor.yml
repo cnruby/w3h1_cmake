@@ -55,5 +55,6 @@ build_script:
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 on_finish:
+  - export DIR=$(pwd)
   - ./ciuploadtool -verbose ./_app/main_142-0.1.0-x86_64.AppImage
   #- ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" ./_app/main_142-0.1.0-x86_64.AppImage
