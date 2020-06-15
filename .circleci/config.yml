@@ -1,14 +1,18 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 jobs:
-  build:
+  build_default:
     docker:
       # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
     steps:
-      - run: apt-get -q update
-      # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
-      - run: apt-get -yq install ninja-build
+      - run:
+          # https://fossies.org/linux/ldc/.circleci/config.yml
+          name: Install prerequisites
+          command: |
+            apt-get -q update
+            # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
+            apt-get -yq install ninja-build
       - checkout
       - run: cmake --version
       - run: ninja --version
@@ -25,4 +29,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build
+      - build_default
