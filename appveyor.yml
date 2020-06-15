@@ -54,7 +54,19 @@ build_script:
   - ninja -C _build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
+after_build:
+  - md $APPVEYOR_BUILD_FOLDER/artifacts
+  - cp ./_app/main_142-0.1.0-x86_64.AppImage $APPVEYOR_BUILD_FOLDER/artifacts
+
+artifacts:
+  - path: 'artifacts/*.AppImage'
+    name: archive
+
 on_finish:
-  - export DIR=$(pwd)
-  - ./ciuploadtool -verbose ./_app/main_142-0.1.0-x86_64.AppImage
-  #- ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" ./_app/main_142-0.1.0-x86_64.AppImage
+  - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
+  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" $APPVEYOR_BUILD_FOLDER/artifacts/*
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - prepare_mode: YES
