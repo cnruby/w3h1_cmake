@@ -27,7 +27,6 @@ environment:
   auth_token:
     secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
   matrix:
-    #- prepare_mode: YES
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
     - prepare_mode: YES
