@@ -32,6 +32,8 @@
 *.app
 bin/*
 build/*
+_*/*
+*_/*
 .DS_Store
 .DS_Store/*
 
