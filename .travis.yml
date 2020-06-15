@@ -40,6 +40,8 @@ install:
 
 script:
   - |
+    echo "project basic_101 ......................." &&
+    git checkout basic_101 &&
     export DIR=$(pwd) &&
     mkdir build &&
     cd build &&
