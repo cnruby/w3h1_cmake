@@ -5,6 +5,16 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+
+jobs:
+  build:
+    docker:
+      # https://hub.docker.com/r/rikorose/gcc-cmake/
+      - image: rikorose/gcc-cmake
+    steps:
+      - checkout
+      - run: cmake --version
+
 workflows:
   # Name the workflow "welcome"
   welcome:
