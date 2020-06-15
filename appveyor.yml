@@ -30,6 +30,12 @@ environment:
     #- prepare_mode: YES
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
+    - prepare_mode: YES
+      name: linux
+      platform: x86
+    - prepare_mode: NO
+      name: linux
+      platform: x86
 
 init:
   - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
@@ -47,8 +53,10 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  #- ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH"
+  - sh: |
+    if ($PREPARE_MODE) {
+      ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+    }
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -79,3 +87,5 @@ on_finish:
 
 matrix:
   fast_finish: true
+  allow_failures:
+    - prepare_mode: YES
