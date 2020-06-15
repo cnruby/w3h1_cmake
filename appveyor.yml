@@ -4,19 +4,14 @@ platform:
   - x86
 #  - x64
 
-# build with MSBuild
-# build:
-  #parallel: true
-  #verbosity: normal
-
 branches:
   only:
     - basic_142
 
 configuration:
   #- Debug
-  - Release
   #- RelWithDebInfo
+  - Release
 
 image: 
   - Ubuntu2004
@@ -52,11 +47,6 @@ only_commits:
 
 build_script:
   - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
-  - sh: |
-      if [ ${prepare_mode} ]; then
-        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-        echo "OK"
-      fi
   - cmake -GNinja -H. -Bbuild -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C build/ get_linuxdeploy
   - cmake --build build
