@@ -8,6 +8,15 @@ jobs:
     steps:
       - checkout
       - run: cmake --version
+      - run:
+          name: Creating Build Files
+          command: 'cmake -GNinja -H. -B_build'
+      - run:
+          name: Creating Binary Files
+          command: 'ninja -C _build'
+      - run:
+          name: Point Unit Testing
+          command: './bin/main'
 
 workflows:
   build_and_test:
