@@ -1,0 +1,56 @@
+language: cpp
+
+sudo: required
+dist: xenial
+services:
+  - xvfb
+
+branches:
+  only:
+    - master
+    - development
+    - basic_101
+    #- /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+matrix:
+  include:
+    - os: linux
+      env: COMPILER=g++-5.4 CMAKE_BUILD_TYPE=Debug
+
+    - os: osx
+      env: COMPILER=clang++ CMAKE_BUILD_TYPE=Debug
+
+install:
+  - |
+    export DISPLAY=:99.0 &&
+    sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test &&
+    sudo apt-get install p7zip-full &&
+    if [ "${COMPILER}" = "g++-5.4" ]; then
+      export CXX="g++" &&
+      export CC="gcc"
+    elif [ "${COMPILER}" = "clang++" ]; then
+      export CXX="clang++" &&
+      export CC="clang"
+    fi
+
+script:
+  - |
+    export DIR=$(pwd) &&
+    mkdir build &&
+    cd build &&
+    cmake -DCMAKE_INSTALL_PREFIX=$(pwd)/installdir/src .. &&
+    make &&
+    make install &&
+    export OSNAME="linux" &&
+    export PLATFORM=$(uname -p) &&
+    export DEPLOYMENT_TARGET=ciuploadtool-testing_${OSNAME}_${PLATFORM}_${TRAVIS_COMMIT:0:7}.zip &&
+    cd installdir/src/bin &&
+    7z a $DEPLOYMENT_TARGET * &&
+    cd ../../../
+
+after_success:
+  - |
+    wget https://github.com/d1vanov/ciuploadtool/releases/download/continuous-development/ciuploadtool_linux.zip &&
+    unzip ciuploadtool_linux.zip
+  - chmod 755 ciuploadtool
+  - ./ciuploadtool -verbose -suffix="$TRAVIS_BRANCH" installdir/src/bin/$DEPLOYMENT_TARGET
