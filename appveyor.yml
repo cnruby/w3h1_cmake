@@ -52,7 +52,7 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  - sh: |
+  - ps: |
     if ($PREPARE_MODE) {
       ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
     }
