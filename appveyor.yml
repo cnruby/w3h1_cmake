@@ -14,7 +14,7 @@ configuration:
   - Release
 
 image: 
-  - Ubuntu1804
+  - Ubuntu
 
 environment:
   auth_token:
