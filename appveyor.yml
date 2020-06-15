@@ -28,13 +28,7 @@ environment:
     secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
-    #- OS_DISTTAG: ubuntu-20.04
-    - prepare_mode: true
-      name: ubuntu
-      platform: x86
-    - prepare_mode: false
-      name: ubuntu
-      platform: x86
+    - OS_DISTTAG: ubuntu-20.04
 
 init:
   - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
@@ -52,22 +46,11 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
+  - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
   - sh: |
-      if [ ${PREPARE_MODE} ]; then
-        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-        echo "1"
-      fi
-      if [ $PREPARE_MODE ]; then
-        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-        echo "2"
-      fi
+      #if [ $prepare_mode ]; then
       if [ ${prepare_mode} ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-        echo "3"
-      fi
-      if [ $prepare_mode ]; then
-        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-        echo "4"
       fi
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
