@@ -52,10 +52,7 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  - ps: |
-    if ($PREPARE_MODE) {
-      ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
-    }
+  - sh: if ($PREPARE_MODE) { ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly }
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
