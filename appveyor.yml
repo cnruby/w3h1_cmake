@@ -12,9 +12,6 @@ platform:
 branches:
   only:
     - basic_142
-  except:
-    - # Do not build tags that we create when we upload to GitHub Releases
-    - /^(?i:continuous)$/
 
 configuration:
   - Debug
@@ -23,33 +20,19 @@ configuration:
 image: Ubuntu2004
 
 environment:
-  my_variable:
-    secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
-    - prepare_mode: YES
-    - prepare_mode: NO
-      platform: x86
-    - prepare_mode: NO
-      platform: x64
-
-stack: go 1.13
 
 install:
   - sudo apt-get update
   - sudo apt-get install wget appstream-util appstream apt-config-icons
-  - wget https://github.com/d1vanov/ciuploadtool/releases/download/continuous-master/ciuploadtool_linux.zip
-  - unzip ciuploadtool_linux.zip
-  - chmod 755 ciuploadtool
 
 before_build:
   - cmake --version
   - echo $CONFIGURATION
 
 build_script:
-  - if $PREPARE_MODE==YES ./ciuploadtool -preponly
-  #- sh: if ($env:prepare_mode -eq "YES") { throw "Failing in order to stop the current build matrix job early" }
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -58,7 +41,3 @@ build_script:
   - ninja -C _build install_app
   - ninja -C _build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
-
-on_finish:
-  - ls -lh out/*
-  - ./ciuploadtool out/*
