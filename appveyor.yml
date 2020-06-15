@@ -37,8 +37,6 @@ install:
 before_build:
   - cmake --version
   - echo $CONFIGURATION
-  #- cd $APPVEYOR_BUILD_FOLDER
-  #- cmake -E make_directory build
   - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
 
 only_commits:
