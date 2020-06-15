@@ -18,7 +18,8 @@ branches:
 
 configuration:
   #- Debug
-  - Release
+  # - Release
+  - RelWithDebInfo
 
 image: Ubuntu2004
 
@@ -29,6 +30,9 @@ environment:
     #- prepare_mode: YES
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
+
+init:
+  - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
 
 install:
   - sudo apt-get update
@@ -43,7 +47,7 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  #- ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -54,7 +58,6 @@ build_script:
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 after_build:
-  - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
   - cd $APPVEYOR_BUILD_FOLDER/_app
   - 7z a $DEPLOYMENT_TARGET *
   - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
@@ -75,5 +78,3 @@ on_finish:
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - prepare_mode: YES
