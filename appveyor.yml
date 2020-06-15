@@ -13,7 +13,7 @@ configuration:
   #- RelWithDebInfo
   - Release
 
-image: 
+image:
   - Ubuntu
 
 environment:
