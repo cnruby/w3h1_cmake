@@ -8,14 +8,3 @@ jobs:
     steps:
       - checkout
       - run: cmake --version
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build:
-          requires:
-            - build
-          filters:
-            branches:
-              only: basic_101
