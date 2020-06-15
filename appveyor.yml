@@ -42,7 +42,7 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  #- ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -66,7 +66,7 @@ artifacts:
 on_finish:
   - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
   - echo "APPVEYOR_BUILD_FOLDER = $APPVEYOR_BUILD_FOLDER"
-  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" $APPVEYOR_BUILD_FOLDER/artifacts/*
+  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" $APPVEYOR_BUILD_FOLDER/artifacts/$DEPLOYMENT_TARGET
 
 matrix:
   fast_finish: true
