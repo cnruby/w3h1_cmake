@@ -38,10 +38,6 @@ before_build:
   - echo $CONFIGURATION
   - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
 
-only_commits:
-  files:
-    - $APPVEYOR_BUILD_FOLDER/artifacts
-
 build_script:
   - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
   - cmake -GNinja -H. -Bbuild -DCMAKE_BUILD_TYPE=$CONFIGURATION
