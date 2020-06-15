@@ -17,7 +17,7 @@ branches:
     - /^(?i:continuous)$/
 
 configuration:
-  - Debug
+  #- Debug
   - Release
 
 image: Ubuntu2004
@@ -35,12 +35,16 @@ install:
   - sudo apt-get update
   - sudo apt-get install wget appstream-util appstream apt-config-icons
   - export DISPLAY=:99.0 && sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test && sudo apt-get install p7zip-full
+  - wget https://github.com/d1vanov/ciuploadtool/releases/download/continuous-master/ciuploadtool_linux.zip
+  - unzip ciuploadtool_linux.zip
+  - chmod 755 ciuploadtool
 
 before_build:
   - cmake --version
   - echo $CONFIGURATION
 
 build_script:
+  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -56,7 +60,4 @@ build_script:
   - cd ../../
 
 on_finish:
-  - wget https://github.com/d1vanov/ciuploadtool/releases/download/continuous-master/ciuploadtool_linux.zip
-  - unzip ciuploadtool_linux.zip
-  - chmod 755 ciuploadtool
   - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" $(pwd)/_AppDir/usr/bin/$DEPLOYMENT_TARGET
