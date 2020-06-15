@@ -8,6 +8,8 @@ jobs:
     steps:
       - checkout
       - run: cmake --version
+      # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
+      - run: sudo apt-get install ninja-build
       - run:
           name: Creating Build Files
           command: 'cmake -GNinja -H. -B_build'
