@@ -10,6 +10,7 @@ build:
 
 branches:
   only:
+    - master
     - basic_101
     - basic_102
     - basic_142
@@ -18,7 +19,7 @@ configuration:
   - Debug
 #  - Release
 
-image: Ubuntu
+image: Ubuntu2004
 
 environment:
   matrix:
