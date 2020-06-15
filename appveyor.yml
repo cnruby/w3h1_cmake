@@ -53,7 +53,7 @@ before_build:
 
 build_script:
   - sh: |
-      if [ "${$PREPARE_MODE}" = "YES" ]; then
+      if [ "${PREPARE_MODE}" = "YES" ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
       fi
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
