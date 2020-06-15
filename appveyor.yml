@@ -31,10 +31,10 @@ environment:
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
     - prepare_mode: YES
-      name: linux
+      name: ubuntu
       platform: x86
     - prepare_mode: NO
-      name: linux
+      name: ubuntu
       platform: x86
 
 init:
