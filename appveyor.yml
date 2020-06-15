@@ -29,8 +29,6 @@ environment:
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
 
-stack: go 1.13
-
 install:
   - sudo apt-get update
   - sudo apt-get install wget appstream-util appstream apt-config-icons
@@ -44,7 +42,7 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+  #- ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -55,11 +53,14 @@ build_script:
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 after_build:
+  #- cd $APPVEYOR_BUILD_FOLDER/$APPVEYOR_REPO_BRANCH/_AppDir
+  - export DEPLOYMENT_TARGET=basic_142_linux_$APPVEYOR_REPO_COMMIT:~0,7.zip
+  - 7z a %DEPLOYMENT_TARGET% $APPVEYOR_BUILD_FOLDER/$APPVEYOR_REPO_BRANCH/_AppDir/*
   - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
-  - cp ./_app/main_142-0.1.0-x86_64.AppImage $APPVEYOR_BUILD_FOLDER/artifacts
+  - cp %DEPLOYMENT_TARGET% $APPVEYOR_BUILD_FOLDER/artifacts
 
 artifacts:
-  - path: 'artifacts/*.AppImage'
+  - path: 'artifacts/*.zip'
     name: archive
 
 on_finish:
