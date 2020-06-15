@@ -14,7 +14,7 @@ configuration:
   - Release
 
 image:
-  - Ubuntu
+  - Ubuntu2004
 
 environment:
   auth_token:
