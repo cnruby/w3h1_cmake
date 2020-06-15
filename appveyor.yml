@@ -28,7 +28,7 @@ environment:
     secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
-    - OS_DISTTAG: ubuntu-20.04
+    #- OS_DISTTAG: ubuntu-20.04
     - prepare_mode: true
       name: ubuntu
       platform: x86
@@ -47,21 +47,24 @@ install:
 before_build:
   - cmake --version
   - echo $CONFIGURATION
+  - cd $APPVEYOR_BUILD_FOLDER
+  - cmake -E make_directory build
 
 build_script:
   - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
   - sh: |
-      #if [ $prepare_mode ]; then
       if [ ${prepare_mode} ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+        echo "OK"
       fi
-  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
-  - ninja -C _build/ get_linuxdeploy
-  - cmake --build _build
-  - ninja -C _build
+  - cd $APPVEYOR_BUILD_FOLDER
+  - cmake -GNinja -H. -Bbuild -DCMAKE_BUILD_TYPE=$CONFIGURATION
+  - ninja -C build/ get_linuxdeploy
+  - cmake --build build
+  - ninja -C build
   - ./_bin/main_142
-  - ninja -C _build install_app
-  - ninja -C _build package
+  - ninja -C build install_app
+  - ninja -C build package
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 after_build:
