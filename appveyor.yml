@@ -12,6 +12,9 @@ platform:
 branches:
   only:
     - basic_142
+  except:
+    - # Do not build tags that we create when we upload to GitHub Releases
+    - /^(?i:continuous)$/
 
 configuration:
   - Debug
@@ -61,8 +64,3 @@ build_script:
 on_finish:
   - ls -lh out/*
   - ./ciuploadtool out/*
-
-branches:
-  except:
-    - # Do not build tags that we create when we upload to GitHub Releases
-    - /^(?i:continuous)$/
