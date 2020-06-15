@@ -24,7 +24,7 @@ configuration:
 image: Ubuntu2004
 
 environment:
-  my_variable:
+  auth_token:
     secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
   matrix:
     #- prepare_mode: YES
@@ -47,7 +47,8 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+  #- ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH"
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
