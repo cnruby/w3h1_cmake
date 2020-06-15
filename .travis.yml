@@ -27,6 +27,7 @@ install:
       export CXX="clang++" &&
       export CC="clang"
     fi
+    sudo apt-get install git
 
 script:
   - |
