@@ -13,8 +13,7 @@ configuration:
   #- RelWithDebInfo
   - Release
 
-image:
-  - Ubuntu2004
+image: Ubuntu2004
 
 environment:
   auth_token:
