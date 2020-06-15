@@ -55,7 +55,7 @@ build_script:
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 after_build:
-  - md $APPVEYOR_BUILD_FOLDER/artifacts
+  - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
   - cp ./_app/main_142-0.1.0-x86_64.AppImage $APPVEYOR_BUILD_FOLDER/artifacts
 
 artifacts:
