@@ -44,7 +44,7 @@ before_build:
   - echo $CONFIGURATION
 
 build_script:
-  - ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+  #- ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
   - cmake --build _build
@@ -55,4 +55,5 @@ build_script:
   - ./_app/main_142-0.1.0-x86_64.AppImage
 
 on_finish:
-  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" ./_app/main_142-0.1.0-x86_64.AppImage
+  - ./ciuploadtool -verbose ./_app/main_142-0.1.0-x86_64.AppImage
+  #- ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" ./_app/main_142-0.1.0-x86_64.AppImage
