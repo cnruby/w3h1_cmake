@@ -64,6 +64,7 @@ artifacts:
 
 on_finish:
   - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
+  - echo "APPVEYOR_BUILD_FOLDER = $APPVEYOR_BUILD_FOLDER"
   - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" $APPVEYOR_BUILD_FOLDER/artifacts/*
 
 matrix:
