@@ -33,8 +33,6 @@ environment:
       platform: x86
     - prepare_mode: NO
       platform: x64
-  allow_failures:
-    - prepare_mode: YES
 
 stack: go 1.13
 
