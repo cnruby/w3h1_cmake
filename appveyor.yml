@@ -20,6 +20,8 @@ configuration:
 image: Ubuntu2004
 
 environment:
+  auth_token:
+    secure: 3hymgbuY/IR9RXPqw8DodIz7GsDcYUaOnZj4vKuhrESjoqR9bOp92grULPXmFMD2
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
     - OS_DISTTAG: ubuntu-20.04
@@ -28,6 +30,8 @@ environment:
       platform: x86
     - prepare_mode: NO
       platform: x64
+  allow_failures:
+    - prepare_mode: YES
 
 stack: go 1.13
 
@@ -62,7 +66,3 @@ branches:
   except:
     - # Do not build tags that we create when we upload to GitHub Releases
     - /^(?i:continuous)$/
-
-matrix:
-  allow_failures:
-    - prepare_mode: YES
