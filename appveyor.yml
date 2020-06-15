@@ -54,7 +54,7 @@ build_script:
 
 after_build:
   #- cd $APPVEYOR_BUILD_FOLDER/_AppDir
-  - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:~0,7}.zip
+  - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
   - 7z a $DEPLOYMENT_TARGET $APPVEYOR_BUILD_FOLDER/_AppDir/*
   - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
   - cp $DEPLOYMENT_TARGET $APPVEYOR_BUILD_FOLDER/artifacts
