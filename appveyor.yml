@@ -18,8 +18,8 @@ branches:
 
 configuration:
   #- Debug
-  # - Release
-  - RelWithDebInfo
+  - Release
+  #- RelWithDebInfo
 
 image: Ubuntu2004
 
@@ -29,10 +29,10 @@ environment:
   matrix:
     #- OS_DISTTAG: ubuntu-18.04
     #- OS_DISTTAG: ubuntu-20.04
-    - prepare_mode: YES
+    - prepare_mode: true
       name: ubuntu
       platform: x86
-    - prepare_mode: NO
+    - prepare_mode: false
       name: ubuntu
       platform: x86
 
@@ -53,7 +53,16 @@ before_build:
 
 build_script:
   - sh: |
-      if [ "${PREPARE_MODE}" = "YES" ]; then
+      if [ ${PREPARE_MODE} ]; then
+        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+      fi
+      if [ $PREPARE_MODE ]; then
+        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+      fi
+      if [ ${prepare_mode} ]; then
+        ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+      fi
+      if [ $prepare_mode ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
       fi
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
@@ -87,4 +96,4 @@ on_finish:
 matrix:
   fast_finish: true
   allow_failures:
-    - prepare_mode: YES
+    - prepare_mode: true
