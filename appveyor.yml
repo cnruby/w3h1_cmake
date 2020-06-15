@@ -55,15 +55,19 @@ build_script:
   - sh: |
       if [ ${PREPARE_MODE} ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+        echo "1"
       fi
       if [ $PREPARE_MODE ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+        echo "2"
       fi
       if [ ${prepare_mode} ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+        echo "3"
       fi
       if [ $prepare_mode ]; then
         ./ciuploadtool -suffix="$APPVEYOR_REPO_BRANCH" -preponly
+        echo "4"
       fi
   - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
   - ninja -C _build/ get_linuxdeploy
