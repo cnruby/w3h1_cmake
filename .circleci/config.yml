@@ -20,7 +20,7 @@ jobs:
           command: 'make -C _build'
       - run:
           name: Point Unit Testing
-          command: './bin/main'
+          command: './_bin/main_143'
 
   build_ninja:
     docker:
@@ -46,7 +46,7 @@ jobs:
           command: 'ninja -C _build'
       - run:
           name: Point Unit Testing
-          command: './bin/main_143'
+          command: './_bin/main_143'
 
 workflows:
   build_and_test:
