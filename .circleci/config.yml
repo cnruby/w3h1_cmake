@@ -40,7 +40,7 @@ jobs:
       - run: ninja --version
       - run:
           name: Creating Build Files
-          command: 'cmake -GNinja -H. -B_build' -DCMAKE_BUILD_TYPE=Release
+          command: 'cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release'
       - run:
           name: Creating Binary Files
           command: 'ninja -C _build'
@@ -58,7 +58,7 @@ jobs:
           command: 'ninja -C _build package'
       - run:
           name: Get the Tool ghr
-          command: 'ninja -C _build/ get_ghr'
+          command: 'ninja -C _build get_ghr'
       - run:
           name: Upload the Artifacts to Github Assets
           command: 'ninja -C _build github_release'
