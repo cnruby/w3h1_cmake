@@ -28,6 +28,7 @@ jobs:
     docker:
       # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
+        command: [--privileged]
     steps:
       - run:
           # https://fossies.org/linux/ldc/.circleci/config.yml
@@ -41,6 +42,7 @@ jobs:
             # AppImages require FUSE to run.
             apt-get -yq install fuse libfuse-dev
             # ERROR: fuse: device not found, try 'modprobe fuse' first
+            --cap-add SYS_ADMIN --device /dev/fuse --security-opt apparmor:unconfined
             modprobe fuse
       - checkout
       - run: uname -a
