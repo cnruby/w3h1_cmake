@@ -19,6 +19,7 @@ jobs:
           command: |
             sudo apt-get -q update
             sudo apt-get -qy install cmake curl g++-7 git sudo wget
+            sudo apt-get -yq install fuse libfuse-dev
       - checkout
       - run: uname -a
       - run: cat /etc/issue
@@ -33,11 +34,22 @@ jobs:
       - run:
           name: Point Unit Testing
           command: './_bin/main_143'
+      - run:
+          name: Get the Tool linuxdeploy
+          command: 'ninja -C _build/ get_linuxdeploy'
+      - run:
+          name: Install Application on Project
+          command: 'ninja -C _build install_app'
+      - run:
+          name: Package The App as AppImage
+          command: 'ninja -C _build package'
 
   build_ninja:
     docker:
       # https://hub.docker.com/r/cimg/base
-      - image: cimg/base:2020.01
+      #- image: cimg/base:2020.01
+      # https://hub.docker.com/_/ubuntu?tab=tags&page=1&ordering=-name
+      - image: ubuntu:20.04
     steps:
       - run:
           # https://fossies.org/linux/ldc/.circleci/config.yml
@@ -50,6 +62,10 @@ jobs:
             # ERROR: debconf: delaying package configuration, since apt-utils is not installed
             sudo apt-get -qy install apt-utils
             wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+            sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
+            sudo apt-get -q update
+            sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
+            sudo apt-get -q update
             sudo apt-get -qy install kitware-archive-keyring
             sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
             sudo apt-get install cmake
