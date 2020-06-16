@@ -34,6 +34,10 @@ jobs:
             apt-get -q update
             # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
             apt-get -yq install ninja-build
+            # https://zoomadmin.com/HowToInstall/UbuntuPackage/libfuse-dev
+            # ERROR: dlopen(): error loading libfuse.so.2
+            # AppImages require FUSE to run.
+            apt-get -yq install libfuse-dev
       - checkout
       - run: g++ --version
       - run: cmake --version
