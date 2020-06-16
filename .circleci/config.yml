@@ -41,7 +41,6 @@ jobs:
             # AppImages require FUSE to run.
             apt-get -yq install fuse libfuse-dev
             # ERROR: fuse: device not found, try 'modprobe fuse' first
-            --cap-add SYS_ADMIN --device /dev/fuse --security-opt apparmor:unconfined
             modprobe fuse
       - checkout
       - run: uname -a
