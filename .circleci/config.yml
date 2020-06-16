@@ -44,9 +44,11 @@ jobs:
             sudo apt-get -q update
             sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
             sudo apt-get -q update
+            sudo apt-get -q upgrade
             sudo apt-get -qy install kitware-archive-keyring
             sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
-            sudo apt-get install cmake cmake-curses-gui
+            sudo apt-get install cmake
+            #sudo apt-get install cmake-curses-gui
             # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
             sudo apt-get -yq install ninja-build
             # https://circleci.com/docs/2.0/executor-types/#using-machine
