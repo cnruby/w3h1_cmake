@@ -36,7 +36,9 @@ jobs:
           name: Install prerequisites
           command: |
             sudo apt-get -q update
-            sudo apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget
+            sudo apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
+            # ERROR: debconf: delaying package configuration, since apt-utils is not installed
+            sudo apt-get -qy install apt-utils
             wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
             sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
             sudo apt-get -q update
@@ -44,7 +46,7 @@ jobs:
             sudo apt-get -q update
             sudo apt-get -qy install kitware-archive-keyring
             sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
-            sudo apt-get install cmake
+            sudo apt-get install cmake cmake-curses-gui
             # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
             sudo apt-get -yq install ninja-build
             # https://circleci.com/docs/2.0/executor-types/#using-machine
