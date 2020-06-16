@@ -31,7 +31,7 @@ add_custom_target(
   appimage
   ${CMAKE_COMMAND}
       -E env ARCH="${_SYSTEM_PROCESSOR}" VERSION="${PROJECT_VERSION}"
-      ${_TOOL_INPUT_DIRECTORY}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --appdir ${_DESTDIR} --output appimage
+      ${_TOOL_INPUT_DIRECTORY}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --output appimage --appdir ${_DESTDIR}
   COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
