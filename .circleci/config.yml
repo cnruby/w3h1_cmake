@@ -25,7 +25,7 @@ jobs:
           command: './_bin/main_143'
 
   build_ninja:
-    docker:
+    machine:
       # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
         command: [--privileged]
