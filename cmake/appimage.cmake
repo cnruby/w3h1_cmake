@@ -9,7 +9,6 @@ set(
   ${PROJECT_SOURCE_DIR}/${_APPIMAGE}
 )
 
-set( _DOMAIN  io.github.cnruby)
-set( _MAIN_EXE main_143 )
+set( _DOMAIN io.github.cnruby)
 add_subdirectory(${_APPIMAGE})
 add_subdirectory(${_RESOURCE})

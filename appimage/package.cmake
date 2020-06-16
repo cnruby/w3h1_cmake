@@ -1,4 +1,4 @@
-# ./cmake/package.cmake
+# ./appimage/package.cmake
 #
 # INPUT VARIABLES:
 #     _DESTDIR

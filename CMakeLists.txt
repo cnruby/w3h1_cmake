@@ -16,7 +16,7 @@ set(
 )
 project(
   basic_143
-  VERSION 0.143.0
+  VERSION 0.143.1
   LANGUAGES CXX
   DESCRIPTION "Hello, publish:Assets!"
 )
@@ -49,13 +49,14 @@ set(
   ${PROJECT_SOURCE_DIR}/${_RESOURCE}
 )
 set(
-  RUNTIME_INSTALL_DIRECTORY
-  ${PROJECT_SOURCE_DIR}/_install
-)
-
-set(
   _PROJECT_CONFIG_DIR
   ${PROJECT_SOURCE_DIR}/config_
+)
+
+set( _MAIN_EXE main_143 )
+set(
+  _APP_NAME
+  ${_MAIN_EXE}-${PROJECT_VERSION}-${_SYSTEM_PROCESSOR}.AppImage
 )
 
 include(cmake/appimage.cmake)

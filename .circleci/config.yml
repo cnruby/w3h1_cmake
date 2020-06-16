@@ -1,0 +1,55 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. 
+# See: https://circleci.com/docs/2.0/configuration-reference
+# Manage large circleci configurations.
+# See https://github.com/samsalisbury/circleci-multi-file-config
+version: 2.1
+jobs:
+  build_make:
+    docker:
+      # https://hub.docker.com/r/rikorose/gcc-cmake/
+      - image: rikorose/gcc-cmake
+    steps:
+      - checkout
+      - run: g++ --version
+      - run: cmake --version
+      - run:
+          name: Creating Build Files
+          command: 'cmake -G"Unix Makefiles" -H. -B_build'
+      - run:
+          name: Creating Binary Files
+          command: 'make -C _build'
+      - run:
+          name: Point Unit Testing
+          command: './bin/main'
+
+  build_ninja:
+    docker:
+      # https://hub.docker.com/r/rikorose/gcc-cmake/
+      - image: rikorose/gcc-cmake
+    steps:
+      - run:
+          # https://fossies.org/linux/ldc/.circleci/config.yml
+          name: Install prerequisites
+          command: |
+            apt-get -q update
+            # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
+            apt-get -yq install ninja-build
+      - checkout
+      - run: g++ --version
+      - run: cmake --version
+      - run: ninja --version
+      - run:
+          name: Creating Build Files
+          command: 'cmake -GNinja -H. -B_build'
+      - run:
+          name: Creating Binary Files
+          command: 'ninja -C _build'
+      - run:
+          name: Point Unit Testing
+          command: './bin/main_143'
+
+workflows:
+  build_and_test:
+    jobs:
+      - build_make
+      - build_ninja
