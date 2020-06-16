@@ -11,6 +11,7 @@ jobs:
     steps:
       - checkout
       - run: uname -a
+      - run: cat /etc/issue
       - run: g++ --version
       - run: cmake --version
       - run:
@@ -38,12 +39,13 @@ jobs:
             # https://zoomadmin.com/HowToInstall/UbuntuPackage/libfuse-dev
             # ERROR: dlopen(): error loading libfuse.so.2
             # AppImages require FUSE to run.
-            apt-get -yq install libfuse-dev
+            apt-get -yq install fuse libfuse-dev
             # ERROR: fuse: device not found, try 'modprobe fuse' first
             --cap-add SYS_ADMIN --device /dev/fuse --security-opt apparmor:unconfined
             modprobe fuse
       - checkout
       - run: uname -a
+      - run: cat /etc/issue
       - run: pkg-config --modversion fuse
       - run: g++ --version
       - run: cmake --version
