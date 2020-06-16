@@ -1,6 +1,12 @@
 # ./cmake/package.cmake
 #
-# INPUT VARIABLE "_DESTDIR"
+# INPUT VARIABLES:
+#     _DESTDIR
+#     _SYSTEM_PROCESSOR
+#     _APPIMAGE_RESOURCE_DIR
+#     _APP_OUTPUT_DIRECTORY
+#     _TOOL_INPUT_DIRECTORY
+#     _APP_NAME
 #
 
 # install the app as appimage
@@ -14,31 +20,30 @@ add_custom_target(
 add_custom_target(
   install_app
   # if ERROR: 'Could not find desktop file in AppDir'
-  ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/resource_/main_142.desktop ${PROJECT_SOURCE_DIR}/_AppDir/main_142.desktop
+  ${CMAKE_COMMAND} -E copy ${_APPIMAGE_RESOURCE_DIR}/${_MAIN_EXE}.desktop ${_DESTDIR}/${_MAIN_EXE}.desktop
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
   DEPENDS install_default
 )
 
 
 # package the app as appimage
-set( TOOL_FOLDER "tool_" )
 add_custom_target(
   appimage
   ${CMAKE_COMMAND}
       -E env ARCH="${_SYSTEM_PROCESSOR}" VERSION="${PROJECT_VERSION}"
-      ${TOOL_FOLDER}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --appdir ${_DESTDIR} --output appimage
-  COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/_app
+      ${_TOOL_INPUT_DIRECTORY}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --appdir ${_DESTDIR} --output appimage
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 add_custom_target(  
   pkg
-  ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/${_MAIN_EXE}*.AppImage ${PROJECT_SOURCE_DIR}/_app/.
+  ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/${_APP_NAME} ${_APP_OUTPUT_DIRECTORY}/.
   DEPENDS appimage
-  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+  #WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 add_custom_target(
   package
-  ${CMAKE_COMMAND} -E remove -f ${PROJECT_SOURCE_DIR}/${_MAIN_EXE}*.AppImage
+  ${CMAKE_COMMAND} -E remove -f ${PROJECT_SOURCE_DIR}/${_APP_NAME}
   DEPENDS pkg
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
@@ -46,12 +51,12 @@ add_custom_target(
 # download the tool `linuxdeploy`
 add_custom_target(
   download_appimage
-  ${CMAKE_COMMAND} -E make_directory ${PROJECT_SOURCE_DIR}/${TOOL_FOLDER}
-  COMMAND wget -O ${PROJECT_SOURCE_DIR}/${TOOL_FOLDER}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage 
+  ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
+  COMMAND wget -O ${_TOOL_INPUT_DIRECTORY}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage 
        https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage
 )
 add_custom_target(
   get_linuxdeploy
-  COMMAND chmod +x ${PROJECT_SOURCE_DIR}/${TOOL_FOLDER}/linuxdeploy*.AppImage
+  COMMAND chmod +x ${_TOOL_INPUT_DIRECTORY}/linuxdeploy*.AppImage
   DEPENDS download_appimage
 )
