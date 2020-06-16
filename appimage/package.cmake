@@ -14,7 +14,7 @@ add_custom_target(
   install_default
   #install_app
   # DESTDIR="../" ninja -C _build install
-  ${CMAKE_COMMAND} -E env DESTDIR="${_DESTDIR}" cmake --build ${PROJECT_BINARY_DIR} --target install
+  COMMAND ${CMAKE_COMMAND} -E env DESTDIR="${_DESTDIR}" cmake --build ${PROJECT_BINARY_DIR} --target install
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
 add_custom_target(
@@ -29,9 +29,10 @@ add_custom_target(
 # package the app as appimage
 add_custom_target(
   appimage
-  ${CMAKE_COMMAND}
+  echo "_DESTDIR = ${_DESTDIR}"
+  COMMAND ${CMAKE_COMMAND}
       -E env ARCH="${_SYSTEM_PROCESSOR}" VERSION="${PROJECT_VERSION}"
-      ${_TOOL_INPUT_DIRECTORY}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --output appimage --appdir ${_DESTDIR}
+      ${_TOOL_INPUT_DIRECTORY}/linuxdeploy-${_SYSTEM_PROCESSOR}.AppImage --output appimage --appdir ${_APPDIR}
   COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )

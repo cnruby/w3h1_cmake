@@ -45,11 +45,11 @@ jobs:
           name: Creating Binary Files
           command: 'ninja -C _build'
       - run:
-          name: Point Unit Testing
-          command: './_bin/main_143'
-      - run:
           name: Get the Tool linuxdeploy
           command: 'ninja -C _build/ get_linuxdeploy'
+      - run:
+          name: Point Unit Testing
+          command: './_bin/main_143'
       - run:
           name: Install Application on Project
           command: 'ninja -C _build install_app'
