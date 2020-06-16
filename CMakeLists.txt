@@ -16,7 +16,7 @@ set(
 )
 project(
   basic_143
-  VERSION 0.143.17
+  VERSION 0.143.18
   LANGUAGES CXX
   DESCRIPTION "Hello, publish:Assets!"
 )
