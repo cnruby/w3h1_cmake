@@ -57,7 +57,7 @@ jobs:
       - checkout
       - run: uname -a
       - run: cat /etc/issue
-      - run: pkg-config --modversion fuse
+      #- run: pkg-config --modversion fuse
       - run: g++ --version
       - run: cmake --version
       - run: ninja --version
