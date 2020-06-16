@@ -40,13 +40,28 @@ jobs:
       - run: ninja --version
       - run:
           name: Creating Build Files
-          command: 'cmake -GNinja -H. -B_build'
+          command: 'cmake -GNinja -H. -B_build' -DCMAKE_BUILD_TYPE=Release
       - run:
           name: Creating Binary Files
           command: 'ninja -C _build'
       - run:
           name: Point Unit Testing
           command: './_bin/main_143'
+      - run:
+          name: Install Application on Project
+          command: 'ninja -C _build install_app'
+      - run:
+          name: Get the Tool linuxdeploy
+          command: 'ninja -C _build/ get_linuxdeploy'
+      - run:
+          name: Package The App as AppImage
+          command: 'ninja -C _build package'
+      - run:
+          name: Get the Tool ghr
+          command: 'ninja -C _build/ get_ghr'
+      - run:
+          name: Upload the Artifacts to Github Assets
+          command: 'ninja -C _build github_release'
 
 workflows:
   build_and_test:
