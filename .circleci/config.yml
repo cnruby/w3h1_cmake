@@ -4,7 +4,7 @@
 # See https://github.com/samsalisbury/circleci-multi-file-config
 version: 2.1
 jobs:
-  build_make:
+  build_ninja:
     machine:
       # https://circleci.com/docs/2.0/configuration-reference/#available-machine-images
       image: ubuntu-1604:202004-01
