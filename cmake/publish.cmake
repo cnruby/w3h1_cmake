@@ -23,29 +23,19 @@ add_custom_target(
 )
 
 # upload the release to Github Assets
-message(STATUS "AUTH_TOKEN = ${AUTH_TOKEN}")
+add_custom_target(
+  get_shasums
+  ${CMAKE_COMMAND} -E sha1sum ${_APP_NAME} > ${_SHASUMS}
+  WORKING_DIRECTORY ${_APP_OUTPUT_DIRECTORY}
+)
+
 add_custom_target(
   github_release
   ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
   COMMAND
     ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-  DEPENDS get_shasums zip_app
-)
-
-add_custom_target(
-  github_release_circleci
-  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
-  COMMAND
-    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
-  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
   DEPENDS get_shasums
-)
-
-add_custom_target(
-  get_shasums
-  ${CMAKE_COMMAND} -E sha1sum ${_APP_NAME} > ${_SHASUMS}
-  WORKING_DIRECTORY ${_APP_OUTPUT_DIRECTORY}
 )
 
 # download the tool `ghr`

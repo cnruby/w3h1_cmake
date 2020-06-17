@@ -54,7 +54,7 @@ jobs:
           command: 'ninja -C _build get_ghr'
       - run:
           name: Publish A Application to GitHub Assets
-          command: 'ninja -C _build github_release_circleci'
+          command: 'ninja -C _build github_release'
 
 workflows:
   main:
