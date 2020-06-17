@@ -46,7 +46,7 @@ add_custom_target(
 add_custom_target(
   download_ghr
   ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
-  ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
   COMMAND wget -O ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}.tar.gz 
             https://github.com/tcnksm/ghr/releases/download/v${_GHR_VERSION}/${_GHR_APP}.tar.gz 
 )
