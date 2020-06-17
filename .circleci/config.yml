@@ -21,29 +21,19 @@ jobs:
             sudo apt-get -qy install cmake curl g++-7 git sudo wget
             sudo apt-get -yq install fuse libfuse-dev
       - checkout
-      - run: uname -a
-      - run: cat /etc/issue
-      - run: g++ --version
-      - run: cmake --version
       - run:
-          name: Creating Build Files
-          command: 'cmake -G"Unix Makefiles" -H. -B_build'
-      - run:
-          name: Creating Binary Files
-          command: 'make -C _build'
-      - run:
-          name: Point Unit Testing
-          command: './_bin/main_143'
-      - run:
-          name: Get the Tool linuxdeploy
-          command: 'make -C _build/ get_linuxdeploy'
-      - run:
-          name: Install Application on Project
-          command: 'make -C _build install_app'
-      - run:
-          name: Package The App as AppImage
-          command: 'make -C _build package'
-
+          name: Build the project
+          command: |
+            uname -a
+            cat /etc/issue
+            g++ --version
+            cmake --version
+            cmake -G"Unix Makefiles" -H. -B_build
+            make -C _build
+            ./_bin/main_143
+            make -C _build/ get_linuxdeploy
+            make -C _build install_app
+            #make -C _build package
   build_ninja:
     docker:
       # https://hub.docker.com/r/cimg/base
@@ -58,7 +48,7 @@ jobs:
           name: Install prerequisites
           command: |
             apt-get -q update
-            sudo apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
+            apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
             # ERROR: debconf: delaying package configuration, since apt-utils is not installed
             apt-get -qy install apt-utils
             wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
