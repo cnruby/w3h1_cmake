@@ -36,13 +36,13 @@ jobs:
           command: './_bin/main_143'
       - run:
           name: Get the Tool linuxdeploy
-          command: 'ninja -C _build/ get_linuxdeploy'
+          command: 'make -C _build/ get_linuxdeploy'
       - run:
           name: Install Application on Project
-          command: 'ninja -C _build install_app'
+          command: 'make -C _build install_app'
       - run:
           name: Package The App as AppImage
-          command: 'ninja -C _build package'
+          command: 'make -C _build package'
 
   build_ninja:
     docker:
@@ -57,21 +57,21 @@ jobs:
           # https://blog.kitware.com/ubuntu-cmake-repository-now-available
           name: Install prerequisites
           command: |
-            sudo apt-get -q update
+            apt-get -q update
             sudo apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
             # ERROR: debconf: delaying package configuration, since apt-utils is not installed
-            sudo apt-get -qy install apt-utils
+            apt-get -qy install apt-utils
             wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
-            sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
-            sudo apt-get -q update
-            sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
-            sudo apt-get -q update
-            sudo apt-get -qy install kitware-archive-keyring
-            sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
-            sudo apt-get install cmake
+            apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
+            apt-get -q update
+            apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
+            apt-get -q update
+            apt-get -qy install kitware-archive-keyring
+            rm /etc/apt/trusted.gpg.d/kitware.gpg
+            apt-get install cmake
             #sudo apt-get install cmake-curses-gui
             # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
-            sudo apt-get -yq install ninja-build
+            apt-get -yq install ninja-build
             # https://circleci.com/docs/2.0/executor-types/#using-machine
             # https://zoomadmin.com/HowToInstall/UbuntuPackage/libfuse-dev
             # ERROR: dlopen(): error loading libfuse.so.2
