@@ -71,6 +71,6 @@ jobs:
       #    command: 'ninja -C _build github_release'
 
 workflows:
-  build_and_test:
+  main:
     jobs:
       - build_ninja
