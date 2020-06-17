@@ -44,6 +44,7 @@ jobs:
       - run:
           name: Publish A Application to GitHub Assets
           command: |
+            ninja -C _build zip_app
             ninja -C _build get_ghr
             ninja -C _build github_release_circleci
 
