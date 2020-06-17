@@ -35,7 +35,7 @@ jobs:
             g++ --version
             cmake --version
             ninja --version
-            cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
+            cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release -DAUTH_TOKEN="-t ${auth_token}"
             ninja -C _build
             ./_bin/main_143
             ninja -C _build/ get_linuxdeploy
@@ -45,7 +45,7 @@ jobs:
             # https://circleci.com/docs/2.0/env-vars/
             # 
             ninja -C _build get_ghr
-            ninja -C _build github_release_circleci
+            ninja -C _build github_release
 
 workflows:
   main:
