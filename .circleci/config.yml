@@ -5,41 +5,9 @@
 version: 2.1
 jobs:
   build_make:
-    docker:
-      # https://hub.docker.com/r/rikorose/gcc-cmake/
-      #- image: rikorose/gcc-cmake
-      # https://github.com/FloopCZ/tensorflow_cc
-      - image: floopcz/tensorflow_cc:ubuntu
-    steps:
-      - run:
-          # https://fossies.org/linux/ldc/.circleci/config.yml
-          # https://apt.kitware.com/
-          # https://blog.kitware.com/ubuntu-cmake-repository-now-available
-          name: Install prerequisites
-          command: |
-            sudo apt-get -q update
-            sudo apt-get -qy install cmake curl g++-7 git sudo wget
-            sudo apt-get -yq install fuse libfuse-dev
-      - checkout
-      - run:
-          name: Build the project
-          command: |
-            uname -a
-            cat /etc/issue
-            g++ --version
-            cmake --version
-            cmake -G"Unix Makefiles" -H. -B_build
-            make -C _build
-            ./_bin/main_143
-            make -C _build/ get_linuxdeploy
-            make -C _build install_app
-            #make -C _build package
-  build_ninja:
-    docker:
-      # https://hub.docker.com/r/cimg/base
-      #- image: cimg/base:2020.01
-      # https://hub.docker.com/_/ubuntu?tab=tags&page=1&ordering=-name
-      - image: ubuntu:20.04
+    machine:
+      # https://circleci.com/docs/2.0/configuration-reference/#available-machine-images
+      image: ubuntu-1604:202004-01
     steps:
       - run:
           # https://fossies.org/linux/ldc/.circleci/config.yml
@@ -105,5 +73,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build_make
       - build_ninja
