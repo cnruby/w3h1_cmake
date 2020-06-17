@@ -25,6 +25,7 @@ jobs:
             sudo apt-get -qy install kitware-archive-keyring
             sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
             sudo apt-get install cmake ninja-build
+            sudo apt-get -yq install fuse libfuse-dev
       - checkout
       - run:
           name: Build The Project
@@ -37,11 +38,11 @@ jobs:
             cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
             ninja -C _build
             ./_bin/main_143
-            #ninja -C _build/ get_linuxdeploy
+            ninja -C _build/ get_linuxdeploy
             ninja -C _build install_app
             ninja -C _build package
-            ninja -C _build get_ghr
-            ninja -C _build github_release
+            #ninja -C _build get_ghr
+            #ninja -C _build github_release
 
 workflows:
   main:
