@@ -15,9 +15,9 @@ jobs:
           # https://blog.kitware.com/ubuntu-cmake-repository-now-available
           name: Install prerequisites
           command: |
-            apt-get -q update
-            apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
-            apt-get install cmake ninja-build
+            sudo apt-get -q update
+            sudo apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
+            sudo apt-get install cmake ninja-build
       - checkout
       - run:
           name: Build The Project
