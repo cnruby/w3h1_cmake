@@ -42,11 +42,14 @@ jobs:
             ninja -C _build
             ./_bin/main_143
       - run:
+          name: Archiv A Application
+          command: 'ninja -C _build zip_app'
+      - run:
+          name: Get The Tool 'ghr'
+          command: 'ninja -C _build get_ghr'
+      - run:
           name: Publish A Application to GitHub Assets
-          command: |
-            ninja -C _build zip_app
-            ninja -C _build get_ghr
-            ninja -C _build github_release_circleci
+          command: 'ninja -C _build github_release_circleci'
 
 workflows:
   main:
