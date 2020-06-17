@@ -21,9 +21,9 @@ add_custom_target(
 
 add_custom_target(
   github_release_circleci
-  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t $auth_token -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
+  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t \${auth_token} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
   COMMAND
-    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t $auth_token -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
+    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t \${auth_token} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
   DEPENDS get_shasums
 )

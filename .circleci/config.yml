@@ -41,7 +41,9 @@ jobs:
             ninja -C _build/ get_linuxdeploy
             ninja -C _build install_app
             ninja -C _build package
-            ./_app/main_143-0.143.30-x86_64.AppImage
+            #./_app/main_143-0.143.31-x86_64.AppImage
+            # https://circleci.com/docs/2.0/env-vars/
+            # 
             ninja -C _build get_ghr
             ninja -C _build github_release_circleci
 
