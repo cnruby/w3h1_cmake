@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=@_MAIN_EXE@
-Exec=@_MAIN_EXE@
-Icon=@_MAIN_EXE@
-Terminal=true
-Categories=Development;

@@ -16,7 +16,7 @@ set(
 )
 project(
   basic_143
-  VERSION 0.143.34
+  VERSION 0.143.36
   LANGUAGES CXX
   DESCRIPTION "Hello, publish:Assets!"
 )
@@ -37,7 +37,7 @@ set(
 )
 set(
   _APP_OUTPUT_DIRECTORY
-  ${PROJECT_SOURCE_DIR}/_app
+  ${PROJECT_SOURCE_DIR}/_artifacts
 )
 set(
   _TOOL_INPUT_DIRECTORY
@@ -56,10 +56,10 @@ set(
 set( _MAIN_EXE main_143 )
 set(
   _APP_NAME
-  ${_MAIN_EXE}-${PROJECT_VERSION}-${_SYSTEM_PROCESSOR}.AppImage
+  ${_MAIN_EXE}-Linux-${_SYSTEM_PROCESSOR}-v${PROJECT_VERSION}.tar.gz
 )
 
-include(cmake/appimage.cmake)
+#include(cmake/appimage.cmake)
 
 add_subdirectory(cmake)
 add_subdirectory(src)

@@ -28,21 +28,22 @@ jobs:
             sudo apt-get -yq install fuse libfuse-dev
       - checkout
       - run:
-          name: Build The Project
+          name: Check The System and Software
           command: |
             uname -a
             cat /etc/issue
             g++ --version
             cmake --version
             ninja --version
+      - run:
+          name: Build The Project
+          command: |
             cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release -DAUTH_TOKEN=${auth_token}
             ninja -C _build
             ./_bin/main_143
-            ninja -C _build/ get_linuxdeploy
-            ninja -C _build install_app
-            ninja -C _build package
-            #./_app/main_143-0.143.34-x86_64.AppImage
-            # https://circleci.com/docs/2.0/env-vars/
+      - run:
+          name: Publish A Application to GitHub Assets
+          command: |
             ninja -C _build get_ghr
             ninja -C _build github_release_circleci
 
