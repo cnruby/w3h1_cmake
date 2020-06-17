@@ -23,11 +23,12 @@ add_custom_target(
 )
 
 # upload the release to Github Assets
+message(STATUS "AUTH_TOKEN = ${AUTH_TOKEN}")
 add_custom_target(
-  github_release_local
-  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
+  github_release
+  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
   COMMAND
-    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
+    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
   DEPENDS get_shasums zip_app
 )
