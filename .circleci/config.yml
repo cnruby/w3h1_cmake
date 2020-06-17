@@ -17,58 +17,24 @@ jobs:
           command: |
             apt-get -q update
             apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
-            # ERROR: debconf: delaying package configuration, since apt-utils is not installed
-            apt-get -qy install apt-utils
-            wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
-            apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
-            apt-get -q update
-            apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
-            apt-get -q update
-            apt-get -qy install kitware-archive-keyring
-            rm /etc/apt/trusted.gpg.d/kitware.gpg
-            apt-get install cmake
-            #sudo apt-get install cmake-curses-gui
-            # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
-            apt-get -yq install ninja-build
-            # https://circleci.com/docs/2.0/executor-types/#using-machine
-            # https://zoomadmin.com/HowToInstall/UbuntuPackage/libfuse-dev
-            # ERROR: dlopen(): error loading libfuse.so.2
-            # AppImages require FUSE to run.
-            #apt-get -yq install fuse libfuse-dev
-            # ERROR: fuse: device not found, try 'modprobe fuse' first
-            #--cap-add SYS_ADMIN --device /dev/fuse --security-opt apparmor:unconfined
-            #modprobe fuse
+            apt-get install cmake ninja-build
       - checkout
-      - run: uname -a
-      - run: cat /etc/issue
-      #- run: pkg-config --modversion fuse
-      - run: g++ --version
-      - run: cmake --version
-      - run: ninja --version
       - run:
-          name: Creating Build Files
-          command: 'cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release'
-      - run:
-          name: Creating Binary Files
-          command: 'ninja -C _build'
-      #- run:
-      #    name: Get the Tool linuxdeploy
-      #    command: 'ninja -C _build/ get_linuxdeploy'
-      - run:
-          name: Point Unit Testing
-          command: './_bin/main_143'
-      - run:
-          name: Install Application on Project
-          command: 'ninja -C _build install_app'
-      #- run:
-      #    name: Package The App as AppImage
-      #    command: 'ninja -C _build package'
-      #- run:
-      #    name: Get the Tool ghr
-      #    command: 'ninja -C _build get_ghr'
-      #- run:
-      #    name: Upload the Artifacts to Github Assets
-      #    command: 'ninja -C _build github_release'
+          name: Build The Project
+          command: |
+            uname -a
+            cat /etc/issue
+            g++ --version
+            cmake --version
+            ninja --version
+            cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
+            ninja -C _build
+            ./_bin/main_143
+            #ninja -C _build/ get_linuxdeploy
+            ninja -C _build install_app
+            ninja -C _build package
+            ninja -C _build get_ghr
+            ninja -C _build github_release
 
 workflows:
   main:
