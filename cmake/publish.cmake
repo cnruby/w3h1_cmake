@@ -9,17 +9,12 @@ set(_GHR_VERSION 0.13.0)
 set(_GHR_APP ghr_v${_GHR_VERSION}_linux_amd64 )
 set(_SHASUMS ${_APP_NAME}_SHASUMS)
 
-add_custom_target(
-  create_app_output_dir
-  COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
-)
+# archiv the release to artifacts
 add_custom_target(
   zip_app
   ${CMAKE_COMMAND} -E chdir ${CMAKE_RUNTIME_OUTPUT_DIRECTORY} tar -zcvf ${_APP_NAME} ${_MAIN_EXE}
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${_APP_NAME} ${_APP_OUTPUT_DIRECTORY}
-  COMMAND ${CMAKE_COMMAND} -E touch ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
   WORKING_DIRECTORY ${_APP_OUTPUT_DIRECTORY}
-  DEPENDS create_app_output_dir
 )
 
 # upload the release to Github Assets
@@ -41,7 +36,6 @@ add_custom_target(
 # download the tool `ghr`
 add_custom_target(
   download_ghr
-  COMMAND ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
   COMMAND wget -O ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}.tar.gz 
             https://github.com/tcnksm/ghr/releases/download/v${_GHR_VERSION}/${_GHR_APP}.tar.gz 
 )

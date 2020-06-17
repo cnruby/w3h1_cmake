@@ -16,7 +16,7 @@ set(
 )
 project(
   basic_143
-  VERSION 0.143.47
+  VERSION 0.143.48
   LANGUAGES CXX
   DESCRIPTION "Hello, publish:Assets!"
 )
@@ -28,8 +28,6 @@ set(
   _DESTDIR "${PROJECT_SOURCE_DIR}/${_APPDIR}"
   CACHE STRING "DESTDIR Default: ${PROJECT_SOURCE_DIR}/${_APPDIR}"
 )
-
-#include(GNUInstallDirs)
 
 set(
   CMAKE_RUNTIME_OUTPUT_DIRECTORY
@@ -59,7 +57,10 @@ set(
   ${_MAIN_EXE}-Linux-${_SYSTEM_PROCESSOR}-v${PROJECT_VERSION}.tar.gz
 )
 
-#include(cmake/appimage.cmake)
+execute_process(
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
+)
 
 add_subdirectory(cmake)
 add_subdirectory(src)
