@@ -1,4 +1,4 @@
-@startuml package_final
+@startuml assets_final
 scale 700 width
 skinparam backgroundColor #FFEBDC
 scale 1
@@ -17,19 +17,12 @@ package "C++ Project with CMake" <<"...">> as project {
     rectangle "cmake -GNinja -H. -B_build" <<"1. Generate Command">> as cmd_generator
     rectangle "./_build" <<Ninja Generator>> as ninja_code
     rectangle "ninja -C _build" <<"2. Build Command">> as cmd_build
-    rectangle "ninja -C _build install_app" <<"3. Install Command">> as cmd_install
-    cloud "**ninja -C _build package**" <<"4. Package Command">> as cmd_package
-    'note right of cmd_build
-    '  CMake Cache Variable:
-    '    **_DESTDIR**
-    '    **CMAKE_BUILD_TYPE**
-    'endnote
-    'note right of cmd_install
-    '  Environment Variable:
-    '    **DESTDIR**
-    '  CMake Cache Variable:
-    '    **CMAKE_INSTALL_PREFIX**
-    'endnote
+    cloud "ninja -C _build zip_app" <<"3. Archiv Command">> as cmd_archiv
+    cloud "**ninja -C _build github_release**" <<"4. Upload Command">> as cmd_upload
+    note bottom of cmd_upload
+      GITHUB_TOEKN:
+        **git config --global github.token "YOUR_GITHUB_TOKEN"**
+    endnote
     cmd_generator *-(0)-> ninja_code
   }
   package "C++ Project" <<"C++ Code">> as c_project {
@@ -37,26 +30,28 @@ package "C++ Project with CMake" <<"...">> as project {
   }
   rectangle "Output for build" <<"./_bin">> as output_build
 
-  cloud "Output: AppDir" <<"./_AppDir">> as output_appdir
-  cloud "Output: AppImage" <<"./_app">> as output_app
+  cloud "Output: .tar.gz" <<"./_artifacts">> as output_artifacts
 }
+
+cloud "Output: GitHub.com" <<"./Assets">> as output_assets
+
 cmake_code *--> ninja_project
 cmd_generator *..> cmd_build
-cmd_build *..> cmd_install
+cmd_build *..> cmd_archiv
 c_code *--> cmd_build
 cmd_build *-(0)-> output_build
-output_build *--> cmd_install
-cmd_install *-(0)-> output_appdir
+output_build *--> cmd_archiv
+cmd_archiv *-(0)-> output_artifacts
 
-output_appdir *--> cmd_package
-cmd_install *..> cmd_package
-cmd_package *-(0)-> output_app
+output_artifacts *--> cmd_upload
+cmd_archiv *..> cmd_upload
+cmd_upload *-(0)-> output_assets
 
 
 
 
 title
-  What is The CMake's custom target `package` "basic_143"?
+  What is The CMake's custom target `github_release` "basic_143"?
 end title
 
 header

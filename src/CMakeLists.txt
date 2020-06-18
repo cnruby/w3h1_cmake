@@ -13,5 +13,3 @@ target_include_directories(
 # 	${TARGET_NAME} PRIVATE
 # 	${_PROJECT_CONFIG_DIR}
 # )
-
-include(install.cmake)

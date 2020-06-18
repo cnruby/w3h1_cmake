@@ -1,4 +1,5 @@
 include(targets.cmake)
+include(GetGitHubToken.cmake)
 include(publish.cmake)
 
 message(STATUS "_PROJECT_CONFIG_DIR\t\t= ${_PROJECT_CONFIG_DIR}")
