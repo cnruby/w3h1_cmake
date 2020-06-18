@@ -1,0 +1,57 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. 
+# See: https://circleci.com/docs/2.0/configuration-reference
+# Manage large circleci configurations.
+# See https://github.com/samsalisbury/circleci-multi-file-config
+version: 2.1
+jobs:
+  build_ninja:
+    machine:
+      # https://circleci.com/docs/2.0/configuration-reference/#available-machine-images
+      image: ubuntu-1604:202004-01
+    steps:
+      - run:
+          # https://fossies.org/linux/ldc/.circleci/config.yml
+          # https://apt.kitware.com/
+          # https://blog.kitware.com/ubuntu-cmake-repository-now-available
+          name: Install prerequisites
+          command: |
+            sudo apt-get -q update && sudo apt upgrade
+            sudo apt-get -qy install apt-transport-https ca-certificates gnupg software-properties-common wget apt-utils
+            wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+            sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ xenial main'
+            sudo apt-get -q update
+            sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ xenial-rc main'
+            sudo apt-get -q update
+            sudo apt-get -qy install kitware-archive-keyring
+            sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
+            sudo apt-get install cmake ninja-build
+            sudo apt-get -yq install fuse libfuse-dev
+      - checkout
+      - run:
+          name: Check The System and Software
+          command: |
+            uname -a
+            cat /etc/issue
+            g++ --version
+            cmake --version
+            ninja --version
+      - run:
+          name: Build The Project
+          command: |
+            cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release -DGITHUB_TOKEN=${auth_token}
+            ninja -C _build
+            ./_bin/main_143
+      - run:
+          name: Archiv A Application
+          command: 'ninja -C _build zip_app'
+      - run:
+          name: Get The Tool 'ghr'
+          command: 'ninja -C _build get_ghr'
+      - run:
+          name: Publish A Application to GitHub Assets
+          command: 'ninja -C _build github_release'
+
+workflows:
+  main:
+    jobs:
+      - build_ninja
