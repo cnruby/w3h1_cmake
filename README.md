@@ -6,6 +6,7 @@
 [@Gitter](https://gitter.im/cnruby): gitter.im/cnruby<br/>
 Code ID: basic_144</br>
 Code Name: Hello, CircleCi!</br>
+Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_144.svg?style=shield)](https://circleci.com/gh/cnruby/basic_144/tree/basic_144)
 <p class ="fragment" data-audio-src="docs/144/audio/basic_144-01.m4a"></p>
 
 
@@ -38,6 +39,10 @@ Code Name: Hello, CircleCi!</br>
 - https://circleci.com/docs/2.0/getting-started/#section=getting-started
 - http://gueepo.me/blog/simple-ci-for-cpp/
 - https://thoughts-on-coding.com/2020/04/20/a-cpp-github-template-repository-utilizing-circleci-cmake-docker-and-doxygen/
+- https://shields.io/category/build
+- https://circleci.com/docs/2.0/status-badges/
+- 
+
 
 
 
@@ -45,7 +50,7 @@ Code Name: Hello, CircleCi!</br>
 - [Ubuntu 20.04+](https://ubuntu.com/)
 - [VS Code 1.43.0+](https://code.visualstudio.com/)
 - [CMake 3.17.3+](https://cmake.org/)
-
+- [CircleCi 2.0](https://circleci.com/)
 
 
 

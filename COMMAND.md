@@ -21,7 +21,7 @@ code .
 
 ### Others 
 ```bash
-exa -T > docs/output/tree.txt
+mkdir -p docs/output && exa -T > docs/output/tree.txt
 md-inc README.md
 md-inc COMMAND.md
 ruby format-codes.rb
