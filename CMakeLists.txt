@@ -8,7 +8,7 @@ set(
 )
 project(
   basic_144
-  VERSION 0.144.2
+  VERSION 0.144.3
   LANGUAGES CXX
   DESCRIPTION "Hello, CircleCi!"
 )
