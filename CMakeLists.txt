@@ -29,8 +29,6 @@ set(
   CACHE STRING "DESTDIR Default: ${PROJECT_SOURCE_DIR}/${_APPDIR}"
 )
 
-#include(GNUInstallDirs)
-
 set(
   CMAKE_RUNTIME_OUTPUT_DIRECTORY
   ${PROJECT_SOURCE_DIR}/_bin
@@ -59,5 +57,13 @@ set(
   ${_MAIN_EXE}-Linux-${_SYSTEM_PROCESSOR}-v${PROJECT_VERSION}.tar.gz
 )
 
+<<<<<<< HEAD
+=======
+execute_process(
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
+)
+
+>>>>>>> 1a6ed3d76262c43ade460c3b7b52461da4aa5b06
 add_subdirectory(cmake)
 add_subdirectory(src)
