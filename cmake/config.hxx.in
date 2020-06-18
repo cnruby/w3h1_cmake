@@ -1,0 +1,10 @@
+#ifndef CONFIG_HXX_
+#define CONFIG_HXX_
+
+#include<iostream>
+using namespace std; 
+
+#define PROJECT_NAME "@PROJECT_NAME@"
+#define PROJECT_DESCRIPTION "@PROJECT_DESCRIPTION@"
+
+#endif

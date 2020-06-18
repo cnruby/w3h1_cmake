@@ -10,6 +10,8 @@ jobs:
       - image: rikorose/gcc-cmake
     steps:
       - checkout
+      - run: uname -a
+      - run: cat /etc/issue
       - run: g++ --version
       - run: cmake --version
       - run:
@@ -20,7 +22,7 @@ jobs:
           command: 'make -C _build'
       - run:
           name: Point Unit Testing
-          command: './bin/main'
+          command: './_bin/main_144'
 
   build_ninja:
     docker:
@@ -46,7 +48,7 @@ jobs:
           command: 'ninja -C _build'
       - run:
           name: Point Unit Testing
-          command: './bin/main'
+          command: './_bin/main_144'
 
 workflows:
   build_and_test:
