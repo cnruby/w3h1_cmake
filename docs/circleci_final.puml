@@ -8,50 +8,41 @@ skinparam cloud {
   borderColor orange
 }
 
-left to right direction
-package "C++ Project with CMake" <<"...">> as project {
+'left to right direction
+package "Local System" <<"C++ Project with CMake">> as project {
   package "CMake Project" <<"CMake Code">> as cmake_project {
     rectangle "CMakeLists.txt" as cmake_code
-  }
-  package "CMake Generator Ninja" <<"Ninja Code">> as ninja_project {
-    rectangle "cmake -GNinja -H. -B_build" <<"1. Generate Command">> as cmd_generator
-    rectangle "./_build" <<Ninja Generator>> as ninja_code
-    rectangle "ninja -C _build" <<"2. Build Command">> as cmd_build
-    cloud "ninja -C _build zip_app" <<"3. Archiv Command">> as cmd_archiv
-    cloud "**ninja -C _build github_release**" <<"4. Upload Command">> as cmd_upload
-    note bottom of cmd_upload
-      GITHUB_TOEKN:
-        **git config --global github.token "YOUR_GITHUB_TOKEN"**
-    endnote
-    cmd_generator *-(0)-> ninja_code
   }
   package "C++ Project" <<"C++ Code">> as c_project {
     rectangle "main.cxx" as c_code
   }
-  rectangle "Output for build" <<"./_bin">> as output_build
-
-  cloud "Output: .tar.gz" <<"./_artifacts">> as output_artifacts
+  cloud "config.yml" <<.circleci>> as config_yml
 }
 
-cloud "Output: GitHub.com" <<"./Assets">> as output_assets
+package "CircleCi" <<"Project">> as circleci {
+  rectangle "Pipelines" as pipelines
+  cloud "config.yml" <<.circleci>> as config_yml_circleci
+}
 
-cmake_code *--> ninja_project
-cmd_generator *..> cmd_build
-cmd_build *..> cmd_archiv
-c_code *--> cmd_build
-cmd_build *-(0)-> output_build
-output_build *--> cmd_archiv
-cmd_archiv *-(0)-> output_artifacts
+package "GitHub" <<"Repository">> as repository {
+  rectangle "main.cxx" as c_code_github
+  rectangle "CMakeLists.txt" as cmake_code_github
+  cloud "config.yml" <<.circleci>> as config_yml_github
 
-output_artifacts *--> cmd_upload
-cmd_archiv *..> cmd_upload
-cmd_upload *-(0)-> output_assets
+  note bottom of config_yml_circleci
+    <img src="./144/image/shield-passing.png">
+    <img src="./144/image/shield-failing.png">
+  endnote
+}
 
+project --> repository
+repository .(0).> circleci
+circleci .(0).> repository
 
 
 
 title
-  What is The CMake's custom target `github_release` "basic_143"?
+  What is The CI Tool: CircleCi "basic_144"?
 end title
 
 header

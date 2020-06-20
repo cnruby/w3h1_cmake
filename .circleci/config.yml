@@ -6,14 +6,9 @@ version: 2.1
 jobs:
   build_make:
     docker:
-      # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
     steps:
       - checkout
-      - run: uname -a
-      - run: cat /etc/issue
-      - run: g++ --version
-      - run: cmake --version
       - run:
           name: Creating Build Files
           command: 'cmake -G"Unix Makefiles" -H. -B_build'
@@ -37,18 +32,16 @@ jobs:
             # https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages
             apt-get -yq install ninja-build
       - checkout
+      - run: uname -a
+      - run: cat /etc/issue
       - run: g++ --version
       - run: cmake --version
-      - run: ninja --version
       - run:
-          name: Creating Build Files
-          command: 'cmake -GNinja -H. -B_build'
-      - run:
-          name: Creating Binary Files
-          command: 'ninja -C _build'
-      - run:
-          name: Point Unit Testing
-          command: './_bin/main_144'
+          name: Build the project
+          command: |
+            cmake -GNinja -H. -B_build
+            ninja -C _build
+            ./_bin/main_144
 
 workflows:
   build_and_test:

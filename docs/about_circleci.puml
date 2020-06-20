@@ -1,0 +1,47 @@
+@startuml about_circleci
+scale 700 width
+skinparam backgroundColor #FFEBDC
+scale 1
+
+skinparam cloud {
+  backgroundColor Olive
+  borderColor orange
+}
+
+
+left to right direction
+package "Local System" <<"C++ Project with CMake">> as project {
+  package "Manual" <<"build, test, deploy">> as manual {
+    rectangle "cmake -GNinja -H. -B_build\nninja -C _build/\n./_bin/main_144" as cmd_project
+  }
+  cloud "config.yml" <<.circleci>> as yml_project
+}
+
+package "GitHub" <<"Repository">> as repository {
+  cloud "config.yml" <<.circleci>> as repo_project
+}
+
+package "CircleCi" <<"Pipelines">> as circleci {
+  package "Automatic" <<"build, test, deploy">> as automatic {
+    rectangle "cmake -GNinja -H. -B_build\nninja -C _build/\n./_bin/main_144" as cmd_circleci
+  }
+  cloud "config.yml" <<.circleci>> as ci_project
+}
+
+project --> repository
+repository .(0).> circleci
+'circleci .(0).> repository
+
+
+
+title
+  What does The CI Tool: CircleCi do "basic_144"?
+end title
+
+header
+  <font color=red>Tips: version 1.0</font>
+endheader
+
+center footer Develop C/C++ Application with the 'CMake'
+
+@enduml
