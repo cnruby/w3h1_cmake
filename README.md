@@ -73,7 +73,7 @@
 - **Hello, MULTOS!** Building C++ Project on Multiple Operating System using CMake "basic_125" [Youtube Video](https://youtu.be/fBkFHSka2NA) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_125)
 - **Hello, Multiple Versions!** Building Multiple Versions of a Shared Library Using CMake "basic_126" [Youtube Video](https://youtu.be/GmXbz3yfhWc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_126)
 - **Hello, $PATH!** Creating a Symbolic Link for a Library "basic_127" [Youtube Video](https://youtu.be/DFdMZvpCoCg) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_127)
-- **Hello, GitHub! Formatting Library from Repositories Using CMake "basic_128" [Youtube Video](https://youtu.be/27zsR2It2K8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_128)
+- **Hello, GitHub!** Formatting Library from Repositories Using CMake "basic_128" [Youtube Video](https://youtu.be/27zsR2It2K8) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_128)
 - **Hello, Hunter!** CMake-based Cross-Platform Package Manager for C++ Projects "basic_129" [Youtube Video](https://youtu.be/QWBu7vykWpc) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_129)
 - **Hello, Multiple Projects!** Creating a Solution with C++ Multiple Projects "basic_130" [Youtube Video](https://youtu.be/Vt5TEcFm0Hg) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_130)
 - **Hello, Output!** Changing the output default directory in a dedicated directory "basic_131" [Youtube Video](https://youtu.be/HnXP8jgryC4) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_131)
