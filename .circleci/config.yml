@@ -4,7 +4,7 @@
 # See https://github.com/samsalisbury/circleci-multi-file-config
 version: 2.1
 jobs:
-  build_debug_with_install:
+  build_debug:
     docker:
       - image: rikorose/gcc-cmake
     steps:
@@ -19,14 +19,24 @@ jobs:
       - run: g++ --version
       - run: cmake --version
       - run:
-          name: Build the project
+          name: Build the project with target install
           command: |
             cmake -GNinja -H. -B_build
             ninja -C _build
+            ./_bin/main_141
             DESTDIR=../ ninja -C _build install
             _install/Debug/bin/main_141
+      - run:
+          name: Build the project with target install_app
+          command: |
+            rm -rf _*
+            cmake -GNinja -H. -B_build
+            ninja -C _build
+            ./_bin/main_141
+            ninja -C _build install_app
+            _install/Debug/bin/main_141
 
-  build_release_with_install:
+  build_release:
     docker:
       - image: rikorose/gcc-cmake
     steps:
@@ -41,7 +51,7 @@ jobs:
       - run: g++ --version
       - run: cmake --version
       - run:
-          name: Build the project
+          name: Build the project with target install
           command: |
             cmake -GNinja -H. -B_build
             cmake -DCMAKE_BUILD_TYPE=Release -UCMAKE_INSTALL_PREFIX _build
@@ -49,9 +59,19 @@ jobs:
             ./_bin/main_141
             DESTDIR=../ ninja -C _build install
             _install/Release/bin/main_141
+      - run:
+          name: Build the project with target install
+          command: |
+            rm -rf _*
+            cmake -GNinja -H. -B_build
+            cmake -DCMAKE_BUILD_TYPE=Release -UCMAKE_INSTALL_PREFIX _build
+            ninja -C _build
+            ./_bin/main_141
+            ninja -C _build install_app
+            _install/Release/bin/main_141
 
 workflows:
   build_and_test:
     jobs:
-      - build_debug_with_install
-      - build_release_with_install
+      - build_debug
+      - build_release
