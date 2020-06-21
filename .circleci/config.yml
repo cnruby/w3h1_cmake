@@ -27,7 +27,7 @@ jobs:
             ./_bin/main_144
             DESTDIR=../_AppDir ninja -C _build install
             ninja -C _build package
-            ./_app/main_142-0.142.0-x86_64.AppImage
+            ./_app/main_142-0.142.1-x86_64.AppImage
 
   build_ninja:
     docker:
@@ -52,7 +52,7 @@ jobs:
             ninja -C _build/
             ninja -C _build install_app
             ninja -C _build package
-            ./_app/main_142-0.142.0-x86_64.AppImage
+            ./_app/main_142-0.142.1-x86_64.AppImage
 
 workflows:
   build_and_test:
