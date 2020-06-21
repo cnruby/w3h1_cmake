@@ -40,7 +40,7 @@ jobs:
             ./_bin/main_142
             DESTDIR=../_AppDir ninja -C _build install
             ninja -C _build package
-            ./_app/main_142-0.142.4-x86_64.AppImage
+            ./_app/main_142-0.142.6-x86_64.AppImage
 
   build_release:
     machine:
@@ -78,7 +78,7 @@ jobs:
             ./_bin/main_142
             ninja -C _build install_app
             ninja -C _build package
-            ./_app/main_142-0.142.4-x86_64.AppImage
+            ./_app/main_142-0.142.6-x86_64.AppImage
 
 workflows:
   build_and_test:
