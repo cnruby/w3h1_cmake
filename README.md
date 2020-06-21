@@ -6,13 +6,14 @@
 [@Gitter](https://gitter.im/cnruby): gitter.im/cnruby<br/>
 Code ID: basic_141</br>
 Code Name: Hello, install:DESTDIR!</br>
+Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_141.svg?style=svg)](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_141)
 <p class ="fragment" data-audio-src="docs/141/audio/basic_141-01.m4a"></p>
 
 
 
 [<h1>Youtube Video</h1>](https://youtu.be/NtYyjwSjt9Q)
 
-[<h1>Short Video</h1>](https://youtu.be/15Zrf_WZXPU)
+[<h1>Demo Video</h1>](https://www.youtube.com/watch?v=NtYyjwSjt9Q&t=168s)
 
 
 <h2>TABLE of CONTENTS</h2>

@@ -1,0 +1,57 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. 
+# See: https://circleci.com/docs/2.0/configuration-reference
+# Manage large circleci configurations.
+# See https://github.com/samsalisbury/circleci-multi-file-config
+version: 2.1
+jobs:
+  build_debug_with_install:
+    docker:
+      - image: rikorose/gcc-cmake
+    steps:
+      - run:
+          name: Install prerequisites
+          command: |
+            apt-get -q update
+            apt-get -yq install ninja-build
+      - checkout
+      - run: uname -a
+      - run: cat /etc/issue
+      - run: g++ --version
+      - run: cmake --version
+      - run:
+          name: Build the project
+          command: |
+            cmake -GNinja -H. -B_build
+            ninja -C _build
+            DESTDIR=../ ninja -C _build install
+            _install/Debug/bin/main_141
+
+  build_release_with_install:
+    docker:
+      - image: rikorose/gcc-cmake
+    steps:
+      - run:
+          name: Install prerequisites
+          command: |
+            apt-get -q update
+            apt-get -yq install ninja-build
+      - checkout
+      - run: uname -a
+      - run: cat /etc/issue
+      - run: g++ --version
+      - run: cmake --version
+      - run:
+          name: Build the project
+          command: |
+            cmake -GNinja -H. -B_build
+            cmake -DCMAKE_BUILD_TYPE=Release -UCMAKE_INSTALL_PREFIX _build
+            ninja -C _build
+            ./_bin/main_141
+            DESTDIR=../ ninja -C _build install
+            _install/Release/bin/main_141
+
+workflows:
+  build_and_test:
+    jobs:
+      - build_debug_with_install
+      - build_release_with_install

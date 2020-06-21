@@ -21,7 +21,7 @@ set(
 
 project(
   basic_141
-  VERSION 0.1.0
+  VERSION 0.141.0
   LANGUAGES CXX
   DESCRIPTION "Hello, install:DESTDIR!"
 )
