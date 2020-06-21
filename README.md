@@ -12,7 +12,7 @@ Code Name: Hello, install:multi!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/tCN-eFZN8xE)
 
-[<h1>Short Video</h1>](https://youtu.be/oB6Ujd0BVno)
+[<h1>Demo Video</h1>](https://www.youtube.com/watch?v=tCN-eFZN8xE&t=187s)
 
 
 
