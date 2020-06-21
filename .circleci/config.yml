@@ -60,7 +60,7 @@ jobs:
             DESTDIR=../ ninja -C _build install
             _install/Release/bin/main_141
       - run:
-          name: Build the project with target install
+          name: Build the project with target install_app
           command: |
             rm -rf _*
             cmake -GNinja -H. -B_build
