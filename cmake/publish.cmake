@@ -11,33 +11,23 @@ set(_SHASUMS v${PROJECT_VERSION}_SHASUMS)
 
 # upload the release to Github Assets
 add_custom_target(
-  github_release_local
-  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
+  github_release
+  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${GITHUB_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
   COMMAND
-    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
-  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-  DEPENDS get_shasums
-)
-
-add_custom_target(
-  github_release_circleci
-  ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_APP_NAME}
-  COMMAND
-    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${AUTH_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
+    ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}/ghr -t ${GITHUB_TOKEN} -n ${PROJECT_NAME} v${PROJECT_VERSION} ${_APP_OUTPUT_DIRECTORY}/${_SHASUMS}
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
   DEPENDS get_shasums
 )
 
 add_custom_target(
   get_shasums
-  bash -c "sha1sum ${_APP_NAME}>${_SHASUMS}"
+  ${CMAKE_COMMAND} -E sha1sum ${_APP_NAME} > ${_SHASUMS}
   WORKING_DIRECTORY ${_APP_OUTPUT_DIRECTORY}
 )
 
 # download the tool `ghr`
 add_custom_target(
   download_ghr
-  ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
   COMMAND wget -O ${_TOOL_INPUT_DIRECTORY}/${_GHR_APP}.tar.gz 
             https://github.com/tcnksm/ghr/releases/download/v${_GHR_VERSION}/${_GHR_APP}.tar.gz 
 )

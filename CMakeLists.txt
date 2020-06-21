@@ -15,10 +15,10 @@ set(
   CACHE STRING "Default Install Prefix: /usr"
 )
 project(
-  basic_143
-  VERSION 0.143.34
+  basic_145
+  VERSION 0.145.1
   LANGUAGES CXX
-  DESCRIPTION "Hello, publish:Assets!"
+  DESCRIPTION "Hello, CI:AppImage!"
 )
 
 set( _SYSTEM_PROCESSOR x86_64 )
@@ -53,10 +53,15 @@ set(
   ${PROJECT_SOURCE_DIR}/config_
 )
 
-set( _MAIN_EXE main_143 )
+set( _MAIN_EXE main_145 )
 set(
   _APP_NAME
   ${_MAIN_EXE}-${PROJECT_VERSION}-${_SYSTEM_PROCESSOR}.AppImage
+)
+
+execute_process(
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_APP_OUTPUT_DIRECTORY}
+  COMMAND ${CMAKE_COMMAND} -E make_directory ${_TOOL_INPUT_DIRECTORY}
 )
 
 include(cmake/appimage.cmake)
