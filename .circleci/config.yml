@@ -44,10 +44,6 @@ jobs:
             ninja -C _build main_140:Release
             ./_bin/Release/main_140
             cmake --build _build --target install:Release
-            cmake --build _build --target install:Release
-            cmake --install _build help
-            cmake --install _build --config Release
-            cmake --install _build --config Release
             main_140
 
 workflows:
