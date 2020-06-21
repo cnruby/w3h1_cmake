@@ -12,7 +12,7 @@ Code Name: Hello, publish:Assets!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/h5tpJtrDQeI)
 
-[<h1>Short Video</h1>](https://youtu.be/Yfjb-NkCcuk)
+[<h1>Demo Video</h1>](https://www.youtube.com/watch?v=h5tpJtrDQeI&t=71s)
 
 
 
