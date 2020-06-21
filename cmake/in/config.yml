@@ -29,9 +29,8 @@ jobs:
             ninja -C _build package
             ./_app/@_MAIN_EXE@-@PROJECT_VERSION@-x86_64.AppImage
 
-  build_ninja:
+  build_release:
     docker:
-      # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
     steps:
       - run:
@@ -57,5 +56,5 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build_make
-      - build_ninja
+      - build_debug
+      - build_release

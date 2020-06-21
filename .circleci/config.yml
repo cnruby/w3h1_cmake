@@ -27,11 +27,10 @@ jobs:
             ./_bin/main_144
             DESTDIR=../_AppDir ninja -C _build install
             ninja -C _build package
-            ./_app/main_142-0.142.1-x86_64.AppImage
+            ./_app/main_142-0.142.2-x86_64.AppImage
 
-  build_ninja:
+  build_release:
     docker:
-      # https://hub.docker.com/r/rikorose/gcc-cmake/
       - image: rikorose/gcc-cmake
     steps:
       - run:
@@ -52,10 +51,10 @@ jobs:
             ninja -C _build/
             ninja -C _build install_app
             ninja -C _build package
-            ./_app/main_142-0.142.1-x86_64.AppImage
+            ./_app/main_142-0.142.2-x86_64.AppImage
 
 workflows:
   build_and_test:
     jobs:
-      - build_make
-      - build_ninja
+      - build_debug
+      - build_release
