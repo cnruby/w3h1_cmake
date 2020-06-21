@@ -7,7 +7,7 @@ configure_file(
   @ONLY
 )
 configure_file(
-  ${PROJECT_SOURCE_DIR}/cmake/in/config.yml
+  ${PROJECT_SOURCE_DIR}/cmake/in/in.config.yml
   ${PROJECT_SOURCE_DIR}/.circleci/config.yml
   @ONLY
 )
