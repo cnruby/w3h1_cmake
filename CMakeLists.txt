@@ -8,7 +8,7 @@ set(
 )
 project(
   basic_140
-  VERSION 0.140.0
+  VERSION 0.140.1
   LANGUAGES CXX
   DESCRIPTION "Hello, install:multi!"
 )

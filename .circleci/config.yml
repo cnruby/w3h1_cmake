@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Build the project for installing project
           command: |
-            cmake -DCMAKE_DEFAULT_BUILD_TYPE=Debug _build
+            cmake -G"Ninja Multi-Config" -H. -B_build -DCMAKE_DEFAULT_BUILD_TYPE=Debug
             ninja -C _build main_140:Debug
             ./_bin/Debug/main_140
             ninja -C _build install:Debug
@@ -40,7 +40,7 @@ jobs:
       - run:
           name: Build the project for installing os
           command: |
-            cmake -DCMAKE_DEFAULT_BUILD_TYPE=Release _build
+            cmake -G"Ninja Multi-Config" -H. -B_build -DCMAKE_DEFAULT_BUILD_TYPE=Release
             ninja -C _build main_140:Release
             ./_bin/Release/main_140
             cmake --build _build --target install:Release
