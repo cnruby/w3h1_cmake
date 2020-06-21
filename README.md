@@ -6,6 +6,7 @@
 [@Gitter](https://gitter.im/cnruby) :gitter.im/cnruby<br/>
 Code ID: basic_140</br>
 Code Name: Hello, install:multi!</br>
+Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_140.svg?style=svg)](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_140)
 <p class ="fragment" data-audio-src="docs/140/audio/basic_140-01.m4a"></p>
 
 
