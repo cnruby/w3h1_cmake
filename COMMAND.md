@@ -37,8 +37,7 @@ doxygen --version
 ## basic_142
 ```
 rm -rf _* **/_* *_
-cmake -GNinja -H. -B_build
-cmake -DCMAKE_BUILD_TYPE=Debug _build
+cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Debug
 ninja -C _build/ get_linuxdeploy
 ninja -C _build/
 DESTDIR=../_AppDir ninja -C _build install

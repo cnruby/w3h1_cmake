@@ -12,7 +12,7 @@ Code Name: Hello, package:AppImage!</br>
 
 [<h1>Youtube Video</h1>](https://youtu.be/QkpnCki13Mc)
 
-[<h1>Short Video</h1>](https://youtu.be/qRKJlasaVbI)
+[<h1>Demo Video</h1>](https://www.youtube.com/watch?v=QkpnCki13Mc&t=116s)
 
 
 
