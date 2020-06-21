@@ -6,7 +6,7 @@
 [@Gitter](https://gitter.im/cnruby): gitter.im/cnruby<br/>
 Code ID: basic_145</br>
 Code Name: Hello, CI:AppImage!</br>
-
+Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_145.svg?style=svg)](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_145)
 <p class ="fragment" data-audio-src="docs/145/audio/basic_145-01.m4a"></p>
 
 
