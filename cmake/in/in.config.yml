@@ -37,7 +37,7 @@ jobs:
             cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Debug
             ninja -C _build/ get_linuxdeploy
             ninja -C _build/
-            ./_bin/main_144
+            ./_bin/@_MAIN_EXE
             DESTDIR=../_AppDir ninja -C _build install
             ninja -C _build package
             ./_app/@_MAIN_EXE@-@PROJECT_VERSION@-x86_64.AppImage
@@ -75,6 +75,7 @@ jobs:
             cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
             ninja -C _build/ get_linuxdeploy
             ninja -C _build/
+            ./_bin/@_MAIN_EXE@
             ninja -C _build install_app
             ninja -C _build package
             ./_app/@_MAIN_EXE@-@PROJECT_VERSION@-x86_64.AppImage
