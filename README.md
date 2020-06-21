@@ -89,7 +89,7 @@
 - **Hello, install:DESTDIR!** How to use CMake Environment Variable `DESTDIR` "basic_141" <br/> [Youtube Video](https://youtu.be/NtYyjwSjt9Q) | [Short Video](https://youtu.be/15Zrf_WZXPU) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_141)
 - **Hello, package:AppImage!** How to package a Linux console application for `AppImage` "basic_142" <br/> [Youtube Video](https://youtu.be/QkpnCki13Mc) | [Short Video](https://youtu.be/qRKJlasaVbI) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_142)
 - **Hello, publish:Assets!** How to upload a Multiple Artifacts to Github Assets "basic_143" <br/> [Youtube Video](https://youtu.be/h5tpJtrDQeI) | [Short Video](https://youtu.be/Yfjb-NkCcuk) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_143)
-- **Hello, CircleCI!** How to Build C++ Project with CMake and CircleCI "basic 144" <br/> [Youtube Video](https://youtu.be/7lxEofq8jhM) | [Short Video](https://youtu.be/1_pztsyQczo) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_144)
+- **Hello, CircleCI!** How to Build C++ Project with CMake and CircleCI "basic 144" <br/> [Youtube Video](https://youtu.be/7lxEofq8jhM) | [Demo Video](https://www.shorturl.at/fwGQX) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_144)
 
 
 ## References
