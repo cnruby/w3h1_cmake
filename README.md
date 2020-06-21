@@ -30,6 +30,7 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 - [References](#references)
   - [General](#general)
   - [create metainfo appdata file](#create-metainfo-appdata-file)
+  - [AppImageHub](#appimagehub)
   - [Requirements](#requirements)
   - [install tools](#install-tools)
   - [The Structure of Folder](#the-structure-of-folder)
@@ -142,6 +143,11 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 
 ### create metainfo appdata file
 - https://www.freedesktop.org/software/appstream/metainfocreator/#/
+
+
+
+### AppImageHub
+- https://github.com/AppImage/appimage.github.io/new/master/data
 
 
 

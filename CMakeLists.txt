@@ -21,6 +21,7 @@ project(
   DESCRIPTION "Hello, package:AppImage!"
 )
 
+set( _SYSTEM_PROCESSOR x86_64 )
 set(
   _DESTDIR "${PROJECT_SOURCE_DIR}/_AppDir"
   CACHE STRING "DESTDIR Default: ${PROJECT_SOURCE_DIR}/_AppDir"

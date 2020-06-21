@@ -1,0 +1,68 @@
+version: '0.1.{build}'
+
+platform:
+  - x86
+#  - x64
+
+branches:
+  only:
+    - basic_142
+
+configuration:
+  #- Debug
+  #- RelWithDebInfo
+  - Release
+
+image: Ubuntu2004
+
+environment:
+  auth_token:
+    secure: 7PAadWhv0Xoxt7rz4NeSWaaSVEtPW0R01ZlHJ7Rqn8QEVKs4i0aBcjWtn7JiN7+X
+  matrix:
+    #- OS_DISTTAG: ubuntu-18.04
+    - OS_DISTTAG: ubuntu-20.04
+
+init:
+  - export DEPLOYMENT_TARGET=basic_142_linux_${APPVEYOR_REPO_COMMIT:0:7}.zip
+
+install:
+  - sudo apt-get update
+  - sudo apt-get install wget appstream-util appstream apt-config-icons
+  - export DISPLAY=:99.0 && sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test && sudo apt-get install p7zip-full
+  - wget https://github.com/d1vanov/ciuploadtool/releases/download/continuous-master/ciuploadtool_linux.zip
+  - unzip ciuploadtool_linux.zip
+  - chmod 755 ciuploadtool
+
+before_build:
+  - cmake --version
+  - echo $CONFIGURATION
+
+build_script:
+  - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
+  - cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=$CONFIGURATION
+  - ninja -C _build/ get_linuxdeploy
+  - cmake --build _build
+  - ninja -C _build
+  - ./_bin/main_142
+  - ninja -C _build install_app
+  - ninja -C _build package
+  - ./_app/main_142-0.1.0-x86_64.AppImage
+
+after_build:
+  - cd $APPVEYOR_BUILD_FOLDER/_app
+  - 7z a $DEPLOYMENT_TARGET *
+  - cmake -E make_directory $APPVEYOR_BUILD_FOLDER/artifacts
+  - cmake -E copy $DEPLOYMENT_TARGET $APPVEYOR_BUILD_FOLDER/artifacts
+
+artifacts:
+  - path: 'artifacts/*.zip'
+    name: archive
+
+on_finish:
+  - cd $APPVEYOR_BUILD_FOLDER
+  - echo "APPVEYOR_REPO_BRANCH = $APPVEYOR_REPO_BRANCH"
+  - echo "APPVEYOR_BUILD_FOLDER = $APPVEYOR_BUILD_FOLDER"
+  - echo "DEPLOYMENT_TARGET = $DEPLOYMENT_TARGET"
+  - echo "DEPLOY_TARGET_PATH = $APPVEYOR_BUILD_FOLDER/artifacts/$DEPLOYMENT_TARGET"
+  - ls -l $APPVEYOR_BUILD_FOLDER/artifacts/$DEPLOYMENT_TARGET
+  - ./ciuploadtool -verbose -suffix="$APPVEYOR_REPO_BRANCH" artifacts/$DEPLOYMENT_TARGET
