@@ -1,5 +1,5 @@
 <h2>Hello, CircleCi!</h2>
-<h3>How to Build C++ Project with CMake and CircleCI</h3>
+<h3>How to Build C++ Project with `CMake` and `CircleCI`</h3>
 </br>
 </br>
 
@@ -13,7 +13,7 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 
 [<h1>Youtube Video</h1>](https://youtu.be/7lxEofq8jhM)
 
-[<h1>Short Video</h1>](https://youtu.be/1_pztsyQczo)
+[<h1>Demo Video</h1>](https://www.shorturl.at/fwGQX)
 
 
 
