@@ -1,6 +1,7 @@
 # build the console app on local
 rm -rf _* **/_* *_
 cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
+cmake -DCMAKE_BUILD_TYPE=Release _build
 ninja -C _build
 ./_bin/main_145
 ninja -C _build/ get_linuxdeploy

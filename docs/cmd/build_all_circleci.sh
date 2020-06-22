@@ -1,6 +1,7 @@
 # build the console app on CircleCI
 rm -rf _* **/_* *_
-cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release -DGITHUB_TOKEN=${auth_token}
+cmake -GNinja -H. -B_build
+cmake -DCMAKE_BUILD_TYPE=Release -DGITHUB_TOKEN=${auth_token} _build
 ninja -C _build
 ./_bin/main_145
 ninja -C _build/ get_linuxdeploy

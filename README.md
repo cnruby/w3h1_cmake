@@ -45,18 +45,20 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 
 
 
-<!--{ "./docs/cmd/build_all_local.sh"| line-numbers | line: 1 3 4 | code: bash }-->
+<!--{ "./docs/cmd/build_all_local.sh"| line-numbers | line: 1 3 4 5 | code: bash }-->
 ```bash
  1: # build the console app on local
  3: cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
- 4: ninja -C _build
+ 4: cmake -DCMAKE_BUILD_TYPE=Release _build
+ 5: ninja -C _build
 ```
 <!--{ end }-->
-<!--{ "./docs/cmd/build_all_circleci.sh"| line-numbers | line: 1 3 4 | code: bash }-->
+<!--{ "./docs/cmd/build_all_circleci.sh"| line-numbers | line: 1 3 4 5 | code: bash }-->
 ```bash
  1: # build the console app on CircleCI
- 3: cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release -DGITHUB_TOKEN=${auth_token}
- 4: ninja -C _build
+ 3: cmake -GNinja -H. -B_build
+ 4: cmake -DCMAKE_BUILD_TYPE=Release -DGITHUB_TOKEN=${auth_token} _build
+ 5: ninja -C _build
 ```
 <!--{ end }-->
 ### The Commands of Building the project on Local and CircleCI
