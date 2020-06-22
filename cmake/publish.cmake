@@ -7,7 +7,7 @@
 #
 set(_GHR_VERSION 0.13.0)
 set(_GHR_APP ghr_v${_GHR_VERSION}_linux_amd64 )
-set(_SHASUMS v${PROJECT_VERSION}_SHASUMS)
+set(_SHASUMS v${_APP_NAME}_SHASUMS)
 
 # upload the release to Github Assets
 add_custom_target(

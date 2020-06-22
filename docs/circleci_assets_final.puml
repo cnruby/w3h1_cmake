@@ -1,5 +1,5 @@
-@startuml package_final
-scale 700 width
+@startuml circleci_assets_final
+scale 1000 width
 skinparam backgroundColor #FFEBDC
 scale 1
 
@@ -18,28 +18,28 @@ package "C++ Project with CMake" <<"...">> as project {
     rectangle "./_build" <<Ninja Generator>> as ninja_code
     rectangle "ninja -C _build" <<"2. Build Command">> as cmd_build
     rectangle "ninja -C _build install_app" <<"3. Install Command">> as cmd_install
-    cloud "**ninja -C _build package**" <<"4. Package Command">> as cmd_package
-    'note right of cmd_build
-    '  CMake Cache Variable:
-    '    **_DESTDIR**
-    '    **CMAKE_BUILD_TYPE**
-    'endnote
-    'note right of cmd_install
-    '  Environment Variable:
-    '    **DESTDIR**
-    '  CMake Cache Variable:
-    '    **CMAKE_INSTALL_PREFIX**
-    'endnote
+    rectangle "**ninja -C _build package**" <<"4. Package Command">> as cmd_package
+    cloud "ninja -C _build github_release" <<"5. Upload Command">> as cmd_upload
     cmd_generator *-(0)-> ninja_code
+
+    note bottom of cmd_upload
+      GITHUB_TOEKN:
+        Step 1:
+        **set auth_token as environment variable in circleci**
+        Step 2:
+        **cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release -DGITHUB_TOKEN=${auth_token}**
+    endnote
   }
   package "C++ Project" <<"C++ Code">> as c_project {
     rectangle "main.cxx" as c_code
   }
   rectangle "Output for build" <<"./_bin">> as output_build
 
-  cloud "Output: AppDir" <<"./_AppDir">> as output_appdir
-  cloud "Output: AppImage" <<"./_app">> as output_app
+  rectangle "Output: AppDir" <<"./_AppDir">> as output_appdir
+  rectangle "Output: AppImage" <<"./_app">> as output_app
 }
+rectangle "Output: GitHub.com" <<"./Assets">> as output_assets
+
 cmake_code *--> ninja_project
 cmd_generator *..> cmd_build
 cmd_build *..> cmd_install
@@ -51,12 +51,15 @@ cmd_install *-(0)-> output_appdir
 output_appdir *--> cmd_package
 cmd_install *..> cmd_package
 cmd_package *-(0)-> output_app
+cmd_package *..> cmd_upload
+output_app *-(0)-> cmd_upload
+cmd_upload *-(0)-> output_assets
 
 
 
 
 title
-  What is The CMake's custom target `package` "basic_145"?
+  What is The CMake's target `github_release` on CircleCI "basic_145"?
 end title
 
 header

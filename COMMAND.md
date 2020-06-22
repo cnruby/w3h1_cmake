@@ -28,7 +28,7 @@ git checkout -b basic_145
 git push --set-upstream origin basic_145
 # add ...
 git push
-exa -T > docs/output/tree.txt
+mkdir -p docs/output && exa -T > docs/output/tree.txt
 dot -V
 doxygen --version
 ```
