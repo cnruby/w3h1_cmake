@@ -11,6 +11,12 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 
 
 
+[<h1>Youtube Video</h1>](https://youtu.be/rmoPxvgQm38)
+
+[<h1>Demo Video</h1>](https://www.youtube.com/watch?v=rmoPxvgQm38&t=122s)
+
+
+
 <h2>TABLE of CONTENTS</h2>
 
 - [About The Project](#about-the-project)
@@ -62,13 +68,13 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 ```
 <!--{ end }-->
 ### The Commands of Building the project on Local and CircleCI
-<p class ="fragment" data-audio-src="docs/145/audio/basic_145-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/145/audio/basic_145-05.m4a"></p>
 
 
 
 ## A Demonstration of CI on <code>CircleCI</code>
 <video width="720" height="480" controls data-autoplay>
-  <source src="docs/145/video/basic_145-05.mp4" autoplay=true type="video/mp4">
+  <source src="docs/145/video/basic_145-06.mp4" autoplay=true type="video/mp4">
 </video>
 
 
@@ -76,7 +82,7 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 <img src="./docs/145/image/build_on_circleci.png" alt="About The Project basic_145" height="100%" width="100%">
 
 ## Explain the configuration file of CircleCI
-<p class ="fragment" data-audio-src="docs/145/audio/basic_145-06.m4a"></p>
+<p class ="fragment" data-audio-src="docs/145/audio/basic_145-07.m4a"></p>
 
 
 
@@ -90,7 +96,7 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 ```
 <!--{ end }-->
 ### The Mode `machine` of CircleCI
-<p class ="fragment" data-audio-src="docs/145/audio/basic_145-07.m4a"></p>
+<p class ="fragment" data-audio-src="docs/145/audio/basic_145-08.m4a"></p>
 
 
 
@@ -111,14 +117,14 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 ```
 <!--{ end }-->
 ### Intsall <code>CMake</code> on `machine` of CircleCI
-<p class ="fragment" data-audio-src="docs/145/audio/basic_145-08.m4a"></p>
+<p class ="fragment" data-audio-src="docs/145/audio/basic_145-09.m4a"></p>
 
 
 
 <img src="./docs/145/image/circleci_assets_final.png" alt="About The Project basic_145" height="100%" width="100%">
 
 ## Final Summary
-<p class ="fragment" data-audio-src="docs/145/audio/basic_145-11.m4a"></p>
+<p class ="fragment" data-audio-src="docs/145/audio/basic_145-10.m4a"></p>
 
 
 
