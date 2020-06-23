@@ -48,7 +48,7 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 <!--{ "./docs/cmd/build_all_local.sh"| line-numbers | line: 1 3 4 5 | code: bash }-->
 ```bash
  1: # build the console app on local
- 3: cmake -GNinja -H. -B_build -DCMAKE_BUILD_TYPE=Release
+ 3: cmake -GNinja -H. -B_build
  4: cmake -DCMAKE_BUILD_TYPE=Release _build
  5: ninja -C _build
 ```
@@ -73,7 +73,7 @@ Code Status: [![CircleCI](https://circleci.com/gh/cnruby/w3h1_cmake/tree/basic_1
 
 
 
-<img src="./docs/145/image/pipelines_circleci.png" alt="About The Project basic_145" height="100%" width="100%">
+<img src="./docs/145/image/build_on_circleci.png" alt="About The Project basic_145" height="100%" width="100%">
 
 ## Explain the configuration file of CircleCI
 <p class ="fragment" data-audio-src="docs/145/audio/basic_145-06.m4a"></p>
