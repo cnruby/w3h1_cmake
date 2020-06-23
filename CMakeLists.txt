@@ -16,7 +16,7 @@ set(
 )
 project(
   basic_145
-  VERSION 0.145.7
+  VERSION 0.145.8
   LANGUAGES CXX
   DESCRIPTION "Hello, CI:AppImage!"
 )
