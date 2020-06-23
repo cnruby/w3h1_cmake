@@ -90,6 +90,9 @@
 - **Hello, package:AppImage!** How to package a Linux console application for `AppImage` "basic_142" <br/> [Youtube Video](https://youtu.be/QkpnCki13Mc) | [Demo Video](https://www.youtube.com/watch?v=QkpnCki13Mc&t=116s) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_142)
 - **Hello, publish:Assets!** How to upload a Multiple Artifacts to Github Assets "basic_143" <br/> [Youtube Video](https://youtu.be/h5tpJtrDQeI) | [Demo Video](https://www.youtube.com/watch?v=h5tpJtrDQeI&t=71s) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_143)
 - **Hello, CircleCI!** How to Build C++ Project with CMake and CircleCI "basic 144" <br/> [Youtube Video](https://youtu.be/7lxEofq8jhM) | [Demo Video](https://www.shorturl.at/fwGQX) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_144)
+- **Hello, CI:AppImage!** How to publish Artifacts to Github Assets with CircleCI "basic_145" <br/> [Youtube Video](https://youtu.be/rmoPxvgQm38) | [Demo Video](https://www.youtube.com/watch?v=rmoPxvgQm38&t=122s) | [Code](https://github.com/cnruby/w3h1_cmake/tree/basic_144)
+
+
 
 
 ## References
