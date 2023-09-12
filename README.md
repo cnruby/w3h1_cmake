@@ -38,6 +38,13 @@ which cmake
 # >> /usr/local/bin/cmake
 ```
 
+### Where is The 'CMake' executable on Linux Mint 21?
+
+```bash
+which cmake
+# >> /usr/bin/cmake
+```
+
 ## HOW do We Use The 'CMake'?
 
 ### GET The Project
